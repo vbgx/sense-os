@@ -21,6 +21,9 @@ def get_trending(
     offset: int = Query(0, ge=0),
     sparkline_days: int = Query(14, ge=2, le=90),
 ):
+    """
+    List trending clusters with pagination.
+    """
     q = build_query(vertical_id=vertical_id, day=day, limit=limit, offset=offset, sparkline_days=sparkline_days)
     return _service.list_trending(q)
 
@@ -33,6 +36,9 @@ def get_emerging(
     offset: int = Query(0, ge=0),
     sparkline_days: int = Query(14, ge=2, le=90),
 ):
+    """
+    List emerging clusters with pagination.
+    """
     q = build_query(vertical_id=vertical_id, day=day, limit=limit, offset=offset, sparkline_days=sparkline_days)
     return _service.list_emerging(q)
 
@@ -45,6 +51,9 @@ def get_declining(
     offset: int = Query(0, ge=0),
     sparkline_days: int = Query(14, ge=2, le=90),
 ):
+    """
+    List declining clusters with pagination.
+    """
     q = build_query(vertical_id=vertical_id, day=day, limit=limit, offset=offset, sparkline_days=sparkline_days)
     return _service.list_declining(q)
 
@@ -56,6 +65,9 @@ def get_cluster_detail(
     day: str | None = Query(None),
     sparkline_days: int = Query(30, ge=2, le=180),
 ):
+    """
+    Fetch a single cluster detail with sparkline data.
+    """
     # day default handled in service
     return _service.get_cluster_detail(
         vertical_id=int(vertical_id),

@@ -10,6 +10,7 @@ dependencies = [
   "fastapi>=0.110.0",
   "uvicorn[standard]>=0.27.0",
   "pydantic>=2.6.0",
+  "docker>=7.0.0",
   "sense-db",
   "sense-domain",
   "sense-queue",

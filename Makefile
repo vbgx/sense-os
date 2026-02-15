@@ -16,6 +16,7 @@ VERTICAL_ID ?= 1
 SOURCE ?= reddit
 QUERY ?= saas
 LIMIT ?= 50
+VERTICAL ?=
 
 # Trend job day (optional). If empty, publish_trend_job.sh may default internally.
 DAY ?=
@@ -36,6 +37,7 @@ SCRIPTS_DIR := ./tools/scripts
 	logs logs-api logs-postgres logs-redis logs-clustering logs-trend \
 	migrate migrate-list migrate-file \
 	seed \
+	seed-and-run \
 	scheduler scheduler-once \
 	backfill \
 	trend-once \
@@ -57,6 +59,7 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  COMPOSE_FILE=%s\n" "$(COMPOSE_FILE)"
 	@printf "  API_BASE_URL=%s\n" "$(API_BASE_URL)"
 	@printf "  VERTICAL_ID=%s SOURCE=%s QUERY=%s LIMIT=%s\n" "$(VERTICAL_ID)" "$(SOURCE)" "$(QUERY)" "$(LIMIT)"
+	@printf "  VERTICAL=%s\n" "$(VERTICAL)"
 	@printf "  DAY=%s\n" "$(DAY)"
 	@printf "  BACKFILL_DAYS=%s BACKFILL_START=%s BACKFILL_END=%s BACKFILL_SERIES=%s\n" "$(BACKFILL_DAYS)" "$(BACKFILL_START)" "$(BACKFILL_END)" "$(BACKFILL_SERIES)"
 	@printf "\nExamples:\n"
@@ -65,6 +68,7 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  make seed\n"
 	@printf "  make queues\n"
 	@printf "  make scheduler-once VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=200\n"
+	@printf "  make seed-and-run VERTICAL=tools/fixtures/verticals/saas_founders.yml\n"
 	@printf "  make trend-once VERTICAL_ID=1 DAY=2026-02-15\n"
 	@printf "  make backfill BACKFILL_SERIES=1\n"
 	@printf "  make validate-fast\n\n"
@@ -136,6 +140,11 @@ migrate-file: ## Usage: make migrate-file FILE=infra/sql/001_init_schema.sql —
 
 seed: ## Usage: make seed — Seeds verticals via api-gateway container (python -m db.seed)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/seed_verticals.sh
+
+seed-and-run: ## Usage: make seed-and-run VERTICAL=path/to.yml [SOURCE=reddit LIMIT=50]
+	@[ -n "$(VERTICAL)" ] || (echo "ERROR: VERTICAL is required. Example: make seed-and-run VERTICAL=tools/fixtures/verticals/saas_founders.yml" >&2; exit 1)
+	@COMPOSE_FILE="$(COMPOSE_FILE)" SOURCE="$(SOURCE)" LIMIT="$(LIMIT)" \
+	  $(SCRIPTS_DIR)/seed_and_run_vertical.sh "$(VERTICAL)"
 
 # ============================================================
 # Redis queues snapshot

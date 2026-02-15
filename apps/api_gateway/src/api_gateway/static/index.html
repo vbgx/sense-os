@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sense OS Control Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/ui/styles.css" />
+  </head>
+  <body>
+    <div class="bg-noise"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">Sense OS Control Room</div>
+          <div class="subtitle">Pilotage des requêtes & accès aux données scrappées</div>
+        </div>
+      </div>
+      <div class="status">
+        <span class="pill" id="api-status">API: checking…</span>
+        <button class="btn ghost" id="refresh-all">Refresh</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Run Express</h2>
+        <p class="hint">Lancer un run direct via scheduler. Sélectionne un vertical et une requête.</p>
+        <div class="grid">
+          <label>
+            Vertical
+            <select id="vertical-select"></select>
+          </label>
+          <label>
+            Query
+            <input id="query-input" type="text" placeholder="ex: billing reconciliation" />
+          </label>
+          <label>
+            Limit
+            <input id="limit-input" type="number" value="50" min="1" max="200" />
+          </label>
+          <label>
+            Source
+            <select id="source-select">
+              <option value="reddit">reddit</option>
+            </select>
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="run-single">Lancer le run</button>
+          <div class="inline-status" id="run-single-status"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Run YAML</h2>
+        <p class="hint">Lancer toutes les default_queries d’un fichier vertical.</p>
+        <div class="grid">
+          <label>
+            Fixture
+            <select id="fixture-select"></select>
+          </label>
+          <label>
+            Limit
+            <input id="yaml-limit-input" type="number" value="50" min="1" max="200" />
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="run-yaml">Lancer YAML</button>
+          <div class="inline-status" id="run-yaml-status"></div>
+        </div>
+        <div class="fixture-details" id="fixture-details"></div>
+      </section>
+
+      <section class="panel">
+        <h2>État d’exécution</h2>
+        <div class="status-grid" id="queue-status"></div>
+        <h3>Derniers runs</h3>
+        <div class="runs" id="runs-list"></div>
+      </section>
+
+      <section class="panel full">
+        <div class="section-head">
+          <h2>Données scrappées</h2>
+          <div class="inline-controls">
+            <label>
+              Vertical
+              <select id="data-vertical-select"></select>
+            </label>
+            <label>
+              Limit
+              <input id="data-limit" type="number" value="20" min="1" max="200" />
+            </label>
+            <label>
+              Offset
+              <input id="data-offset" type="number" value="0" min="0" />
+            </label>
+            <button class="btn ghost" id="refresh-data">Refresh Data</button>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="signals">Signals</button>
+          <button class="tab" data-tab="pains">Pains</button>
+          <button class="tab" data-tab="clusters">Clusters</button>
+          <button class="tab" data-tab="trends">Trends</button>
+          <button class="tab" data-tab="logs">Logs</button>
+        </div>
+
+        <div class="tab-content active" id="tab-signals">
+          <div class="table" id="signals-table"></div>
+        </div>
+        <div class="tab-content" id="tab-pains">
+          <div class="table" id="pains-table"></div>
+        </div>
+        <div class="tab-content" id="tab-clusters">
+          <div class="table" id="clusters-table"></div>
+        </div>
+        <div class="tab-content" id="tab-trends">
+          <div class="table" id="trends-table"></div>
+        </div>
+        <div class="tab-content" id="tab-logs">
+          <div class="log-controls">
+            <label>
+              Service
+              <select id="logs-service">
+                <option value="api-gateway">api-gateway</option>
+                <option value="ingestion-worker">ingestion-worker</option>
+                <option value="processing-worker">processing-worker</option>
+                <option value="clustering-worker">clustering-worker</option>
+                <option value="trend-worker">trend-worker</option>
+                <option value="postgres">postgres</option>
+                <option value="redis">redis</option>
+              </select>
+            </label>
+            <label>
+              Tail
+              <input id="logs-tail" type="number" value="200" min="10" max="2000" />
+            </label>
+            <button class="btn ghost" id="refresh-logs">Refresh Logs</button>
+          </div>
+          <div class="log-box" id="logs-box"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/ui/app.js"></script>
+  </body>
+</html>

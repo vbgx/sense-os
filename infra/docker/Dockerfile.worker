@@ -1,0 +1,26 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN pip install --no-cache-dir -U pip
+
+COPY pyproject.toml /app/pyproject.toml
+COPY packages /app/packages
+COPY services /app/services
+COPY apps /app/apps
+
+RUN pip install --no-cache-dir -e /app/packages/db \
+ && pip install --no-cache-dir -e /app/packages/domain \
+ && pip install --no-cache-dir -e /app/packages/queue \
+ && pip install --no-cache-dir -e /app/services/ingestion_worker \
+ && pip install --no-cache-dir -e /app/services/processing_worker \
+ && pip install --no-cache-dir -e /app/services/clustering_worker \
+ && pip install --no-cache-dir -e /app/services/trend_worker \
+ && pip install --no-cache-dir -e /app/services/scheduler
+
+ENV PYTHONPATH=/app/packages/db/src:/app/packages/domain/src:/app/packages/queue/src:/app/services/ingestion_worker/src:/app/services/processing_worker/src:/app/services/clustering_worker/src:/app/services/trend_worker/src:/app/services/scheduler/src
+
+CMD ["python", "-m", "ingestion_worker.main"]

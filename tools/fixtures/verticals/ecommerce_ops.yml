@@ -1,0 +1,6 @@
+name: ecommerce_ops
+description: Ecommerce operators managing logistics and tooling
+default_queries:
+  - "shopify problem"
+  - "inventory management issue"
+  - "order fulfillment automation"

@@ -1,0 +1,6 @@
+name: remote_ops
+description: Remote teams, async workflows, collaboration pain
+default_queries:
+  - "remote team struggle"
+  - "async communication problem"
+  - "time zone scheduling issue"

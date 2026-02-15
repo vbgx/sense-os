@@ -1,0 +1,6 @@
+name: saas_founders
+description: SaaS founders building early-stage B2B products
+default_queries:
+  - "billing software"
+  - "stripe alternative"
+  - "saas churn problem"

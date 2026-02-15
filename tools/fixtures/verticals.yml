@@ -1,0 +1,7 @@
+# Default vertical fixtures (V0)
+
+verticals:
+  - name: default
+  - name: saas_founders
+  - name: ecommerce_ops
+  - name: remote_ops

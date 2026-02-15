@@ -24,6 +24,9 @@ def _get(obj: Any, key: str, default: Any = None) -> Any:
 
 
 def _dt(v: Any) -> Optional[str]:
+    """
+    Convert datetime-like values to ISO strings (or passthrough str).
+    """
     if v is None:
         return None
     if isinstance(v, str):
@@ -72,6 +75,9 @@ def _split_row(row: Any) -> Tuple[Any, Any]:
 
 
 def _row_to_item(row: Any) -> dict:
+    """
+    Convert a repo row to the API response shape.
+    """
     pain, signal = _split_row(row)
     if pain is None:
         raise ValueError("empty row")
@@ -109,6 +115,9 @@ def pains_list(
     limit: int = Query(default=10, ge=1, le=200),
     offset: int = Query(default=0, ge=0),
 ):
+    """
+    List pains for a vertical with pagination.
+    """
     vid = vertical_id if vertical_id is not None else vertical
     if vid is None:
         raise HTTPException(status_code=422, detail="vertical_id is required (e.g. ?vertical_id=1)")
@@ -125,6 +134,9 @@ def pains_list(
 
 @router.get("/pains/{pain_id}")
 def pains_detail(*, db: Session = Depends(get_db), pain_id: int):
+    """
+    Fetch a single pain instance by id.
+    """
     row = get_pain(db=db, pain_id=pain_id)
     if row is None:
         raise HTTPException(status_code=404, detail="not found")

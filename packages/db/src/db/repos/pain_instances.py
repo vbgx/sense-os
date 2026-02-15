@@ -53,6 +53,9 @@ def create_if_absent(db: Session, **kwargs) -> Tuple[PainInstance, bool]:
 
 
 def list_ranked(*, db: Session, limit: int, offset: int, vertical_id: int):
+    """
+    List pains ordered by score desc, id asc for stable pagination.
+    """
     from sqlalchemy import func
 
     if vertical_id is None:
@@ -78,6 +81,9 @@ def list_ranked(*, db: Session, limit: int, offset: int, vertical_id: int):
 
 
 def get_with_signal(*, db: Session, pain_id: int):
+    """
+    Fetch a pain instance with its signal (if any).
+    """
     q = (
         db.query(PainInstance, Signal)
         .join(Signal, Signal.id == PainInstance.signal_id)

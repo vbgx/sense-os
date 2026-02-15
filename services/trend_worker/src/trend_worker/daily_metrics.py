@@ -6,7 +6,10 @@ from typing import Any, Dict
 from trend_worker.pipeline.compute_trends import compute_trends_job
 
 
-def compute_daily_metrics(*, day: date, job: Dict[str, Any]) -> None:
+def compute_daily_metrics(*, day: date, job: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Compute and persist daily trend metrics for a given day.
+    """
     # Ensure deterministic day
     job = dict(job)
     job["day"] = day.isoformat()
@@ -15,3 +18,4 @@ def compute_daily_metrics(*, day: date, job: Dict[str, Any]) -> None:
 
     # IMPORTANT: stdout log for validate_full_boot.sh grep
     print(f"trend_job day={res.get('day')} rows={res.get('rows')} upserted={res.get('upserted')}")
+    return res

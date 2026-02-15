@@ -23,9 +23,31 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         raise ValueError(f"invalid vertical_id: {job.get('vertical_id')!r}")
 
     cluster_version = str(job.get("cluster_version") or "tfidf_v1")
+    run_id = job.get("run_id")
+    day = job.get("day")
+
+    log.info(
+        "clustering_start vertical_id=%s cluster_version=%s run_id=%s day=%s",
+        vertical_id,
+        cluster_version,
+        run_id,
+        day,
+    )
 
     db = SessionLocal()
     try:
+        if clusters_repo.clusters_exist_for_version(
+            db,
+            vertical_id=vertical_id,
+            cluster_version=cluster_version,
+        ):
+            log.info(
+                "clustering_skip vertical_id=%s cluster_version=%s reason=already_exists",
+                vertical_id,
+                cluster_version,
+            )
+            return {"clusters": 0, "pain_instances": 0, "links_inserted": 0, "skipped": 1}
+
         ids = [
             int(x[0])
             for x in db.query(PainInstance.id)
@@ -51,11 +73,12 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         db.commit()
 
         log.info(
-            "clustered vertical_id=%s cluster_version=%s clusters=1 pain_instances=%s links_inserted=%s",
+            "clustered vertical_id=%s cluster_version=%s clusters=1 pain_instances=%s links_inserted=%s run_id=%s",
             vertical_id,
             cluster_version,
             size,
             inserted,
+            run_id,
         )
         return {"clusters": 1, "pain_instances": size, "links_inserted": inserted}
     finally:

@@ -87,6 +87,25 @@ from datetime import date as _date
 from sqlalchemy import Date as _Date
 
 
+class SchedulerCheckpoint(Base):
+    __tablename__ = "scheduler_checkpoints"
+    __table_args__ = (
+        UniqueConstraint("name", "vertical_id", "source", name="uq_scheduler_checkpoint"),
+    )
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64), nullable=False)
+    vertical_id = Column(Integer, nullable=False)
+    source = Column(String(64), nullable=False)
+    start_day = Column(_Date(), nullable=False)
+    end_day = Column(_Date(), nullable=False)
+    last_completed_day = Column(_Date(), nullable=True)
+    status = Column(String(32), nullable=False, default="running")
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+
 class ClusterDailyMetric(Base):
     __tablename__ = "cluster_daily_metrics"
     __table_args__ = (

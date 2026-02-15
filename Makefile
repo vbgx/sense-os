@@ -20,6 +20,11 @@ LIMIT ?= 50
 # Trend job day (optional). If empty, publish_trend_job.sh may default internally.
 DAY ?=
 
+BACKFILL_DAYS ?= 90
+BACKFILL_START ?=
+BACKFILL_END ?=
+BACKFILL_SERIES ?= 1
+
 LOGFILE ?=
 SCRIPTS_DIR := ./tools/scripts
 
@@ -32,6 +37,7 @@ SCRIPTS_DIR := ./tools/scripts
 	migrate migrate-list migrate-file \
 	seed \
 	scheduler scheduler-once \
+	backfill \
 	trend-once \
 	redis-flush \
 	queues \
@@ -52,6 +58,7 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  API_BASE_URL=%s\n" "$(API_BASE_URL)"
 	@printf "  VERTICAL_ID=%s SOURCE=%s QUERY=%s LIMIT=%s\n" "$(VERTICAL_ID)" "$(SOURCE)" "$(QUERY)" "$(LIMIT)"
 	@printf "  DAY=%s\n" "$(DAY)"
+	@printf "  BACKFILL_DAYS=%s BACKFILL_START=%s BACKFILL_END=%s BACKFILL_SERIES=%s\n" "$(BACKFILL_DAYS)" "$(BACKFILL_START)" "$(BACKFILL_END)" "$(BACKFILL_SERIES)"
 	@printf "\nExamples:\n"
 	@printf "  make up\n"
 	@printf "  make migrate\n"
@@ -59,6 +66,7 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  make queues\n"
 	@printf "  make scheduler-once VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=200\n"
 	@printf "  make trend-once VERTICAL_ID=1 DAY=2026-02-15\n"
+	@printf "  make backfill BACKFILL_SERIES=1\n"
 	@printf "  make validate-fast\n\n"
 
 # ============================================================
@@ -146,6 +154,16 @@ scheduler-once: ## Usage: make scheduler-once [VERTICAL_ID=1 SOURCE=reddit QUERY
 	  $(SCRIPTS_DIR)/run_scheduler_once.sh
 
 scheduler: scheduler-once ## Alias: runs scheduler once (compat)
+
+# ============================================================
+# Backfill
+# ============================================================
+
+backfill: ## Usage: make backfill [BACKFILL_DAYS=90] [BACKFILL_START=YYYY-MM-DD] [BACKFILL_END=YYYY-MM-DD] [BACKFILL_SERIES=1]
+	@COMPOSE_FILE="$(COMPOSE_FILE)" \
+	  VERTICAL_ID="$(VERTICAL_ID)" SOURCE="$(SOURCE)" QUERY="$(QUERY)" LIMIT="$(LIMIT)" \
+	  DAYS="$(BACKFILL_DAYS)" START="$(BACKFILL_START)" END="$(BACKFILL_END)" SERIES="$(BACKFILL_SERIES)" \
+	  $(SCRIPTS_DIR)/run_scheduler_backfill.sh
 
 # ============================================================
 # Trend

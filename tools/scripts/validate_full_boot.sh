@@ -1,6 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# -----------------------------------------------------------------------------
+# Sense OS Full Stack Validation
+#
+# Purpose:
+#   Boot the full stack (Postgres, Redis, API, workers), run migrations + seed,
+#   execute the scheduler, verify ingestion/processing/clustering/trending, and
+#   confirm API trend endpoints respond successfully.
+#
+# Usage:
+#   ./tools/scripts/validate_full_boot.sh [options]
+#
+# Options:
+#   --no-down         Do not run 'docker compose down -v' (keeps volumes)
+#   --no-build        Do not rebuild images on 'up'
+#   --skip-seed       Skip 'make seed'
+#   --skip-scheduler  Skip 'make scheduler'
+#   --skip-trends     Skip /trending, /emerging, /declining endpoint checks
+#   --keep-running    Do not shut down services on success
+#   --logfile <path>  Write output to this logfile
+#
+# Env (optional):
+#   COMPOSE_FILE      Path to compose file (default: infra/docker/docker-compose.yml)
+#   API_BASE_URL      Base URL for API (default: http://localhost:8000)
+#   HEALTH_PATH       Health path (default: /health)
+#   POSTGRES_WAIT_S   Postgres health wait seconds (default: 90)
+#   API_WAIT_S        API health wait seconds (default: 90)
+#   LOG_WAIT_S        Log match wait seconds (default: 45)
+#   SCHEDULER_RETRIES Scheduler run attempts (default: 2)
+#   VERTICAL_ID       Vertical id for trend endpoints (default: 1)
+# -----------------------------------------------------------------------------
+
 # disable history expansion (macOS bash/zsh oddities)
 { set +H 2>/dev/null || true; } >/dev/null 2>&1
 
@@ -31,6 +62,7 @@ HEALTH_PATH="${HEALTH_PATH:-/health}"
 POSTGRES_WAIT_S="${POSTGRES_WAIT_S:-90}"
 API_WAIT_S="${API_WAIT_S:-90}"
 LOG_WAIT_S="${LOG_WAIT_S:-45}"
+SCHEDULER_RETRIES="${SCHEDULER_RETRIES:-2}"
 
 VERTICAL_ID="${VERTICAL_ID:-1}"
 
@@ -54,6 +86,7 @@ Env (optional):
   POSTGRES_WAIT_S     Postgres health wait seconds (default: 90)
   API_WAIT_S          API health wait seconds (default: 90)
   LOG_WAIT_S          Log match wait seconds (default: 45)
+  SCHEDULER_RETRIES   Scheduler run attempts (default: 2)
   VERTICAL_ID         Vertical id for trend endpoints (default: 1)
 
 Examples:
@@ -116,6 +149,28 @@ wait_log_match() {
   return 1
 }
 
+wait_service_healthy() {
+  local svc="$1"
+  local seconds="$2"
+  local cid
+  local i=1
+  local status="unknown"
+
+  cid="$(dc ps -q "$svc")"
+  [ -n "$cid" ] || die "Could not resolve $svc container id"
+
+  while [ "$i" -le "$seconds" ]; do
+    status="$(docker inspect --format='{{if .State.Health}}{{.State.Health.Status}}{{else}}no-healthcheck{{end}}' "$cid" 2>/dev/null || echo "missing")"
+    if [ "$status" = "healthy" ] || [ "$status" = "no-healthcheck" ]; then
+      echo "✅ $svc OK (status=$status)"
+      return 0
+    fi
+    sleep 1
+    i=$((i + 1))
+  done
+  die "$svc not healthy after ${seconds}s (status=$status)"
+}
+
 extract_last_int_from_text() {
   # Reads stdin; extracts last capture group 1 from regex
   local re="$1"
@@ -145,6 +200,21 @@ print_debug_context() {
   echo "--- docker compose config (first lines) ---"
   dc config 2>/dev/null | head -n 120 || true
   echo
+}
+
+run_with_retry() {
+  local attempts="$1"
+  shift
+  local i=1
+  while [ "$i" -le "$attempts" ]; do
+    if "$@"; then
+      return 0
+    fi
+    echo "⚠️  Attempt $i/$attempts failed: $*"
+    i=$((i + 1))
+    sleep 3
+  done
+  return 1
 }
 
 on_failure() {
@@ -222,20 +292,10 @@ trap on_failure ERR
   dc up -d postgres redis
 
   step "=== 4️⃣  WAIT FOR POSTGRES HEALTH (up to ${POSTGRES_WAIT_S}s) ==="
-  POSTGRES_CID="$(dc ps -q postgres)"
-  [ -n "${POSTGRES_CID}" ] || die "Could not resolve postgres container id"
+  wait_service_healthy postgres "$POSTGRES_WAIT_S"
 
-  ok=0
-  i=1
-  status="unknown"
-  while [ "$i" -le "$POSTGRES_WAIT_S" ]; do
-    status="$(docker inspect --format='{{if .State.Health}}{{.State.Health.Status}}{{else}}no-healthcheck{{end}}' "$POSTGRES_CID" 2>/dev/null || echo "missing")"
-    if [ "$status" = "healthy" ] || [ "$status" = "no-healthcheck" ]; then ok=1; break; fi
-    sleep 1
-    i=$((i + 1))
-  done
-  [ "$ok" -eq 1 ] || die "Postgres not healthy after ${POSTGRES_WAIT_S}s (status=$status)"
-  echo "✅ Postgres OK (status=$status)"
+  step "=== 4️⃣b WAIT FOR REDIS HEALTH (up to ${POSTGRES_WAIT_S}s) ==="
+  wait_service_healthy redis "$POSTGRES_WAIT_S"
 
   step "=== 5️⃣  MIGRATE DB (via migrate_sql.sh) ==="
   COMPOSE_FILE="$COMPOSE_FILE" "$SCRIPT_DIR/migrate_sql.sh"
@@ -273,7 +333,11 @@ trap on_failure ERR
 
   if [ "$SKIP_SCHEDULER" -eq 0 ]; then
     step "=== 9️⃣  SCHEDULER (make scheduler-once) ==="
-    (cd "$REPO_ROOT" && COMPOSE_FILE="$COMPOSE_FILE" make scheduler)
+    if ! run_with_retry "$SCHEDULER_RETRIES" bash -lc "cd '$REPO_ROOT' && COMPOSE_FILE='$COMPOSE_FILE' make scheduler"; then
+      svc_logs api-gateway 250
+      svc_logs ingestion-worker 250
+      die "Scheduler failed after ${SCHEDULER_RETRIES} attempts"
+    fi
   else
     step "=== 9️⃣  SCHEDULER (skipped) ==="
     echo "ℹ️  --skip-scheduler set"
@@ -288,8 +352,15 @@ trap on_failure ERR
   step "=== 🔟 ASSERT PIPELINE DID WORK (logs) ==="
 
   if ! wait_log_match "ingestion-worker" "inserted=[1-9][0-9]*" "$LOG_WAIT_S"; then
-    svc_logs ingestion-worker 250
-    die "Ingestion did not insert any signals"
+    echo "⚠️  Ingestion did not insert signals yet. Retrying scheduler once..."
+    if [ "$SKIP_SCHEDULER" -eq 0 ]; then
+      (cd "$REPO_ROOT" && COMPOSE_FILE="$COMPOSE_FILE" make scheduler) || true
+      sleep 4
+    fi
+    if ! wait_log_match "ingestion-worker" "inserted=[1-9][0-9]*" "$LOG_WAIT_S"; then
+      svc_logs ingestion-worker 250
+      die "Ingestion did not insert any signals"
+    fi
   fi
   echo "✅ Ingestion OK"
 
@@ -315,8 +386,15 @@ trap on_failure ERR
   echo "✅ Processing OK (signals=${signals_n} created=${created_n})"
 
   if ! wait_log_match "clustering-worker" "cluster_job" "$LOG_WAIT_S"; then
-    svc_logs clustering-worker 250
-    die "Clustering did not emit cluster_job"
+    echo "⚠️  Clustering did not emit cluster_job yet. Retrying scheduler once..."
+    if [ "$SKIP_SCHEDULER" -eq 0 ]; then
+      (cd "$REPO_ROOT" && COMPOSE_FILE="$COMPOSE_FILE" make scheduler) || true
+      sleep 4
+    fi
+    if ! wait_log_match "clustering-worker" "cluster_job" "$LOG_WAIT_S"; then
+      svc_logs clustering-worker 250
+      die "Clustering did not emit cluster_job"
+    fi
   fi
   echo "✅ Clustering OK"
 
@@ -324,8 +402,13 @@ trap on_failure ERR
   (cd "$REPO_ROOT" && COMPOSE_FILE="$COMPOSE_FILE" DAY="$(date +%F)" make trend-once)
 
   if ! wait_log_match "trend-worker" "trend_job" "$LOG_WAIT_S"; then
-    svc_logs trend-worker 250
-    die "Trend did not emit trend_job"
+    echo "⚠️  Trend did not emit trend_job yet. Retrying trend-once..."
+    (cd "$REPO_ROOT" && COMPOSE_FILE="$COMPOSE_FILE" DAY="$(date +%F)" make trend-once) || true
+    sleep 3
+    if ! wait_log_match "trend-worker" "trend_job" "$LOG_WAIT_S"; then
+      svc_logs trend-worker 250
+      die "Trend did not emit trend_job"
+    fi
   fi
   echo "✅ Trend OK"
 
@@ -342,7 +425,7 @@ trap on_failure ERR
 
   echo
   echo "==============================================="
-  echo "✅ VALIDATION FINISHED 🎉"
+  echo "✅ VALIDATION FINISHED"
   echo "==============================================="
 
   if [ "$KEEP_RUNNING" -eq 0 ]; then

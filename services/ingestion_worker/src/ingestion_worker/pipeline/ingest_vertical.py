@@ -1,18 +1,33 @@
+from __future__ import annotations
+
+import logging
+from typing import Any
+
 from ingestion_worker.adapters.reddit.fetch import fetch_reddit_signals
 from ingestion_worker.storage.signals_writer import SignalsWriter
-from ingestion_worker.adapters.reddit.types import RssItem
 
-def ingest_vertical(job) -> None:
-    vertical_id = job["vertical_id"]
-    source = job["source"]
-    query = job.get("query", "saas")
-    limit = job.get("limit", 25)
+log = logging.getLogger(__name__)
 
-    print(f"Fetching signals for vertical_id={vertical_id} with query={query} (limit={limit})")
 
-    signals = fetch_reddit_signals(vertical_id=vertical_id, limit=limit)
+def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
+    """Fetch signals for a vertical and persist them, returning a summary."""
+    vertical_id = int(job["vertical_id"])
+    source = str(job.get("source") or "reddit")
+    query = str(job.get("query") or "saas")
+    limit = int(job.get("limit") or 25)
+
+    log.info("Fetching signals vertical_id=%s source=%s query=%s limit=%s", vertical_id, source, query, limit)
+
+    signals = fetch_reddit_signals(vertical_id=vertical_id, query=query, limit=limit)
 
     writer = SignalsWriter()
     inserted, deduped = writer.insert_many(signals)
 
-    print(f"[ingestion] vertical_id={vertical_id} source={source} inserted={inserted} deduped={deduped}")
+    log.info(
+        "Ingestion persisted vertical_id=%s source=%s inserted=%s deduped=%s",
+        vertical_id,
+        source,
+        inserted,
+        deduped,
+    )
+    return {"fetched": len(signals), "inserted": inserted, "skipped": deduped}

@@ -1,8 +1,12 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
+import json
 import logging
+from typing import Any, List, Tuple
+from urllib.parse import urlencode, quote_plus
+
 import requests
-from typing import List, Tuple
+
 from ingestion_worker.adapters.reddit.rate_limit import RateLimiter
 
 log = logging.getLogger(__name__)
@@ -19,7 +23,7 @@ class RedditClient:
             url,
             headers={
                 "User-Agent": self.user_agent,
-                "Accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.1",
+                "Accept": "application/json, application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.1",
             },
             timeout=self.timeout_s,
             allow_redirects=True,
@@ -30,20 +34,36 @@ class RedditClient:
             log.warning("reddit_get_failed status=%s url=%s content_type=%s body_prefix=%r", resp.status_code, url, ct, resp.text[:200])
             resp.raise_for_status()
 
-        if "xml" not in ct and "rss" not in ct:
+        if "xml" not in ct and "rss" not in ct and "json" not in ct:
             log.warning("reddit_get_non_xml status=%s url=%s content_type=%s body_prefix=%r", resp.status_code, url, ct, resp.text[:200])
 
         return resp.text
 
-    def fetch_posts(self, vertical_id: int, limit: int, after: str | None = None) -> Tuple[List[dict], str | None]:
-        url = f"https://www.reddit.com/r/{vertical_id}/top/.json?limit={limit}&after={after}"
+    def fetch_posts(self, *, query: str, limit: int, after: str | None = None) -> Tuple[List[dict], str | None]:
+        params = {
+            "q": query,
+            "sort": "top",
+            "t": "day",
+            "limit": str(limit),
+        }
+        if after:
+            params["after"] = after
+
+        url = f"https://www.reddit.com/search.json?{urlencode(params, quote_via=quote_plus)}"
         raw_data = self.get(url)
-        posts = self.parse_posts(raw_data)  # Parse posts based on the structure of the response
-        after = self.get_next_cursor(raw_data)
+        data = self.parse_listing(raw_data)
+        posts = self.parse_posts(data)
+        after = self.get_next_cursor(data)
         return posts, after
 
-    def parse_posts(self, raw_data: str) -> List[dict]:
-        data = requests.get(raw_data).json()
+    def parse_listing(self, raw_data: str) -> dict[str, Any]:
+        try:
+            return json.loads(raw_data)
+        except json.JSONDecodeError:
+            log.warning("reddit_parse_failed body_prefix=%r", raw_data[:200])
+            return {}
+
+    def parse_posts(self, data: dict[str, Any]) -> List[dict]:
         posts = []
         for post in data.get("data", {}).get("children", []):
             post_data = post.get("data", {})
@@ -56,6 +76,5 @@ class RedditClient:
             })
         return posts
 
-    def get_next_cursor(self, raw_data: str) -> str | None:
-        data = requests.get(raw_data).json()
+    def get_next_cursor(self, data: dict[str, Any]) -> str | None:
         return data.get("data", {}).get("after")

@@ -43,6 +43,7 @@ def client(db_session):
     """FastAPI test client wired to a test database."""
 
     def _get_test_db():
+        """Yield a database session for request handling."""
         db = TestingSessionLocal()
         try:
             yield db

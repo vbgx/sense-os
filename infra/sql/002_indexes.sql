@@ -6,6 +6,8 @@ BEGIN;
 CREATE INDEX IF NOT EXISTS idx_signals_vertical_id ON signals(vertical_id);
 CREATE INDEX IF NOT EXISTS idx_signals_source ON signals(source);
 CREATE INDEX IF NOT EXISTS idx_signals_ingested_at ON signals(ingested_at);
+CREATE INDEX IF NOT EXISTS idx_signals_vertical_ingested_at
+ON signals (vertical_id, ingested_at);
 
 -- pain_instances
 -- (make sure we have a vertical_id index with a name that matches %pain_instances%vertical%)
@@ -14,6 +16,8 @@ CREATE INDEX IF NOT EXISTS idx_pain_instances_vertical_id ON pain_instances(vert
 CREATE INDEX IF NOT EXISTS idx_pain_instances_signal_id ON pain_instances(signal_id);
 CREATE INDEX IF NOT EXISTS idx_pain_instances_score ON pain_instances(pain_score);
 CREATE INDEX IF NOT EXISTS idx_pain_instances_algo_version ON pain_instances(algo_version);
+CREATE INDEX IF NOT EXISTS idx_pain_instances_vertical_created_at
+ON pain_instances (vertical_id, created_at);
 
 COMMIT;
 

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import asdict as _asdict
+import logging
 from typing import Any, Iterable, Tuple
 
 from db.session import SessionLocal
 from db.repos import pain_clusters as repo
 
+log = logging.getLogger(__name__)
 
 def _get(obj: Any, key: str, default: Any = None) -> Any:
     if isinstance(obj, dict):
@@ -65,9 +67,13 @@ def write_clusters(
             else:
                 unchanged += 1
 
-        print(
-            f"[clustering] vertical_id={vertical_id} cluster_version={cluster_version} "
-            f"inserted={inserted} updated={updated} unchanged={unchanged}"
+        log.info(
+            "clusters_persisted vertical_id=%s cluster_version=%s inserted=%s updated=%s unchanged=%s",
+            vertical_id,
+            cluster_version,
+            inserted,
+            updated,
+            unchanged,
         )
         return inserted, updated, unchanged
     finally:

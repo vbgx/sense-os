@@ -13,4 +13,4 @@ run_sql() {
 
 run_sql infra/sql/001_init_schema.sql
 run_sql infra/sql/002_indexes.sql
-run_sql infra/sql/003_trends_patch.sql
+run_sql infra/sql/003_03_trends_patch.sql

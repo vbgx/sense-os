@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from api_gateway.dependencies import get_db
+from api_gateway.schemas.pains import PainDetailOut, PainListOut
 from api_gateway.services.pains_service import get_pain, list_pains
 
 router = APIRouter()
@@ -106,7 +107,7 @@ def _row_to_item(row: Any) -> dict:
     return item
 
 
-@router.get("/pains")
+@router.get("/pains", response_model=PainListOut)
 def pains_list(
     *,
     db: Session = Depends(get_db),
@@ -132,7 +133,7 @@ def pains_list(
     }
 
 
-@router.get("/pains/{pain_id}")
+@router.get("/pains/{pain_id}", response_model=PainDetailOut)
 def pains_detail(*, db: Session = Depends(get_db), pain_id: int):
     """
     Fetch a single pain instance by id.

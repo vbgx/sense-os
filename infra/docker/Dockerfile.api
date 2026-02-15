@@ -1,11 +1,22 @@
 FROM python:3.12-slim
 
 WORKDIR /app
-COPY . /app
 
-RUN pip install --no-cache-dir fastapi uvicorn psycopg[binary] sqlalchemy redis
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-ENV PYTHONPATH=/app/apps/api_gateway/src:/app/packages/db/src:/app/packages/queue/src
+RUN pip install --no-cache-dir -U pip
+
+COPY pyproject.toml /app/pyproject.toml
+COPY packages /app/packages
+COPY apps /app/apps
+
+RUN pip install --no-cache-dir -e /app/packages/db \
+ && pip install --no-cache-dir -e /app/packages/domain \
+ && pip install --no-cache-dir -e /app/packages/queue \
+ && pip install --no-cache-dir -e /app/apps/api_gateway
+
+ENV PYTHONPATH=/app/apps/api_gateway/src:/app/packages/db/src:/app/packages/domain/src:/app/packages/queue/src
 
 EXPOSE 8000
 CMD ["uvicorn", "api_gateway.main:app", "--host", "0.0.0.0", "--port", "8000"]

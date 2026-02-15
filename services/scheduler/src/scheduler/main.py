@@ -56,16 +56,16 @@ def _default_day() -> date:
     return date.today() - timedelta(days=1)
 
 
-def _scalar(sql: str):
+def _scalar(sql: str, params: Optional[dict[str, object]] = None):
     db = SessionLocal()
     try:
-        return db.execute(text(sql)).scalar_one()
+        return db.execute(text(sql), params or {}).scalar_one()
     finally:
         db.close()
 
 
-def _scalar_int(sql: str) -> int:
-    return int(_scalar(sql))
+def _scalar_int(sql: str, params: Optional[dict[str, object]] = None) -> int:
+    return int(_scalar(sql, params))
 
 
 def _emit_metric(name: str, value: float | int, **tags: object) -> None:
@@ -79,7 +79,13 @@ def _emit_metric(name: str, value: float | int, **tags: object) -> None:
         log.info("metric %s=%s", name, value)
 
 
-def _wait_count_ge(label: str, sql: str, expected: int, timeout_s: int = 90) -> int:
+def _wait_count_ge(
+    label: str,
+    sql: str,
+    params: Optional[dict[str, object]],
+    expected: int,
+    timeout_s: int = 90,
+) -> int:
     """
     Wait until a SQL count reaches or exceeds a threshold.
     """
@@ -87,21 +93,26 @@ def _wait_count_ge(label: str, sql: str, expected: int, timeout_s: int = 90) -> 
     last = 0
     while time.time() - t0 < timeout_s:
         try:
-            last = _scalar_int(sql)
+            last = _scalar_int(sql, params)
         except Exception:
             last = 0
         if last >= expected:
-            print(f"[ok] {label}: {last}")
+            log.info("wait_ok label=%s count=%s", label, last)
             return last
         # show progress occasionally so it doesn't feel "stuck"
         if int(time.time() - t0) % 5 == 0:
-            print(f"[wait] {label}: last={last} expected>={expected}")
+            log.info("wait_progress label=%s last=%s expected>=%s", label, last, expected)
         time.sleep(1)
-    raise SystemExit(f"timeout waiting for {label}: expected>={expected} last={last} sql={sql!r}")
+    raise SystemExit(
+        f"timeout waiting for {label}: expected>={expected} last={last} sql={sql!r} params={params!r}"
+    )
 
 
 def _infer_latest_signal_day(vertical_id: int) -> date:
-    v = _scalar(f"select max(ingested_at)::date from signals where vertical_id={vertical_id}")
+    v = _scalar(
+        "select max(ingested_at)::date from signals where vertical_id=:vertical_id",
+        {"vertical_id": vertical_id},
+    )
     if v is None:
         raise SystemExit("could not infer day from signals (no signals ingested)")
     # scalar_one returns a Python date already (psycopg)
@@ -125,8 +136,10 @@ def _run_day_sequential(
     NOTE: run_id is provided by caller (single run_id propagated).
     """
     day_s = d.isoformat()
-    print(f"[run] vertical_id={vertical_id} day={day_s} run_id={run_id}")
-    day_start = time.perf_counter()
+    day_start = d.isoformat()
+    next_day = (d + timedelta(days=1)).isoformat()
+    log.info("run_day vertical_id=%s day=%s run_id=%s", vertical_id, day_s, run_id)
+    day_timer_start = time.perf_counter()
 
     jobs = plan_vertical_run(
         vertical_id=vertical_id,
@@ -143,7 +156,14 @@ def _run_day_sequential(
     publish_jobs([ingest])
     signals_n = _wait_count_ge(
         "signals(day)",
-        f"select count(*) from signals where vertical_id={vertical_id} and ingested_at::date='{day_s}'",
+        """
+        select count(*)
+        from signals
+        where vertical_id=:vertical_id
+          and ingested_at >= :day_start
+          and ingested_at < :day_end
+        """.strip(),
+        {"vertical_id": vertical_id, "day_start": day_start, "day_end": next_day},
         1,
         timeout_s=90,
     )
@@ -154,7 +174,14 @@ def _run_day_sequential(
     publish_jobs([process])
     pains_n = _wait_count_ge(
         "pain_instances(day)",
-        f"select count(*) from pain_instances where vertical_id={vertical_id} and created_at::date='{day_s}'",
+        """
+        select count(*)
+        from pain_instances
+        where vertical_id=:vertical_id
+          and created_at >= :day_start
+          and created_at < :day_end
+        """.strip(),
+        {"vertical_id": vertical_id, "day_start": day_start, "day_end": next_day},
         1,
         timeout_s=90,
     )
@@ -165,12 +192,13 @@ def _run_day_sequential(
     publish_jobs([cluster])
     cluster_links_n = _wait_count_ge(
         "cluster_signals",
-        f"""
+        """
         select count(*)
         from cluster_signals cs
         join pain_instances pi on pi.id = cs.pain_instance_id
-        where pi.vertical_id={vertical_id}
+        where pi.vertical_id=:vertical_id
         """.strip(),
+        {"vertical_id": vertical_id},
         1,
         timeout_s=90,
     )
@@ -181,13 +209,14 @@ def _run_day_sequential(
     publish_jobs([trend])
     metrics_n = _wait_count_ge(
         "cluster_daily_metrics(day)",
-        f"select count(*) from cluster_daily_metrics where day='{day_s}'::date",
+        "select count(*) from cluster_daily_metrics where day >= :day_start::date and day < :day_end::date",
+        {"day_start": day_start, "day_end": next_day},
         1,
         timeout_s=90,
     )
     _emit_metric("daily_metrics_count", metrics_n, vertical_id=vertical_id, day=day_s, stage="trend")
     _emit_metric("stage_seconds", time.perf_counter() - stage_start, vertical_id=vertical_id, day=day_s, stage="trend")
-    _emit_metric("day_seconds", time.perf_counter() - day_start, vertical_id=vertical_id, day=day_s)
+    _emit_metric("day_seconds", time.perf_counter() - day_timer_start, vertical_id=vertical_id, day=day_s)
 
 
 def _run_once_infer_day_then_sequential(
@@ -207,7 +236,12 @@ def _run_once_infer_day_then_sequential(
     5) publish process/cluster/trend for that day using SAME run_id
     """
     run_id = new_run_id()
-    print(f"[once] publishing ingest (no assumed day) run_id={run_id} vertical_id={vertical_id} source={source}")
+    log.info(
+        "once_publish_ingest run_id=%s vertical_id=%s source=%s",
+        run_id,
+        vertical_id,
+        source,
+    )
 
     # publish ingest only (day=None) with SAME run_id
     jobs = plan_vertical_run(
@@ -224,13 +258,14 @@ def _run_once_infer_day_then_sequential(
 
     _wait_count_ge(
         "signals(any)",
-        f"select count(*) from signals where vertical_id={vertical_id}",
+        "select count(*) from signals where vertical_id=:vertical_id",
+        {"vertical_id": vertical_id},
         1,
         timeout_s=90,
     )
 
     d = _infer_latest_signal_day(vertical_id)
-    print(f"[once] inferred day from signals: {d.isoformat()} (run_id={run_id})")
+    log.info("once_inferred_day day=%s run_id=%s", d.isoformat(), run_id)
 
     # run process/cluster/trend for inferred day with SAME run_id
     _run_day_sequential(

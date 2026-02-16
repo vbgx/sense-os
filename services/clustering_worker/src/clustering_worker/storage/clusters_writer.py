@@ -7,6 +7,7 @@ from typing import Any, Iterable, Optional
 from clustering_worker.storage.severity import InstanceForSeverity, compute_cluster_severity
 from clustering_worker.storage.recurrence import InstanceForRecurrence, compute_cluster_recurrence
 from clustering_worker.storage.persona import InstanceForPersona, infer_cluster_persona_from_instances
+from clustering_worker.storage.monetizability import InstanceForMonetizability, compute_cluster_monetizability
 
 
 @dataclass(frozen=True)
@@ -21,6 +22,7 @@ class ClusterWriteModel:
     dominant_persona: str
     persona_confidence: float
     persona_distribution: dict[str, float]
+    monetizability_score: int
 
 
 def _to_int(x: Any) -> int:
@@ -92,6 +94,16 @@ def build_cluster_write_model(
     persona_confidence = float(persona_inf.confidence)
     persona_distribution = {str(k.value): float(v) for k, v in persona_inf.distribution.items()}
 
+    # Monetizability (persona-weighted at cluster-level)
+    mon_instances = [
+        InstanceForMonetizability(
+            text=str(r.get("text") or r.get("body") or ""),
+            persona=dominant_persona,  # use dominant cluster persona as weight proxy (v1)
+        )
+        for r in rows
+    ]
+    monetizability_score = compute_cluster_monetizability(mon_instances)
+
     return ClusterWriteModel(
         cluster_id=cluster_id,
         vertical_id=vertical_id,
@@ -103,4 +115,5 @@ def build_cluster_write_model(
         dominant_persona=dominant_persona,
         persona_confidence=persona_confidence,
         persona_distribution=persona_distribution,
+        monetizability_score=monetizability_score,
     )

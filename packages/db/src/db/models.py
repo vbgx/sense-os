@@ -51,16 +51,16 @@ class PainCluster(Base):
     title = Column(String, nullable=False)
     size = Column(Integer, nullable=False, server_default="0")
 
-    # EPIC 01.01 — Pain Severity Index (0..100)
     severity_score = Column(Integer, nullable=False, server_default="0", index=True)
 
-    # EPIC 01.02 — Recurrence Detection (0..100)
     recurrence_score = Column(Integer, nullable=False, server_default="0", index=True)
     recurrence_ratio = Column(Float, nullable=False, server_default="0")
 
-    # EPIC 01.03 — Persona Inference (rule-based v1)
     dominant_persona = Column(String, nullable=False, server_default="unknown", index=True)
     persona_confidence = Column(Float, nullable=False, server_default="0")
     persona_distribution_json = Column(Text, nullable=False, server_default="{}")
+
+    # EPIC 01.04 — Monetizability Proxy Score (0..100)
+    monetizability_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

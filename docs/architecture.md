@@ -1,31 +1,19 @@
 # Architecture
 
-## Overview
-
-This repository is a monorepo composed of:
-
-- `apps/api_gateway`: HTTP API (FastAPI) exposing read endpoints for verticals, signals, pains, clusters, trends.
-- `services/*_worker`: background workers (ingestion, processing, clustering, trend, scheduler).
-- `packages/domain`: pure domain logic (models, rules, scoring).
-- `packages/db`: SQLAlchemy models, repos, Alembic migrations.
-- `packages/queue`: queue client/contracts/idempotency.
-
 ## EPIC 01 — Pain Intelligence V2
 
-### Issue 01.01 — Pain Severity Index
+### 01.01 — Pain Severity Index
+Clusters carry `severity_score` (0–100) computed from frequency/intensity/engagement/specificity.
 
-Goal: clusters become *measurable strategic objects* by carrying a normalized severity score (0–100).
+### 01.02 — Recurrence Detection
+Clusters carry `recurrence_score` (0–100) + `recurrence_ratio` (0–1) from multi-user + repeated phrases + time distribution.
 
-**Inputs (cluster-level aggregation)**
-- Frequency: number of signals in the cluster
-- Intensity: negative sentiment magnitude proxy (from per-signal sentiment)
-- Engagement: upvotes/comments/replies proxy
-- Specificity: text length proxy
+### 01.03 — Persona Inference (rule-based v1)
+Clusters carry `dominant_persona`, `persona_confidence` (0–1), and `persona_distribution`.
 
-**Implementation**
-- Domain function: `domain/scoring/pain_severity.py` computes a stable severity index (0–100).
-- Persistence: `pain_clusters.severity_score` (DB column, indexed).
-- Exposure: API includes `severity_score` on cluster responses.
-
-**Notes**
-- Uses log-normalization and caps to keep score stable and avoid domination by outliers.
+### 01.04 — Monetizability Proxy Score (rule-based v1)
+Clusters carry `monetizability_score` (0–100), a proxy for business relevance:
+- business/revenue markers
+- operational inefficiency markers
+- persona weighting (founder/freelancer boosted, hobbyist deboosted)
+This is not TAM/pricing/market sizing; it is a stable heuristic for ranking.

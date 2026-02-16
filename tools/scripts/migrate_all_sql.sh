@@ -8,8 +8,10 @@ if [ "${ALLOW_LEGACY_SQL:-0}" != "1" ]; then
 fi
 
 COMPOSE_FILE="${COMPOSE_FILE:-infra/docker/docker-compose.yml}"
+POSTGRES_USER="${POSTGRES_USER:-postgres}"
+POSTGRES_DB="${POSTGRES_DB:-sense}"
 
 for f in tools/legacy_sql/infra_sql/*.sql; do
   echo "==> applying $f"
-  cat "$f" | docker compose -f "$COMPOSE_FILE" exec -T postgres psql -U postgres -d postgres
+  cat "$f" | docker compose -f "$COMPOSE_FILE" exec -T postgres psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"
 done

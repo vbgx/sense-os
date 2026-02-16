@@ -17,7 +17,7 @@ def _first(*vals: str | None) -> str | None:
 DATABASE_URL: str = _first(
     os.getenv("POSTGRES_DSN"),
     os.getenv("DATABASE_URL"),
-) or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+) or "postgresql+psycopg://postgres:postgres@localhost:5432/sense"
 
 
 REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379/0")

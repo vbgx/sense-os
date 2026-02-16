@@ -18,7 +18,7 @@ apply_one() {
   if [ "$DRY_RUN" = "1" ]; then
     return 0
   fi
-  cat "$REPO_ROOT/$f" | dc_exec postgres psql -U postgres -d postgres
+  cat "$REPO_ROOT/$f" | dc_exec postgres psql -U "${POSTGRES_USER:-postgres}" -d "${POSTGRES_DB:-sense}"
 }
 
 step "🗄️  Legacy SQL migrate (DIR=$DIR MODE=$MODE DRY_RUN=$DRY_RUN)"

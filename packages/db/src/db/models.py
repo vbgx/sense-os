@@ -54,4 +54,9 @@ class PainCluster(Base):
     # EPIC 01.01 — Pain Severity Index (0..100)
     severity_score = Column(Integer, nullable=False, server_default="0", index=True)
 
+    # EPIC 01.02 — Recurrence Detection (0..100)
+    recurrence_score = Column(Integer, nullable=False, server_default="0", index=True)
+    # ratio (0..1) for debugging / observability
+    recurrence_ratio = Column(Float, nullable=False, server_default="0")
+
     created_at = Column(DateTime, nullable=False, server_default=func.now())

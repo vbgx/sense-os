@@ -27,8 +27,10 @@ class ClusterOut(BaseModel):
     opportunity_window_score: int = Field(0, ge=0, le=100)
     opportunity_window_status: str = Field("UNKNOWN")
 
-    # EPIC 02.04 — Trend Half-Life Metric
     half_life_days: float | None = None
+
+    # EPIC 02.05 — Competitive Heat Proxy
+    competitive_heat_score: int = Field(0, ge=0, le=100)
 
     class Config:
         from_attributes = True

@@ -19,6 +19,7 @@ def compute_opportunity_window_for_cluster(
     saturation_score: int,
     daily: Iterable[OpportunityDaily],
     half_life_days: Optional[float] = None,
+    competitive_heat_score: Optional[int] = None,
 ) -> OpportunityResult:
     momentum = compute_growth_momentum_score([DailyMomentum(day=d.day, count=d.count) for d in daily])
     return compute_opportunity_window(
@@ -27,5 +28,6 @@ def compute_opportunity_window_for_cluster(
             saturation_score=int(saturation_score),
             growth_momentum=int(momentum),
             half_life_days=half_life_days,
+            competitive_heat_score=competitive_heat_score,
         )
     )

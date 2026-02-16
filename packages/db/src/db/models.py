@@ -69,7 +69,9 @@ class PainCluster(Base):
     opportunity_window_score = Column(Integer, nullable=False, server_default="0", index=True)
     opportunity_window_status = Column(String, nullable=False, server_default="UNKNOWN", index=True)
 
-    # EPIC 02.04 — Half-life (days)
     half_life_days = Column(Float, nullable=True, index=True)
+
+    # EPIC 02.05 — Competitive Heat Proxy (0..100)
+    competitive_heat_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

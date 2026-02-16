@@ -17,11 +17,12 @@ class OpportunityInputs:
     saturation_score: int        # 0..100
     growth_momentum: int         # 0..100 (proxy)
     half_life_days: float | None # optional (if known)
+    competitive_heat_score: int | None = None  # 0..100 (optional)
 
 
 @dataclass(frozen=True)
 class OpportunityResult:
-    opportunity_window_score: int                 # 0..100
+    opportunity_window_score: int
     opportunity_window_status: OpportunityWindowStatus
 
 
@@ -42,24 +43,22 @@ def _clamp100(x: float) -> int:
 
 
 def _norm(score_0_100: int) -> float:
-    return _clamp01(float(max(0, min(100, int(score_0_100)))) / 100.0)
+    s = float(max(0, min(100, int(score_0_100))))
+    return _clamp01(s / 100.0)
 
 
 def compute_opportunity_window(inputs: OpportunityInputs) -> OpportunityResult:
     """
     Opportunity Window (0..100) and status classification.
 
-    Intuition:
-    - Early: breakout high, saturation low, momentum high
-    - Peak: breakout moderate, saturation moderate, momentum moderate/high
-    - Saturating: saturation high, breakout low, momentum low
+    Timing synthesis:
+    - breakout high, saturation low, momentum high -> EARLY
+    - mid-range -> PEAK
+    - saturation high + breakout low -> SATURATING
 
-    Half-life (if available) acts as a mild modifier:
-    - Short half-life suggests quicker decay -> lower opportunity
-    - Long half-life suggests durable tail -> higher opportunity
-
-    This is not exploitability (no monetizability / competition).
-    Pure timing window synthesis.
+    Competitive heat integration (v0):
+    - does NOT change status (timing stays timing)
+    - lightly penalizes score when competition heat is high
     """
     b = _norm(inputs.breakout_score)
     s = _norm(inputs.saturation_score)
@@ -68,7 +67,6 @@ def compute_opportunity_window(inputs: OpportunityInputs) -> OpportunityResult:
     # Half-life modifier (mild; bounded)
     hl_mod = 0.0
     if inputs.half_life_days is not None:
-        # Normalize: <7 days is short, >60 is long.
         d = float(inputs.half_life_days)
         if d <= 0:
             hl_mod = -0.10
@@ -83,27 +81,24 @@ def compute_opportunity_window(inputs: OpportunityInputs) -> OpportunityResult:
         else:
             hl_mod = 0.06
 
-    # Core synthesis:
-    # - reward breakout + momentum
-    # - penalize saturation
+    # Competitive heat penalty (mild)
+    heat_pen = 0.0
+    if inputs.competitive_heat_score is not None:
+        h = _norm(int(inputs.competitive_heat_score))
+        # at h=1.0 -> -0.10; at h=0.0 -> 0.0
+        heat_pen = -0.10 * h
+
     ratio = (0.45 * b) + (0.35 * m) + (0.20 * (1.0 - s))
-    ratio = _clamp01(ratio + hl_mod)
+    ratio = _clamp01(ratio + hl_mod + heat_pen)
     score = _clamp100(100.0 * ratio)
 
-    # Decision matrix for status (explicit, readable thresholds)
-    # EARLY: breakout strong + saturation low
     if inputs.breakout_score >= 65 and inputs.saturation_score <= 35 and inputs.growth_momentum >= 55:
         status = OpportunityWindowStatus.EARLY
-    # SATURATING: saturation strong + breakout weak (momentum tends to be low too)
     elif inputs.saturation_score >= 65 and inputs.breakout_score <= 40:
         status = OpportunityWindowStatus.SATURATING
-    # PEAK: everything else in the middle: opportunity exists but window is closing / stabilizing
     elif inputs.saturation_score <= 65 and inputs.breakout_score >= 40:
         status = OpportunityWindowStatus.PEAK
     else:
         status = OpportunityWindowStatus.UNKNOWN
 
-    return OpportunityResult(
-        opportunity_window_score=score,
-        opportunity_window_status=status,
-    )
+    return OpportunityResult(opportunity_window_score=score, opportunity_window_status=status)

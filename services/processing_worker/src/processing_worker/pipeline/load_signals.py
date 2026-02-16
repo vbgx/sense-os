@@ -5,7 +5,11 @@ from db.repos import signals as signals_repo
 
 from processing_worker.pipeline.persist_signal_language import persist_signal_language
 from processing_worker.pipeline.persist_signal_quality import persist_signal_quality
+from processing_worker.pipeline.persist_signal_spam import persist_signal_spam
 from processing_worker.settings import SUPPORTED_LANGUAGES
+
+
+SPAM_THRESHOLD = 70
 
 
 def load_batch(vertical_id: int, limit: int, offset: int):
@@ -22,11 +26,15 @@ def load_batch(vertical_id: int, limit: int, offset: int):
 
     persist_signal_language(signals)
     persist_signal_quality(signals)
+    persist_signal_spam(signals)
 
     supported = set(SUPPORTED_LANGUAGES)
     out = []
     for s in signals:
-        code = getattr(s, "language_code", None) or "unknown"
-        if code in supported:
-            out.append(s)
+        if getattr(s, "language_code", None) not in supported:
+            continue
+        if (getattr(s, "spam_score", 0) or 0) >= SPAM_THRESHOLD:
+            continue
+        out.append(s)
+
     return out

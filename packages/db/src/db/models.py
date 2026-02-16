@@ -77,4 +77,7 @@ class PainCluster(Base):
     exploitability_version = Column(String, nullable=False, server_default="", index=True)
     exploitability_tier = Column(String, nullable=False, server_default="IGNORE", index=True)
 
+    # EPIC 04
+    cluster_summary = Column(Text, nullable=True)
+
     created_at = Column(DateTime, nullable=False, server_default=func.now())

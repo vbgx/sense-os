@@ -1,4 +1,3 @@
-cat > services/trend_worker/src/trend_worker/pipeline/aggregate_daily.py <<'EOF'
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -63,4 +62,3 @@ def aggregate_daily(signals: Iterable[ClusterSignal]) -> List[DailyAggregate]:
             )
 
     return result
-EOF

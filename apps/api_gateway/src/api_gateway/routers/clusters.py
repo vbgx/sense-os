@@ -3,8 +3,10 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, Query
 
 from api_gateway.schemas.clusters import ClusterOut
+from api_gateway.schemas.timeline import TimelinePointOut
 from api_gateway.services.clusters_service import ClustersService
 from api_gateway.dependencies import get_clusters_service
+from db.repos.cluster_daily_history import list_cluster_history
 
 router = APIRouter(prefix="/clusters", tags=["clusters"])
 
@@ -28,3 +30,21 @@ def list_clusters(
 @router.get("/{cluster_id}", response_model=ClusterOut)
 def get_cluster(cluster_id: str, service: ClustersService = Depends(get_clusters_service)) -> ClusterOut:
     return service.get_cluster(cluster_id)
+
+
+@router.get("/{cluster_id}/timeline", response_model=list[TimelinePointOut])
+def get_cluster_timeline(
+    cluster_id: str,
+    days: int = Query(default=90, ge=1, le=3650),
+) -> list[TimelinePointOut]:
+    rows = list_cluster_history(cluster_id=cluster_id, days=days)
+    return [
+        TimelinePointOut(
+            date=r.day,
+            volume=r.volume,
+            growth_rate=r.growth_rate,
+            velocity=r.velocity,
+            breakout_flag=r.breakout_flag,
+        )
+        for r in rows
+    ]

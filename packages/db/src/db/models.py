@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from sqlalchemy import Column, DateTime, Float, Integer, String, Text, func
+from sqlalchemy import Column, Date, DateTime, Float, Integer, String, Text, Boolean, func
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -81,5 +81,19 @@ class PainCluster(Base):
     cluster_summary = Column(Text, nullable=True)
     top_signal_ids_json = Column(Text, nullable=False, server_default="[]")
     key_phrases_json = Column(Text, nullable=False, server_default="[]")
+
+    created_at = Column(DateTime, nullable=False, server_default=func.now())
+
+
+class ClusterDailyHistory(Base):
+    __tablename__ = "cluster_daily_history"
+
+    cluster_id = Column(String, primary_key=True)
+    day = Column(Date, primary_key=True)
+
+    volume = Column(Integer, nullable=False, server_default="0")
+    growth_rate = Column(Float, nullable=False, server_default="0")
+    velocity = Column(Float, nullable=False, server_default="0")
+    breakout_flag = Column(Boolean, nullable=False, server_default="false")
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

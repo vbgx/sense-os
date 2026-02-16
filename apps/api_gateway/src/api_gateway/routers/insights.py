@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from api_gateway.schemas.insights import TopPainOut
 from api_gateway.schemas.cluster_detail import ClusterDetailOut
+from api_gateway.schemas.export_payload import VentureOSExportPayloadV1Schema
 from api_gateway.services.insights_service import InsightsService
 
 router = APIRouter(prefix="/insights", tags=["insights"])
@@ -61,7 +62,15 @@ def get_cluster_detail(cluster_id: str):
     service = InsightsService()
     return service.get_cluster_detail(cluster_id=cluster_id)
 
+
 @router.get("/{cluster_id}/build_hypothesis")
 def generate_build_hypothesis(cluster_id: str):
     service = InsightsService()
     return service.generate_build_hypothesis(cluster_id)
+
+
+@router.get("/{cluster_id}/export", response_model=VentureOSExportPayloadV1Schema)
+def export_ventureos_payload(cluster_id: str):
+    service = InsightsService()
+    return service.export_ventureos_payload(cluster_id)
+

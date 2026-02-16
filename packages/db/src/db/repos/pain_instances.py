@@ -38,17 +38,14 @@ def create_if_absent(db: Session, **kwargs) -> Tuple[PainInstance, bool]:
                 breakdown_hash=breakdown_hash,
             )
             .on_conflict_do_nothing(index_elements=["algo_version", "breakdown_hash"])
+            .returning(PainInstance.id)
         )
-        result = db.execute(stmt)
-        if result.rowcount and result.rowcount > 0:
-            db.commit()
-            obj = (
-                db.query(PainInstance)
-                .filter(PainInstance.algo_version == algo_version)
-                .filter(PainInstance.breakdown_hash == breakdown_hash)
-                .one()
-            )
-            return obj, True
+        inserted_id = db.execute(stmt).scalar_one_or_none()
+        db.commit()
+        if inserted_id is not None:
+            obj = db.get(PainInstance, inserted_id)
+            if obj is not None:
+                return obj, True
 
         existing = (
             db.query(PainInstance)

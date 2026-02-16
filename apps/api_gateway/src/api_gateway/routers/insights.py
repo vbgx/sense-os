@@ -60,3 +60,8 @@ def get_declining_risks(
 def get_cluster_detail(cluster_id: str):
     service = InsightsService()
     return service.get_cluster_detail(cluster_id=cluster_id)
+
+@router.get("/{cluster_id}/build_hypothesis")
+def generate_build_hypothesis(cluster_id: str):
+    service = InsightsService()
+    return service.generate_build_hypothesis(cluster_id)

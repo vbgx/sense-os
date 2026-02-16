@@ -86,3 +86,43 @@ class InsightsService:
             representative_signals=representative_signals,
             timeline=timeline,
         )
+
+    # ----------------------------
+    # BUILD HYPOTHESIS
+    # ----------------------------
+
+    def generate_build_hypothesis(self, cluster_id: str):
+        from domain.insights.build_hypothesis import (
+            compute_build_hypothesis,
+            BuildHypothesisInputs,
+        )
+
+        with session_scope() as s:
+            cluster = s.get(PainCluster, cluster_id)
+
+        if cluster is None:
+            raise ValueError("Cluster not found")
+
+        import json
+
+        key_phrases = []
+        if cluster.key_phrases_json:
+            try:
+                key_phrases = json.loads(cluster.key_phrases_json)
+            except Exception:
+                key_phrases = []
+
+        hypothesis = compute_build_hypothesis(
+            BuildHypothesisInputs(
+                dominant_persona=cluster.dominant_persona,
+                cluster_summary=cluster.cluster_summary,
+                key_phrases=key_phrases,
+                exploitability_tier=cluster.exploitability_tier,
+                breakout_score=cluster.breakout_score,
+                contradiction_score=cluster.contradiction_score,
+            )
+        )
+
+        from api_gateway.schemas.build_hypothesis import BuildHypothesisOut
+
+        return BuildHypothesisOut(**hypothesis.__dict__)

@@ -1,4 +1,3 @@
-cat > services/trend_worker/src/trend_worker/pipeline/load_clusters.py <<'EOF'
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -64,4 +63,3 @@ def load_clusters(session: Session) -> List[LoadedCluster]:
         )
 
     return result
-EOF

@@ -66,6 +66,7 @@ class ClusterJob:
 @dataclass(frozen=True)
 class TrendJob:
     type: str = "trend_day"
+    vertical_id: int = 0
     day: str = ""  # ISO YYYY-MM-DD
     formula_version: str = "formula_v1"
     cluster_version: str = "tfidf_v1"
@@ -132,8 +133,8 @@ def make_cluster_job(
     )
 
 
-def make_trend_job(*, day: str, run_id: str | None = None) -> TrendJob:
-    return TrendJob(day=day, run_id=run_id)
+def make_trend_job(*, day: str, vertical_id: int, run_id: str | None = None) -> TrendJob:
+    return TrendJob(day=day, vertical_id=vertical_id, run_id=run_id)
 
 
 # ---------------------------------------------------------------------
@@ -195,5 +196,5 @@ def make_cluster_vertical_job(
     )
 
 
-def make_trend_day_job(*, day: str, run_id: str | None = None) -> TrendJob:
-    return make_trend_job(day=day, run_id=run_id)
+def make_trend_day_job(*, day: str, vertical_id: int, run_id: str | None = None) -> TrendJob:
+    return make_trend_job(day=day, vertical_id=vertical_id, run_id=run_id)

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Optional
 
 import requests
@@ -12,7 +12,7 @@ from .rate_limit import RateLimiter
 class HackerNewsClient:
     base_url: str = "https://hacker-news.firebaseio.com/v0"
     timeout_s: float = 10.0
-    limiter: RateLimiter = RateLimiter(min_interval_s=0.35)
+    limiter: RateLimiter = field(default_factory=lambda: RateLimiter(min_interval_s=0.35))
 
     def _get_json(self, path: str) -> Optional[Any]:
         self.limiter.wait()

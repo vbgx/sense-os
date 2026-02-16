@@ -23,6 +23,15 @@ def compute_trends_job(job: dict[str, Any]) -> dict[str, Any]:
 
     formula_version = str(job.get("formula_version") or "formula_v1")
     cluster_version = str(job.get("cluster_version") or "tfidf_v1")
+    raw_vertical_id = job.get("vertical_id")
+    vertical_id = None
+    if raw_vertical_id not in (None, ""):
+        try:
+            vertical_id = int(raw_vertical_id)
+        except Exception:
+            vertical_id = None
+    if vertical_id is not None and vertical_id <= 0:
+        vertical_id = None
 
     db = SessionLocal()
     try:
@@ -31,6 +40,7 @@ def compute_trends_job(job: dict[str, Any]) -> dict[str, Any]:
             d,
             formula_version=formula_version,
             cluster_version=cluster_version,
+            vertical_id=vertical_id,
         )
 
         upserted = 0

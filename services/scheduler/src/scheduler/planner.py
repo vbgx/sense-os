@@ -48,6 +48,7 @@ def plan_vertical_run(
     )
 
     trend = TrendJob(
+        vertical_id=vertical_id,
         day=day_s or "",
         formula_version="formula_v1",
         cluster_version="tfidf_v1",

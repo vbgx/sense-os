@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime, timedelta
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -13,7 +13,11 @@ def compute_for_day(
     *,
     formula_version: str,
     cluster_version: str,
+    vertical_id: int | None = None,
 ) -> list[dict]:
+    day_start = datetime.combine(day, datetime.min.time())
+    day_end = day_start + timedelta(days=1)
+
     q = (
         db.query(
             PainCluster.id.label("cluster_id"),
@@ -26,9 +30,13 @@ def compute_for_day(
         .join(PainInstance, PainInstance.id == ClusterSignal.pain_instance_id)
         .join(Signal, Signal.id == PainInstance.signal_id)
         .filter(PainCluster.cluster_version == cluster_version)
-        .filter(func.date(Signal.ingested_at) == day)
+        .filter(Signal.ingested_at >= day_start)
+        .filter(Signal.ingested_at < day_end)
         .group_by(PainCluster.id)
     )
+
+    if vertical_id is not None and int(vertical_id) > 0:
+        q = q.filter(PainCluster.vertical_id == int(vertical_id))
 
     rows = q.all()
     out: list[dict] = []

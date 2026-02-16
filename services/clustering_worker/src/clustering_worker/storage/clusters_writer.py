@@ -8,6 +8,7 @@ from clustering_worker.storage.severity import InstanceForSeverity, compute_clus
 from clustering_worker.storage.recurrence import InstanceForRecurrence, compute_cluster_recurrence
 from clustering_worker.storage.persona import InstanceForPersona, infer_cluster_persona_from_instances
 from clustering_worker.storage.monetizability import InstanceForMonetizability, compute_cluster_monetizability
+from clustering_worker.storage.contradiction import InstanceForContradiction, compute_cluster_contradiction
 
 
 @dataclass(frozen=True)
@@ -23,6 +24,7 @@ class ClusterWriteModel:
     persona_confidence: float
     persona_distribution: dict[str, float]
     monetizability_score: int
+    contradiction_score: int
 
 
 def _to_int(x: Any) -> int:
@@ -94,15 +96,25 @@ def build_cluster_write_model(
     persona_confidence = float(persona_inf.confidence)
     persona_distribution = {str(k.value): float(v) for k, v in persona_inf.distribution.items()}
 
-    # Monetizability (persona-weighted at cluster-level)
+    # Monetizability (persona-weighted)
     mon_instances = [
         InstanceForMonetizability(
             text=str(r.get("text") or r.get("body") or ""),
-            persona=dominant_persona,  # use dominant cluster persona as weight proxy (v1)
+            persona=dominant_persona,
         )
         for r in rows
     ]
     monetizability_score = compute_cluster_monetizability(mon_instances)
+
+    # Contradiction
+    con_instances = [
+        InstanceForContradiction(
+            sentiment_compound=_to_float_or_none(r.get("sentiment_compound", r.get("sentiment"))),
+            created_at=_to_dt_or_none(r.get("created_at")),
+        )
+        for r in rows
+    ]
+    contradiction_score = compute_cluster_contradiction(con_instances)
 
     return ClusterWriteModel(
         cluster_id=cluster_id,
@@ -116,4 +128,5 @@ def build_cluster_write_model(
         persona_confidence=persona_confidence,
         persona_distribution=persona_distribution,
         monetizability_score=monetizability_score,
+        contradiction_score=contradiction_score,
     )

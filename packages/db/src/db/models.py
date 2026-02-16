@@ -60,7 +60,9 @@ class PainCluster(Base):
     persona_confidence = Column(Float, nullable=False, server_default="0")
     persona_distribution_json = Column(Text, nullable=False, server_default="{}")
 
-    # EPIC 01.04 — Monetizability Proxy Score (0..100)
     monetizability_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+    # EPIC 01.05 — Contradiction Detection (0..100)
+    contradiction_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

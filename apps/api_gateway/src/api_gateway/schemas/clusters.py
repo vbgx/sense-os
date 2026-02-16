@@ -18,8 +18,10 @@ class ClusterOut(BaseModel):
     persona_confidence: float = Field(0.0, ge=0.0, le=1.0)
     persona_distribution: dict[str, float] = Field(default_factory=dict)
 
-    # EPIC 01.04 — Monetizability Proxy Score
     monetizability_score: int = Field(0, ge=0, le=100)
+
+    # EPIC 01.05 — Contradiction Index
+    contradiction_score: int = Field(0, ge=0, le=100)
 
     class Config:
         from_attributes = True

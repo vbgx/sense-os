@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Iterable, Optional
 
+from domain.scoring.freshness_decay import compute_freshness_weight
+
 
 @dataclass(frozen=True)
 class RecurrenceSignal:
@@ -14,7 +16,7 @@ class RecurrenceSignal:
 
     - user_id: stable per author within a source when possible (preferred).
     - source_id: fallback identity (platform native post id); not a user id.
-    - created_at: datetime for temporal distribution.
+    - created_at: datetime for temporal distribution + freshness decay.
     - text: raw text for repeated-phrase detection.
     """
     user_id: Optional[str] = None
@@ -51,23 +53,13 @@ def _ngrams(tokens: list[str], n: int) -> list[str]:
 
 
 def _repeat_phrase_coverage(signals: list[RecurrenceSignal]) -> float:
-    """
-    Returns [0..1] = how much of the cluster is covered by repeated phrases.
-    Heuristic:
-      - build 3-grams per signal (bounded)
-      - count occurrences across signals (unique per-signal presence)
-      - select repeated ngrams (present in >=2 signals)
-      - compute share of signals that contain at least one repeated ngram
-    """
     per_signal_ngrams: list[set[str]] = []
     ngram_doc_count: dict[str, int] = {}
 
     for s in signals:
         toks = _normalize_text(s.text)
-        # bound per-signal extraction to avoid massive texts dominating CPU
         toks = toks[:400]
         grams = set(_ngrams(toks, 3))
-        # bound number of grams stored
         if len(grams) > 800:
             grams = set(list(grams)[:800])
         per_signal_ngrams.append(grams)
@@ -87,15 +79,6 @@ def _repeat_phrase_coverage(signals: list[RecurrenceSignal]) -> float:
 
 
 def _temporal_distribution_score(signals: list[RecurrenceSignal]) -> float:
-    """
-    Returns [0..1] measuring whether occurrences are time-distributed
-    (not just a single-day spike).
-
-    Heuristic:
-      - bucket by UTC day
-      - compute normalized entropy over day buckets (higher = more distributed)
-      - multiply by (1 - max_share) to penalize spikes
-    """
     buckets: dict[str, int] = {}
     for s in signals:
         if s.created_at is None:
@@ -116,20 +99,44 @@ def _temporal_distribution_score(signals: list[RecurrenceSignal]) -> float:
         return 0.0
 
     probs = [c / total for c in counts]
-    # entropy
     ent = 0.0
     for p in probs:
         if p > 0:
             ent -= p * math.log(p)
-    # normalize by max entropy for k buckets
+
     k = len(probs)
     max_ent = math.log(k) if k > 1 else 0.0
     ent_norm = (ent / max_ent) if max_ent > 0 else 0.0
 
     max_share = max(probs) if probs else 1.0
-    spike_penalty = 1.0 - max_share  # 0 when all on one day, approaches 1 when spread
+    spike_penalty = 1.0 - max_share
 
     return _clamp01(ent_norm * spike_penalty)
+
+
+def _freshness_multiplier_from_signals(
+    items: list[RecurrenceSignal],
+    *,
+    lambda_per_day: float,
+    now: Optional[datetime] = None,
+    floor: float = 0.40,
+) -> float:
+    if lambda_per_day <= 0.0:
+        return 1.0
+
+    weights: list[float] = []
+    for s in items:
+        if s.created_at is None:
+            continue
+        weights.append(compute_freshness_weight(created_at=s.created_at, lambda_per_day=lambda_per_day, now=now))
+
+    if not weights:
+        w = 0.5
+    else:
+        w = float(sum(weights)) / float(len(weights))
+
+    f = max(0.0, min(1.0, float(floor)))
+    return f + (1.0 - f) * max(0.0, min(1.0, float(w)))
 
 
 def compute_recurrence(
@@ -139,6 +146,9 @@ def compute_recurrence(
     w_phrases: float = 0.30,
     w_time: float = 0.20,
     cap_unique_users: float = 80.0,
+    freshness_lambda_per_day: float = 0.0,
+    freshness_floor: float = 0.40,
+    now: Optional[datetime] = None,
 ) -> tuple[int, float]:
     """
     Returns (recurrence_score_0_100, recurrence_ratio_0_1).
@@ -147,13 +157,16 @@ def compute_recurrence(
       - users: unique user count (log-normalized) + penalize single-user dominance
       - phrases: repeated-phrase coverage across signals
       - time: time-distributed occurrences score
+
+    Freshness decay (optional):
+      - compute avg freshness weight from signals.created_at
+      - apply bounded multiplier to recurrence ratio
     """
     items = list(signals)
     n = len(items)
     if n == 0:
         return 0, 0.0
 
-    # Unique users: prefer user_id; fallback to source_id only as last resort (weak signal).
     user_keys = []
     for s in items:
         if s.user_id:
@@ -166,13 +179,11 @@ def compute_recurrence(
     unique_users = len(set(user_keys))
     users_log = _log_norm(float(unique_users), cap_unique_users)
 
-    # Dominance penalty: if 1 user contributes almost all signals, recurrence should be low.
-    # Compute max share by user.
     counts_by_user: dict[str, int] = {}
     for k in user_keys:
         counts_by_user[k] = counts_by_user.get(k, 0) + 1
     max_share = max(counts_by_user.values()) / float(n) if n > 0 else 1.0
-    dominance_penalty = 1.0 - _clamp01(max_share)  # 0 if one user = 100%, higher when diversified
+    dominance_penalty = 1.0 - _clamp01(max_share)
 
     users_component = _clamp01(users_log * dominance_penalty)
 
@@ -186,4 +197,12 @@ def compute_recurrence(
     )
     ratio = _clamp01(ratio)
 
-    return int(round(100.0 * ratio)), ratio
+    mult = _freshness_multiplier_from_signals(
+        items,
+        lambda_per_day=freshness_lambda_per_day,
+        now=now,
+        floor=freshness_floor,
+    )
+    ratio_adj = _clamp01(ratio * float(mult))
+
+    return int(round(100.0 * ratio_adj)), ratio_adj

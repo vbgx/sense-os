@@ -1,4 +1,7 @@
-from pydantic import BaseModel
+from __future__ import annotations
 
-class Settings(BaseModel):
-    batch_size: int = 200
+import os
+
+
+FRESHNESS_LAMBDA_PER_DAY = float(os.environ.get("FRESHNESS_LAMBDA_PER_DAY") or "0.01")
+FRESHNESS_FLOOR = float(os.environ.get("FRESHNESS_FLOOR") or "0.40")

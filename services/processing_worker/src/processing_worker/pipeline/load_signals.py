@@ -27,9 +27,20 @@ def load_batch(vertical_id: int, limit: int, offset: int):
     persist_signal_spam(signals)
     persist_signal_vertical_auto(signals, threshold=VERTICAL_CLASSIFIER_THRESHOLD)
 
+    db2 = SessionLocal()
+    try:
+        refreshed = signals_repo.list_by_vertical(
+            db2,
+            vertical_id=vertical_id,
+            limit=limit,
+            offset=offset,
+        )
+    finally:
+        db2.close()
+
     supported = set(SUPPORTED_LANGUAGES)
     out = []
-    for s in signals:
+    for s in refreshed:
         if getattr(s, "language_code", None) not in supported:
             continue
         if (getattr(s, "spam_score", 0) or 0) >= int(SPAM_THRESHOLD):

@@ -15,8 +15,9 @@ os.environ["POSTGRES_DSN"] = os.environ["DATABASE_URL"]
 
 from db.engine import engine  # noqa: E402
 from db.models import Base  # noqa: E402
+from db.uow import SqlAlchemyUnitOfWork  # noqa: E402
 from api_gateway.main import app  # noqa: E402
-from api_gateway.dependencies import get_db  # noqa: E402
+from api_gateway.dependencies import get_uow  # noqa: E402
 
 TestingSessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
@@ -42,15 +43,10 @@ def db_session():
 def client(db_session):
     """FastAPI test client wired to a test database."""
 
-    def _get_test_db():
-        """Yield a database session for request handling."""
-        db = TestingSessionLocal()
-        try:
-            yield db
-        finally:
-            db.close()
+    def _get_test_uow():
+        return SqlAlchemyUnitOfWork(session_factory=TestingSessionLocal)
 
-    app.dependency_overrides[get_db] = _get_test_db
+    app.dependency_overrides[get_uow] = _get_test_uow
     with TestClient(app) as test_client:
         yield test_client
     app.dependency_overrides.clear()

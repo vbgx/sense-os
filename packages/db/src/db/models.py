@@ -38,6 +38,10 @@ class PainCluster(Base):
     id = Column(Integer, primary_key=True)
     vertical_id = Column(Integer, nullable=False, index=True)
 
+    size = Column(Integer, nullable=False, server_default="0", index=True)
+    severity_score = Column(Integer, nullable=False, server_default="0", index=True)
+    recurrence_score = Column(Integer, nullable=False, server_default="0", index=True)
+
     cluster_summary = Column(Text, nullable=True)
     top_signal_ids_json = Column(Text, nullable=False, server_default="[]")
     key_phrases_json = Column(Text, nullable=False, server_default="[]")

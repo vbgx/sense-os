@@ -12,6 +12,7 @@ def fetch_indiehackers_signals(*, vertical_id: int, limit: int = 25) -> List[Dic
     out: List[Dict] = []
     for entry in entries:
         mapped = map_indiehackers_entry(entry, vertical_id=vertical_id)
+        mapped.pop("language", None)
         if mapped.get("content"):
             out.append(mapped)
 

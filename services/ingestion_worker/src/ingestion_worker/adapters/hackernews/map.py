@@ -4,6 +4,7 @@ from typing import Any, Dict
 
 from ingestion_worker.adapters.hackernews.types import HNItem
 from ingestion_worker.normalize.clean_text import clean_text
+from ingestion_worker.normalize.dates import to_utc_datetime
 
 
 def map_hn_story_to_signal_dict(item: HNItem, raw: dict, *, vertical_id: int, kind: str) -> Dict[str, Any]:
@@ -18,6 +19,7 @@ def map_hn_story_to_signal_dict(item: HNItem, raw: dict, *, vertical_id: int, ki
         "external_id": f"hn:{int(item.id)}",
         "content": content,
         "url": url,
+        "created_at": to_utc_datetime(item.time),
     }
 
 
@@ -32,4 +34,5 @@ def map_hn_comment_to_signal_dict(item: HNItem, raw: dict, *, vertical_id: int, 
         "external_id": f"hn:{int(item.id)}",
         "content": content,
         "url": url,
+        "created_at": to_utc_datetime(item.time),
     }

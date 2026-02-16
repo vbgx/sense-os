@@ -1,41 +1,69 @@
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Optional, Tuple, List
+
 from sqlalchemy.orm import Session
-from sqlalchemy.dialects.postgresql import insert
 
-from ..models import Signal
+from db import models
 
 
-def create_if_absent(db: Session, **kwargs):
-    """
-    Insert a Signal if it does not exist.
-
-    Uses INSERT ... ON CONFLICT DO NOTHING to avoid per-row commits.
-    Caller is responsible for committing the transaction.
-    """
-    stmt = (
-        insert(Signal)
-        .values(**kwargs)
-        .on_conflict_do_nothing(index_elements=["source", "external_id"])
-        .returning(Signal.id)
+def create_if_absent(
+    db: Session,
+    *,
+    vertical_id: int,
+    source: str,
+    external_id: str,
+    content: str,
+    url: str | None,
+    created_at: Optional[datetime] = None,
+) -> Tuple[models.Signal, bool]:
+    q = (
+        db.query(models.Signal)
+        .filter(models.Signal.vertical_id == int(vertical_id))
+        .filter(models.Signal.source == str(source))
+        .filter(models.Signal.external_id == str(external_id))
     )
-    inserted_id = db.execute(stmt).scalar_one_or_none()
-    if inserted_id is not None:
-        obj = db.get(Signal, inserted_id)
-        return obj, True
+    existing = q.one_or_none()
+    if existing is not None:
+        return existing, False
 
-    existing = (
-        db.query(Signal)
-        .filter(Signal.source == kwargs["source"], Signal.external_id == kwargs["external_id"])
-        .one()
+    row = models.Signal(
+        vertical_id=int(vertical_id),
+        source=str(source),
+        external_id=str(external_id),
+        content=str(content),
+        url=url,
+        created_at=created_at,
     )
-    return existing, False
+    db.add(row)
+    db.flush()
+    return row, True
 
 
-def list_by_vertical(db: Session, vertical_id: int, limit: int = 200, offset: int = 0):
+def list_by_vertical(
+    db: Session,
+    *,
+    vertical_id: int,
+    limit: int,
+    offset: int,
+) -> List[models.Signal]:
     return (
-        db.query(Signal)
-        .filter(Signal.vertical_id == vertical_id)
-        .order_by(Signal.id.asc())
-        .limit(limit)
-        .offset(offset)
+        db.query(models.Signal)
+        .filter(models.Signal.vertical_id == int(vertical_id))
+        .order_by(models.Signal.id.asc())
+        .limit(int(limit))
+        .offset(int(offset))
         .all()
+    )
+
+
+def set_signal_quality_score(
+    db: Session,
+    *,
+    signal_id: int,
+    signal_quality_score: int,
+) -> None:
+    db.query(models.Signal).filter(models.Signal.id == int(signal_id)).update(
+        {"signal_quality_score": int(signal_quality_score)}
     )

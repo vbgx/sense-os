@@ -22,9 +22,11 @@ class ClusterOut(BaseModel):
     contradiction_score: int = Field(0, ge=0, le=100)
 
     breakout_score: int = Field(0, ge=0, le=100)
-
-    # EPIC 02.02 — Saturation Detection
     saturation_score: int = Field(0, ge=0, le=100)
+
+    # EPIC 02.03 — Opportunity Window
+    opportunity_window_score: int = Field(0, ge=0, le=100)
+    opportunity_window_status: str = Field("UNKNOWN")
 
     class Config:
         from_attributes = True

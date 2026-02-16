@@ -64,8 +64,10 @@ class PainCluster(Base):
     contradiction_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     breakout_score = Column(Integer, nullable=False, server_default="0", index=True)
-
-    # EPIC 02.02 — Saturation Detection (0..100)
     saturation_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+    # EPIC 02.03 — Opportunity Window
+    opportunity_window_score = Column(Integer, nullable=False, server_default="0", index=True)
+    opportunity_window_status = Column(String, nullable=False, server_default="UNKNOWN", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

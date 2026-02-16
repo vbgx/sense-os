@@ -4,6 +4,7 @@ from typing import Any, Tuple
 
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from db.models import PainInstance, Signal
 
@@ -25,6 +26,38 @@ def create_if_absent(db: Session, **kwargs) -> Tuple[PainInstance, bool]:
     if not breakdown_hash:
         raise ValueError("breakdown_hash is required for idempotent create")
 
+    if db.bind and db.bind.dialect.name == "postgresql":
+        stmt = (
+            pg_insert(PainInstance)
+            .values(
+                vertical_id=vertical_id,
+                signal_id=signal_id,
+                algo_version=algo_version,
+                pain_score=float(kwargs.get("pain_score", 0.0)),
+                breakdown=kwargs.get("breakdown"),
+                breakdown_hash=breakdown_hash,
+            )
+            .on_conflict_do_nothing(index_elements=["algo_version", "breakdown_hash"])
+        )
+        result = db.execute(stmt)
+        if result.rowcount and result.rowcount > 0:
+            db.commit()
+            obj = (
+                db.query(PainInstance)
+                .filter(PainInstance.algo_version == algo_version)
+                .filter(PainInstance.breakdown_hash == breakdown_hash)
+                .one()
+            )
+            return obj, True
+
+        existing = (
+            db.query(PainInstance)
+            .filter(PainInstance.algo_version == algo_version)
+            .filter(PainInstance.breakdown_hash == breakdown_hash)
+            .one()
+        )
+        return existing, False
+
     obj = PainInstance(
         vertical_id=vertical_id,
         signal_id=signal_id,
@@ -40,7 +73,6 @@ def create_if_absent(db: Session, **kwargs) -> Tuple[PainInstance, bool]:
         db.refresh(obj)
         return obj, True
     except IntegrityError:
-        # Someone already inserted it (previous run or concurrent worker)
         db.rollback()
 
     existing = (

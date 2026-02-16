@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import List, Optional, Sequence, Tuple
 
 from sqlalchemy.orm import Session
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from db import models
 
@@ -18,9 +19,41 @@ def create_if_absent(
     url: str | None,
     created_at: Optional[datetime] = None,
 ) -> Tuple[models.Signal, bool]:
+    if db.bind and db.bind.dialect.name == "postgresql":
+        stmt = (
+            pg_insert(models.Signal)
+            .values(
+                vertical_id=int(vertical_id),
+                source=str(source),
+                external_id=str(external_id),
+                content=str(content),
+                url=url,
+                created_at=created_at,
+            )
+            .on_conflict_do_nothing(index_elements=["source", "external_id"])
+        )
+        result = db.execute(stmt)
+        if result.rowcount and result.rowcount > 0:
+            row = (
+                db.query(models.Signal)
+                .filter(models.Signal.source == str(source))
+                .filter(models.Signal.external_id == str(external_id))
+                .one()
+            )
+            return row, True
+
+        existing = (
+            db.query(models.Signal)
+            .filter(models.Signal.source == str(source))
+            .filter(models.Signal.external_id == str(external_id))
+            .one_or_none()
+        )
+        if existing is None:
+            raise RuntimeError("signal insert conflict but row missing")
+        return existing, False
+
     existing = (
         db.query(models.Signal)
-        .filter(models.Signal.vertical_id == int(vertical_id))
         .filter(models.Signal.source == str(source))
         .filter(models.Signal.external_id == str(external_id))
         .one_or_none()

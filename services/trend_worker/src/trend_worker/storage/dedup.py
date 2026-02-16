@@ -1,2 +1,3 @@
-def idempotency_key(cluster_id: int, date: str, formula_version: str) -> str:
-    return f"{cluster_id}:{date}:{formula_version}"
+from sense_queue.idempotency import idempotency_key
+
+__all__ = ["idempotency_key"]

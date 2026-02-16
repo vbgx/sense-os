@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from db.models import Base, Signal, Vertical
 from db.repos import pain_instances as pain_instances_repo
-from processing_worker.storage.dedup import breakdown_hash, idempotency_key
+from processing_worker.storage.dedup import breakdown_hash
 
 
 def _make_session():
@@ -36,13 +36,13 @@ def _seed_vertical_with_signal(db, *, external_id: str) -> Signal:
     return signal
 
 
-def test_idempotency_key_is_stable_for_same_breakdown():
-    """Same breakdown content should yield the same idempotency key."""
+def test_breakdown_hash_is_stable_for_same_breakdown():
+    """Same breakdown content should yield the same hash."""
     a = {"score": 1.25, "pain_hits": 2, "flags": {"x": True, "y": False}}
     b = {"pain_hits": 2, "flags": {"y": False, "x": True}, "score": 1.25}
 
-    key_a = idempotency_key("algo_v1", a)
-    key_b = idempotency_key("algo_v1", b)
+    key_a = breakdown_hash(a)
+    key_b = breakdown_hash(b)
 
     assert key_a == key_b
 

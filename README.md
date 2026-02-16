@@ -57,7 +57,7 @@ Les principaux composants sont :
 | **Trend Worker**      | Calcule les métriques de tendance (vélocité, émergence, déclin).                | `services/trend_worker`           |
 | **API Gateway**       | Fournit une API REST pour accéder aux données.                                  | `apps/api_gateway`                |
 | **Scheduler**         | Planifie et orchestre les jobs pour les workers.                                | `services/scheduler`              |
-| **Base de données**   | Stocke les signaux, clusters, et métriques.                                     | `infra/sql`                       |
+| **Base de données**   | Stocke les signaux, clusters, et métriques (migrations Alembic).                | `packages/db/src/db/migrations`  |
 | **Files Redis**       | Gère la communication asynchrone entre les workers.                             | `infra/docker/docker-compose.yml` |
 
 ---

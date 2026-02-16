@@ -297,8 +297,8 @@ trap on_failure ERR
   step "=== 4️⃣b WAIT FOR REDIS HEALTH (up to ${POSTGRES_WAIT_S}s) ==="
   wait_service_healthy redis "$POSTGRES_WAIT_S"
 
-  step "=== 5️⃣  MIGRATE DB (via migrate_sql.sh) ==="
-  COMPOSE_FILE="$COMPOSE_FILE" "$SCRIPT_DIR/migrate_sql.sh"
+  step "=== 5️⃣  MIGRATE DB (via Alembic) ==="
+  COMPOSE_FILE="$COMPOSE_FILE" "$SCRIPT_DIR/migrate.sh"
 
   step "=== 6️⃣  BOOT APP SERVICES (api + workers) ==="
   if [ "$NO_BUILD" -eq 1 ]; then

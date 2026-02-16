@@ -128,15 +128,16 @@ logs-trend: ## Usage: make logs-trend — Follows trend-worker logs (tail=200)
 # DB / migrations
 # ============================================================
 
-migrate: ## Usage: make migrate — Applies ALL SQL migrations in infra/sql/*.sql via migrate_sql.sh
-	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/migrate_sql.sh
+migrate: ## Usage: make migrate — Alembic upgrade head (single source of truth)
+	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/migrate.sh
 
-migrate-list: ## Usage: make migrate-list — Lists SQL files that would be applied (MODE=list)
-	@COMPOSE_FILE="$(COMPOSE_FILE)" MODE=list $(SCRIPTS_DIR)/migrate_sql.sh
+migrate-list: ## Deprecated: legacy SQL migration list (use Alembic)
+	@echo "DEPRECATED: legacy SQL migrations moved to tools/legacy_sql. Use Alembic (make migrate)." >&2
+	@exit 1
 
-migrate-file: ## Usage: make migrate-file FILE=infra/sql/001_init_schema.sql — Applies ONE SQL file (MODE=file)
-	@[ -n "$$FILE" ] || (echo "ERROR: FILE is required. Example: make migrate-file FILE=infra/sql/001_init_schema.sql" >&2; exit 1)
-	@COMPOSE_FILE="$(COMPOSE_FILE)" MODE=file FILE="$$FILE" $(SCRIPTS_DIR)/migrate_sql.sh
+migrate-file: ## Deprecated: legacy SQL migration file (use Alembic)
+	@echo "DEPRECATED: legacy SQL migrations moved to tools/legacy_sql. Use Alembic (make migrate)." >&2
+	@exit 1
 
 seed: ## Usage: make seed — Seeds verticals via api-gateway container (python -m db.seed)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/seed_verticals.sh
@@ -224,6 +225,7 @@ workers-local: ## Usage: make workers-local — Prints commands to run local wor
 
 deprecated: ## Usage: make deprecated — Shows legacy scripts you should delete/stop using
 	@echo "Deprecated:"
-	@echo "  - tools/scripts/migrate.sh"
+	@echo "  - tools/scripts/migrate_sql.sh"
 	@echo "  - tools/scripts/migrate_all_sql.sh"
-	@echo "  - tools/scripts/patch_makefile_migrate.py"
+	@echo "  - tools/scripts/patch_makefile_migrate.py (legacy SQL)"
+	@echo "  - tools/legacy_sql/* (do not use)"

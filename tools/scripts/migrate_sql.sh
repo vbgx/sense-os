@@ -2,7 +2,11 @@
 set -euo pipefail
 source "$(dirname "$0")/_lib.sh"
 
-DIR="${DIR:-infra/sql}"
+if [ "${ALLOW_LEGACY_SQL:-0}" != "1" ]; then
+  die "Legacy SQL migrations are deprecated. Use tools/scripts/migrate.sh (Alembic). Set ALLOW_LEGACY_SQL=1 to override."
+fi
+
+DIR="${DIR:-tools/legacy_sql/infra_sql}"
 MODE="${MODE:-all}"          # all | list | file
 FILE="${FILE:-}"             # used if MODE=file
 DRY_RUN="${DRY_RUN:-0}"      # 1 => print only
@@ -17,7 +21,7 @@ apply_one() {
   cat "$REPO_ROOT/$f" | dc_exec postgres psql -U postgres -d postgres
 }
 
-step "🗄️  SQL migrate (DIR=$DIR MODE=$MODE DRY_RUN=$DRY_RUN)"
+step "🗄️  Legacy SQL migrate (DIR=$DIR MODE=$MODE DRY_RUN=$DRY_RUN)"
 
 case "$MODE" in
   list)

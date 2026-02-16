@@ -397,10 +397,13 @@ class TrendsAdapter:
 
 
 _default_adapter: TrendsAdapter | None = None
+_default_dsn: str | None = None
 
 
 def get_trends_adapter() -> TrendsAdapter:
-    global _default_adapter
-    if _default_adapter is None:
+    global _default_adapter, _default_dsn
+    dsn = os.getenv("POSTGRES_DSN") or os.getenv("DATABASE_URL") or DATABASE_URL
+    if _default_adapter is None or _default_dsn != dsn:
         _default_adapter = TrendsAdapter()
+        _default_dsn = dsn
     return _default_adapter

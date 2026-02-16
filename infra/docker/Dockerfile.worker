@@ -11,6 +11,7 @@ COPY pyproject.toml /app/pyproject.toml
 COPY packages /app/packages
 COPY services /app/services
 COPY apps /app/apps
+COPY tools /app/tools
 
 RUN pip install --no-cache-dir -e /app/packages/db \
  && pip install --no-cache-dir -e /app/packages/domain \

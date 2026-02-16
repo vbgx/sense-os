@@ -5,7 +5,7 @@ import os
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, List, Tuple
 
 import yaml
 
@@ -96,18 +96,21 @@ def load_vertical_docs_from_dir(verticals_dir: Path) -> List[VerticalDoc]:
 def load_vertical_docs_default() -> List[VerticalDoc]:
     env_dir = os.environ.get("VERTICALS_DIR")
     if env_dir:
-        return load_vertical_docs_from_dir(Path(env_dir))
+        p = Path(env_dir)
+        if p.exists() and p.is_dir():
+            return load_vertical_docs_from_dir(p)
 
     candidates = [
-        Path("tools/fixtures/verticals"),
-        Path("tools/fixtures/verticals"),
+        Path("/app/tools/fixtures/verticals"),
         Path("tools/fixtures/verticals"),
     ]
     for c in candidates:
         if c.exists() and c.is_dir():
             return load_vertical_docs_from_dir(c)
 
-    raise FileNotFoundError("VERTICALS_DIR not set and tools/fixtures/verticals not found")
+    raise FileNotFoundError(
+        "Vertical fixtures not found. Set VERTICALS_DIR or ensure tools/fixtures/verticals is available."
+    )
 
 
 @dataclass

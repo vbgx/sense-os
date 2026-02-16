@@ -71,6 +71,35 @@ class InsightsService:
 
         return self._serialize(rows)
 
+    def get_declining_risks(
+        self,
+        *,
+        vertical_id: Optional[str],
+        limit: int,
+        offset: int,
+    ) -> List[TopPainOut]:
+
+        with session_scope() as s:
+            stmt = select(PainCluster).where(
+                and_(
+                    PainCluster.saturation_score > 70,
+                    PainCluster.breakout_score == 0,
+                    PainCluster.contradiction_score > 50,
+                )
+            )
+
+            if vertical_id:
+                stmt = stmt.where(PainCluster.vertical_id == vertical_id)
+
+            stmt = stmt.order_by(
+                desc(PainCluster.saturation_score),
+                desc(PainCluster.contradiction_score),
+            ).limit(limit).offset(offset)
+
+            rows = s.execute(stmt).scalars().all()
+
+        return self._serialize(rows)
+
     def _serialize(self, rows) -> List[TopPainOut]:
         return [
             TopPainOut(

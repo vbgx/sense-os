@@ -39,3 +39,17 @@ def get_emerging_opportunities(
         limit=limit,
         offset=offset,
     )
+
+
+@router.get("/declining_risks", response_model=List[TopPainOut])
+def get_declining_risks(
+    vertical_id: Optional[str] = None,
+    limit: int = Query(default=50, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
+):
+    service = InsightsService()
+    return service.get_declining_risks(
+        vertical_id=vertical_id,
+        limit=limit,
+        offset=offset,
+    )

@@ -27,6 +27,13 @@ def _default_day_iso() -> str:
     return (date.today() - timedelta(days=1)).isoformat()
 
 
+def _cid_int(cluster_id: str) -> int:
+    try:
+        return int(cluster_id)
+    except Exception:
+        raise ValueError(f"invalid cluster_id: {cluster_id!r}")
+
+
 @dataclass(frozen=True)
 class TrendsQuery:
     vertical_id: int
@@ -34,6 +41,17 @@ class TrendsQuery:
     limit: int
     offset: int
     sparkline_days: int
+    min_exploitability: int | None = None
+    max_exploitability: int | None = None
+
+
+@dataclass(frozen=True)
+class TopPainsQuery:
+    vertical_id: int
+    limit: int
+    offset: int
+    min_exploitability: int | None = None
+    max_exploitability: int | None = None
 
 
 class TrendsService:
@@ -84,6 +102,85 @@ class TrendsService:
     def list_declining(self, q: TrendsQuery) -> dict[str, Any]:
         return self._list_kind("declining", q)
 
+    def list_top_pains(self, q: TopPainsQuery) -> dict[str, Any]:
+        cache_payload = {
+            "kind": "top_pains",
+            "vertical_id": q.vertical_id,
+            "limit": q.limit,
+            "offset": q.offset,
+            "min_exploitability": q.min_exploitability,
+            "max_exploitability": q.max_exploitability,
+        }
+        ck = self._cache_key("insights", cache_payload)
+        cached = self._cache_get(ck)
+        if cached is not None:
+            return cached
+
+        where_extra, params = self._exploitability_filter_sql(q.min_exploitability, q.max_exploitability)
+
+        with self._Session() as s:
+            total = s.execute(
+                text(
+                    f"""
+                    SELECT COUNT(*) AS n
+                    FROM pain_clusters c
+                    WHERE c.vertical_id = :vertical_id
+                    {where_extra}
+                    """
+                ),
+                {"vertical_id": q.vertical_id, **params},
+            ).scalar_one()
+
+            rows = (
+                s.execute(
+                    text(
+                        f"""
+                        SELECT
+                            c.id AS cluster_id,
+                            c.vertical_id,
+                            c.title,
+                            c.exploitability_score,
+                            c.exploitability_tier,
+                            c.exploitability_pain_strength,
+                            c.exploitability_timing_strength,
+                            c.exploitability_risk_penalty,
+                            c.exploitability_version
+                        FROM pain_clusters c
+                        WHERE c.vertical_id = :vertical_id
+                        {where_extra}
+                        ORDER BY c.exploitability_score DESC, c.id ASC
+                        LIMIT :limit OFFSET :offset
+                        """
+                    ),
+                    {"vertical_id": q.vertical_id, "limit": q.limit, "offset": q.offset, **params},
+                )
+                .mappings()
+                .all()
+            )
+
+            items: list[dict[str, Any]] = []
+            for r in rows:
+                items.append(
+                    {
+                        "cluster_id": str(r["cluster_id"]),
+                        "vertical_id": int(r["vertical_id"]),
+                        "title": r.get("title"),
+                        "exploitability": {
+                            "exploitability_score": int(r.get("exploitability_score") or 0),
+                            "tier": str(r.get("exploitability_tier") or "IGNORE"),
+                            "pain_strength": float(r.get("exploitability_pain_strength") or 0.0),
+                            "timing_strength": float(r.get("exploitability_timing_strength") or 0.0),
+                            "risk_penalty": float(r.get("exploitability_risk_penalty") or 0.0),
+                            "version": str(r.get("exploitability_version") or ""),
+                        },
+                    }
+                )
+
+            out = {"page": {"limit": q.limit, "offset": q.offset, "total": int(total)}, "items": items}
+
+        self._cache_set(ck, out)
+        return out
+
     def get_cluster_detail(
         self,
         *,
@@ -99,6 +196,8 @@ class TrendsService:
         if cached is not None:
             return cached
 
+        cid = _cid_int(cluster_id)
+
         with self._Session() as s:
             row = (
                 s.execute(
@@ -111,7 +210,14 @@ class TrendsService:
                             c.title,
                             m.emerging AS score,
                             m.velocity,
-                            COALESCE(m.source_count, 1) AS source_count
+                            COALESCE(m.source_count, 1) AS source_count,
+
+                            c.exploitability_score,
+                            c.exploitability_tier,
+                            c.exploitability_pain_strength,
+                            c.exploitability_timing_strength,
+                            c.exploitability_risk_penalty,
+                            c.exploitability_version
                         FROM cluster_daily_metrics m
                         JOIN pain_clusters c ON c.id = m.cluster_id
                         WHERE m.day = :day
@@ -120,7 +226,7 @@ class TrendsService:
                         LIMIT 1
                         """
                     ),
-                    {"day": day, "vertical_id": vertical_id, "cluster_id": int(cluster_id)},
+                    {"day": day, "vertical_id": vertical_id, "cluster_id": cid},
                 )
                 .mappings()
                 .first()
@@ -138,11 +244,19 @@ class TrendsService:
                     "breakdown": {},
                     "sparkline": [],
                     "meta": {"not_found": True},
+                    "exploitability": {
+                        "exploitability_score": 0,
+                        "tier": "IGNORE",
+                        "pain_strength": 0.0,
+                        "timing_strength": 0.0,
+                        "risk_penalty": 0.0,
+                        "version": "",
+                    },
                 }
                 self._cache_set(ck, out_nf)
                 return out_nf
 
-            spark = self._sparkline(s, cluster_id=int(cluster_id), vertical_id=vertical_id, day=day, days=sparkline_days)
+            spark = self._sparkline(s, cluster_id=cid, vertical_id=vertical_id, day=day, days=sparkline_days)
 
             out = {
                 "cluster_id": str(row["cluster_id"]),
@@ -155,6 +269,14 @@ class TrendsService:
                 "breakdown": {},
                 "sparkline": spark,
                 "meta": {},
+                "exploitability": {
+                    "exploitability_score": int(row.get("exploitability_score") or 0),
+                    "tier": str(row.get("exploitability_tier") or "IGNORE"),
+                    "pain_strength": float(row.get("exploitability_pain_strength") or 0.0),
+                    "timing_strength": float(row.get("exploitability_timing_strength") or 0.0),
+                    "risk_penalty": float(row.get("exploitability_risk_penalty") or 0.0),
+                    "version": str(row.get("exploitability_version") or ""),
+                },
             }
 
         self._cache_set(ck, out)
@@ -168,6 +290,8 @@ class TrendsService:
             "limit": q.limit,
             "offset": q.offset,
             "sparkline_days": q.sparkline_days,
+            "min_exploitability": q.min_exploitability,
+            "max_exploitability": q.max_exploitability,
         }
         ck = self._cache_key("list", cache_payload)
         cached = self._cache_get(ck)
@@ -175,18 +299,20 @@ class TrendsService:
             return cached
 
         order_sql = self._order_by(kind)
+        where_extra, params = self._exploitability_filter_sql(q.min_exploitability, q.max_exploitability)
 
         with self._Session() as s:
             total = s.execute(
                 text(
-                    """
+                    f"""
                     SELECT COUNT(*) AS n
                     FROM cluster_daily_metrics m
                     JOIN pain_clusters c ON c.id = m.cluster_id
                     WHERE m.day = :day AND c.vertical_id = :vertical_id
+                    {where_extra}
                     """
                 ),
-                {"day": q.day, "vertical_id": q.vertical_id},
+                {"day": q.day, "vertical_id": q.vertical_id, **params},
             ).scalar_one()
 
             rows = (
@@ -199,15 +325,23 @@ class TrendsService:
                             c.title,
                             m.emerging AS score,
                             m.velocity,
-                            COALESCE(m.source_count, 1) AS source_count
+                            COALESCE(m.source_count, 1) AS source_count,
+
+                            c.exploitability_score,
+                            c.exploitability_tier,
+                            c.exploitability_pain_strength,
+                            c.exploitability_timing_strength,
+                            c.exploitability_risk_penalty,
+                            c.exploitability_version
                         FROM cluster_daily_metrics m
                         JOIN pain_clusters c ON c.id = m.cluster_id
                         WHERE m.day = :day AND c.vertical_id = :vertical_id
+                        {where_extra}
                         {order_sql}
                         LIMIT :limit OFFSET :offset
                         """
                     ),
-                    {"day": q.day, "vertical_id": q.vertical_id, "limit": q.limit, "offset": q.offset},
+                    {"day": q.day, "vertical_id": q.vertical_id, "limit": q.limit, "offset": q.offset, **params},
                 )
                 .mappings()
                 .all()
@@ -226,6 +360,14 @@ class TrendsService:
                         "velocity": float(r.get("velocity") or 0.0),
                         "source_count": int(r.get("source_count") or 1),
                         "sparkline": spark,
+                        "exploitability": {
+                            "exploitability_score": int(r.get("exploitability_score") or 0),
+                            "tier": str(r.get("exploitability_tier") or "IGNORE"),
+                            "pain_strength": float(r.get("exploitability_pain_strength") or 0.0),
+                            "timing_strength": float(r.get("exploitability_timing_strength") or 0.0),
+                            "risk_penalty": float(r.get("exploitability_risk_penalty") or 0.0),
+                            "version": str(r.get("exploitability_version") or ""),
+                        },
                     }
                 )
 
@@ -233,6 +375,17 @@ class TrendsService:
 
         self._cache_set(ck, out)
         return out
+
+    def _exploitability_filter_sql(self, min_e: int | None, max_e: int | None) -> tuple[str, dict[str, Any]]:
+        clauses: list[str] = []
+        params: dict[str, Any] = {}
+        if min_e is not None:
+            clauses.append("AND c.exploitability_score >= :min_exploitability")
+            params["min_exploitability"] = int(min_e)
+        if max_e is not None:
+            clauses.append("AND c.exploitability_score <= :max_exploitability")
+            params["max_exploitability"] = int(max_e)
+        return ("\n" + "\n".join(clauses) if clauses else ""), params
 
     def _order_by(self, kind: str) -> str:
         if kind == "emerging":
@@ -270,11 +423,39 @@ class TrendsService:
         return [{"day": str(r["day"]), "v": float(r.get("v") or 0.0)} for r in rows]
 
 
-def build_query(*, vertical_id: int, day: str | None, limit: int, offset: int, sparkline_days: int) -> TrendsQuery:
+def build_query(
+    *,
+    vertical_id: int,
+    day: str | None,
+    limit: int,
+    offset: int,
+    sparkline_days: int,
+    min_exploitability: int | None = None,
+    max_exploitability: int | None = None,
+) -> TrendsQuery:
     return TrendsQuery(
         vertical_id=int(vertical_id),
         day=(day or _default_day_iso()),
         limit=int(limit),
         offset=int(offset),
         sparkline_days=int(sparkline_days),
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
+    )
+
+
+def build_top_pains_query(
+    *,
+    vertical_id: int,
+    limit: int,
+    offset: int,
+    min_exploitability: int | None = None,
+    max_exploitability: int | None = None,
+) -> TopPainsQuery:
+    return TopPainsQuery(
+        vertical_id=int(vertical_id),
+        limit=int(limit),
+        offset=int(offset),
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
     )

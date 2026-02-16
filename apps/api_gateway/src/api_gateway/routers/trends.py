@@ -84,8 +84,8 @@ def get_declining(
 
 @router.get("/clusters/{cluster_id}", response_model=ClusterDetail)
 def get_cluster_detail(
-    use_case: TrendsUseCase = Depends(get_trends_use_case),
     cluster_id: str,
+    use_case: TrendsUseCase = Depends(get_trends_use_case),
     vertical_id: int = Query(..., ge=1),
     day: str | None = Query(None),
     sparkline_days: int = Query(30, ge=2, le=180),

@@ -1,6 +1,7 @@
 import os
 from logging.config import fileConfig
 
+import sqlalchemy as sa
 from sqlalchemy import engine_from_config, pool
 from alembic import context
 
@@ -43,6 +44,18 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
+        connection.execute(
+            sa.text(
+                "CREATE TABLE IF NOT EXISTS alembic_version "
+                "(version_num VARCHAR(255) NOT NULL PRIMARY KEY)"
+            )
+        )
+        connection.execute(
+            sa.text(
+                "ALTER TABLE alembic_version "
+                "ALTER COLUMN version_num TYPE VARCHAR(255)"
+            )
+        )
         context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():

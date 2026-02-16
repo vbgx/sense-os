@@ -39,9 +39,8 @@ def persist_metrics(session: Session, metrics: PersistableClusterMetrics) -> Non
     Contract:
     - deterministic
     - single DB update statement per cluster
-    - exploitability_v1 computed from current persisted metrics inputs
+    - exploitability_v1 computed from current metrics inputs
     """
-    # Compute exploitability v1 (pure domain)
     r = compute_exploitability(
         ExploitabilityInputs(
             severity_score=metrics.severity_score,
@@ -74,6 +73,7 @@ def persist_metrics(session: Session, metrics: PersistableClusterMetrics) -> Non
             exploitability_timing_strength=float(r.breakdown.timing_strength),
             exploitability_risk_penalty=float(r.breakdown.risk_penalty),
             exploitability_version=str(r.exploitability_version),
+            exploitability_tier=str(r.exploitability_tier.value),
         )
     )
 

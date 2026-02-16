@@ -75,5 +75,6 @@ class PainCluster(Base):
     exploitability_timing_strength = Column(Float, nullable=False, server_default="0")
     exploitability_risk_penalty = Column(Float, nullable=False, server_default="0")
     exploitability_version = Column(String, nullable=False, server_default="", index=True)
+    exploitability_tier = Column(String, nullable=False, server_default="IGNORE", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

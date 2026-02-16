@@ -31,7 +31,6 @@ def _cid_int(cluster_id: str) -> int:
     try:
         return int(cluster_id)
     except Exception:
-        # keep it strict (avoid silent mismatches)
         raise ValueError(f"invalid cluster_id: {cluster_id!r}")
 
 
@@ -141,6 +140,7 @@ class TrendsService:
                             c.vertical_id,
                             c.title,
                             c.exploitability_score,
+                            c.exploitability_tier,
                             c.exploitability_pain_strength,
                             c.exploitability_timing_strength,
                             c.exploitability_risk_penalty,
@@ -167,6 +167,7 @@ class TrendsService:
                         "title": r.get("title"),
                         "exploitability": {
                             "exploitability_score": int(r.get("exploitability_score") or 0),
+                            "tier": str(r.get("exploitability_tier") or "IGNORE"),
                             "pain_strength": float(r.get("exploitability_pain_strength") or 0.0),
                             "timing_strength": float(r.get("exploitability_timing_strength") or 0.0),
                             "risk_penalty": float(r.get("exploitability_risk_penalty") or 0.0),
@@ -212,6 +213,7 @@ class TrendsService:
                             COALESCE(m.source_count, 1) AS source_count,
 
                             c.exploitability_score,
+                            c.exploitability_tier,
                             c.exploitability_pain_strength,
                             c.exploitability_timing_strength,
                             c.exploitability_risk_penalty,
@@ -244,6 +246,7 @@ class TrendsService:
                     "meta": {"not_found": True},
                     "exploitability": {
                         "exploitability_score": 0,
+                        "tier": "IGNORE",
                         "pain_strength": 0.0,
                         "timing_strength": 0.0,
                         "risk_penalty": 0.0,
@@ -268,6 +271,7 @@ class TrendsService:
                 "meta": {},
                 "exploitability": {
                     "exploitability_score": int(row.get("exploitability_score") or 0),
+                    "tier": str(row.get("exploitability_tier") or "IGNORE"),
                     "pain_strength": float(row.get("exploitability_pain_strength") or 0.0),
                     "timing_strength": float(row.get("exploitability_timing_strength") or 0.0),
                     "risk_penalty": float(row.get("exploitability_risk_penalty") or 0.0),
@@ -324,6 +328,7 @@ class TrendsService:
                             COALESCE(m.source_count, 1) AS source_count,
 
                             c.exploitability_score,
+                            c.exploitability_tier,
                             c.exploitability_pain_strength,
                             c.exploitability_timing_strength,
                             c.exploitability_risk_penalty,
@@ -357,6 +362,7 @@ class TrendsService:
                         "sparkline": spark,
                         "exploitability": {
                             "exploitability_score": int(r.get("exploitability_score") or 0),
+                            "tier": str(r.get("exploitability_tier") or "IGNORE"),
                             "pain_strength": float(r.get("exploitability_pain_strength") or 0.0),
                             "timing_strength": float(r.get("exploitability_timing_strength") or 0.0),
                             "risk_penalty": float(r.get("exploitability_risk_penalty") or 0.0),

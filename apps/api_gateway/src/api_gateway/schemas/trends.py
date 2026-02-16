@@ -17,6 +17,7 @@ class SparklinePoint(BaseModel):
 
 class ExploitabilityOut(BaseModel):
     exploitability_score: int = Field(0, ge=0, le=100)
+    tier: str = Field("IGNORE")
     pain_strength: float = Field(0.0, ge=0.0, le=100.0)
     timing_strength: float = Field(0.0, ge=0.0, le=100.0)
     risk_penalty: float = Field(0.0, ge=0.0, le=100.0)

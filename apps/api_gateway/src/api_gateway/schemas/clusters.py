@@ -29,6 +29,7 @@ class ClusterOut(BaseModel):
 
     # EPIC 03 — Exploitability
     exploitability_score: int = Field(0, ge=0, le=100)
+    exploitability_tier: str = Field("IGNORE")
     exploitability_pain_strength: float = Field(0.0, ge=0.0, le=100.0)
     exploitability_timing_strength: float = Field(0.0, ge=0.0, le=100.0)
     exploitability_risk_penalty: float = Field(0.0, ge=0.0, le=100.0)

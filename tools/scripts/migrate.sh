@@ -16,9 +16,9 @@ run_local() {
 run_docker() {
   step "🗄️  Alembic migrate (docker)"
   if dc ps -q api-gateway >/dev/null 2>&1 && [ -n "$(dc ps -q api-gateway)" ]; then
-    dc_exec api-gateway bash -lc "alembic -c /app/packages/db/alembic.ini upgrade head"
+    dc_exec api-gateway bash -lc "python -m alembic -c /app/packages/db/alembic.ini upgrade head"
   else
-    dc run --rm api-gateway bash -lc "alembic -c /app/packages/db/alembic.ini upgrade head"
+    dc run --rm --build api-gateway bash -lc "python -m alembic -c /app/packages/db/alembic.ini upgrade head"
   fi
 }
 

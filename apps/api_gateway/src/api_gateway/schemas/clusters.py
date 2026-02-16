@@ -19,11 +19,12 @@ class ClusterOut(BaseModel):
     persona_distribution: dict[str, float] = Field(default_factory=dict)
 
     monetizability_score: int = Field(0, ge=0, le=100)
-
     contradiction_score: int = Field(0, ge=0, le=100)
 
-    # EPIC 02.01 — Breakout (Early Acceleration Anomaly)
     breakout_score: int = Field(0, ge=0, le=100)
+
+    # EPIC 02.02 — Saturation Detection
+    saturation_score: int = Field(0, ge=0, le=100)
 
     class Config:
         from_attributes = True

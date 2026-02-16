@@ -61,10 +61,11 @@ class PainCluster(Base):
     persona_distribution_json = Column(Text, nullable=False, server_default="{}")
 
     monetizability_score = Column(Integer, nullable=False, server_default="0", index=True)
-
     contradiction_score = Column(Integer, nullable=False, server_default="0", index=True)
 
-    # EPIC 02.01 — Early Breakout Detector (0..100)
     breakout_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+    # EPIC 02.02 — Saturation Detection (0..100)
+    saturation_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

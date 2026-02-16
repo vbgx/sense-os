@@ -19,9 +19,18 @@ class ClusterOut(BaseModel):
     persona_distribution: dict[str, float] = Field(default_factory=dict)
 
     monetizability_score: int = Field(0, ge=0, le=100)
-
-    # EPIC 01.05 — Contradiction Index
     contradiction_score: int = Field(0, ge=0, le=100)
+
+    breakout_score: int = Field(0, ge=0, le=100)
+    saturation_score: int = Field(0, ge=0, le=100)
+
+    opportunity_window_score: int = Field(0, ge=0, le=100)
+    opportunity_window_status: str = Field("UNKNOWN")
+
+    half_life_days: float | None = None
+
+    # EPIC 02.05 — Competitive Heat Proxy
+    competitive_heat_score: int = Field(0, ge=0, le=100)
 
     class Config:
         from_attributes = True

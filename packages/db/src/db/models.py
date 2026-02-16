@@ -61,8 +61,17 @@ class PainCluster(Base):
     persona_distribution_json = Column(Text, nullable=False, server_default="{}")
 
     monetizability_score = Column(Integer, nullable=False, server_default="0", index=True)
-
-    # EPIC 01.05 — Contradiction Detection (0..100)
     contradiction_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+    breakout_score = Column(Integer, nullable=False, server_default="0", index=True)
+    saturation_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+    opportunity_window_score = Column(Integer, nullable=False, server_default="0", index=True)
+    opportunity_window_status = Column(String, nullable=False, server_default="UNKNOWN", index=True)
+
+    half_life_days = Column(Float, nullable=True, index=True)
+
+    # EPIC 02.05 — Competitive Heat Proxy (0..100)
+    competitive_heat_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

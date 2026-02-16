@@ -9,6 +9,7 @@ from clustering_worker.storage.recurrence import InstanceForRecurrence, compute_
 from clustering_worker.storage.persona import InstanceForPersona, infer_cluster_persona_from_instances
 from clustering_worker.storage.monetizability import InstanceForMonetizability, compute_cluster_monetizability
 from clustering_worker.storage.contradiction import InstanceForContradiction, compute_cluster_contradiction
+from clustering_worker.storage.competitive_heat import InstanceForCompetitiveHeat, compute_cluster_competitive_heat
 
 
 @dataclass(frozen=True)
@@ -17,14 +18,28 @@ class ClusterWriteModel:
     vertical_id: str
     title: str
     size: int
+
     severity_score: int
+
     recurrence_score: int
     recurrence_ratio: float
+
     dominant_persona: str
     persona_confidence: float
     persona_distribution: dict[str, float]
+
     monetizability_score: int
     contradiction_score: int
+
+    breakout_score: int
+    saturation_score: int
+
+    opportunity_window_score: int
+    opportunity_window_status: str
+
+    half_life_days: float | None
+
+    competitive_heat_score: int
 
 
 def _to_int(x: Any) -> int:
@@ -116,6 +131,19 @@ def build_cluster_write_model(
     ]
     contradiction_score = compute_cluster_contradiction(con_instances)
 
+    # Competitive heat (solution/alternative mentions)
+    heat_instances = [InstanceForCompetitiveHeat(text=str(r.get("text") or r.get("body") or "")) for r in rows]
+    competitive_heat_score = compute_cluster_competitive_heat(heat_instances)
+
+    # NOTE:
+    # breakout_score/saturation_score/opportunity_window/half_life are computed in trend_worker.
+    # Here we keep placeholders (0/UNKNOWN/None) for initial insert if pipeline writes cluster first.
+    breakout_score = 0
+    saturation_score = 0
+    opportunity_window_score = 0
+    opportunity_window_status = "UNKNOWN"
+    half_life_days = None
+
     return ClusterWriteModel(
         cluster_id=cluster_id,
         vertical_id=vertical_id,
@@ -129,4 +157,10 @@ def build_cluster_write_model(
         persona_distribution=persona_distribution,
         monetizability_score=monetizability_score,
         contradiction_score=contradiction_score,
+        breakout_score=breakout_score,
+        saturation_score=saturation_score,
+        opportunity_window_score=opportunity_window_score,
+        opportunity_window_status=opportunity_window_status,
+        half_life_days=half_life_days,
+        competitive_heat_score=competitive_heat_score,
     )

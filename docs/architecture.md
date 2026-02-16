@@ -2,18 +2,22 @@
 
 ## EPIC 01 — Pain Intelligence V2
 
-### 01.01 — Pain Severity Index
-Clusters carry `severity_score` (0–100) computed from frequency/intensity/engagement/specificity.
+Clusters carry:
+- severity_score (0–100)
+- recurrence_score (0–100) + recurrence_ratio (0–1)
+- dominant_persona + persona_confidence + persona_distribution
+- monetizability_score (0–100)
+- contradiction_score (0–100)
 
-### 01.02 — Recurrence Detection
-Clusters carry `recurrence_score` (0–100) + `recurrence_ratio` (0–1) from multi-user + repeated phrases + time distribution.
+## EPIC 02 — Trend Engine Pro
 
-### 01.03 — Persona Inference (rule-based v1)
-Clusters carry `dominant_persona`, `persona_confidence` (0–1), and `persona_distribution`.
+Clusters additionally carry:
+- breakout_score (0–100) — acceleration anomaly
+- saturation_score (0–100) — post-peak flattening detection
+- opportunity_window_score (0–100) + opportunity_window_status (EARLY/PEAK/SATURATING)
+- half_life_days (float | null) — post-peak decay half-life estimate
+- competitive_heat_score (0–100) — v0 proxy from mentions of existing solutions/alternatives
 
-### 01.04 — Monetizability Proxy Score (rule-based v1)
-Clusters carry `monetizability_score` (0–100), a proxy for business relevance:
-- business/revenue markers
-- operational inefficiency markers
-- persona weighting (founder/freelancer boosted, hobbyist deboosted)
-This is not TAM/pricing/market sizing; it is a stable heuristic for ranking.
+Opportunity Window:
+- Status is driven by timing (breakout/saturation/momentum).
+- Score is mildly penalized when competitive_heat is high (v0 heuristic).

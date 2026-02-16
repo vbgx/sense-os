@@ -6,13 +6,11 @@ from typing import Any, Iterable, Optional
 
 from clustering_worker.storage.severity import InstanceForSeverity, compute_cluster_severity
 from clustering_worker.storage.recurrence import InstanceForRecurrence, compute_cluster_recurrence
+from clustering_worker.storage.persona import InstanceForPersona, infer_cluster_persona_from_instances
 
 
 @dataclass(frozen=True)
 class ClusterWriteModel:
-    """
-    Minimal write-model expected by the DB layer.
-    """
     cluster_id: str
     vertical_id: str
     title: str
@@ -20,6 +18,9 @@ class ClusterWriteModel:
     severity_score: int
     recurrence_score: int
     recurrence_ratio: float
+    dominant_persona: str
+    persona_confidence: float
+    persona_distribution: dict[str, float]
 
 
 def _to_int(x: Any) -> int:
@@ -43,7 +44,6 @@ def _to_dt_or_none(x: Any) -> Optional[datetime]:
         return None
     if isinstance(x, datetime):
         return x
-    # best-effort ISO parse
     try:
         return datetime.fromisoformat(str(x).replace("Z", "+00:00"))
     except Exception:
@@ -57,49 +57,40 @@ def build_cluster_write_model(
     title: str,
     instance_rows: Iterable[dict[str, Any]],
 ) -> ClusterWriteModel:
-    """
-    Builds a cluster payload for persistence, including:
-      - Pain Severity Index (severity_score)
-      - Recurrence Detection (recurrence_score + recurrence_ratio)
-
-    instance_rows: dicts should (best-effort) include:
-      - text
-      - sentiment_compound (or sentiment)
-      - upvotes/comments/replies
-      - user_id (or author_id / user)
-      - source_id (post id)
-      - created_at (datetime or ISO)
-    """
     rows = list(instance_rows)
 
-    # Severity adapter
-    sev_instances = []
-    for r in rows:
-        sev_instances.append(
-            InstanceForSeverity(
-                text=str(r.get("text") or r.get("body") or ""),
-                sentiment_compound=_to_float_or_none(r.get("sentiment_compound", r.get("sentiment"))),
-                upvotes=_to_int(r.get("upvotes", r.get("score", 0))),
-                comments=_to_int(r.get("comments", r.get("num_comments", 0))),
-                replies=_to_int(r.get("replies", 0)),
-            )
+    # Severity
+    sev_instances = [
+        InstanceForSeverity(
+            text=str(r.get("text") or r.get("body") or ""),
+            sentiment_compound=_to_float_or_none(r.get("sentiment_compound", r.get("sentiment"))),
+            upvotes=_to_int(r.get("upvotes", r.get("score", 0))),
+            comments=_to_int(r.get("comments", r.get("num_comments", 0))),
+            replies=_to_int(r.get("replies", 0)),
         )
-
+        for r in rows
+    ]
     severity = compute_cluster_severity(sev_instances)
 
-    # Recurrence adapter
-    rec_instances = []
-    for r in rows:
-        rec_instances.append(
-            InstanceForRecurrence(
-                text=str(r.get("text") or r.get("body") or ""),
-                user_id=(r.get("user_id") or r.get("author_id") or r.get("author") or r.get("user")),
-                source_id=(r.get("source_id") or r.get("id")),
-                created_at=_to_dt_or_none(r.get("created_at")),
-            )
+    # Recurrence
+    rec_instances = [
+        InstanceForRecurrence(
+            text=str(r.get("text") or r.get("body") or ""),
+            user_id=(r.get("user_id") or r.get("author_id") or r.get("author") or r.get("user")),
+            source_id=(r.get("source_id") or r.get("id")),
+            created_at=_to_dt_or_none(r.get("created_at")),
         )
-
+        for r in rows
+    ]
     recurrence_score, recurrence_ratio = compute_cluster_recurrence(rec_instances)
+
+    # Persona
+    persona_instances = [InstanceForPersona(text=str(r.get("text") or r.get("body") or "")) for r in rows]
+    persona_inf = infer_cluster_persona_from_instances(persona_instances)
+
+    dominant_persona = str(persona_inf.dominant_persona.value)
+    persona_confidence = float(persona_inf.confidence)
+    persona_distribution = {str(k.value): float(v) for k, v in persona_inf.distribution.items()}
 
     return ClusterWriteModel(
         cluster_id=cluster_id,
@@ -109,4 +100,7 @@ def build_cluster_write_model(
         severity_score=severity,
         recurrence_score=recurrence_score,
         recurrence_ratio=float(recurrence_ratio),
+        dominant_persona=dominant_persona,
+        persona_confidence=persona_confidence,
+        persona_distribution=persona_distribution,
     )

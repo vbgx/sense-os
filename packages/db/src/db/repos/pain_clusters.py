@@ -15,7 +15,7 @@ class PainClustersRepo:
     def list(self) -> list[PainCluster]:
         return (
             self.session.query(PainCluster)
-            .order_by(PainCluster.severity_score.desc(), PainCluster.size.desc())
+            .order_by(PainCluster.severity_score.desc(), PainCluster.recurrence_score.desc(), PainCluster.size.desc())
             .all()
         )
 
@@ -26,9 +26,6 @@ class PainClustersRepo:
         return obj
 
     def upsert(self, payload: dict[str, Any]) -> PainCluster:
-        """
-        payload expects at least: id, vertical_id, title, size, severity_score
-        """
         obj = self.session.query(PainCluster).filter(PainCluster.id == payload["id"]).one_or_none()
         if obj is None:
             obj = PainCluster(**payload)

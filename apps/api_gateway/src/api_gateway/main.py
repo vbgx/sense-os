@@ -60,3 +60,6 @@ if static_dir.exists():
 @app.get("/")
 def root() -> RedirectResponse:
     return RedirectResponse(url="/ui")
+
+from api_gateway.routers.insights import router as insights_router
+app.include_router(insights_router)

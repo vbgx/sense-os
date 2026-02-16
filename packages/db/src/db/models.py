@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean
+from sqlalchemy import Column, Integer, String, Text, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -18,6 +18,8 @@ class Signal(Base):
 
     created_at = Column(DateTime(timezone=True), nullable=True, index=True)
     signal_quality_score = Column(Integer, nullable=True, index=True)
+
+    language_code = Column(String(8), nullable=True, index=True)
 
 
 class PainCluster(Base):

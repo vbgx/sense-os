@@ -24,6 +24,9 @@ class ClusterDetailOut(BaseModel):
 
     exploitability_score: int
     exploitability_tier: str
+    exploitability_score_v2: int
+    exploitability_tier_v2: str
+    exploitability_version_v2: str
 
     severity_score: int
     recurrence_score: int
@@ -42,3 +45,4 @@ class ClusterDetailOut(BaseModel):
 
     class Config:
         extra = "ignore"
+

@@ -1,9 +1,16 @@
 from __future__ import annotations
 
-from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy import Column, DateTime, Float, Integer, String, Text, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
+
+
+class Vertical(Base):
+    __tablename__ = "verticals"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128), nullable=False, unique=True, index=True)
 
 
 class Signal(Base):
@@ -35,3 +42,20 @@ class PainCluster(Base):
     top_signal_ids_json = Column(Text, nullable=False, server_default="[]")
     key_phrases_json = Column(Text, nullable=False, server_default="[]")
     confidence_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+
+class PainInstance(Base):
+    __tablename__ = "pain_instances"
+    __table_args__ = (
+        UniqueConstraint("algo_version", "breakdown_hash", name="uq_pain_instances_algo_breakdown"),
+    )
+
+    id = Column(Integer, primary_key=True)
+    vertical_id = Column(Integer, nullable=False, index=True)
+    signal_id = Column(Integer, nullable=False, index=True)
+
+    algo_version = Column(String(64), nullable=False, index=True)
+    pain_score = Column(Float, nullable=False, server_default="0")
+
+    breakdown = Column(Text, nullable=True)
+    breakdown_hash = Column(String(128), nullable=False, index=True)

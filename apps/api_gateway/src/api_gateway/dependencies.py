@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-from typing import Generator
-from sqlalchemy.orm import Session
+from fastapi import Depends
 
-from db.session import SessionLocal
+from db.session import get_session
+from db.repos.pain_clusters import PainClustersRepo
+from api_gateway.services.clusters_service import ClustersService
 
 
-def get_db() -> Generator[Session, None, None]:
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+def get_clusters_service(session=Depends(get_session)) -> ClustersService:
+    return ClustersService(repo=PainClustersRepo(session=session))

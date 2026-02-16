@@ -1,38 +1,31 @@
-# Sense OS Architecture
+# Architecture
 
 ## Overview
-Sense OS is a batch pipeline that ingests external signals, extracts pain instances, clusters them, and computes trend metrics for API consumers.
 
-## Components
-1. API Gateway: FastAPI service providing health, pains, trends, and verticals endpoints.
-2. Ingestion Worker: Fetches external signals and writes to `signals`.
-3. Processing Worker: Converts signals into `pain_instances`.
-4. Clustering Worker: Builds `pain_clusters` and `cluster_signals` links.
-5. Trend Worker: Computes `cluster_daily_metrics` and trend scores.
-6. Scheduler: Orchestrates job publication and backfills.
-7. Redis Queue: Routes jobs between services.
-8. Postgres: Primary data store.
+This repository is a monorepo composed of:
 
-## Data Flow
-1. Scheduler publishes an `ingest_vertical` job.
-2. Ingestion worker inserts `signals`.
-3. Scheduler publishes a `process_signals` job.
-4. Processing worker inserts `pain_instances`.
-5. Scheduler publishes a `cluster_vertical` job.
-6. Clustering worker inserts `pain_clusters` and `cluster_signals`.
-7. Scheduler publishes a `trend_day` job.
-8. Trend worker inserts `cluster_daily_metrics`.
-9. API gateway serves `/pains` and `/trending` endpoints.
+- `apps/api_gateway`: HTTP API (FastAPI) exposing read endpoints for verticals, signals, pains, clusters, trends.
+- `services/*_worker`: background workers (ingestion, processing, clustering, trend, scheduler).
+- `packages/domain`: pure domain logic (models, rules, scoring).
+- `packages/db`: SQLAlchemy models, repos, Alembic migrations.
+- `packages/queue`: queue client/contracts/idempotency.
 
-## Operational Entry Points
-1. Full validation: `make validate`
-2. Scheduler once: `make scheduler-once`
-3. Trend once: `make trend-once`
+## EPIC 01 — Pain Intelligence V2
 
-## Storage
-1. Postgres tables are defined in `packages/db/src/db/models.py`.
-2. SQL migrations live under `infra/sql`.
+### Issue 01.01 — Pain Severity Index
 
-## Observability
-1. Services log to stdout for Docker aggregation.
-2. Key log markers include `published_jobs`, `cluster_job`, and `trend_job`.
+Goal: clusters become *measurable strategic objects* by carrying a normalized severity score (0–100).
+
+**Inputs (cluster-level aggregation)**
+- Frequency: number of signals in the cluster
+- Intensity: negative sentiment magnitude proxy (from per-signal sentiment)
+- Engagement: upvotes/comments/replies proxy
+- Specificity: text length proxy
+
+**Implementation**
+- Domain function: `domain/scoring/pain_severity.py` computes a stable severity index (0–100).
+- Persistence: `pain_clusters.severity_score` (DB column, indexed).
+- Exposure: API includes `severity_score` on cluster responses.
+
+**Notes**
+- Uses log-normalization and caps to keep score stable and avoid domination by outliers.

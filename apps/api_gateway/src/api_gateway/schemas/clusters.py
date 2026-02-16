@@ -1,29 +1,16 @@
 from __future__ import annotations
 
-from datetime import datetime
-
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
-class ClusterItem(BaseModel):
-    id: int
-    vertical_id: int
-    cluster_version: str
-    cluster_key: str
+class ClusterOut(BaseModel):
+    id: str
+    vertical_id: str
     title: str
     size: int
-    created_at: datetime | None = None
+
+    # EPIC 01.01 — Pain Severity Index
+    severity_score: int = Field(0, ge=0, le=100)
 
     class Config:
         from_attributes = True
-
-
-class Page(BaseModel):
-    limit: int
-    offset: int
-
-
-class ClusterListOut(BaseModel):
-    page: Page
-    total: int
-    items: list[ClusterItem]

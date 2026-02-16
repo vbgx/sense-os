@@ -1,80 +1,76 @@
 from __future__ import annotations
 
-from dataclasses import asdict as _asdict
-import logging
-from typing import Any, Iterable, Tuple
+from dataclasses import dataclass
+from typing import Any, Iterable, Optional
 
-from db.session import SessionLocal
-from db.repos import pain_clusters as repo
-
-log = logging.getLogger(__name__)
-
-def _get(obj: Any, key: str, default: Any = None) -> Any:
-    if isinstance(obj, dict):
-        return obj.get(key, default)
-    if hasattr(obj, "__dataclass_fields__"):
-        return _asdict(obj).get(key, default)
-    return getattr(obj, key, default)
+from clustering_worker.storage.severity import InstanceForSeverity, compute_cluster_severity
 
 
-def _normalize_title(s: Any) -> str:
-    t = str(s or "").strip()
-    if not t:
-        t = "(untitled)"
-    return t[:255]
-
-
-def write_clusters(
-    clusters: Iterable[Any],
-    *,
-    vertical_id: int,
-    cluster_version: str,
-) -> Tuple[int, int, int]:
+@dataclass(frozen=True)
+class ClusterWriteModel:
     """
-    Persist clusters idempotently.
-
-    Accepts items that are dict-like OR objects with fields:
-      - cluster_key
-      - title
-      - size
-
-    Returns (inserted, updated, unchanged).
+    Minimal write-model expected by the DB layer.
     """
-    inserted = 0
-    updated = 0
-    unchanged = 0
+    cluster_id: str
+    vertical_id: str
+    title: str
+    size: int
+    severity_score: int
 
-    db = SessionLocal()
+
+def _to_int(x: Any) -> int:
     try:
-        for c in clusters:
-            cluster_key = _get(c, "cluster_key")
-            title = _normalize_title(_get(c, "title"))
-            size = int(_get(c, "size", 0))
+        return int(x)
+    except Exception:
+        return 0
 
-            _, was_inserted, was_updated = repo.upsert_cluster(
-                db,
-                vertical_id=int(vertical_id),
-                cluster_version=str(cluster_version),
-                cluster_key=str(cluster_key),
-                title=title,
-                size=size,
+
+def _to_float_or_none(x: Any) -> Optional[float]:
+    if x is None:
+        return None
+    try:
+        return float(x)
+    except Exception:
+        return None
+
+
+def build_cluster_write_model(
+    *,
+    cluster_id: str,
+    vertical_id: str,
+    title: str,
+    instance_rows: Iterable[dict[str, Any]],
+) -> ClusterWriteModel:
+    """
+    Builds a cluster payload for persistence, including the Pain Severity Index.
+
+    instance_rows: dicts should (best-effort) include:
+      - text
+      - sentiment_compound (or sentiment)
+      - upvotes
+      - comments
+      - replies
+    """
+    rows = list(instance_rows)
+
+    instances = []
+    for r in rows:
+        instances.append(
+            InstanceForSeverity(
+                text=str(r.get("text") or r.get("body") or ""),
+                sentiment_compound=_to_float_or_none(r.get("sentiment_compound", r.get("sentiment"))),
+                upvotes=_to_int(r.get("upvotes", r.get("score", 0))),
+                comments=_to_int(r.get("comments", r.get("num_comments", 0))),
+                replies=_to_int(r.get("replies", 0)),
             )
-
-            if was_inserted:
-                inserted += 1
-            elif was_updated:
-                updated += 1
-            else:
-                unchanged += 1
-
-        log.info(
-            "clusters_persisted vertical_id=%s cluster_version=%s inserted=%s updated=%s unchanged=%s",
-            vertical_id,
-            cluster_version,
-            inserted,
-            updated,
-            unchanged,
         )
-        return inserted, updated, unchanged
-    finally:
-        db.close()
+
+    severity = compute_cluster_severity(instances)
+
+    return ClusterWriteModel(
+        cluster_id=cluster_id,
+        vertical_id=vertical_id,
+        title=title,
+        size=len(rows),
+        severity_score=severity,
+    )

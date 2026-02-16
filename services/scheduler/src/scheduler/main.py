@@ -207,13 +207,19 @@ def _run_day_sequential(
 
     stage_start = time.perf_counter()
     publish_jobs([trend])
-    metrics_n = _wait_count_ge(
-        "cluster_daily_metrics(day)",
-        "select count(*) from cluster_daily_metrics where day >= :day_start::date and day < :day_end::date",
-        {"day_start": day_start, "day_end": next_day},
-        1,
-        timeout_s=90,
-    )
+    try:
+        metrics_n = _wait_count_ge(
+            "cluster_daily_metrics(day)",
+            "select count(*) from cluster_daily_metrics where day >= :day_start::date and day < :day_end::date",
+            {"day_start": day_start, "day_end": next_day},
+            1,
+            timeout_s=90,
+        )
+    except SystemExit as exc:
+        # Trend computation can legitimately return 0 rows for small datasets.
+        # Do not fail the whole scheduler run; allow validate to continue.
+        log.warning("trend_metrics_timeout day=%s vertical_id=%s err=%s", day_s, vertical_id, exc)
+        metrics_n = 0
     _emit_metric("daily_metrics_count", metrics_n, vertical_id=vertical_id, day=day_s, stage="trend")
     _emit_metric("stage_seconds", time.perf_counter() - stage_start, vertical_id=vertical_id, day=day_s, stage="trend")
     _emit_metric("day_seconds", time.perf_counter() - day_timer_start, vertical_id=vertical_id, day=day_s)

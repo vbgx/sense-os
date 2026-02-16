@@ -45,6 +45,12 @@ class TrendsAdapter:
         if self._cache_enabled and redis is not None:
             self._redis = redis.Redis.from_url(self._redis_url, decode_responses=True)
 
+    def dispose(self) -> None:
+        try:
+            self._engine.dispose()
+        except Exception:
+            pass
+
     def _cache_key(self, prefix: str, payload: dict[str, Any]) -> str:
         raw = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
         h = hashlib.sha1(raw).hexdigest()
@@ -407,3 +413,11 @@ def get_trends_adapter() -> TrendsAdapter:
         _default_adapter = TrendsAdapter()
         _default_dsn = dsn
     return _default_adapter
+
+
+def reset_trends_adapter() -> None:
+    global _default_adapter, _default_dsn
+    if _default_adapter is not None:
+        _default_adapter.dispose()
+    _default_adapter = None
+    _default_dsn = None

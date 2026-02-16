@@ -16,6 +16,7 @@ os.environ["POSTGRES_DSN"] = os.environ["DATABASE_URL"]
 from db.engine import engine  # noqa: E402
 from db.models import Base  # noqa: E402
 from db.uow import SqlAlchemyUnitOfWork  # noqa: E402
+from db.adapters.trends import reset_trends_adapter  # noqa: E402
 from api_gateway.main import app  # noqa: E402
 from api_gateway.dependencies import get_uow  # noqa: E402
 
@@ -32,6 +33,7 @@ def _reset_schema() -> None:
 def db_session():
     """Provide a clean database session for tests."""
     _reset_schema()
+    reset_trends_adapter()
     session = TestingSessionLocal()
     try:
         yield session

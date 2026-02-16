@@ -4,11 +4,10 @@ from datetime import datetime
 from typing import Any, Optional, Tuple
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
 
-from api_gateway.dependencies import get_db
+from api_gateway.dependencies import get_pains_use_case
 from api_gateway.schemas.pains import PainDetailOut, PainListOut
-from api_gateway.services.pains_service import get_pain, list_pains
+from application.use_cases.pains import PainsUseCase
 
 router = APIRouter()
 
@@ -119,7 +118,7 @@ def _row_to_item(row: Any) -> dict:
 @router.get("/pains", response_model=PainListOut)
 def pains_list(
     *,
-    db: Session = Depends(get_db),
+    use_case: PainsUseCase = Depends(get_pains_use_case),
     vertical_id: Optional[int] = Query(default=None, ge=1),
     vertical: Optional[int] = Query(default=None, ge=1),
     limit: int = Query(default=10, ge=1, le=200),
@@ -132,7 +131,7 @@ def pains_list(
     if vid is None:
         raise HTTPException(status_code=422, detail="vertical_id is required (e.g. ?vertical_id=1)")
 
-    rows, total = list_pains(db=db, limit=limit, offset=offset, vertical_id=int(vid))
+    rows, total = use_case.list_pains(limit=limit, offset=offset, vertical_id=int(vid))
     items = [_row_to_item(r) for r in (rows or [])]
 
     return {
@@ -143,11 +142,11 @@ def pains_list(
 
 
 @router.get("/pains/{pain_id}", response_model=PainDetailOut)
-def pains_detail(*, db: Session = Depends(get_db), pain_id: int):
+def pains_detail(*, use_case: PainsUseCase = Depends(get_pains_use_case), pain_id: int):
     """
     Fetch a single pain instance by id.
     """
-    row = get_pain(db=db, pain_id=pain_id)
+    row = use_case.get_pain(pain_id=pain_id)
     if row is None:
         raise HTTPException(status_code=404, detail="not found")
     return _row_to_item(row)

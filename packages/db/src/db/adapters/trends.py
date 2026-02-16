@@ -3,12 +3,13 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-from dataclasses import dataclass
 from datetime import date, timedelta
 from typing import Any
 
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
+
+from db.settings import DATABASE_URL, REDIS_URL
 
 try:
     import redis  # type: ignore
@@ -27,36 +28,9 @@ def _default_day_iso() -> str:
     return (date.today() - timedelta(days=1)).isoformat()
 
 
-def _cid_int(cluster_id: str) -> int:
-    try:
-        return int(cluster_id)
-    except Exception:
-        raise ValueError(f"invalid cluster_id: {cluster_id!r}")
-
-
-@dataclass(frozen=True)
-class TrendsQuery:
-    vertical_id: int
-    day: str
-    limit: int
-    offset: int
-    sparkline_days: int
-    min_exploitability: int | None = None
-    max_exploitability: int | None = None
-
-
-@dataclass(frozen=True)
-class TopPainsQuery:
-    vertical_id: int
-    limit: int
-    offset: int
-    min_exploitability: int | None = None
-    max_exploitability: int | None = None
-
-
-class TrendsService:
+class TrendsAdapter:
     def __init__(self) -> None:
-        dsn = os.getenv("POSTGRES_DSN") or os.getenv("DATABASE_URL") or os.getenv("DATABASE_DSN")
+        dsn = os.getenv("POSTGRES_DSN") or os.getenv("DATABASE_URL") or DATABASE_URL
         if not dsn:
             raise RuntimeError("POSTGRES_DSN (or DATABASE_URL) is required")
 
@@ -65,7 +39,7 @@ class TrendsService:
 
         self._cache_enabled = _env_bool("TRENDS_CACHE_ENABLED", default=False)
         self._cache_ttl_s = int(os.getenv("TRENDS_CACHE_TTL_S", "60"))
-        self._redis_url = os.getenv("REDIS_URL") or os.getenv("REDIS_DSN") or "redis://localhost:6379/0"
+        self._redis_url = os.getenv("REDIS_URL") or os.getenv("REDIS_DSN") or REDIS_URL
 
         self._redis = None
         if self._cache_enabled and redis is not None:
@@ -93,16 +67,10 @@ class TrendsService:
         except Exception:
             pass
 
-    def list_trending(self, q: TrendsQuery) -> dict[str, Any]:
-        return self._list_kind("trending", q)
+    def list_kind(self, kind: str, q) -> dict[str, Any]:
+        return self._list_kind(kind, q)
 
-    def list_emerging(self, q: TrendsQuery) -> dict[str, Any]:
-        return self._list_kind("emerging", q)
-
-    def list_declining(self, q: TrendsQuery) -> dict[str, Any]:
-        return self._list_kind("declining", q)
-
-    def list_top_pains(self, q: TopPainsQuery) -> dict[str, Any]:
+    def list_top_pains(self, q) -> dict[str, Any]:
         cache_payload = {
             "kind": "top_pains",
             "vertical_id": q.vertical_id,
@@ -196,7 +164,7 @@ class TrendsService:
         if cached is not None:
             return cached
 
-        cid = _cid_int(cluster_id)
+        cid = int(cluster_id)
 
         with self._Session() as s:
             row = (
@@ -282,7 +250,7 @@ class TrendsService:
         self._cache_set(ck, out)
         return out
 
-    def _list_kind(self, kind: str, q: TrendsQuery) -> dict[str, Any]:
+    def _list_kind(self, kind: str, q) -> dict[str, Any]:
         cache_payload = {
             "kind": kind,
             "vertical_id": q.vertical_id,
@@ -414,7 +382,12 @@ class TrendsService:
                     ORDER BY m.day ASC
                     """
                 ),
-                {"vertical_id": vertical_id, "cluster_id": cluster_id, "start_day": start.isoformat(), "end_day": end.isoformat()},
+                {
+                    "vertical_id": vertical_id,
+                    "cluster_id": cluster_id,
+                    "start_day": start.isoformat(),
+                    "end_day": end.isoformat(),
+                },
             )
             .mappings()
             .all()
@@ -423,39 +396,11 @@ class TrendsService:
         return [{"day": str(r["day"]), "v": float(r.get("v") or 0.0)} for r in rows]
 
 
-def build_query(
-    *,
-    vertical_id: int,
-    day: str | None,
-    limit: int,
-    offset: int,
-    sparkline_days: int,
-    min_exploitability: int | None = None,
-    max_exploitability: int | None = None,
-) -> TrendsQuery:
-    return TrendsQuery(
-        vertical_id=int(vertical_id),
-        day=(day or _default_day_iso()),
-        limit=int(limit),
-        offset=int(offset),
-        sparkline_days=int(sparkline_days),
-        min_exploitability=min_exploitability,
-        max_exploitability=max_exploitability,
-    )
+_default_adapter: TrendsAdapter | None = None
 
 
-def build_top_pains_query(
-    *,
-    vertical_id: int,
-    limit: int,
-    offset: int,
-    min_exploitability: int | None = None,
-    max_exploitability: int | None = None,
-) -> TopPainsQuery:
-    return TopPainsQuery(
-        vertical_id=int(vertical_id),
-        limit=int(limit),
-        offset=int(offset),
-        min_exploitability=min_exploitability,
-        max_exploitability=max_exploitability,
-    )
+def get_trends_adapter() -> TrendsAdapter:
+    global _default_adapter
+    if _default_adapter is None:
+        _default_adapter = TrendsAdapter()
+    return _default_adapter

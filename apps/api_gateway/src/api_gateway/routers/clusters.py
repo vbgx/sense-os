@@ -4,23 +4,22 @@ from fastapi import APIRouter, Depends, Query
 
 from api_gateway.schemas.clusters import ClusterListOut, ClusterOut
 from api_gateway.schemas.timeline import TimelinePointOut
-from api_gateway.services.clusters_service import ClustersService
-from api_gateway.dependencies import get_clusters_service
-from db.repos.cluster_daily_history import list_cluster_history
+from api_gateway.dependencies import get_clusters_use_case
+from application.use_cases.clusters import ClustersUseCase
 
 router = APIRouter(prefix="/clusters", tags=["clusters"])
 
 
 @router.get("", response_model=ClusterListOut)
 def list_clusters(
-    service: ClustersService = Depends(get_clusters_service),
+    use_case: ClustersUseCase = Depends(get_clusters_use_case),
     vertical_id: int | None = Query(default=None),
     min_exploitability: int | None = Query(default=None, ge=0, le=100),
     max_exploitability: int | None = Query(default=None, ge=0, le=100),
     order_by: str | None = Query(default=None, description="Supported: exploitability_score"),
     desc: bool = Query(default=True),
 ) -> ClusterListOut:
-    rows = service.list_clusters(
+    rows = use_case.list_clusters(
         vertical_id=vertical_id,
         min_exploitability=min_exploitability,
         max_exploitability=max_exploitability,
@@ -31,16 +30,17 @@ def list_clusters(
 
 
 @router.get("/{cluster_id}", response_model=ClusterOut)
-def get_cluster(cluster_id: str, service: ClustersService = Depends(get_clusters_service)) -> ClusterOut:
-    return service.get_cluster(cluster_id)
+def get_cluster(cluster_id: str, use_case: ClustersUseCase = Depends(get_clusters_use_case)) -> ClusterOut:
+    return use_case.get_cluster(cluster_id)
 
 
 @router.get("/{cluster_id}/timeline", response_model=list[TimelinePointOut])
 def get_cluster_timeline(
     cluster_id: str,
     days: int = Query(default=90, ge=1, le=3650),
+    use_case: ClustersUseCase = Depends(get_clusters_use_case),
 ) -> list[TimelinePointOut]:
-    rows = list_cluster_history(cluster_id=cluster_id, days=days)
+    rows = use_case.list_cluster_timeline(cluster_id=cluster_id, days=days)
     return [
         TimelinePointOut(
             date=r.day,

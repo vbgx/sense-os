@@ -3,7 +3,7 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
-from db.init_db import init_db
+from db.adapters import init_db
 
 # Routers
 from api_gateway.routers import verticals

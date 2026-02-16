@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Depends, Query
 
-from db.repos.cluster_daily_history import list_cluster_history
 from api_gateway.schemas.timeline import TimelinePointOut
+from api_gateway.dependencies import get_clusters_use_case
+from application.use_cases.clusters import ClustersUseCase
 
 router = APIRouter(prefix="/clusters", tags=["clusters"])
 
@@ -12,8 +13,9 @@ router = APIRouter(prefix="/clusters", tags=["clusters"])
 def get_cluster_timeline(
     cluster_id: str,
     days: int = Query(default=90, ge=1, le=3650),
+    use_case: ClustersUseCase = Depends(get_clusters_use_case),
 ) -> list[TimelinePointOut]:
-    rows = list_cluster_history(cluster_id=cluster_id, days=days)
+    rows = use_case.list_cluster_timeline(cluster_id=cluster_id, days=days)
     return [
         TimelinePointOut(
             date=r.day,

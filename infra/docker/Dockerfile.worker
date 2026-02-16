@@ -13,7 +13,8 @@ COPY services /app/services
 COPY apps /app/apps
 COPY tools /app/tools
 
-RUN pip install --no-cache-dir -e /app/packages/db \
+RUN pip install --no-cache-dir -e /app/packages/application \
+ && pip install --no-cache-dir -e /app/packages/db \
  && pip install --no-cache-dir -e /app/packages/domain \
  && pip install --no-cache-dir -e /app/packages/queue \
  && pip install --no-cache-dir -e /app/services/ingestion_worker \
@@ -22,6 +23,6 @@ RUN pip install --no-cache-dir -e /app/packages/db \
  && pip install --no-cache-dir -e /app/services/trend_worker \
  && pip install --no-cache-dir -e /app/services/scheduler
 
-ENV PYTHONPATH=/app/packages/db/src:/app/packages/domain/src:/app/packages/queue/src:/app/services/ingestion_worker/src:/app/services/processing_worker/src:/app/services/clustering_worker/src:/app/services/trend_worker/src:/app/services/scheduler/src
+ENV PYTHONPATH=/app/packages/application/src:/app/packages/db/src:/app/packages/domain/src:/app/packages/queue/src:/app/services/ingestion_worker/src:/app/services/processing_worker/src:/app/services/clustering_worker/src:/app/services/trend_worker/src:/app/services/scheduler/src
 
 CMD ["python", "-m", "ingestion_worker.main"]

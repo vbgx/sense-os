@@ -12,16 +12,17 @@ def map_indiehackers_entry(entry: dict, *, vertical_id: int) -> Dict:
     summary = entry["summary"]
     url = entry["link"]
     published = entry.get("published")
-
     content = clean_text(f"{title}\n\n{summary}".strip())
     language = detect_language(content)
 
-    return {
+    data = {
         "vertical_id": int(vertical_id),
         "source": "indiehackers",
         "external_id": f"ih:{guid}",
         "content": content,
         "url": url,
-        "created_at": to_utc_datetime(published),
         "language": language,
     }
+    if published:
+        data["created_at"] = to_utc_datetime(published)
+    return data

@@ -11,6 +11,7 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
 )
+from sqlalchemy import JSON
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import text
@@ -23,7 +24,7 @@ class Vertical(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(255), nullable=False, unique=True, index=True)
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
 
 
 class Signal(Base):
@@ -40,7 +41,7 @@ class Signal(Base):
     url = Column(Text, nullable=True)
 
     created_at = Column(DateTime(timezone=True), nullable=True, index=True)
-    ingested_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"), index=True)
+    ingested_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"), index=True)
 
     signal_quality_score = Column(Integer, nullable=True, index=True)
     language_code = Column(String(8), nullable=True, index=True)
@@ -62,7 +63,7 @@ class PainCluster(Base):
     cluster_key = Column(String(64), nullable=False)
     title = Column(String(255), nullable=False)
     size = Column(Integer, nullable=False, server_default="0", index=True)
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
 
     severity_score = Column(Integer, nullable=False, server_default="0", index=True)
     recurrence_score = Column(Integer, nullable=False, server_default="0", index=True)
@@ -108,9 +109,9 @@ class PainInstance(Base):
     algo_version = Column(String(64), nullable=False, index=True)
     pain_score = Column(Float, nullable=False, server_default="0")
 
-    breakdown = Column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+    breakdown = Column(JSON().with_variant(JSONB, "postgresql"), nullable=False, server_default=text("'{}'"))
     breakdown_hash = Column(String(32), nullable=False, index=True)
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
 
 
 class ClusterSignal(Base):
@@ -122,7 +123,7 @@ class ClusterSignal(Base):
     id = Column(Integer, primary_key=True)
     cluster_id = Column(Integer, nullable=False, index=True)
     pain_instance_id = Column(Integer, nullable=False, index=True)
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
 
 
 class ClusterDailyMetric(Base):
@@ -157,7 +158,7 @@ class ClusterDailyMetric(Base):
     score_diversity = Column(Float, nullable=False, server_default="0")
     score_confidence = Column(Float, nullable=False, server_default="0")
 
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
 
 
 class ClusterDailyHistory(Base):
@@ -169,7 +170,7 @@ class ClusterDailyHistory(Base):
     growth_rate = Column(Float, nullable=False, server_default="0")
     velocity = Column(Float, nullable=False, server_default="0")
     breakout_flag = Column(Boolean, nullable=False, server_default=text("false"))
-    created_at = Column(DateTime, nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime, nullable=False, server_default=text("CURRENT_TIMESTAMP"))
 
 
 class SchedulerCheckpoint(Base):
@@ -186,5 +187,5 @@ class SchedulerCheckpoint(Base):
     end_day = Column(Date, nullable=False)
     last_completed_day = Column(Date, nullable=True)
     status = Column(String(32), nullable=False, server_default="running")
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
-    updated_at = Column(DateTime(timezone=True), nullable=False, server_default=text("now()"))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
+    updated_at = Column(DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP"))

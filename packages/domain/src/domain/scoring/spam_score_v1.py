@@ -38,4 +38,9 @@ def compute_spam_score(*, content: str) -> int:
         + 0.35 * _clamp01(repetition_ratio * 5.0)
     )
 
+    if repetition_ratio >= 0.6:
+        score01 += 0.30
+    elif repetition_ratio >= 0.4:
+        score01 += 0.20
+
     return int(round(_clamp01(score01) * 100.0))

@@ -10,6 +10,7 @@ from api_gateway.routers import verticals
 from api_gateway.routers.signals import router as signals_router
 from api_gateway.routers.ops import router as ops_router
 from api_gateway.routers.pains import router as pains_router
+from api_gateway.routers.insights import router as insights_router
 from api_gateway.routers.trends import router as trends_router
 from api_gateway.routers.clusters import router as clusters_router
 
@@ -45,6 +46,7 @@ def health() -> dict:
 
 app.include_router(verticals.router)
 app.include_router(pains_router)
+app.include_router(insights_router)
 app.include_router(trends_router)
 app.include_router(signals_router)
 app.include_router(ops_router)
@@ -61,6 +63,3 @@ if static_dir.exists():
 @app.get("/")
 def root() -> RedirectResponse:
     return RedirectResponse(url="/ui")
-
-from api_gateway.routers.insights import router as insights_router
-app.include_router(insights_router)

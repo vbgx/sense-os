@@ -20,7 +20,7 @@ def upgrade() -> None:
         "verticals",
         sa.Column("id", sa.Integer(), primary_key=True),
         sa.Column("name", sa.String(length=255), nullable=False, unique=True),
-        sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
+        sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.text("CURRENT_TIMESTAMP"), nullable=False),
     )
 
     op.create_table(
@@ -32,7 +32,7 @@ def upgrade() -> None:
         sa.Column("content", sa.Text(), nullable=False),
         sa.Column("url", sa.Text(), nullable=True),
         sa.Column("created_at", sa.DateTime(timezone=True), nullable=True),
-        sa.Column("ingested_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
+        sa.Column("ingested_at", sa.DateTime(timezone=True), server_default=sa.text("CURRENT_TIMESTAMP"), nullable=False),
     )
 
     op.create_table(
@@ -44,7 +44,7 @@ def upgrade() -> None:
         sa.Column("pain_score", sa.Float(), nullable=False),
         sa.Column("breakdown", sa.JSON(), nullable=False, server_default=sa.text("'{}'::jsonb")),
         sa.Column("breakdown_hash", sa.String(length=32), nullable=False),
-        sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
+        sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.text("CURRENT_TIMESTAMP"), nullable=False),
         sa.UniqueConstraint("algo_version", "breakdown_hash", name="uq_pain_instances_algo_breakdown"),
     )
 

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Query
 
-from api_gateway.schemas.clusters import ClusterOut
+from api_gateway.schemas.clusters import ClusterListOut, ClusterOut
 from api_gateway.schemas.timeline import TimelinePointOut
 from api_gateway.services.clusters_service import ClustersService
 from api_gateway.dependencies import get_clusters_service
@@ -11,20 +11,23 @@ from db.repos.cluster_daily_history import list_cluster_history
 router = APIRouter(prefix="/clusters", tags=["clusters"])
 
 
-@router.get("", response_model=list[ClusterOut])
+@router.get("", response_model=ClusterListOut)
 def list_clusters(
     service: ClustersService = Depends(get_clusters_service),
+    vertical_id: int | None = Query(default=None),
     min_exploitability: int | None = Query(default=None, ge=0, le=100),
     max_exploitability: int | None = Query(default=None, ge=0, le=100),
     order_by: str | None = Query(default=None, description="Supported: exploitability_score"),
     desc: bool = Query(default=True),
-) -> list[ClusterOut]:
-    return service.list_clusters(
+) -> ClusterListOut:
+    rows = service.list_clusters(
+        vertical_id=vertical_id,
         min_exploitability=min_exploitability,
         max_exploitability=max_exploitability,
         order_by=order_by,
         desc=desc,
     )
+    return ClusterListOut(total=len(rows), items=rows)
 
 
 @router.get("/{cluster_id}", response_model=ClusterOut)

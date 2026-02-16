@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
 from typing import Iterable
 
 from db.models import ClusterDailyHistory
@@ -17,10 +17,15 @@ def persist_cluster_daily_history(
     """
     rows = []
     for r in timeline_rows:
+        day_val = r["day"]
+        if isinstance(day_val, str):
+            day_val = date.fromisoformat(day_val)
+        elif isinstance(day_val, datetime):
+            day_val = day_val.date()
         rows.append(
             ClusterDailyHistory(
                 cluster_id=cluster_id,
-                day=r["day"],
+                day=day_val,
                 volume=int(r["volume"]),
                 growth_rate=float(r["growth_rate"]),
                 velocity=float(r["velocity"]),

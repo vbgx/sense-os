@@ -54,6 +54,15 @@ def _split_row(row: Any) -> Tuple[Any, Any]:
     if row is None:
         return None, None
 
+    # SQLAlchemy Row objects
+    if hasattr(row, "_mapping"):
+        values = list(row._mapping.values())
+        if len(values) >= 2:
+            return values[0], values[1]
+        if len(values) == 1:
+            return values[0], None
+        return None, None
+
     # tuple/list from SQLAlchemy: (PainInstance, Signal)
     if isinstance(row, (tuple, list)):
         if len(row) >= 2:

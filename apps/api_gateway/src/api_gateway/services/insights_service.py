@@ -4,6 +4,7 @@ import json
 from dataclasses import dataclass
 from typing import Optional, List, Sequence
 from sqlalchemy import select, desc, and_
+from fastapi import HTTPException
 
 from db.session import session_scope
 from db.models import PainCluster, Signal
@@ -80,13 +81,121 @@ def _compute_opportunity_score(scores: Sequence[int]) -> int:
 
 
 class InsightsService:
+    def _cluster_to_top_pain(self, cluster: PainCluster) -> TopPainOut:
+        build_signal = compute_build_signal(
+            BuildSignalInputs(
+                exploitability_score=int(cluster.exploitability_score or 0),
+                exploitability_tier=str(cluster.exploitability_tier or ""),
+                opportunity_window_status=str(cluster.opportunity_window_status or ""),
+                breakout_score=int(cluster.breakout_score or 0),
+                confidence_score=int(cluster.confidence_score or 0),
+                saturation_score=int(getattr(cluster, "saturation_score", 0) or 0),
+                contradiction_score=int(cluster.contradiction_score or 0),
+            )
+        )
+
+        return TopPainOut(
+            cluster_id=str(cluster.id),
+            cluster_summary=cluster.cluster_summary,
+            exploitability_score=int(cluster.exploitability_score or 0),
+            exploitability_tier=str(cluster.exploitability_tier or ""),
+            severity_score=int(cluster.severity_score or 0),
+            breakout_score=int(cluster.breakout_score or 0),
+            opportunity_window_status=str(cluster.opportunity_window_status or ""),
+            confidence_score=int(cluster.confidence_score or 0),
+            dominant_persona=str(cluster.dominant_persona or ""),
+            build_signal=BuildSignalOut(
+                recommendation=build_signal.recommendation,
+                reasoning_summary=build_signal.reasoning_summary,
+                top_positive_factors=build_signal.top_positive_factors,
+                top_risk_factors=build_signal.top_risk_factors,
+            ),
+        )
+
+    def _list_top_pains(
+        self,
+        *,
+        vertical_id: Optional[str] = None,
+        tier: Optional[str] = None,
+        limit: int = 50,
+        offset: int = 0,
+        opportunity_window_status: Optional[str] = None,
+    ) -> list[TopPainOut]:
+        with session_scope() as s:
+            stmt = select(PainCluster)
+
+            if vertical_id:
+                try:
+                    stmt = stmt.where(PainCluster.vertical_id == int(vertical_id))
+                except Exception:
+                    stmt = stmt.where(PainCluster.vertical_id == -1)
+
+            if tier:
+                stmt = stmt.where(PainCluster.exploitability_tier == str(tier))
+
+            if opportunity_window_status:
+                stmt = stmt.where(
+                    PainCluster.opportunity_window_status == str(opportunity_window_status)
+                )
+
+            stmt = stmt.order_by(desc(PainCluster.exploitability_score), PainCluster.id.asc())
+            stmt = stmt.limit(int(limit)).offset(int(offset))
+
+            rows = s.execute(stmt).scalars().all()
+            return [self._cluster_to_top_pain(r) for r in rows]
+
+    def get_top_pains(
+        self,
+        *,
+        vertical_id: Optional[str] = None,
+        tier: Optional[str] = None,
+        emerging_only: bool = False,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> list[TopPainOut]:
+        status = "EARLY" if emerging_only else None
+        return self._list_top_pains(
+            vertical_id=vertical_id,
+            tier=tier,
+            limit=limit,
+            offset=offset,
+            opportunity_window_status=status,
+        )
+
+    def get_emerging_opportunities(
+        self,
+        *,
+        vertical_id: Optional[str] = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> list[TopPainOut]:
+        return self._list_top_pains(
+            vertical_id=vertical_id,
+            limit=limit,
+            offset=offset,
+            opportunity_window_status="EARLY",
+        )
+
+    def get_declining_risks(
+        self,
+        *,
+        vertical_id: Optional[str] = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> list[TopPainOut]:
+        return self._list_top_pains(
+            vertical_id=vertical_id,
+            limit=limit,
+            offset=offset,
+            opportunity_window_status="SATURATING",
+        )
 
     def get_cluster_detail(self, *, cluster_id: str) -> ClusterDetailOut:
         with session_scope() as s:
             cluster = s.get(PainCluster, cluster_id)
 
         if cluster is None:
-            raise ValueError("Cluster not found")
+            raise HTTPException(status_code=404, detail="Cluster not found")
 
         key_phrases = []
         if cluster.key_phrases_json:
@@ -196,7 +305,7 @@ class InsightsService:
             cluster = s.get(PainCluster, cluster_id)
 
         if cluster is None:
-            raise ValueError("Cluster not found")
+            raise HTTPException(status_code=404, detail="Cluster not found")
 
         key_phrases = []
         if cluster.key_phrases_json:
@@ -236,7 +345,7 @@ class InsightsService:
             cluster = s.get(PainCluster, cluster_id)
 
             if cluster is None:
-                raise ValueError("Cluster not found")
+                raise HTTPException(status_code=404, detail="Cluster not found")
 
             key_phrases = [
                 item for item in _safe_json_list(cluster.key_phrases_json)

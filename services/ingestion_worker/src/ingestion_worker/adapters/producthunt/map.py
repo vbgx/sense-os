@@ -12,15 +12,16 @@ def map_producthunt_entry(entry: dict, *, vertical_id: int) -> Dict:
     summary = entry["summary"]
     url = entry["link"]
     published = entry.get("published")
-
     description_text = extract_comment_like_sections(summary)
     content = clean_text(f"{title}\n\n{description_text}".strip())
 
-    return {
+    data = {
         "vertical_id": int(vertical_id),
         "source": "producthunt",
         "external_id": f"ph:{guid}",
         "content": content,
         "url": url,
-        "created_at": to_utc_datetime(published),
     }
+    if published:
+        data["created_at"] = to_utc_datetime(published)
+    return data

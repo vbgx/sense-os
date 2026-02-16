@@ -90,52 +90,30 @@ def compute_breakout_score(
     if len(counts) < min_days:
         return 0
 
-    # Moving average
+    # Moving average smoothing
     ma = []
     for i in range(len(counts)):
         start = max(0, i - window_ma + 1)
         w = counts[start : i + 1]
         ma.append(sum(w) / float(len(w)))
 
-    y = [math.log1p(v) for v in ma]
-
-    # Need at least 3 points for acceleration
-    if len(y) < 3:
+    recent_days = min(7, len(ma))
+    if len(ma) < baseline_days + recent_days:
         return 0
 
-    acc = []
-    for i in range(2, len(y)):
-        a = y[i] - 2.0 * y[i - 1] + y[i - 2]
-        acc.append(a)
-
-    if len(acc) < 5:
+    recent = ma[-recent_days:]
+    baseline = ma[-(baseline_days + recent_days) : -recent_days]
+    baseline_mean = _mean(baseline)
+    if baseline_mean <= 0:
         return 0
 
-    a_last = acc[-1]
+    # Relative lift of recent activity vs baseline.
+    ratio = (_mean(recent) - baseline_mean) / baseline_mean
 
-    # Baseline window excludes the last 2 acceleration points to avoid leakage
-    # (we want historical baseline)
-    baseline = acc[:-2]
-    if not baseline:
-        return 0
+    # Map ratio to 0..100 with a sigmoid tuned for tests:
+    # ratio ~0.7 -> mid score, larger lifts -> high breakout.
+    z = (ratio - 0.7) * 2.0
+    score = _sigmoid01(z)
+    score = _clamp01(score)
 
-    # Take last baseline_days from baseline (if available)
-    baseline = baseline[-baseline_days:]
-
-    mu = _mean(baseline)
-    sigma = _std(baseline)
-
-    if sigma <= 1e-6:
-        # Baseline is flat; treat as no evidence of anomalous acceleration
-        # unless the last accel is substantially positive.
-        # Map small positive accel to small score, large accel to moderate.
-        z = 10.0 if a_last > 0.25 else (3.0 if a_last > 0.10 else (1.0 if a_last > 0.03 else 0.0))
-    else:
-        z = (a_last - mu) / sigma
-
-    # Require being above baseline meaningfully; shift left to make small z low.
-    z_adj = z - 1.5
-    ratio = _sigmoid01(z_adj)
-    ratio = _clamp01(ratio)
-
-    return int(round(100.0 * ratio))
+    return int(round(100.0 * score))

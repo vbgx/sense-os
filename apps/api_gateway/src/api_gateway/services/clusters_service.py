@@ -20,6 +20,7 @@ class ClustersService:
     def list_clusters(
         self,
         *,
+        vertical_id: int | None = None,
         min_exploitability: int | None = None,
         max_exploitability: int | None = None,
         order_by: str | None = None,
@@ -32,6 +33,8 @@ class ClustersService:
             r.persona_distribution = self._parse_dist(getattr(r, "persona_distribution_json", "{}"))
 
         # filtering (v1) — done in service to avoid guessing repo SQL API
+        if vertical_id is not None:
+            rows = [r for r in rows if _to_int(getattr(r, "vertical_id", 0)) == int(vertical_id)]
         if min_exploitability is not None:
             rows = [r for r in rows if _to_int(getattr(r, "exploitability_score", 0)) >= int(min_exploitability)]
         if max_exploitability is not None:

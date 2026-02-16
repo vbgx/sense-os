@@ -44,6 +44,7 @@ SCRIPTS_DIR := ./tools/scripts
 	redis-flush \
 	queues \
 	validate validate-log validate-fast validate-keep \
+	dev-install ci \
 	workers-local \
 	deprecated
 
@@ -211,13 +212,30 @@ validate-keep: ## Usage: make validate-keep — Keeps services running on succes
 	  $(SCRIPTS_DIR)/validate_full_boot.sh --keep-running
 
 # ============================================================
-# Local workers (host / uv)
+# Local workers (host / .venv)
 # ============================================================
 
 workers-local: ## Usage: make workers-local — Prints commands to run local workers
 	@echo "Run in separate terminals:"
+	@echo "  $(SCRIPTS_DIR)/dev_install.sh"
+	@echo "  source .venv/bin/activate"
+	@echo "  export POSTGRES_DSN=postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+	@echo "  export REDIS_URL=redis://localhost:6379/0"
+	@echo "  # start workers"
+	@echo "  $(SCRIPTS_DIR)/run_ingestion_worker.sh"
+	@echo "  $(SCRIPTS_DIR)/run_processing_worker.sh"
 	@echo "  $(SCRIPTS_DIR)/run_clustering_worker.sh"
 	@echo "  $(SCRIPTS_DIR)/run_trend_worker.sh"
+
+# ============================================================
+# Toolchain / CI
+# ============================================================
+
+dev-install: ## Usage: make dev-install — Creates .venv and installs editable deps via uv
+	@$(SCRIPTS_DIR)/dev_install.sh
+
+ci: ## Usage: make ci — Run checks + tests (requires docker + uv)
+	@$(SCRIPTS_DIR)/ci.sh
 
 # ============================================================
 # Deprecated / legacy scripts

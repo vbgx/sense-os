@@ -2,5 +2,9 @@
 set -euo pipefail
 source "$(dirname "$0")/_lib.sh"
 
-step "📜 Logs ingestion-worker"
-dc logs -f --tail=200 ingestion-worker
+VENV="${VENV:-$REPO_ROOT/.venv}"
+PY="$VENV/bin/python"
+
+[ -x "$PY" ] || die "Missing virtualenv at $VENV. Run: $REPO_ROOT/tools/scripts/dev_install.sh"
+
+exec "$PY" -m ingestion_worker.main

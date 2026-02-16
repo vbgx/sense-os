@@ -27,7 +27,6 @@ command -v rg >/dev/null 2>&1 || {
   echo
   python --version || true
   uv --version || true
-  poetry --version || true
   pip --version || true
   node --version || true
   pnpm --version || true
@@ -39,7 +38,7 @@ command -v rg >/dev/null 2>&1 || {
   ls -la || true
   echo
   # Avoid zsh glob failures: use find instead of docker-compose*.yml
-  for f in Makefile pyproject.toml poetry.lock uv.lock requirements.txt package.json pnpm-lock.yaml turbo.json; do
+  for f in Makefile pyproject.toml uv.lock requirements.txt package.json pnpm-lock.yaml turbo.json; do
     [ -e "$f" ] && ls -la "$f" || true
   done
   find . -maxdepth 2 -type f \( -name "docker-compose.yml" -o -name "docker-compose.*.yml" -o -name "compose.yml" -o -name "compose.*.yml" \) -print -exec ls -la {} \; 2>/dev/null || true

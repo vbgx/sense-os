@@ -177,6 +177,12 @@ Mettez à jour le scheduler pour inclure la nouvelle source.
 
 Développer localement
 
+Préparez un environnement Python avec `uv` :
+
+```bash
+make dev-install
+```
+
 Pour exécuter un worker localement sans Docker, utilisez :
 
 ```bash
@@ -197,15 +203,13 @@ Puis, dans un terminal séparé, lancez :
 Tests unitaires : Les tests se trouvent dans les dossiers tests/ de chaque service. Pour les exécuter :
 
 ```bash
-cd services/processing_worker
-pytest
+pytest -q
 ```
 
-
-Test d'idempotence : Pour tester l'idempotence du Processing Worker :
+Checks CI (tests + invariants DB) :
 
 ```bash
-make test-processing-idempotence
+make ci
 ```
 
 ---

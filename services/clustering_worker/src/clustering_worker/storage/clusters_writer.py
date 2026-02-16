@@ -7,11 +7,6 @@ from db.models import PainCluster
 
 
 class ClustersWriter:
-    """
-    Persists clusters into DB.
-    Assumes PainCluster ORM exists in packages/db.
-    """
-
     def write_clusters(self, clusters: list[dict[str, Any]]) -> None:
         with session_scope() as s:
             for payload in clusters:
@@ -26,3 +21,6 @@ class ClustersWriter:
 
                 if "cluster_summary" in payload:
                     obj.cluster_summary = payload["cluster_summary"]
+
+                if "top_signal_ids_json" in payload:
+                    obj.top_signal_ids_json = payload["top_signal_ids_json"]

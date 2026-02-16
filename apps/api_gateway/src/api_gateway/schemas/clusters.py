@@ -24,9 +24,11 @@ class ClusterOut(BaseModel):
     breakout_score: int = Field(0, ge=0, le=100)
     saturation_score: int = Field(0, ge=0, le=100)
 
-    # EPIC 02.03 — Opportunity Window
     opportunity_window_score: int = Field(0, ge=0, le=100)
     opportunity_window_status: str = Field("UNKNOWN")
+
+    # EPIC 02.04 — Trend Half-Life Metric
+    half_life_days: float | None = None
 
     class Config:
         from_attributes = True

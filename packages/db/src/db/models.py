@@ -66,8 +66,10 @@ class PainCluster(Base):
     breakout_score = Column(Integer, nullable=False, server_default="0", index=True)
     saturation_score = Column(Integer, nullable=False, server_default="0", index=True)
 
-    # EPIC 02.03 — Opportunity Window
     opportunity_window_score = Column(Integer, nullable=False, server_default="0", index=True)
     opportunity_window_status = Column(String, nullable=False, server_default="UNKNOWN", index=True)
+
+    # EPIC 02.04 — Half-life (days)
+    half_life_days = Column(Float, nullable=True, index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

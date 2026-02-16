@@ -283,6 +283,15 @@ trap on_failure ERR
   if [ "$NO_DOWN" -eq 0 ]; then
     step "=== 2️⃣  DOCKER DOWN (clean volumes) ==="
     dc down -v
+    # Ensure stale containers from interrupted runs don't block startup
+    for name in \
+      docker-api-gateway-1 \
+      docker-ingestion-worker-1 \
+      docker-processing-worker-1 \
+      docker-clustering-worker-1 \
+      docker-trend-worker-1; do
+      docker rm -f "$name" >/dev/null 2>&1 || true
+    done
   else
     step "=== 2️⃣  DOCKER DOWN (skipped) ==="
     echo "ℹ️  --no-down set"

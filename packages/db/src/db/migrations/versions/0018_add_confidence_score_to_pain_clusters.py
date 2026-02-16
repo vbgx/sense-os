@@ -1,6 +1,6 @@
 """add confidence_score to pain_clusters
 
-Revision ID: 0018_add_confidence_score
+Revision ID: 0018_add_confidence_score_to_pain_clusters
 Revises: 0017_add_cluster_daily_history
 Create Date: 2026-02-16
 """
@@ -8,7 +8,7 @@ Create Date: 2026-02-16
 from alembic import op
 import sqlalchemy as sa
 
-revision = "0018_add_confidence_score"
+revision = "0018_add_confidence_score_to_pain_clusters"
 down_revision = "0017_add_cluster_daily_history"
 branch_labels = None
 depends_on = None

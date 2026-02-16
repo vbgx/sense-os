@@ -4,7 +4,7 @@ import ast
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 DOMAIN_ROOT = ROOT / "src" / "domain"
 
 FORBIDDEN_PREFIXES = ("pydantic", "sqlalchemy", "fastapi", "redis")

@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Iterable, Optional
+
+from domain.scoring.freshness_decay import apply_freshness_to_score, compute_freshness_weight
 
 
 @dataclass(frozen=True)
@@ -14,12 +17,14 @@ class SeveritySignal:
     - sentiment_compound: [-1.0 .. +1.0] where negative = negative sentiment
     - upvotes/comments/replies: >= 0
     - text: raw text (used only for length proxy / specificity)
+    - created_at: optional datetime (used for freshness decay)
     """
     sentiment_compound: Optional[float] = None
     upvotes: int = 0
     comments: int = 0
     replies: int = 0
     text: str = ""
+    created_at: Optional[datetime] = None
 
 
 def _clamp01(x: float) -> float:
@@ -39,6 +44,24 @@ def _log_norm(x: float, cap: float) -> float:
     return _clamp01(math.log1p(max(0.0, x)) / math.log1p(cap))
 
 
+def _avg_freshness_weight(
+    items: list[SeveritySignal],
+    *,
+    lambda_per_day: float,
+    now: Optional[datetime] = None,
+) -> float:
+    if lambda_per_day <= 0.0:
+        return 1.0
+    weights: list[float] = []
+    for s in items:
+        if s.created_at is None:
+            continue
+        weights.append(compute_freshness_weight(created_at=s.created_at, lambda_per_day=lambda_per_day, now=now))
+    if not weights:
+        return 0.5
+    return float(sum(weights)) / float(len(weights))
+
+
 def compute_pain_severity_index(
     signals: Iterable[SeveritySignal],
     *,
@@ -46,10 +69,12 @@ def compute_pain_severity_index(
     w_intensity: float = 0.25,
     w_engagement: float = 0.25,
     w_specificity: float = 0.15,
-    # caps chosen to stabilize score across typical early datasets
     cap_frequency: float = 200.0,
     cap_engagement: float = 5000.0,
     cap_specificity_len: float = 500.0,
+    freshness_lambda_per_day: float = 0.0,
+    freshness_floor: float = 0.40,
+    now: Optional[datetime] = None,
 ) -> int:
     """
     Pain Severity Index (0..100), based on:
@@ -61,6 +86,10 @@ def compute_pain_severity_index(
     The score is:
       score = 100 * (wF*F + wI*I + wE*E + wS*S)
 
+    Freshness decay (optional):
+      - compute avg freshness weight from signals.created_at
+      - apply bounded multiplier to final severity
+
     Notes:
     - Uses log-normalized proxies to prevent domination by outliers.
     - Intensity uses mean(max(0, -sentiment_compound)) (i.e., only negativity contributes).
@@ -70,10 +99,8 @@ def compute_pain_severity_index(
     if n == 0:
         return 0
 
-    # Frequency: log-normalized count
     frequency = _log_norm(float(n), cap_frequency)
 
-    # Intensity: average negative magnitude (0..1), then clamp
     neg_vals = []
     for s in items:
         if s.sentiment_compound is None:
@@ -84,7 +111,6 @@ def compute_pain_severity_index(
     else:
         intensity = 0.0
 
-    # Engagement: weighted sum then log-normalized
     engagement_raw = 0.0
     for s in items:
         engagement_raw += float(max(0, s.upvotes))
@@ -92,7 +118,6 @@ def compute_pain_severity_index(
         engagement_raw += 3.0 * float(max(0, s.replies))
     engagement = _log_norm(engagement_raw, cap_engagement)
 
-    # Specificity: average log-normalized text length (capped)
     lengths = [len((s.text or "").strip()) for s in items]
     avg_len = float(sum(lengths)) / float(len(lengths)) if lengths else 0.0
     specificity = _log_norm(avg_len, cap_specificity_len)
@@ -105,4 +130,9 @@ def compute_pain_severity_index(
     )
     total = _clamp01(total)
 
-    return int(round(100.0 * total))
+    base = float(100.0 * total)
+
+    fw = _avg_freshness_weight(items, lambda_per_day=freshness_lambda_per_day, now=now)
+    adjusted = apply_freshness_to_score(score_0_100=base, freshness_weight_0_1=fw, floor=freshness_floor)
+
+    return int(round(adjusted))

@@ -19,7 +19,7 @@ from db.uow import SqlAlchemyUnitOfWork  # noqa: E402
 from api_gateway.main import app  # noqa: E402
 from api_gateway.dependencies import get_uow  # noqa: E402
 
-TestingSessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
+TestingSessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False, expire_on_commit=False)
 
 
 def _reset_schema() -> None:

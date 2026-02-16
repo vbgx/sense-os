@@ -80,5 +80,6 @@ class PainCluster(Base):
     # EPIC 04
     cluster_summary = Column(Text, nullable=True)
     top_signal_ids_json = Column(Text, nullable=False, server_default="[]")
+    key_phrases_json = Column(Text, nullable=False, server_default="[]")
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

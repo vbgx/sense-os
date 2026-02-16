@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from pydantic import BaseModel
-from typing import Any
 
 
 class RepresentativeSignalOut(BaseModel):
@@ -23,6 +22,9 @@ class ClusterOut(BaseModel):
     # 04.02
     top_signal_ids: list[str] = []
     representative_signals: list[RepresentativeSignalOut] = []
+
+    # 04.03
+    key_phrases: list[str] = []
 
     class Config:
         extra = "allow"

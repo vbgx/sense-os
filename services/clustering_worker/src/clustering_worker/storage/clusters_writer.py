@@ -24,3 +24,6 @@ class ClustersWriter:
 
                 if "top_signal_ids_json" in payload:
                     obj.top_signal_ids_json = payload["top_signal_ids_json"]
+
+                if "key_phrases_json" in payload:
+                    obj.key_phrases_json = payload["key_phrases_json"]

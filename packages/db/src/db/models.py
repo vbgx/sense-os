@@ -62,7 +62,9 @@ class PainCluster(Base):
 
     monetizability_score = Column(Integer, nullable=False, server_default="0", index=True)
 
-    # EPIC 01.05 — Contradiction Detection (0..100)
     contradiction_score = Column(Integer, nullable=False, server_default="0", index=True)
+
+    # EPIC 02.01 — Early Breakout Detector (0..100)
+    breakout_score = Column(Integer, nullable=False, server_default="0", index=True)
 
     created_at = Column(DateTime, nullable=False, server_default=func.now())

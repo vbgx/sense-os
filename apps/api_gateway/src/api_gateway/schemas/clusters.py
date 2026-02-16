@@ -20,8 +20,10 @@ class ClusterOut(BaseModel):
 
     monetizability_score: int = Field(0, ge=0, le=100)
 
-    # EPIC 01.05 — Contradiction Index
     contradiction_score: int = Field(0, ge=0, le=100)
+
+    # EPIC 02.01 — Breakout (Early Acceleration Anomaly)
+    breakout_score: int = Field(0, ge=0, le=100)
 
     class Config:
         from_attributes = True

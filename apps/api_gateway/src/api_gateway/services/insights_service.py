@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
-from typing import Optional, List
+from dataclasses import dataclass
+from typing import Optional, List, Sequence
 from sqlalchemy import select, desc, and_
 
 from db.session import session_scope
-from db.models import PainCluster
+from db.models import PainCluster, Signal
 from db.repos.cluster_daily_history import list_cluster_history
 
 from api_gateway.schemas.insights import TopPainOut
@@ -27,6 +28,55 @@ from domain.competition.ph_overlap_v0 import compute_ph_overlap_score_v0
 from domain.competition.repo_density_v0 import compute_repo_density_score_v0
 from domain.competition.keyword_saturation_v0 import compute_keyword_saturation_score_v0
 from pathlib import Path
+
+
+def _safe_json_list(raw: Optional[str]) -> List:
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+    except Exception:
+        return []
+    return data if isinstance(data, list) else []
+
+
+@dataclass(frozen=True)
+class ClusterInsightSnapshot:
+    dominant_persona: str
+    cluster_summary: Optional[str]
+    key_phrases: List[str]
+    representative_signals: List[str]
+    severity_score: int
+    recurrence_score: int
+    monetizability_score: int
+    breakout_score: int
+    opportunity_window_status: str
+    contradiction_score: int
+    competitive_heat_score: int
+    saturation_score: int
+    confidence_score: int
+    exploitability_score: int
+
+
+def _map_timing_status(opportunity_window_status: str, breakout_score: int) -> str:
+    status = (opportunity_window_status or "").upper()
+    if status == "EARLY":
+        return "emerging"
+    if status == "PEAK":
+        return "stable"
+    if status == "SATURATING":
+        return "declining"
+    if breakout_score >= 70:
+        return "breakout"
+    if breakout_score >= 40:
+        return "emerging"
+    return "stable"
+
+
+def _compute_opportunity_score(scores: Sequence[int]) -> int:
+    if not scores:
+        return 0
+    return int(round(sum(scores) / len(scores)))
 
 
 class InsightsService:
@@ -170,3 +220,96 @@ class InsightsService:
 
         return BuildHypothesisOut(**hypothesis.__dict__)
 
+    def export_ventureos_payload(self, cluster_id: str) -> dict:
+        from domain.insights.core_pain_statement_v1 import generate_core_pain_statement
+        from domain.insights.early_validation_path_v1 import generate_early_validation_path
+        from domain.insights.monetization_angle_v1 import generate_monetization_angle
+        from domain.insights.risk_flags_v1 import generate_risk_flags
+        from domain.insights.suggested_wedge_v1 import generate_suggested_wedge
+        from domain.insights.target_persona_v1 import generate_target_persona
+        from domain.insights.ventureos_export_v1 import (
+            build_ventureos_export_payload_v1,
+            to_dict,
+        )
+
+        with session_scope() as s:
+            cluster = s.get(PainCluster, cluster_id)
+
+            if cluster is None:
+                raise ValueError("Cluster not found")
+
+            key_phrases = [
+                item for item in _safe_json_list(cluster.key_phrases_json)
+                if isinstance(item, str) and item.strip()
+            ]
+
+            signal_ids_raw = _safe_json_list(cluster.top_signal_ids_json)
+            signal_ids: List[int] = []
+            for item in signal_ids_raw:
+                if isinstance(item, int):
+                    signal_ids.append(item)
+                elif isinstance(item, str) and item.isdigit():
+                    signal_ids.append(int(item))
+
+            representative_signals: List[str] = []
+            if signal_ids:
+                rows = s.execute(
+                    select(Signal).where(Signal.id.in_(signal_ids))
+                ).scalars().all()
+                signal_map = {row.id: row.content for row in rows if row.content}
+                representative_signals = [
+                    signal_map[sid]
+                    for sid in signal_ids
+                    if sid in signal_map
+                ]
+
+            snapshot = ClusterInsightSnapshot(
+                dominant_persona=cluster.dominant_persona or "",
+                cluster_summary=cluster.cluster_summary,
+                key_phrases=key_phrases,
+                representative_signals=representative_signals,
+                severity_score=int(cluster.severity_score or 0),
+                recurrence_score=int(cluster.recurrence_score or 0),
+                monetizability_score=int(cluster.monetizability_score or 0),
+                breakout_score=int(cluster.breakout_score or 0),
+                opportunity_window_status=str(cluster.opportunity_window_status or ""),
+                contradiction_score=int(cluster.contradiction_score or 0),
+                competitive_heat_score=int(cluster.competitive_heat_score or 0),
+                saturation_score=int(cluster.saturation_score or 0),
+                confidence_score=int(cluster.confidence_score or 0),
+                exploitability_score=int(cluster.exploitability_score or 0),
+            )
+
+        persona_result = generate_target_persona(snapshot)
+        persona = persona_result.primary_persona
+        pain = generate_core_pain_statement(snapshot, persona)
+        wedge = generate_suggested_wedge(snapshot, persona, pain).description
+        monetization = generate_monetization_angle(snapshot, persona).model
+        validation_plan = generate_early_validation_path(snapshot, persona).steps
+        risks = generate_risk_flags(snapshot)
+        timing_status = _map_timing_status(
+            snapshot.opportunity_window_status,
+            snapshot.breakout_score,
+        )
+        opportunity_score = _compute_opportunity_score(
+            [
+                snapshot.exploitability_score,
+                snapshot.severity_score,
+                snapshot.recurrence_score,
+                snapshot.monetizability_score,
+            ]
+        )
+
+        payload = build_ventureos_export_payload_v1(
+            cluster_id=str(cluster.id),
+            persona=persona,
+            pain=pain,
+            wedge=wedge,
+            monetization=monetization,
+            validation_plan=validation_plan,
+            opportunity_score=opportunity_score,
+            timing_status=timing_status,
+            risks=risks,
+        )
+
+        return to_dict(payload)

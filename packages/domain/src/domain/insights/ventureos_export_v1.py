@@ -6,6 +6,20 @@ from typing import List, Optional
 
 
 EXPORT_VERSION = "ventureos_export_v1"
+ALLOWED_MONETIZATION_MODELS = (
+    "subscription",
+    "usage-based",
+    "per-seat",
+    "premium add-on",
+    "api-based",
+    "one-off",
+)
+ALLOWED_TIMING_STATUS = (
+    "emerging",
+    "stable",
+    "declining",
+    "breakout",
+)
 
 
 @dataclass(frozen=True)
@@ -53,16 +67,7 @@ def build_ventureos_export_payload_v1(
     if not wedge or "build saas" in wedge.lower():
         raise ValueError("wedge must be specific and non-generic")
 
-    allowed_models = {
-        "subscription",
-        "usage-based",
-        "per-seat",
-        "premium add-on",
-        "api-based",
-        "one-off",
-    }
-
-    if monetization not in allowed_models:
+    if monetization not in ALLOWED_MONETIZATION_MODELS:
         raise ValueError("monetization must be a supported model string")
 
     if (
@@ -75,8 +80,7 @@ def build_ventureos_export_payload_v1(
     if not isinstance(opportunity_score, int):
         raise ValueError("opportunity_score must be an integer")
 
-    allowed_timing = {"emerging", "stable", "declining", "breakout"}
-    if timing_status not in allowed_timing:
+    if timing_status not in ALLOWED_TIMING_STATUS:
         raise ValueError("timing_status must be emerging|stable|declining|breakout")
 
     payload = VentureOSExportPayloadV1(
@@ -108,4 +112,3 @@ def to_dict(payload: VentureOSExportPayloadV1) -> dict:
         "timing_status": payload.timing_status,
         "risks": payload.risks,
     }
-

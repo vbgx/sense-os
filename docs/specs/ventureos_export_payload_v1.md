@@ -51,6 +51,38 @@ GET `/insights/{cluster_id}/export`
     "string"
   ]
 }
+```
+
+## ✅ Example Response
+
+```json
+{
+  "export_version": "ventureos_export_v1",
+  "hypothesis_id": "hyp_cluster-123_1a2b3c4d5e6f7a8b",
+  "persona": "Early-stage Shopify founders",
+  "pain": "Early-stage Shopify founders struggle with persistent return reconciliation because manual processes",
+  "wedge": "Automated reconciliation and execution layer for Early-stage Shopify founders",
+  "monetization": "subscription",
+  "validation_plan": [
+    "Launch a simple landing page targeting Early-stage Shopify founders with a clear value proposition and collect 20+ email signups.",
+    "Send 30 targeted LinkedIn DMs to Early-stage Shopify founders describing the specific pain and asking for 15-min feedback calls.",
+    "Build a lightweight no-code MVP (Notion/Zapier/Airtable) solving one narrow friction point for Early-stage Shopify founders and onboard 3 beta users."
+  ],
+  "opportunity_score": 78,
+  "timing_status": "emerging",
+  "risks": [
+    "High competition density"
+  ]
+}
+```
+
+## 📌 Invariants
+
+- `validation_plan` must contain exactly 3 strings.
+- `monetization` must be one of: `subscription`, `usage-based`, `per-seat`, `premium add-on`, `api-based`, `one-off`.
+- `timing_status` must be one of: `emerging`, `stable`, `declining`, `breakout`.
+- Extra fields are forbidden.
+
 🔹 Field Definitions
 export_version
 Constant string identifying payload schema version.
@@ -239,4 +271,3 @@ It transforms:
 Investment-grade cluster
 → Structured venture bet
 → Comparable decision object
-

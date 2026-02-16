@@ -17,6 +17,7 @@ from api_gateway.routers.clusters import router as clusters_router
 app = FastAPI(
     title="Sense OS API",
     version="0.1.0",
+    openapi_url="/openapi.json",
 )
 
 

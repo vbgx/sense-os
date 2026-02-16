@@ -22,8 +22,5 @@ class ClustersWriter:
                 if "cluster_summary" in payload:
                     obj.cluster_summary = payload["cluster_summary"]
 
-                if "top_signal_ids_json" in payload:
-                    obj.top_signal_ids_json = payload["top_signal_ids_json"]
-
-                if "key_phrases_json" in payload:
-                    obj.key_phrases_json = payload["key_phrases_json"]
+                if "confidence_score" in payload:
+                    obj.confidence_score = int(payload["confidence_score"])

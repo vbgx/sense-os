@@ -4,6 +4,7 @@ from fastapi import APIRouter, Query
 from typing import List, Optional
 
 from api_gateway.schemas.insights import TopPainOut
+from api_gateway.schemas.cluster_detail import ClusterDetailOut
 from api_gateway.services.insights_service import InsightsService
 
 router = APIRouter(prefix="/insights", tags=["insights"])
@@ -53,3 +54,9 @@ def get_declining_risks(
         limit=limit,
         offset=offset,
     )
+
+
+@router.get("/{cluster_id}", response_model=ClusterDetailOut)
+def get_cluster_detail(cluster_id: str):
+    service = InsightsService()
+    return service.get_cluster_detail(cluster_id=cluster_id)

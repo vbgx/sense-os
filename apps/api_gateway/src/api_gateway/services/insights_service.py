@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import Optional, List
-from sqlalchemy import select, desc
+from sqlalchemy import select, desc, and_
 
 from db.session import session_scope
 from db.models import PainCluster
@@ -39,6 +39,39 @@ class InsightsService:
 
             rows = s.execute(stmt).scalars().all()
 
+        return self._serialize(rows)
+
+    def get_emerging_opportunities(
+        self,
+        *,
+        vertical_id: Optional[str],
+        limit: int,
+        offset: int,
+    ) -> List[TopPainOut]:
+
+        with session_scope() as s:
+            stmt = select(PainCluster).where(
+                and_(
+                    PainCluster.opportunity_window_status == "EARLY",
+                    PainCluster.breakout_score > 0,
+                    PainCluster.saturation_score < 50,
+                )
+            )
+
+            if vertical_id:
+                stmt = stmt.where(PainCluster.vertical_id == vertical_id)
+
+            stmt = stmt.order_by(
+                desc(PainCluster.breakout_score),
+                desc(PainCluster.exploitability_score),
+                desc(PainCluster.confidence_score),
+            ).limit(limit).offset(offset)
+
+            rows = s.execute(stmt).scalars().all()
+
+        return self._serialize(rows)
+
+    def _serialize(self, rows) -> List[TopPainOut]:
         return [
             TopPainOut(
                 cluster_id=str(r.id),

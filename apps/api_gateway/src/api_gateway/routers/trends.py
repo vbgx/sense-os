@@ -5,8 +5,9 @@ from fastapi import APIRouter, Query
 from api_gateway.schemas.trends import (
     TrendListResponse,
     ClusterDetail,
+    InsightTopPainsResponse,
 )
-from api_gateway.services.trends_service import TrendsService, build_query
+from api_gateway.services.trends_service import TrendsService, build_query, build_top_pains_query
 
 router = APIRouter(tags=["trends"])
 
@@ -20,11 +21,18 @@ def get_trending(
     limit: int = Query(20, ge=1, le=200),
     offset: int = Query(0, ge=0),
     sparkline_days: int = Query(14, ge=2, le=90),
+    min_exploitability: int | None = Query(default=None, ge=0, le=100),
+    max_exploitability: int | None = Query(default=None, ge=0, le=100),
 ):
-    """
-    List trending clusters with pagination.
-    """
-    q = build_query(vertical_id=vertical_id, day=day, limit=limit, offset=offset, sparkline_days=sparkline_days)
+    q = build_query(
+        vertical_id=vertical_id,
+        day=day,
+        limit=limit,
+        offset=offset,
+        sparkline_days=sparkline_days,
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
+    )
     return _service.list_trending(q)
 
 
@@ -35,11 +43,18 @@ def get_emerging(
     limit: int = Query(20, ge=1, le=200),
     offset: int = Query(0, ge=0),
     sparkline_days: int = Query(14, ge=2, le=90),
+    min_exploitability: int | None = Query(default=None, ge=0, le=100),
+    max_exploitability: int | None = Query(default=None, ge=0, le=100),
 ):
-    """
-    List emerging clusters with pagination.
-    """
-    q = build_query(vertical_id=vertical_id, day=day, limit=limit, offset=offset, sparkline_days=sparkline_days)
+    q = build_query(
+        vertical_id=vertical_id,
+        day=day,
+        limit=limit,
+        offset=offset,
+        sparkline_days=sparkline_days,
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
+    )
     return _service.list_emerging(q)
 
 
@@ -50,11 +65,18 @@ def get_declining(
     limit: int = Query(20, ge=1, le=200),
     offset: int = Query(0, ge=0),
     sparkline_days: int = Query(14, ge=2, le=90),
+    min_exploitability: int | None = Query(default=None, ge=0, le=100),
+    max_exploitability: int | None = Query(default=None, ge=0, le=100),
 ):
-    """
-    List declining clusters with pagination.
-    """
-    q = build_query(vertical_id=vertical_id, day=day, limit=limit, offset=offset, sparkline_days=sparkline_days)
+    q = build_query(
+        vertical_id=vertical_id,
+        day=day,
+        limit=limit,
+        offset=offset,
+        sparkline_days=sparkline_days,
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
+    )
     return _service.list_declining(q)
 
 
@@ -65,13 +87,27 @@ def get_cluster_detail(
     day: str | None = Query(None),
     sparkline_days: int = Query(30, ge=2, le=180),
 ):
-    """
-    Fetch a single cluster detail with sparkline data.
-    """
-    # day default handled in service
     return _service.get_cluster_detail(
         vertical_id=int(vertical_id),
         cluster_id=str(cluster_id),
         day=day or "",
         sparkline_days=int(sparkline_days),
     )
+
+
+@router.get("/insights/top_pains", response_model=InsightTopPainsResponse, tags=["insights"])
+def insights_top_pains(
+    vertical_id: int = Query(..., ge=1),
+    limit: int = Query(20, ge=1, le=200),
+    offset: int = Query(0, ge=0),
+    min_exploitability: int | None = Query(default=None, ge=0, le=100),
+    max_exploitability: int | None = Query(default=None, ge=0, le=100),
+):
+    q = build_top_pains_query(
+        vertical_id=vertical_id,
+        limit=limit,
+        offset=offset,
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
+    )
+    return _service.list_top_pains(q)

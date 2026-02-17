@@ -93,3 +93,57 @@ export const TopPainsSchema = z.array(TopPainSchema);
 
 export type TopPain = z.infer<typeof TopPainSchema>;
 export type TopPains = z.infer<typeof TopPainsSchema>;
+
+/* ──────────────────────────────────────────────────────────
+ * VERTICALS
+ * ────────────────────────────────────────────────────────── */
+
+export const VerticalSchema = z
+  .object({
+    id: z.number().int(),
+    name: z.string(),
+  })
+  .passthrough();
+
+export const VerticalsSchema = z.array(VerticalSchema);
+
+export type Vertical = z.infer<typeof VerticalSchema>;
+
+/* ──────────────────────────────────────────────────────────
+ * TRENDS (vertical-scoped cluster list with sparklines)
+ * We keep this permissive because exact Trend schemas aren't shown here.
+ * The only hard requirement for the UI is a stable cluster_id + sparkline array.
+ * ────────────────────────────────────────────────────────── */
+
+export const TrendSparkPointSchema = z
+  .object({
+    date: z.string().optional(),
+    value: z.number().optional(),
+    volume: z.number().optional(),
+    velocity: z.number().optional(),
+    breakout_flag: z.boolean().optional(),
+  })
+  .strict();
+
+export const TrendItemSchema = z
+  .object({
+    cluster_id: z.string(),
+    cluster_summary: z.string().nullable().optional(),
+    exploitability_score: z.number().int().optional(),
+    exploitability_tier: z.string().optional(),
+    breakout_score: z.number().int().optional(),
+    saturation_score: z.number().int().optional(),
+    confidence_score: z.number().int().optional(),
+    sparkline: z.array(TrendSparkPointSchema).optional(),
+  })
+  .passthrough();
+
+export const TrendListResponseSchema = z
+  .object({
+    items: z.array(TrendItemSchema).default([]),
+  })
+  .passthrough();
+
+export type TrendSparkPoint = z.infer<typeof TrendSparkPointSchema>;
+export type TrendItem = z.infer<typeof TrendItemSchema>;
+export type TrendListResponse = z.infer<typeof TrendListResponseSchema>;

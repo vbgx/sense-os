@@ -1,114 +1,93 @@
 import { z } from "zod";
 
-export const ISODateTime = z
+export const DateOnly = z
   .string()
-  .refine((s) => !Number.isNaN(Date.parse(s)), "Invalid datetime string");
+  .refine((s) => /^\d{4}-\d{2}-\d{2}$/.test(s), "Invalid date (expected YYYY-MM-DD)");
 
-export const PageSchema = z
+export const TimelinePointSchema = z
   .object({
-    limit: z.number().int().nonnegative(),
-    offset: z.number().int().nonnegative(),
-    total: z.number().int().nonnegative().optional(),
-  })
-  .passthrough();
-
-export const TopPainItemSchema = z
-  .object({
-    cluster_id: z.string(),
-    title: z.string(),
-    score: z.number(),
-    vertical_id: z.string().optional(),
-    updated_at: ISODateTime.optional(),
-
-    exploitability: z.number().optional(),
-    growth: z.number().optional(),
-    severity: z.number().optional(),
-    underserved: z.number().optional(),
-    confidence: z.number().optional(),
-    persona: z.string().optional(),
-    tier: z.string().optional(),
-    emerging: z.boolean().optional(),
-  })
-  .passthrough();
-
-export const InsightsTopPainsSchema = z
-  .object({
-    items: z.array(TopPainItemSchema),
-    page: PageSchema.optional(),
-    generated_at: ISODateTime.optional(),
+    date: DateOnly,
+    volume: z.number().int(),
+    growth_rate: z.number(),
+    velocity: z.number(),
+    breakout_flag: z.boolean(),
   })
   .passthrough();
 
 export const RepresentativeSignalSchema = z
   .object({
-    id: z.string().optional(),
-    title: z.string().optional(),
-    url: z.string().url().optional(),
-    source: z.string().optional(),
-    created_at: ISODateTime.optional(),
-    score: z.number().optional(),
-    text: z.string().optional(),
+    id: z.string(),
+    text: z.string(),
   })
   .passthrough();
 
+/**
+ * ClusterDetailOut (Pydantic)
+ * response: GET /insights/{cluster_id}
+ */
 export const ClusterDetailSchema = z
   .object({
     cluster_id: z.string(),
-    title: z.string(),
-    summary: z.string().optional(),
-    vertical_id: z.string().optional(),
-    score: z.number().optional(),
+    cluster_summary: z.string().nullable().optional(),
 
-    key_phrases: z.array(z.string()).optional(),
-    representative_signals: z.array(RepresentativeSignalSchema).optional(),
-    scores: z
-      .object({
-        exploitability: z.number().optional(),
-        growth: z.number().optional(),
-        severity: z.number().optional(),
-        underserved: z.number().optional(),
-        confidence: z.number().optional(),
-      })
-      .optional(),
+    exploitability_score: z.number().int(),
+    exploitability_tier: z.string(),
+    exploitability_score_v2: z.number().int(),
+    exploitability_tier_v2: z.string(),
+    exploitability_version_v2: z.string(),
+
+    severity_score: z.number().int(),
+    recurrence_score: z.number().int(),
+    monetizability_score: z.number().int(),
+
+    breakout_score: z.number().int(),
+    opportunity_window_status: z.string(),
+    competitive_heat_score: z.number().int(),
+    contradiction_score: z.number().int(),
+
+    confidence_score: z.number().int(),
+
+    key_phrases: z.array(z.string()),
+    representative_signals: z.array(RepresentativeSignalSchema),
+    timeline: z.array(TimelinePointSchema),
   })
   .passthrough();
 
-export const InsightsClusterDetailSchema = z
+export type ClusterDetail = z.infer<typeof ClusterDetailSchema>;
+export type TimelinePoint = z.infer<typeof TimelinePointSchema>;
+export type RepresentativeSignal = z.infer<typeof RepresentativeSignalSchema>;
+
+/**
+ * TopPainOut (Pydantic)
+ * response: GET /insights/top_pains (and emerging/declining lists)
+ */
+export const BuildSignalSchema = z
   .object({
-    item: ClusterDetailSchema,
-    generated_at: ISODateTime.optional(),
+    // BuildSignalOut exists in your API gateway; keep flexible but typed enough to render safely.
+    // Add fields later if you want to display them.
   })
   .passthrough();
 
-export const TrendItemSchema = z
+export const TopPainSchema = z
   .object({
     cluster_id: z.string(),
-    title: z.string(),
-    score: z.number().optional(),
-    velocity: z.number().optional(),
-    breakout_score: z.number().optional(),
-    declining_score: z.number().optional(),
-    vertical_id: z.string().optional(),
+    cluster_summary: z.string().nullable().optional(),
+
+    exploitability_score: z.number().int(),
+    exploitability_tier: z.string(),
+    severity_score: z.number().int(),
+
+    breakout_score: z.number().int(),
+    opportunity_window_status: z.string(),
+
+    confidence_score: z.number().int(),
+    dominant_persona: z.string(),
+
+    build_signal: BuildSignalSchema,
   })
   .passthrough();
 
-export const InsightsEmergingSchema = z
-  .object({
-    items: z.array(TrendItemSchema),
-    generated_at: ISODateTime.optional(),
-  })
-  .passthrough();
+export const TopPainsSchema = z.array(TopPainSchema);
 
-export const InsightsDecliningSchema = z
-  .object({
-    items: z.array(TrendItemSchema),
-    generated_at: ISODateTime.optional(),
-  })
-  .passthrough();
-
-export type TopPainItem = z.infer<typeof TopPainItemSchema>;
-export type InsightsTopPains = z.infer<typeof InsightsTopPainsSchema>;
-export type ClusterDetail = z.infer<typeof ClusterDetailSchema>;
-export type InsightsClusterDetail = z.infer<typeof InsightsClusterDetailSchema>;
-export type InsightsEmerging = z.infer<typeof InsightsEmergingSchema>;
-export type InsightsDeclining = z.infer<typeof InsightsDecliningSchema>;
+export type TopPain = z.infer<typeof TopPainSchema>;
+export type TopPains = z.infer<typeof TopPainsSchema>;

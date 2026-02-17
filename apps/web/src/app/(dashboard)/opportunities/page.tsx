@@ -12,8 +12,9 @@ export default function Page() {
   const q = useTopPains({
     limit: state.limit,
     offset: state.offset,
-    sort: state.sort,
-    vertical: state.vertical,
+    vertical_id: state.vertical_id,
+    tier: state.tier,
+    emerging_only: state.emerging_only,
   });
 
   return (
@@ -33,7 +34,7 @@ export default function Page() {
 
       {q.data && (
         <OpportunityTable
-          data={q.data.items}
+          data={q.data}
           onRowClick={(clusterId) => update({ inspect: clusterId })}
         />
       )}

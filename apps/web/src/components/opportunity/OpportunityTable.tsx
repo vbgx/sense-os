@@ -8,22 +8,22 @@ import {
 } from "@tanstack/react-table";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { useRef } from "react";
-import type { TopPainItem } from "@/lib/api/schemas";
+import type { TopPain } from "@/lib/api/schemas";
 
 interface Props {
-  data: TopPainItem[];
+  data: TopPain[];
   onRowClick?: (clusterId: string) => void;
 }
 
 export function OpportunityTable({ data, onRowClick }: Props) {
-  const columns: ColumnDef<TopPainItem>[] = [
-    { header: "Summary", accessorKey: "title" },
-    { header: "Exploitability", accessorKey: "exploitability" },
-    { header: "Growth", accessorKey: "growth" },
-    { header: "Severity", accessorKey: "severity" },
-    { header: "Underserved", accessorKey: "underserved" },
-    { header: "Confidence", accessorKey: "confidence" },
-    { header: "Persona", accessorKey: "persona" },
+  const columns: ColumnDef<TopPain>[] = [
+    { header: "Summary", accessorKey: "cluster_summary" },
+    { header: "Exploitability", accessorKey: "exploitability_score" },
+    { header: "Growth", accessorKey: "breakout_score" },
+    { header: "Severity", accessorKey: "severity_score" },
+    { header: "Underserved", accessorKey: "opportunity_window_status" },
+    { header: "Confidence", accessorKey: "confidence_score" },
+    { header: "Persona", accessorKey: "dominant_persona" },
   ];
 
   // eslint-disable-next-line react-hooks/incompatible-library

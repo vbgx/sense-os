@@ -5,31 +5,13 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sh
 import { useDashboardQueryState } from "@/lib/state/useDashboardQueryState";
 import { useClusterDetail } from "@/lib/api/queries";
 import { Skeleton } from "@/components/ui/Skeleton";
-import type { ClusterDetail } from "@/lib/api/schemas";
-
-type RepresentativeSignal =
-  NonNullable<ClusterDetail["representative_signals"]>[number];
+import type { RepresentativeSignal } from "@/lib/api/schemas";
 
 function SignalRow({ s }: { s: RepresentativeSignal }) {
   return (
     <div className="space-y-1 rounded-md border p-2">
-      <div className="truncate text-sm font-medium">
-        {s.title ?? s.text ?? "Signal"}
-      </div>
-      <div className="text-xs text-muted-foreground">
-        {s.source ? `${s.source}` : ""}
-        {s.created_at ? ` • ${s.created_at}` : ""}
-      </div>
-      {s.url && (
-        <a
-          href={s.url}
-          target="_blank"
-          rel="noreferrer"
-          className="text-xs underline text-muted-foreground hover:text-foreground"
-        >
-          open source
-        </a>
-      )}
+      <div className="text-xs text-muted-foreground">signal_id: {s.id}</div>
+      <div className="text-sm">{s.text}</div>
     </div>
   );
 }
@@ -74,48 +56,38 @@ export function ClusterInspectDrawer() {
         {clusterId && q.data && (
           <div className="mt-4 space-y-4">
             <div className="space-y-1">
-              <div className="text-lg font-semibold">{q.data.item.title}</div>
+              <div className="text-lg font-semibold">{q.data.cluster_id}</div>
               <div className="text-xs text-muted-foreground">
-                id: {q.data.item.cluster_id}
-                {q.data.item.vertical_id
-                  ? ` • vertical: ${q.data.item.vertical_id}`
-                  : ""}
+                tier: {q.data.exploitability_tier} • window: {q.data.opportunity_window_status}
               </div>
             </div>
 
-            {q.data.item.summary && (
-              <div className="rounded-md border p-3">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Summary
-                </div>
-                <div className="mt-2 text-sm">{q.data.item.summary}</div>
-              </div>
-            )}
+            <div className="rounded-md border p-3">
+              <div className="text-xs font-medium text-muted-foreground">Summary</div>
+              <div className="mt-2 text-sm">{q.data.cluster_summary ?? "—"}</div>
+            </div>
 
             <div className="rounded-md border p-3">
-              <div className="text-xs font-medium text-muted-foreground">
-                Key scores
-              </div>
+              <div className="text-xs font-medium text-muted-foreground">Key scores</div>
               <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
-                <div>Exploitability: {q.data.item.scores?.exploitability ?? "—"}</div>
-                <div>Growth: {q.data.item.scores?.growth ?? "—"}</div>
-                <div>Severity: {q.data.item.scores?.severity ?? "—"}</div>
-                <div>Underserved: {q.data.item.scores?.underserved ?? "—"}</div>
-                <div>Confidence: {q.data.item.scores?.confidence ?? "—"}</div>
+                <div>Exploitability: {q.data.exploitability_score}</div>
+                <div>Severity: {q.data.severity_score}</div>
+                <div>Recurrence: {q.data.recurrence_score}</div>
+                <div>Monetizability: {q.data.monetizability_score}</div>
+                <div>Breakout: {q.data.breakout_score}</div>
+                <div>Confidence: {q.data.confidence_score}</div>
               </div>
             </div>
 
             <div className="rounded-md border p-3">
-              <div className="text-xs font-medium text-muted-foreground">
-                Key phrases
-              </div>
+              <div className="text-xs font-medium text-muted-foreground">Key phrases</div>
               <div className="mt-2 flex flex-wrap gap-2">
-                {(q.data.item.key_phrases ?? []).slice(0, 5).map((p: string) => (
+                {q.data.key_phrases.slice(0, 5).map((p: string) => (
                   <span key={p} className="rounded-md border px-2 py-1 text-xs">
                     {p}
                   </span>
                 ))}
-                {(q.data.item.key_phrases ?? []).length === 0 && (
+                {q.data.key_phrases.length === 0 && (
                   <span className="text-xs text-muted-foreground">—</span>
                 )}
               </div>
@@ -126,12 +98,10 @@ export function ClusterInspectDrawer() {
                 Representative signals
               </div>
               <div className="space-y-2">
-                {(q.data.item.representative_signals ?? [])
-                  .slice(0, 3)
-                  .map((s: RepresentativeSignal, idx: number) => (
-                    <SignalRow key={s.id ?? s.url ?? String(idx)} s={s} />
-                  ))}
-                {(q.data.item.representative_signals ?? []).length === 0 && (
+                {q.data.representative_signals.slice(0, 3).map((s: RepresentativeSignal) => (
+                  <SignalRow key={s.id} s={s} />
+                ))}
+                {q.data.representative_signals.length === 0 && (
                   <div className="text-xs text-muted-foreground">—</div>
                 )}
               </div>
@@ -139,7 +109,7 @@ export function ClusterInspectDrawer() {
 
             <div className="pt-2">
               <Link
-                href={`/clusters/${encodeURIComponent(q.data.item.cluster_id)}`}
+                href={`/clusters/${encodeURIComponent(q.data.cluster_id)}`}
                 className="inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm hover:bg-muted"
               >
                 Open Deep Dive

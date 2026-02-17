@@ -11,6 +11,9 @@ export default function Page() {
   const q = useTopPains({
     limit: state.limit,
     offset: state.offset,
+    vertical_id: state.vertical_id,
+    tier: state.tier,
+    emerging_only: state.emerging_only,
   });
 
   return (
@@ -18,9 +21,7 @@ export default function Page() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-semibold">Overview</h1>
-          <p className="text-sm text-muted-foreground">
-            Market snapshot (URL-synced)
-          </p>
+          <p className="text-sm text-muted-foreground">Market snapshot (URL-synced)</p>
         </div>
 
         <Button variant="outline" size="sm" onClick={reset}>
@@ -32,25 +33,7 @@ export default function Page() {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => update({ sort: "score_desc", offset: 0 })}
-        >
-          Sort: Score ↓
-        </Button>
-
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => update({ sort: "score_asc", offset: 0 })}
-        >
-          Sort: Score ↑
-        </Button>
-
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() =>
-            update({ offset: state.offset + state.limit })
-          }
+          onClick={() => update({ offset: state.offset + state.limit })}
         >
           Next Page
         </Button>
@@ -66,19 +49,18 @@ export default function Page() {
 
       {q.data && (
         <div className="rounded-md border divide-y">
-          {q.data.items.map((it) => (
-            <div
-              key={it.cluster_id}
-              className="flex items-center justify-between px-4 py-3"
-            >
+          {q.data.map((it) => (
+            <div key={it.cluster_id} className="flex items-center justify-between px-4 py-3">
               <div>
-                <div className="text-sm font-medium">{it.title}</div>
+                <div className="text-sm font-medium">
+                  {it.cluster_summary ?? "—"}
+                </div>
                 <div className="text-xs text-muted-foreground">
-                  id: {it.cluster_id}
+                  id: {it.cluster_id} • persona: {it.dominant_persona}
                 </div>
               </div>
               <div className="text-sm tabular-nums">
-                {it.score.toFixed(2)}
+                {it.exploitability_score}
               </div>
             </div>
           ))}

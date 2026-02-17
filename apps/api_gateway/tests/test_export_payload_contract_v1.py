@@ -11,6 +11,8 @@ from domain.insights.ventureos_export_v1 import (
 def _valid_payload() -> dict:
     payload = build_ventureos_export_payload_v1(
         cluster_id="cluster-123",
+        vertical_id="industry_retail",
+        taxonomy_version="2026-02-17",
         persona="Early-stage Shopify founders",
         pain="Early-stage Shopify founders struggle with persistent return reconciliation because manual processes",
         wedge="Automated reconciliation layer for Early-stage Shopify founders",

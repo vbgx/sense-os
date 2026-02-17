@@ -15,5 +15,8 @@ class VerticalsAdapter:
     def get_by_name(self, name: str):
         return vertical_repo.get_by_name(self._session, name)
 
+    def get_by_id(self, vertical_id: int):
+        return vertical_repo.get_by_id(self._session, vertical_id)
+
     def create(self, name: str):
         return vertical_repo.create(self._session, name=name)

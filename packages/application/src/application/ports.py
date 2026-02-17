@@ -75,6 +75,9 @@ class VerticalsRepo(Protocol):
     def get_by_name(self, name: str) -> Any | None:
         ...
 
+    def get_by_id(self, vertical_id: int) -> Any | None:
+        ...
+
     def create(self, name: str) -> Any:
         ...
 

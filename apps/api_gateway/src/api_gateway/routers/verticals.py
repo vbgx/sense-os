@@ -3,9 +3,15 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+
+from api_gateway.dependencies import get_verticals_use_case
+from api_gateway.schemas.export_payload import VentureOSExportPayloadV1Schema
+from api_gateway.schemas.verticals import VerticalListOut
+from application.ports import NotFoundError
+from application.use_cases.verticals import VerticalsUseCase
 
 router = APIRouter(prefix="/verticals", tags=["verticals"])
 
@@ -23,16 +29,23 @@ def _read_doc(path: Path) -> Any:
     raise ValueError(f"YAML is not supported (JSON-only): {path}")
 
 
-def _load_index() -> Optional[List[Dict[str, Any]]]:
+def _load_index() -> Optional[Tuple[List[Dict[str, Any]], str]]:
     """
     Index v1 (JSON):
-      { "verticals": [ { "id": "...", "file": "...", "enabled": true, "priority": 10 }, ... ] }
+      {
+        "taxonomy_version": "YYYY-MM-DD",
+        "verticals": [
+          { "id": "...", "file": "...", "enabled": true, "priority": 10, "meta": {...}, "tier": "core" },
+          ...
+        ]
+      }
     """
     if INDEX_FILE_JSON.exists():
         data = _read_doc(INDEX_FILE_JSON)
         items = data.get("verticals")
         if isinstance(items, list) and items and all(isinstance(x, dict) for x in items):
-            return items
+            taxonomy_version = str(data.get("taxonomy_version") or "").strip() or "unknown"
+            return items, taxonomy_version
         return None
 
     # legacy fallback: allow old YAML index only if someone kept it (but JSON-only will refuse reading it)
@@ -63,9 +76,11 @@ def _load_vertical_by_file(path: Path) -> Dict[str, Any]:
 def _load_all_verticals() -> List[Dict[str, Any]]:
     idx = _load_index()
     out: List[Dict[str, Any]] = []
+    taxonomy_version = "unknown"
 
     if idx is not None:
-        for entry in idx:
+        index_items, taxonomy_version = idx
+        for entry in index_items:
             if entry.get("enabled", True) is False:
                 continue
 
@@ -84,6 +99,16 @@ def _load_all_verticals() -> List[Dict[str, Any]]:
                 v["id"] = entry["id"]
                 v.setdefault("name", entry["id"])
 
+            if entry.get("meta") is not None and not v.get("meta"):
+                v["meta"] = entry["meta"]
+
+            if entry.get("tier") is not None and not v.get("tier"):
+                v["tier"] = entry["tier"]
+
+            entry_taxonomy = entry.get("taxonomy_version") or taxonomy_version
+            if entry_taxonomy and not v.get("taxonomy_version"):
+                v["taxonomy_version"] = entry_taxonomy
+
             out.append(v)
 
         out.sort(key=lambda x: int((x.get("_index") or {}).get("priority", 1000)))
@@ -91,12 +116,14 @@ def _load_all_verticals() -> List[Dict[str, Any]]:
 
     # No index: list *.json
     for p in _discover_vertical_files():
-        out.append(_load_vertical_by_file(p))
+        v = _load_vertical_by_file(p)
+        v.setdefault("taxonomy_version", taxonomy_version)
+        out.append(v)
     out.sort(key=lambda x: str(x.get("id", "")))
     return out
 
 
-@router.get("/")
+@router.get("/", response_model=VerticalListOut)
 def list_verticals() -> Dict[str, Any]:
     verticals = _load_all_verticals()
 
@@ -110,6 +137,9 @@ def list_verticals() -> Dict[str, Any]:
                 "description": v.get("description"),
                 "enabled": v.get("enabled", True),
                 "tags": v.get("tags", []),
+                "meta": v.get("meta"),
+                "tier": v.get("tier"),
+                "taxonomy_version": v.get("taxonomy_version"),
             }
         )
     return {"items": items}
@@ -123,3 +153,18 @@ def get_vertical(vertical_id: str) -> Dict[str, Any]:
             v.pop("_index", None)
             return v
     raise HTTPException(status_code=404, detail="Vertical not found")
+
+
+@router.get("/{vertical_id}/ventureos_export", response_model=VentureOSExportPayloadV1Schema)
+def export_ventureos_payload(
+    vertical_id: str,
+    taxonomy_version: str | None = None,
+    use_case: VerticalsUseCase = Depends(get_verticals_use_case),
+):
+    try:
+        return use_case.build_ventureos_export(
+            vertical_id=vertical_id,
+            taxonomy_version=taxonomy_version,
+        )
+    except NotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc

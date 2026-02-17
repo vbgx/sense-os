@@ -3,3 +3,4 @@ def test_openapi_served(client):
     assert response.status_code == 200
     data = response.json()
     assert "/insights/{cluster_id}/export" in data.get("paths", {})
+    assert "/verticals/{vertical_id}/ventureos_export" in data.get("paths", {})

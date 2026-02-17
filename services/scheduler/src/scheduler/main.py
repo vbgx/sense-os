@@ -210,7 +210,7 @@ def _run_day_sequential(
     try:
         metrics_n = _wait_count_ge(
             "cluster_daily_metrics(day)",
-            "select count(*) from cluster_daily_metrics where day >= :day_start::date and day < :day_end::date",
+            "select count(*) from cluster_daily_metrics where day >= CAST(:day_start AS date) and day < CAST(:day_end AS date)",
             {"day_start": day_start, "day_end": next_day},
             1,
             timeout_s=90,

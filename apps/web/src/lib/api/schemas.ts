@@ -71,6 +71,7 @@ export const BuildSignalSchema = z
 export const TopPainSchema = z
   .object({
     cluster_id: z.string(),
+    vertical_id: z.string().nullable().optional(),
     cluster_summary: z.string().nullable().optional(),
 
     exploitability_score: z.number().int(),
@@ -78,8 +79,9 @@ export const TopPainSchema = z
     severity_score: z.number().int(),
 
     breakout_score: z.number().int(),
-    opportunity_window_status: z.string(),
+    saturation_score: z.number().int(),
 
+    opportunity_window_status: z.string(),
     confidence_score: z.number().int(),
     dominant_persona: z.string(),
 

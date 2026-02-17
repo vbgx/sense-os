@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_hospitality_lifecycle",
+  "name": "b2c_security_industry_hospitality_lifecycle",
+  "title": "B2C — Security — Hospitality — Lifecycle",
+  "description": "B2C, Security, Hospitality pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_hospitality",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=security_lead)."
+}

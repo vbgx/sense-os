@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_manufacturing_paid",
+  "name": "dev_industry_manufacturing_paid",
+  "title": "Engineering — Manufacturing — Paid Acquisition",
+  "description": "Engineering, Manufacturing pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_manufacturing",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=founder)."
+}

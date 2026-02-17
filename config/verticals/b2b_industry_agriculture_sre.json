@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_agriculture_sre",
+  "name": "b2b_industry_agriculture_sre",
+  "title": "B2B — Agriculture — SRE",
+  "description": "B2B, Agriculture pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_agriculture",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

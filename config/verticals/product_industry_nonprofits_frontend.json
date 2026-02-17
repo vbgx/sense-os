@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_nonprofits_frontend",
+  "name": "product_industry_nonprofits_frontend",
+  "title": "Product — Nonprofits — Frontend",
+  "description": "Product, Nonprofits pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_nonprofits",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

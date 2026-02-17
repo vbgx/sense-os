@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_hospitality_lifecycle",
+  "name": "b2b_sales_industry_hospitality_lifecycle",
+  "title": "B2B — Sales — Hospitality — Lifecycle",
+  "description": "B2B, Sales, Hospitality pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_hospitality",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_nonprofits_analytics",
+  "name": "sales_industry_nonprofits_analytics",
+  "title": "Sales — Nonprofits — Product Analytics",
+  "description": "Sales, Nonprofits pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_nonprofits",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=product_lead)."
+}

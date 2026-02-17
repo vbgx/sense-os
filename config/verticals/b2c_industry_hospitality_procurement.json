@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_hospitality_procurement",
+  "name": "b2c_industry_hospitality_procurement",
+  "title": "B2C — Hospitality — Procurement",
+  "description": "B2C, Hospitality pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_hospitality",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=founder)."
+}

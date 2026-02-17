@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_healthcare_frontend",
+  "name": "sales_industry_healthcare_frontend",
+  "title": "Sales — Healthcare — Frontend",
+  "description": "Sales, Healthcare pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_healthcare",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

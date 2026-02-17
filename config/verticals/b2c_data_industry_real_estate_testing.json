@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_real_estate_testing",
+  "name": "b2c_data_industry_real_estate_testing",
+  "title": "B2C — Data — Real Estate — Testing",
+  "description": "B2C, Data, Real Estate pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_real_estate",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=ops_manager)."
+}

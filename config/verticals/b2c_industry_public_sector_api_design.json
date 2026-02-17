@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_public_sector_api_design",
+  "name": "b2c_industry_public_sector_api_design",
+  "title": "B2C — Public Sector — API Design",
+  "description": "B2C, Public Sector pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_public_sector",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=engineer)."
+}

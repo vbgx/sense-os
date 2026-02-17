@@ -1,27 +1,31 @@
 {
   "id": "ops_support_ops",
   "name": "ops_support_ops",
-  "title": "Support Ops",
-  "description": "Macros, deflection, routing, QA.",
+  "title": "Operations — Support Ops",
+  "description": "Operations pains and workflows around Support Ops.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
     "ops",
-    "support"
+    "support_ops"
   ],
   "default_queries": [
-    "support queue triage",
-    "macro management",
-    "QA workflow"
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "cashflow"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "ops support ops",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=finance_lead)."
 }

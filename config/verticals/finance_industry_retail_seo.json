@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_retail_seo",
+  "name": "finance_industry_retail_seo",
+  "title": "Finance — Retail — SEO",
+  "description": "Finance, Retail pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_retail",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=product_lead)."
+}

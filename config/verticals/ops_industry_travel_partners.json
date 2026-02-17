@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_travel_partners",
+  "name": "ops_industry_travel_partners",
+  "title": "Operations — Travel — Partnerships",
+  "description": "Operations, Travel pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_travel",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
+}

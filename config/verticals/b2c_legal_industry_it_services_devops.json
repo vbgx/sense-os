@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_it_services_devops",
+  "name": "b2c_legal_industry_it_services_devops",
+  "title": "B2C — Legal — IT Services (MSP) — DevOps",
+  "description": "B2C, Legal, IT Services (MSP) pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_it_services",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=finance_lead)."
+}

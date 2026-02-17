@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_travel_sdr",
+  "name": "ops_industry_travel_sdr",
+  "title": "Operations — Travel — SDR/Outbound",
+  "description": "Operations, Travel pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_travel",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=sales_rep)."
+}

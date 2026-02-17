@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_fintech_pm",
+  "name": "dev_industry_fintech_pm",
+  "title": "Engineering — Fintech — Product Management",
+  "description": "Engineering, Fintech pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_fintech",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

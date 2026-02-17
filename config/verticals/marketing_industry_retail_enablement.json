@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_retail_enablement",
+  "name": "marketing_industry_retail_enablement",
+  "title": "Marketing — Retail — Enablement",
+  "description": "Marketing, Retail pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_retail",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=engineer)."
+}

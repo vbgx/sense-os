@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_it_services_brand",
+  "name": "b2b_data_industry_it_services_brand",
+  "title": "B2B — Data — IT Services (MSP) — Brand",
+  "description": "B2B, Data, IT Services (MSP) pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_it_services",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=product_lead)."
+}

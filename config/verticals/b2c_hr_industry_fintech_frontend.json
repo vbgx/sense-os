@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_fintech_frontend",
+  "name": "b2c_hr_industry_fintech_frontend",
+  "title": "B2C — HR — Fintech — Frontend",
+  "description": "B2C, HR, Fintech pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_fintech",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_hospitality_api_design",
+  "name": "hr_industry_hospitality_api_design",
+  "title": "HR — Hospitality — API Design",
+  "description": "HR, Hospitality pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_hospitality",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=finance_lead)."
+}

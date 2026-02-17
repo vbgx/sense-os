@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_it_services_lifecycle",
+  "name": "hr_industry_it_services_lifecycle",
+  "title": "HR — IT Services (MSP) — Lifecycle",
+  "description": "HR, IT Services (MSP) pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_it_services",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_real_estate_frontend",
+  "name": "finance_industry_real_estate_frontend",
+  "title": "Finance — Real Estate — Frontend",
+  "description": "Finance, Real Estate pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_real_estate",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

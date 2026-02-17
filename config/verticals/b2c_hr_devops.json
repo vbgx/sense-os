@@ -1,0 +1,33 @@
+{
+  "id": "b2c_hr_devops",
+  "name": "b2c_hr_devops",
+  "title": "B2C — HR — DevOps",
+  "description": "B2C, HR pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=product_lead)."
+}

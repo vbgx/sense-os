@@ -1,0 +1,31 @@
+{
+  "id": "industry_media_backend",
+  "name": "industry_media_backend",
+  "title": "Media — Backend",
+  "description": "Media pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_media",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=ops_manager)."
+}

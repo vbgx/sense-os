@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_real_estate_backend",
+  "name": "finance_industry_real_estate_backend",
+  "title": "Finance — Real Estate — Backend",
+  "description": "Finance, Real Estate pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_real_estate",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=sales_rep)."
+}

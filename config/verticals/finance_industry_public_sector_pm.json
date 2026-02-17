@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_public_sector_pm",
+  "name": "finance_industry_public_sector_pm",
+  "title": "Finance — Public Sector — Product Management",
+  "description": "Finance, Public Sector pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_public_sector",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

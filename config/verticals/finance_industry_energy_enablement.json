@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_energy_enablement",
+  "name": "finance_industry_energy_enablement",
+  "title": "Finance — Energy — Enablement",
+  "description": "Finance, Energy pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_energy",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_energy_paid",
+  "name": "ops_industry_energy_paid",
+  "title": "Operations — Energy — Paid Acquisition",
+  "description": "Operations, Energy pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_energy",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=finance_lead)."
+}

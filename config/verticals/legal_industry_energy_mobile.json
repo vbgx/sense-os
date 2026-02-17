@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_energy_mobile",
+  "name": "legal_industry_energy_mobile",
+  "title": "Legal — Energy — Mobile",
+  "description": "Legal, Energy pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_energy",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=ops_manager)."
+}

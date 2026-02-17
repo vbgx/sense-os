@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_legal_people_ops",
+  "name": "product_industry_legal_people_ops",
+  "title": "Product — Legal Services — People Ops",
+  "description": "Product, Legal Services pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_legal",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=finance_lead)."
+}

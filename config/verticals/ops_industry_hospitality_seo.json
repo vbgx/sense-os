@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_hospitality_seo",
+  "name": "ops_industry_hospitality_seo",
+  "title": "Operations — Hospitality — SEO",
+  "description": "Operations, Hospitality pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_hospitality",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=engineer)."
+}

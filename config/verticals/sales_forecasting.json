@@ -1,26 +1,31 @@
 {
   "id": "sales_forecasting",
   "name": "sales_forecasting",
-  "title": "Forecasting",
-  "description": "Forecast accuracy, rollups.",
+  "title": "Sales — Forecasting",
+  "description": "Sales pains and workflows around Forecasting.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
-    "sales"
+    "sales",
+    "forecasting"
   ],
   "default_queries": [
-    "forecast accuracy",
-    "commit calls",
-    "pipeline coverage"
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "roadmap"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "sales forecasting",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=product_lead)."
 }

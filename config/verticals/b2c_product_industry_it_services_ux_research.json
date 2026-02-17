@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_it_services_ux_research",
+  "name": "b2c_product_industry_it_services_ux_research",
+  "title": "B2C — Product — IT Services (MSP) — User Research",
+  "description": "B2C, Product, IT Services (MSP) pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_it_services",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=finance_lead)."
+}

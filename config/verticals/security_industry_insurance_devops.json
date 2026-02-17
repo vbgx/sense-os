@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_insurance_devops",
+  "name": "security_industry_insurance_devops",
+  "title": "Security — Insurance — DevOps",
+  "description": "Security, Insurance pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_insurance",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "security",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_public_sector_people_ops",
+  "name": "b2c_industry_public_sector_people_ops",
+  "title": "B2C — Public Sector — People Ops",
+  "description": "B2C, Public Sector pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_public_sector",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=ops_manager)."
+}

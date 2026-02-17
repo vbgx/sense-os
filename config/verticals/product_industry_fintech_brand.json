@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_fintech_brand",
+  "name": "product_industry_fintech_brand",
+  "title": "Product — Fintech — Brand",
+  "description": "Product, Fintech pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_fintech",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=marketer)."
+}

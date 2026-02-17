@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_it_services_ae",
+  "name": "b2b_dev_industry_it_services_ae",
+  "title": "B2B — Engineering — IT Services (MSP) — Account Executive",
+  "description": "B2B, Engineering, IT Services (MSP) pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_it_services",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=marketer)."
+}

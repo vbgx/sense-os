@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_real_estate_community",
+  "name": "sales_industry_real_estate_community",
+  "title": "Sales — Real Estate — Community",
+  "description": "Sales, Real Estate pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_real_estate",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=ops_manager)."
+}

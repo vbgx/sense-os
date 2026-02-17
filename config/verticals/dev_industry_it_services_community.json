@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_it_services_community",
+  "name": "dev_industry_it_services_community",
+  "title": "Engineering — IT Services (MSP) — Community",
+  "description": "Engineering, IT Services (MSP) pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_it_services",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_construction_revops",
+  "name": "b2b_finance_industry_construction_revops",
+  "title": "B2B — Finance — Construction — RevOps",
+  "description": "B2B, Finance, Construction pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_construction",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=ops_manager)."
+}

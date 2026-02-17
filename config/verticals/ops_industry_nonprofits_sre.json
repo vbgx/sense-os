@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_nonprofits_sre",
+  "name": "ops_industry_nonprofits_sre",
+  "title": "Operations — Nonprofits — SRE",
+  "description": "Operations, Nonprofits pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_nonprofits",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=marketer)."
+}

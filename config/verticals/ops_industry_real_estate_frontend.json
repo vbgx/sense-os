@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_real_estate_frontend",
+  "name": "ops_industry_real_estate_frontend",
+  "title": "Operations — Real Estate — Frontend",
+  "description": "Operations, Real Estate pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_real_estate",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=founder)."
+}

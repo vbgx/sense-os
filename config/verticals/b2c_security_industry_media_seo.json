@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_media_seo",
+  "name": "b2c_security_industry_media_seo",
+  "title": "B2C — Security — Media — SEO",
+  "description": "B2C, Security, Media pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_media",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_energy_devops",
+  "name": "dev_industry_energy_devops",
+  "title": "Engineering — Energy — DevOps",
+  "description": "Engineering, Energy pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_energy",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

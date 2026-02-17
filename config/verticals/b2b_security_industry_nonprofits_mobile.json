@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_nonprofits_mobile",
+  "name": "b2b_security_industry_nonprofits_mobile",
+  "title": "B2B — Security — Nonprofits — Mobile",
+  "description": "B2B, Security, Nonprofits pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_nonprofits",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=finance_lead)."
+}

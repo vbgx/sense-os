@@ -1,0 +1,31 @@
+{
+  "id": "industry_logistics_platform_eng",
+  "name": "industry_logistics_platform_eng",
+  "title": "Logistics — Platform Engineering",
+  "description": "Logistics pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_logistics",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=marketer)."
+}

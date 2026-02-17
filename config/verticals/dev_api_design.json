@@ -1,26 +1,31 @@
 {
   "id": "dev_api_design",
   "name": "dev_api_design",
-  "title": "API Design",
-  "description": "Versioning, contracts, DX.",
+  "title": "Engineering — API Design",
+  "description": "Engineering pains and workflows around API Design.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
-    "dev"
+    "dev",
+    "api_design"
   ],
   "default_queries": [
-    "api versioning pain",
-    "openapi drift",
-    "breaking changes"
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "cashflow"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "dev api design",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=finance_lead)."
 }

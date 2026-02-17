@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_construction_procurement",
+  "name": "b2c_security_industry_construction_procurement",
+  "title": "B2C — Security — Construction — Procurement",
+  "description": "B2C, Security, Construction pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_construction",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=sales_rep)."
+}

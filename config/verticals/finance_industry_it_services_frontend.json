@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_it_services_frontend",
+  "name": "finance_industry_it_services_frontend",
+  "title": "Finance — IT Services (MSP) — Frontend",
+  "description": "Finance, IT Services (MSP) pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_it_services",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=engineer)."
+}

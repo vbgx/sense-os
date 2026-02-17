@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_agriculture_revops",
+  "name": "finance_industry_agriculture_revops",
+  "title": "Finance — Agriculture — RevOps",
+  "description": "Finance, Agriculture pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_agriculture",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=sales_rep)."
+}

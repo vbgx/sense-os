@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_hospitality_pm",
+  "name": "hr_industry_hospitality_pm",
+  "title": "HR — Hospitality — Product Management",
+  "description": "HR, Hospitality pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_hospitality",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

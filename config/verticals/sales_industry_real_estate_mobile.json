@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_real_estate_mobile",
+  "name": "sales_industry_real_estate_mobile",
+  "title": "Sales — Real Estate — Mobile",
+  "description": "Sales, Real Estate pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_real_estate",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=founder)."
+}

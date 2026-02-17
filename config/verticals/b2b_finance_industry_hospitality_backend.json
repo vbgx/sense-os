@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_hospitality_backend",
+  "name": "b2b_finance_industry_hospitality_backend",
+  "title": "B2B — Finance — Hospitality — Backend",
+  "description": "B2B, Finance, Hospitality pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_hospitality",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=founder)."
+}

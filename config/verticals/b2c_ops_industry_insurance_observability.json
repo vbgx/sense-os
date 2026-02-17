@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_insurance_observability",
+  "name": "b2c_ops_industry_insurance_observability",
+  "title": "B2C — Operations — Insurance — Observability",
+  "description": "B2C, Operations, Insurance pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_insurance",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_energy_paid",
+  "name": "data_industry_energy_paid",
+  "title": "Data — Energy — Paid Acquisition",
+  "description": "Data, Energy pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_energy",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=engineer)."
+}

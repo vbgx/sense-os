@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_supply_chain_mobile",
+  "name": "b2b_data_industry_supply_chain_mobile",
+  "title": "B2B — Data — Supply Chain — Mobile",
+  "description": "B2B, Data, Supply Chain pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_supply_chain",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=engineer)."
+}

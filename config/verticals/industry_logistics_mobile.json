@@ -1,0 +1,31 @@
+{
+  "id": "industry_logistics_mobile",
+  "name": "industry_logistics_mobile",
+  "title": "Logistics — Mobile",
+  "description": "Logistics pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_logistics",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_travel_pricing",
+  "name": "finance_industry_travel_pricing",
+  "title": "Finance — Travel — Pricing & Packaging",
+  "description": "Finance, Travel pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_travel",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=security_lead)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "industry_agriculture_mobile",
+  "name": "industry_agriculture_mobile",
+  "title": "Agriculture — Mobile",
+  "description": "Agriculture pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_agriculture",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=ops_manager)."
+}

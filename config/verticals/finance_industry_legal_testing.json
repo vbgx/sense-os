@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_legal_testing",
+  "name": "finance_industry_legal_testing",
+  "title": "Finance — Legal Services — Testing",
+  "description": "Finance, Legal Services pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_legal",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=security_lead)."
+}

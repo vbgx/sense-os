@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_hospitality_platform_eng",
+  "name": "ops_industry_hospitality_platform_eng",
+  "title": "Operations — Hospitality — Platform Engineering",
+  "description": "Operations, Hospitality pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_hospitality",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=finance_lead)."
+}

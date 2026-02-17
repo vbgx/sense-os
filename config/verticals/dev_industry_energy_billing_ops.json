@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_energy_billing_ops",
+  "name": "dev_industry_energy_billing_ops",
+  "title": "Engineering — Energy — Billing Ops",
+  "description": "Engineering, Energy pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_energy",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=engineer)."
+}

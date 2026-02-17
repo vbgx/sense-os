@@ -1,0 +1,31 @@
+{
+  "id": "ops_frontend",
+  "name": "ops_frontend",
+  "title": "Operations — Frontend",
+  "description": "Operations pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=product_lead)."
+}

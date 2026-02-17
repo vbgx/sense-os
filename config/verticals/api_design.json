@@ -1,0 +1,28 @@
+{
+  "id": "api_design",
+  "name": "api_design",
+  "title": "API Design",
+  "description": "General pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=ops_manager)."
+}

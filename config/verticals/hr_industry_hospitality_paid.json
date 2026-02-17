@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_hospitality_paid",
+  "name": "hr_industry_hospitality_paid",
+  "title": "HR — Hospitality — Paid Acquisition",
+  "description": "HR, Hospitality pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_hospitality",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=marketer)."
+}

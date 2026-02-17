@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_hospitality_lifecycle",
+  "name": "legal_industry_hospitality_lifecycle",
+  "title": "Legal — Hospitality — Lifecycle",
+  "description": "Legal, Hospitality pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_hospitality",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=marketer)."
+}

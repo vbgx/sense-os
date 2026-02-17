@@ -1,0 +1,31 @@
+{
+  "id": "industry_manufacturing_seo",
+  "name": "industry_manufacturing_seo",
+  "title": "Manufacturing — SEO",
+  "description": "Manufacturing pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_manufacturing",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=security_lead)."
+}

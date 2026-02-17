@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_nonprofits_events",
+  "name": "data_industry_nonprofits_events",
+  "title": "Data — Nonprofits — Events",
+  "description": "Data, Nonprofits pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_nonprofits",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

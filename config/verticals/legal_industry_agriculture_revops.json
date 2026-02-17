@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_agriculture_revops",
+  "name": "legal_industry_agriculture_revops",
+  "title": "Legal — Agriculture — RevOps",
+  "description": "Legal, Agriculture pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_agriculture",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=founder)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "marketing_observability",
+  "name": "marketing_observability",
+  "title": "Marketing — Observability",
+  "description": "Marketing pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=sales_rep)."
+}

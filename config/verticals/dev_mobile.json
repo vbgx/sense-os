@@ -1,27 +1,31 @@
 {
   "id": "dev_mobile",
   "name": "dev_mobile",
-  "title": "Mobile Engineering",
-  "description": "CI, releases, store issues.",
+  "title": "Engineering — Mobile",
+  "description": "Engineering pains and workflows around Mobile.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
     "dev",
-    "engineering"
+    "mobile"
   ],
   "default_queries": [
-    "app store rejection",
-    "mobile CI pain",
-    "release automation"
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "compliance"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "dev mobile",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=security_lead)."
 }

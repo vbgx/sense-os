@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_legal_pm",
+  "name": "product_industry_legal_pm",
+  "title": "Product — Legal Services — Product Management",
+  "description": "Product, Legal Services pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_legal",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

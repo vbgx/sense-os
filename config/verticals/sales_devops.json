@@ -1,0 +1,31 @@
+{
+  "id": "sales_devops",
+  "name": "sales_devops",
+  "title": "Sales — DevOps",
+  "description": "Sales pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=founder)."
+}

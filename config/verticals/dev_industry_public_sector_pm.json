@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_public_sector_pm",
+  "name": "dev_industry_public_sector_pm",
+  "title": "Engineering — Public Sector — Product Management",
+  "description": "Engineering, Public Sector pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_public_sector",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=engineer)."
+}

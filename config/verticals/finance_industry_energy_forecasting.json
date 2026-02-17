@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_energy_forecasting",
+  "name": "finance_industry_energy_forecasting",
+  "title": "Finance — Energy — Forecasting",
+  "description": "Finance, Energy pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_energy",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=security_lead)."
+}

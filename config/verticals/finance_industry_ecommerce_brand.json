@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_ecommerce_brand",
+  "name": "finance_industry_ecommerce_brand",
+  "title": "Finance — Ecommerce — Brand",
+  "description": "Finance, Ecommerce pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_ecommerce",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=marketer)."
+}

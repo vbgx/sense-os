@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_healthcare_enablement",
+  "name": "finance_industry_healthcare_enablement",
+  "title": "Finance — Healthcare — Enablement",
+  "description": "Finance, Healthcare pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_healthcare",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=founder)."
+}

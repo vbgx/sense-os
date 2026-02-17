@@ -1,0 +1,31 @@
+{
+  "id": "industry_ecommerce_procurement",
+  "name": "industry_ecommerce_procurement",
+  "title": "Ecommerce — Procurement",
+  "description": "Ecommerce pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_ecommerce",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=engineer)."
+}

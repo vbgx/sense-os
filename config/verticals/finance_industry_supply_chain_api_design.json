@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_supply_chain_api_design",
+  "name": "finance_industry_supply_chain_api_design",
+  "title": "Finance — Supply Chain — API Design",
+  "description": "Finance, Supply Chain pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_supply_chain",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=finance_lead)."
+}

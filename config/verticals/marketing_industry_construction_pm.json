@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_construction_pm",
+  "name": "marketing_industry_construction_pm",
+  "title": "Marketing — Construction — Product Management",
+  "description": "Marketing, Construction pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_construction",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

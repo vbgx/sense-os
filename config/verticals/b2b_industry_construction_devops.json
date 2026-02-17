@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_construction_devops",
+  "name": "b2b_industry_construction_devops",
+  "title": "B2B — Construction — DevOps",
+  "description": "B2B, Construction pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_construction",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=security_lead)."
+}

@@ -1,48 +1,33 @@
 {
   "id": "b2c_ops_procurement",
   "name": "b2c_ops_procurement",
-  "title": "B2C — Operations: Procurement",
-  "description": "B2C teams dealing with procurement workflows, tooling, and operational friction.",
+  "title": "B2C — Operations — Procurement",
+  "description": "B2C, Operations pains and workflows around Procurement.",
   "version": 1,
   "enabled": true,
   "tags": [
     "b2c",
     "ops",
-    "ops:procurement"
+    "procurement"
   ],
   "default_queries": [
-    "procurement",
-    "procurement workflow",
-    "procurement tooling",
-    "procurement automation",
-    "procurement pain points",
-    "procurement process"
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "compliance"
   ],
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops"
   },
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "limit": 80
-      },
-      {
-        "name": "hackernews",
-        "limit": 80
-      },
-      {
-        "name": "indiehackers",
-        "limit": 80
-      }
-    ]
-  },
-  "taxonomy": {
-    "segment": "b2c",
-    "function": "ops",
-    "subdomain": "procurement"
-  }
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=security_lead)."
 }

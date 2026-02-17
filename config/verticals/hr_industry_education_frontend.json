@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_education_frontend",
+  "name": "hr_industry_education_frontend",
+  "title": "HR — Education — Frontend",
+  "description": "HR, Education pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_education",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=product_lead)."
+}

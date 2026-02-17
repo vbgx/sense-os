@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_it_services_backend",
+  "name": "b2c_security_industry_it_services_backend",
+  "title": "B2C — Security — IT Services (MSP) — Backend",
+  "description": "B2C, Security, IT Services (MSP) pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_it_services",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=ops_manager)."
+}

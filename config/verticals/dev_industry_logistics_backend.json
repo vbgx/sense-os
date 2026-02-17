@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_logistics_backend",
+  "name": "dev_industry_logistics_backend",
+  "title": "Engineering — Logistics — Backend",
+  "description": "Engineering, Logistics pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_logistics",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=founder)."
+}

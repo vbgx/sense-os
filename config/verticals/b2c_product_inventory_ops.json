@@ -1,0 +1,33 @@
+{
+  "id": "b2c_product_inventory_ops",
+  "name": "b2c_product_inventory_ops",
+  "title": "B2C — Product — Inventory Ops",
+  "description": "B2C, Product pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=marketer)."
+}

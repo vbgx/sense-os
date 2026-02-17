@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_it_services_people_ops",
+  "name": "b2c_marketing_industry_it_services_people_ops",
+  "title": "B2C — Marketing — IT Services (MSP) — People Ops",
+  "description": "B2C, Marketing, IT Services (MSP) pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_it_services",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=sales_rep)."
+}

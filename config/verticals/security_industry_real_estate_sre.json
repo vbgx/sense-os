@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_real_estate_sre",
+  "name": "security_industry_real_estate_sre",
+  "title": "Security — Real Estate — SRE",
+  "description": "Security, Real Estate pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_real_estate",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=finance_lead)."
+}

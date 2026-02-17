@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_manufacturing_mobile",
+  "name": "data_industry_manufacturing_mobile",
+  "title": "Data — Manufacturing — Mobile",
+  "description": "Data, Manufacturing pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_manufacturing",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=marketer)."
+}

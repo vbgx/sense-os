@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_public_sector_pricing",
+  "name": "marketing_industry_public_sector_pricing",
+  "title": "Marketing — Public Sector — Pricing & Packaging",
+  "description": "Marketing, Public Sector pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_public_sector",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=marketer)."
+}

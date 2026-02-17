@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_energy_testing",
+  "name": "ops_industry_energy_testing",
+  "title": "Operations — Energy — Testing",
+  "description": "Operations, Energy pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_energy",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=marketer)."
+}

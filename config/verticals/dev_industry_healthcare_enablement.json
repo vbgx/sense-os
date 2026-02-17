@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_healthcare_enablement",
+  "name": "dev_industry_healthcare_enablement",
+  "title": "Engineering — Healthcare — Enablement",
+  "description": "Engineering, Healthcare pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_healthcare",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=product_lead)."
+}

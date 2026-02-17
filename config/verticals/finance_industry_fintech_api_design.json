@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_fintech_api_design",
+  "name": "finance_industry_fintech_api_design",
+  "title": "Finance — Fintech — API Design",
+  "description": "Finance, Fintech pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_fintech",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=sales_rep)."
+}

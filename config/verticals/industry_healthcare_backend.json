@@ -1,0 +1,31 @@
+{
+  "id": "industry_healthcare_backend",
+  "name": "industry_healthcare_backend",
+  "title": "Healthcare — Backend",
+  "description": "Healthcare pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_healthcare",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=product_lead)."
+}

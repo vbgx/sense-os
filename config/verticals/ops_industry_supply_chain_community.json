@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_supply_chain_community",
+  "name": "ops_industry_supply_chain_community",
+  "title": "Operations — Supply Chain — Community",
+  "description": "Operations, Supply Chain pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_supply_chain",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

@@ -1,26 +1,31 @@
 {
   "id": "marketing_events",
   "name": "marketing_events",
-  "title": "Events",
-  "description": "Webinars, conferences, leads.",
+  "title": "Marketing — Events",
+  "description": "Marketing pains and workflows around Events.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
-    "marketing"
+    "marketing",
+    "events"
   ],
   "default_queries": [
-    "event lead capture",
-    "webinar ops",
-    "booth logistics"
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "marketing events",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "ops_manager",
+  "axes": {
+    "function": "marketing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
 }

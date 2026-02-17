@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_public_sector_frontend",
+  "name": "ops_industry_public_sector_frontend",
+  "title": "Operations — Public Sector — Frontend",
+  "description": "Operations, Public Sector pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_public_sector",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

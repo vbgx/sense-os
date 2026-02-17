@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_nonprofits_api_design",
+  "name": "b2b_data_industry_nonprofits_api_design",
+  "title": "B2B — Data — Nonprofits — API Design",
+  "description": "B2B, Data, Nonprofits pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_nonprofits",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=founder)."
+}

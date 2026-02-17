@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_it_services_pm",
+  "name": "b2b_finance_industry_it_services_pm",
+  "title": "B2B — Finance — IT Services (MSP) — Product Management",
+  "description": "B2B, Finance, IT Services (MSP) pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_it_services",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

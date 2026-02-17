@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_travel_platform_eng",
+  "name": "finance_industry_travel_platform_eng",
+  "title": "Finance — Travel — Platform Engineering",
+  "description": "Finance, Travel pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_travel",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=sales_rep)."
+}

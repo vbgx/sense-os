@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_supply_chain_pm",
+  "name": "sales_industry_supply_chain_pm",
+  "title": "Sales — Supply Chain — Product Management",
+  "description": "Sales, Supply Chain pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_supply_chain",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

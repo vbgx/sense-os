@@ -1,33 +1,31 @@
 {
   "id": "sales_sdr",
   "name": "sales_sdr",
-  "title": "SDR & Prospecting",
-  "description": "Outbound prospecting and list building workflows",
+  "title": "Sales — SDR/Outbound",
+  "description": "Sales pains and workflows around SDR/Outbound.",
   "version": 1,
   "enabled": true,
-  "priority": 250,
   "tags": [
-    "b2b",
-    "sales"
+    "sales",
+    "sdr"
   ],
   "default_queries": [
-    "sales_sdr pain",
-    "SDR & Prospecting tools",
-    "SDR & Prospecting workflow"
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "process"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "sales_sdr",
-        "limit": 80
-      }
-    ]
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales"
   },
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
-  }
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=ops_manager)."
 }

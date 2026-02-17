@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_manufacturing_api_design",
+  "name": "product_industry_manufacturing_api_design",
+  "title": "Product — Manufacturing — API Design",
+  "description": "Product, Manufacturing pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_manufacturing",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=sales_rep)."
+}

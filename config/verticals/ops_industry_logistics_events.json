@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_logistics_events",
+  "name": "ops_industry_logistics_events",
+  "title": "Operations — Logistics — Events",
+  "description": "Operations, Logistics pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_logistics",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

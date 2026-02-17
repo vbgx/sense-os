@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_insurance_billing_ops",
+  "name": "marketing_industry_insurance_billing_ops",
+  "title": "Marketing — Insurance — Billing Ops",
+  "description": "Marketing, Insurance pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_insurance",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_public_sector_procurement",
+  "name": "dev_industry_public_sector_procurement",
+  "title": "Engineering — Public Sector — Procurement",
+  "description": "Engineering, Public Sector pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_public_sector",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=security_lead)."
+}

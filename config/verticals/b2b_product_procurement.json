@@ -1,0 +1,33 @@
+{
+  "id": "b2b_product_procurement",
+  "name": "b2b_product_procurement",
+  "title": "B2B — Product — Procurement",
+  "description": "B2B, Product pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=finance_lead)."
+}

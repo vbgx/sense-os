@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_public_sector_testing",
+  "name": "hr_industry_public_sector_testing",
+  "title": "HR — Public Sector — Testing",
+  "description": "HR, Public Sector pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_public_sector",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=engineer)."
+}

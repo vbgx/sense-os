@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_insurance_frontend",
+  "name": "finance_industry_insurance_frontend",
+  "title": "Finance — Insurance — Frontend",
+  "description": "Finance, Insurance pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_insurance",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=founder)."
+}

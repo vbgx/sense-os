@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_hospitality_support_ops",
+  "name": "data_industry_hospitality_support_ops",
+  "title": "Data — Hospitality — Support Ops",
+  "description": "Data, Hospitality pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_hospitality",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=marketer)."
+}

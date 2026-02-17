@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_agriculture_events",
+  "name": "b2c_marketing_industry_agriculture_events",
+  "title": "B2C — Marketing — Agriculture — Events",
+  "description": "B2C, Marketing, Agriculture pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_agriculture",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=sales_rep)."
+}

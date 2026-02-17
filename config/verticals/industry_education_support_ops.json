@@ -1,0 +1,31 @@
+{
+  "id": "industry_education_support_ops",
+  "name": "industry_education_support_ops",
+  "title": "Education — Support Ops",
+  "description": "Education pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_education",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=ops_manager)."
+}

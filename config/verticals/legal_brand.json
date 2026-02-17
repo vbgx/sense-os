@@ -1,0 +1,31 @@
+{
+  "id": "legal_brand",
+  "name": "legal_brand",
+  "title": "Legal — Brand",
+  "description": "Legal pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=sales_rep)."
+}

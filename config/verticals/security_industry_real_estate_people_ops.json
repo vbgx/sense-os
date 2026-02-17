@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_real_estate_people_ops",
+  "name": "security_industry_real_estate_people_ops",
+  "title": "Security — Real Estate — People Ops",
+  "description": "Security, Real Estate pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_real_estate",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "security",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=sales_rep)."
+}

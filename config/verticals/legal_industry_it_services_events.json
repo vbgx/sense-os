@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_it_services_events",
+  "name": "legal_industry_it_services_events",
+  "title": "Legal — IT Services (MSP) — Events",
+  "description": "Legal, IT Services (MSP) pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_it_services",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=sales_rep)."
+}

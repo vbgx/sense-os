@@ -1,0 +1,31 @@
+{
+  "id": "legal_compliance_ops",
+  "name": "legal_compliance_ops",
+  "title": "Legal — Compliance Ops",
+  "description": "Legal pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=marketer)."
+}

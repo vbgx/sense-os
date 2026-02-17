@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_travel_enablement",
+  "name": "b2b_data_industry_travel_enablement",
+  "title": "B2B — Data — Travel — Enablement",
+  "description": "B2B, Data, Travel pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_travel",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=engineer)."
+}

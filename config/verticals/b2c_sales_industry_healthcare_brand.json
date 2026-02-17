@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_healthcare_brand",
+  "name": "b2c_sales_industry_healthcare_brand",
+  "title": "B2C — Sales — Healthcare — Brand",
+  "description": "B2C, Sales, Healthcare pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_healthcare",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=founder)."
+}

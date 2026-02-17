@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_hospitality_sre",
+  "name": "finance_industry_hospitality_sre",
+  "title": "Finance — Hospitality — SRE",
+  "description": "Finance, Hospitality pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_hospitality",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=sales_rep)."
+}

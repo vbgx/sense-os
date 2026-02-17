@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_agriculture_pm",
+  "name": "b2c_dev_industry_agriculture_pm",
+  "title": "B2C — Engineering — Agriculture — Product Management",
+  "description": "B2C, Engineering, Agriculture pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_agriculture",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=founder)."
+}

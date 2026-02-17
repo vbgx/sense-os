@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_legal_billing_ops",
+  "name": "b2b_industry_legal_billing_ops",
+  "title": "B2B — Legal Services — Billing Ops",
+  "description": "B2B, Legal Services pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_legal",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=ops_manager)."
+}

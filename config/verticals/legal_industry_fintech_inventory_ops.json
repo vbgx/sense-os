@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_fintech_inventory_ops",
+  "name": "legal_industry_fintech_inventory_ops",
+  "title": "Legal — Fintech — Inventory Ops",
+  "description": "Legal, Fintech pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_fintech",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=product_lead)."
+}

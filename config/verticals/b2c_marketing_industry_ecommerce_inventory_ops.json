@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_ecommerce_inventory_ops",
+  "name": "b2c_marketing_industry_ecommerce_inventory_ops",
+  "title": "B2C — Marketing — Ecommerce — Inventory Ops",
+  "description": "B2C, Marketing, Ecommerce pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_ecommerce",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=ops_manager)."
+}

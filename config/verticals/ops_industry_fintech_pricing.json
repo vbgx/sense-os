@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_fintech_pricing",
+  "name": "ops_industry_fintech_pricing",
+  "title": "Operations — Fintech — Pricing & Packaging",
+  "description": "Operations, Fintech pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_fintech",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=founder)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_hospitality_data_eng",
+  "name": "b2b_product_industry_hospitality_data_eng",
+  "title": "B2B — Product — Hospitality — Data Engineering",
+  "description": "B2B, Product, Hospitality pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_hospitality",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=engineer)."
+}

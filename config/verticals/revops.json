@@ -2,42 +2,27 @@
   "id": "revops",
   "name": "revops",
   "title": "RevOps",
-  "description": "CRM hygiene, pipeline, attribution, handoffs, SLAs.",
+  "description": "General pains and workflows around RevOps.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
-    "ops",
-    "sales"
+    "revops"
   ],
   "default_queries": [
-    "CRM data quality pain",
-    "salesforce admin backlog",
-    "lead routing broken",
-    "attribution mismatch"
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "compliance"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "revops",
-        "limit": 80
-      },
-      {
-        "name": "reddit",
-        "query": "lead routing",
-        "limit": 80
-      },
-      {
-        "name": "hackernews",
-        "query": "CRM",
-        "limit": 80
-      },
-      {
-        "name": "indiehackers",
-        "query": "pipeline management",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "security_lead",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=security_lead)."
 }

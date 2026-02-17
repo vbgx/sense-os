@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_fintech_sdr",
+  "name": "sales_industry_fintech_sdr",
+  "title": "Sales — Fintech — SDR/Outbound",
+  "description": "Sales, Fintech pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_fintech",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=product_lead)."
+}

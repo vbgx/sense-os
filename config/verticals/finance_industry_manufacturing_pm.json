@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_manufacturing_pm",
+  "name": "finance_industry_manufacturing_pm",
+  "title": "Finance — Manufacturing — Product Management",
+  "description": "Finance, Manufacturing pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_manufacturing",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

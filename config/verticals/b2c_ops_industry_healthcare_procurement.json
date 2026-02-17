@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_healthcare_procurement",
+  "name": "b2c_ops_industry_healthcare_procurement",
+  "title": "B2C — Operations — Healthcare — Procurement",
+  "description": "B2C, Operations, Healthcare pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_healthcare",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_fintech_frontend",
+  "name": "dev_industry_fintech_frontend",
+  "title": "Engineering — Fintech — Frontend",
+  "description": "Engineering, Fintech pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_fintech",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=ops_manager)."
+}

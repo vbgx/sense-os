@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_logistics_testing",
+  "name": "b2c_product_industry_logistics_testing",
+  "title": "B2C — Product — Logistics — Testing",
+  "description": "B2C, Product, Logistics pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_logistics",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=engineer)."
+}

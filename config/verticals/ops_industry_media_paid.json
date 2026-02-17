@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_media_paid",
+  "name": "ops_industry_media_paid",
+  "title": "Operations — Media — Paid Acquisition",
+  "description": "Operations, Media pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_media",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=engineer)."
+}

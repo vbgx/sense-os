@@ -1,0 +1,33 @@
+{
+  "id": "b2b_data_community",
+  "name": "b2b_data_community",
+  "title": "B2B — Data — Community",
+  "description": "B2B, Data pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=finance_lead)."
+}

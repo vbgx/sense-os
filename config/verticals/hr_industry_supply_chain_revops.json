@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_supply_chain_revops",
+  "name": "hr_industry_supply_chain_revops",
+  "title": "HR — Supply Chain — RevOps",
+  "description": "HR, Supply Chain pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_supply_chain",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=sales_rep)."
+}

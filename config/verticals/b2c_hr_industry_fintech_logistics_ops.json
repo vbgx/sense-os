@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_fintech_logistics_ops",
+  "name": "b2c_hr_industry_fintech_logistics_ops",
+  "title": "B2C — HR — Fintech — Logistics Ops",
+  "description": "B2C, HR, Fintech pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_fintech",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_education_revops",
+  "name": "legal_industry_education_revops",
+  "title": "Legal — Education — RevOps",
+  "description": "Legal, Education pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_education",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=security_lead)."
+}

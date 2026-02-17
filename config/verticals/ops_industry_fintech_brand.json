@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_fintech_brand",
+  "name": "ops_industry_fintech_brand",
+  "title": "Operations — Fintech — Brand",
+  "description": "Operations, Fintech pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_fintech",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

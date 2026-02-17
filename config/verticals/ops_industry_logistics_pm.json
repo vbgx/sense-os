@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_logistics_pm",
+  "name": "ops_industry_logistics_pm",
+  "title": "Operations — Logistics — Product Management",
+  "description": "Operations, Logistics pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_logistics",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=engineer)."
+}

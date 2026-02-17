@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_energy_community",
+  "name": "security_industry_energy_community",
+  "title": "Security — Energy — Community",
+  "description": "Security, Energy pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_energy",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "security",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=sales_rep)."
+}

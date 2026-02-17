@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_supply_chain_api_design",
+  "name": "marketing_industry_supply_chain_api_design",
+  "title": "Marketing — Supply Chain — API Design",
+  "description": "Marketing, Supply Chain pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_supply_chain",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_real_estate_community",
+  "name": "marketing_industry_real_estate_community",
+  "title": "Marketing — Real Estate — Community",
+  "description": "Marketing, Real Estate pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_real_estate",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

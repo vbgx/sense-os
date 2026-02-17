@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_hospitality_mobile",
+  "name": "ops_industry_hospitality_mobile",
+  "title": "Operations — Hospitality — Mobile",
+  "description": "Operations, Hospitality pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_hospitality",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=marketer)."
+}

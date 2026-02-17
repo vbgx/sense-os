@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_ecommerce_backend",
+  "name": "security_industry_ecommerce_backend",
+  "title": "Security — Ecommerce — Backend",
+  "description": "Security, Ecommerce pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_ecommerce",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=ops_manager)."
+}

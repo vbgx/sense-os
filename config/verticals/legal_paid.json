@@ -1,0 +1,31 @@
+{
+  "id": "legal_paid",
+  "name": "legal_paid",
+  "title": "Legal — Paid Acquisition",
+  "description": "Legal pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=security_lead)."
+}

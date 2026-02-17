@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_it_services_pm",
+  "name": "hr_industry_it_services_pm",
+  "title": "HR — IT Services (MSP) — Product Management",
+  "description": "HR, IT Services (MSP) pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_it_services",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

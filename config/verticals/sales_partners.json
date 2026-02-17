@@ -1,34 +1,31 @@
 {
   "id": "sales_partners",
   "name": "sales_partners",
-  "title": "Partnerships",
-  "description": "Channel deals, affiliates, co-selling ops",
+  "title": "Sales — Partnerships",
+  "description": "Sales pains and workflows around Partnerships.",
   "version": 1,
   "enabled": true,
-  "priority": 280,
   "tags": [
-    "b2b",
     "sales",
     "partners"
   ],
   "default_queries": [
-    "sales_partners pain",
-    "Partnerships tools",
-    "Partnerships workflow"
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "sales_partners",
-        "limit": 80
-      }
-    ]
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales"
   },
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
-  }
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
 }

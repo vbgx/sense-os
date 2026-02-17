@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_real_estate_platform_eng",
+  "name": "b2b_dev_industry_real_estate_platform_eng",
+  "title": "B2B — Engineering — Real Estate — Platform Engineering",
+  "description": "B2B, Engineering, Real Estate pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_real_estate",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=ops_manager)."
+}

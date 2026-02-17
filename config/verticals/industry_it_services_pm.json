@@ -1,0 +1,31 @@
+{
+  "id": "industry_it_services_pm",
+  "name": "industry_it_services_pm",
+  "title": "IT Services (MSP) — Product Management",
+  "description": "IT Services (MSP) pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_it_services",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

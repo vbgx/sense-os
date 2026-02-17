@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_ecommerce_community",
+  "name": "b2c_security_industry_ecommerce_community",
+  "title": "B2C — Security — Ecommerce — Community",
+  "description": "B2C, Security, Ecommerce pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_ecommerce",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=finance_lead)."
+}

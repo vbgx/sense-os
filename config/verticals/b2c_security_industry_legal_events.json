@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_legal_events",
+  "name": "b2c_security_industry_legal_events",
+  "title": "B2C — Security — Legal Services — Events",
+  "description": "B2C, Security, Legal Services pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_legal",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=engineer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_agriculture_it_ops",
+  "name": "b2c_legal_industry_agriculture_it_ops",
+  "title": "B2C — Legal — Agriculture — IT Ops",
+  "description": "B2C, Legal, Agriculture pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_agriculture",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=ops_manager)."
+}

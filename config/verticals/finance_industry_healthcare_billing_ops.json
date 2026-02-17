@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_healthcare_billing_ops",
+  "name": "finance_industry_healthcare_billing_ops",
+  "title": "Finance — Healthcare — Billing Ops",
+  "description": "Finance, Healthcare pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_healthcare",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=engineer)."
+}

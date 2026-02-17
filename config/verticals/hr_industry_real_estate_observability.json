@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_real_estate_observability",
+  "name": "hr_industry_real_estate_observability",
+  "title": "HR — Real Estate — Observability",
+  "description": "HR, Real Estate pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_real_estate",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=founder)."
+}

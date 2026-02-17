@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_retail_logistics_ops",
+  "name": "data_industry_retail_logistics_ops",
+  "title": "Data — Retail — Logistics Ops",
+  "description": "Data, Retail pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_retail",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "data",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=ops_manager)."
+}

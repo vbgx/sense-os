@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_agriculture_community",
+  "name": "product_industry_agriculture_community",
+  "title": "Product — Agriculture — Community",
+  "description": "Product, Agriculture pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_agriculture",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

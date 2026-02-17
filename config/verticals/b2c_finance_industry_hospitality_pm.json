@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_hospitality_pm",
+  "name": "b2c_finance_industry_hospitality_pm",
+  "title": "B2C — Finance — Hospitality — Product Management",
+  "description": "B2C, Finance, Hospitality pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_hospitality",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_hospitality_brand",
+  "name": "b2b_sales_industry_hospitality_brand",
+  "title": "B2B — Sales — Hospitality — Brand",
+  "description": "B2B, Sales, Hospitality pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_hospitality",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

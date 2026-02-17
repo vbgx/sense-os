@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_logistics_community",
+  "name": "legal_industry_logistics_community",
+  "title": "Legal — Logistics — Community",
+  "description": "Legal, Logistics pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_logistics",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

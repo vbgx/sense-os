@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_it_services_data_eng",
+  "name": "hr_industry_it_services_data_eng",
+  "title": "HR — IT Services (MSP) — Data Engineering",
+  "description": "HR, IT Services (MSP) pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_it_services",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_education_testing",
+  "name": "dev_industry_education_testing",
+  "title": "Engineering — Education — Testing",
+  "description": "Engineering, Education pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_education",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=finance_lead)."
+}

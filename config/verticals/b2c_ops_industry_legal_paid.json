@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_legal_paid",
+  "name": "b2c_ops_industry_legal_paid",
+  "title": "B2C — Operations — Legal Services — Paid Acquisition",
+  "description": "B2C, Operations, Legal Services pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_legal",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=security_lead)."
+}

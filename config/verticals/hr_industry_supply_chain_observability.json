@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_supply_chain_observability",
+  "name": "hr_industry_supply_chain_observability",
+  "title": "HR — Supply Chain — Observability",
+  "description": "HR, Supply Chain pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_supply_chain",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_media_community",
+  "name": "hr_industry_media_community",
+  "title": "HR — Media — Community",
+  "description": "HR, Media pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_media",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=marketer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_travel_frontend",
+  "name": "b2b_sales_industry_travel_frontend",
+  "title": "B2B — Sales — Travel — Frontend",
+  "description": "B2B, Sales, Travel pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_travel",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=ops_manager)."
+}

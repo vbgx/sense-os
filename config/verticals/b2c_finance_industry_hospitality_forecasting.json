@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_hospitality_forecasting",
+  "name": "b2c_finance_industry_hospitality_forecasting",
+  "title": "B2C — Finance — Hospitality — Forecasting",
+  "description": "B2C, Finance, Hospitality pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_hospitality",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=finance_lead)."
+}

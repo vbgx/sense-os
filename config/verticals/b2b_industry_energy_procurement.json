@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_energy_procurement",
+  "name": "b2b_industry_energy_procurement",
+  "title": "B2B — Energy — Procurement",
+  "description": "B2B, Energy pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_energy",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=marketer)."
+}

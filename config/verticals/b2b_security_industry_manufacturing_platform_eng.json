@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_manufacturing_platform_eng",
+  "name": "b2b_security_industry_manufacturing_platform_eng",
+  "title": "B2B — Security — Manufacturing — Platform Engineering",
+  "description": "B2B, Security, Manufacturing pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_manufacturing",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=product_lead)."
+}

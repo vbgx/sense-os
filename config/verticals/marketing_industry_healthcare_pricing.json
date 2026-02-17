@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_healthcare_pricing",
+  "name": "marketing_industry_healthcare_pricing",
+  "title": "Marketing — Healthcare — Pricing & Packaging",
+  "description": "Marketing, Healthcare pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_healthcare",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=sales_rep)."
+}

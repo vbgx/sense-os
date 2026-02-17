@@ -1,0 +1,31 @@
+{
+  "id": "sales_community",
+  "name": "sales_community",
+  "title": "Sales — Community",
+  "description": "Sales pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

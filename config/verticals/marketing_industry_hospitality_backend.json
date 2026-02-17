@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_hospitality_backend",
+  "name": "marketing_industry_hospitality_backend",
+  "title": "Marketing — Hospitality — Backend",
+  "description": "Marketing, Hospitality pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_hospitality",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=security_lead)."
+}

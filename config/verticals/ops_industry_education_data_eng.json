@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_education_data_eng",
+  "name": "ops_industry_education_data_eng",
+  "title": "Operations — Education — Data Engineering",
+  "description": "Operations, Education pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_education",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=engineer)."
+}

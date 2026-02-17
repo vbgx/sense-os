@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_agriculture_community",
+  "name": "b2c_ops_industry_agriculture_community",
+  "title": "B2C — Operations — Agriculture — Community",
+  "description": "B2C, Operations, Agriculture pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_agriculture",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=finance_lead)."
+}

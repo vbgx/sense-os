@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_travel_platform_eng",
+  "name": "b2b_ops_industry_travel_platform_eng",
+  "title": "B2B — Operations — Travel — Platform Engineering",
+  "description": "B2B, Operations, Travel pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_travel",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=engineer)."
+}

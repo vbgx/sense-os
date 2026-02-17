@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_ecommerce_community",
+  "name": "product_industry_ecommerce_community",
+  "title": "Product — Ecommerce — Community",
+  "description": "Product, Ecommerce pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_ecommerce",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=finance_lead)."
+}

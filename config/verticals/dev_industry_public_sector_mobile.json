@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_public_sector_mobile",
+  "name": "dev_industry_public_sector_mobile",
+  "title": "Engineering — Public Sector — Mobile",
+  "description": "Engineering, Public Sector pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_public_sector",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=sales_rep)."
+}

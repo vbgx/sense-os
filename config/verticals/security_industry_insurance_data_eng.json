@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_insurance_data_eng",
+  "name": "security_industry_insurance_data_eng",
+  "title": "Security — Insurance — Data Engineering",
+  "description": "Security, Insurance pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_insurance",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=security_lead)."
+}

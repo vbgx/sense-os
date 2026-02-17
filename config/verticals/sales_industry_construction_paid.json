@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_construction_paid",
+  "name": "sales_industry_construction_paid",
+  "title": "Sales — Construction — Paid Acquisition",
+  "description": "Sales, Construction pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_construction",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=marketer)."
+}

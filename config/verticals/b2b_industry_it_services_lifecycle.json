@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_it_services_lifecycle",
+  "name": "b2b_industry_it_services_lifecycle",
+  "title": "B2B — IT Services (MSP) — Lifecycle",
+  "description": "B2B, IT Services (MSP) pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_it_services",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=security_lead)."
+}

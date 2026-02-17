@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_real_estate_sre",
+  "name": "data_industry_real_estate_sre",
+  "title": "Data — Real Estate — SRE",
+  "description": "Data, Real Estate pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_real_estate",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=ops_manager)."
+}

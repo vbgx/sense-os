@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_energy_community",
+  "name": "data_industry_energy_community",
+  "title": "Data — Energy — Community",
+  "description": "Data, Energy pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_energy",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=engineer)."
+}

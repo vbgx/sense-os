@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_ecommerce_paid",
+  "name": "hr_industry_ecommerce_paid",
+  "title": "HR — Ecommerce — Paid Acquisition",
+  "description": "HR, Ecommerce pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_ecommerce",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=finance_lead)."
+}

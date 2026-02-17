@@ -1,0 +1,31 @@
+{
+  "id": "industry_nonprofits_backend",
+  "name": "industry_nonprofits_backend",
+  "title": "Nonprofits — Backend",
+  "description": "Nonprofits pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_nonprofits",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=sales_rep)."
+}

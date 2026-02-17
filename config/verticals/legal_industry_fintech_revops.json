@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_fintech_revops",
+  "name": "legal_industry_fintech_revops",
+  "title": "Legal — Fintech — RevOps",
+  "description": "Legal, Fintech pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_fintech",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=marketer)."
+}

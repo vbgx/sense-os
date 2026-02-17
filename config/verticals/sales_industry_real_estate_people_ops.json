@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_real_estate_people_ops",
+  "name": "sales_industry_real_estate_people_ops",
+  "title": "Sales — Real Estate — People Ops",
+  "description": "Sales, Real Estate pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_real_estate",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=sales_rep)."
+}

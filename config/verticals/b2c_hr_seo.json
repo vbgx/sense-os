@@ -1,0 +1,33 @@
+{
+  "id": "b2c_hr_seo",
+  "name": "b2c_hr_seo",
+  "title": "B2C — HR — SEO",
+  "description": "B2C, HR pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=security_lead)."
+}

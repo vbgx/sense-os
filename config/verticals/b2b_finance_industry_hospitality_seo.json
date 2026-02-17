@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_hospitality_seo",
+  "name": "b2b_finance_industry_hospitality_seo",
+  "title": "B2B — Finance — Hospitality — SEO",
+  "description": "B2B, Finance, Hospitality pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_hospitality",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=product_lead)."
+}

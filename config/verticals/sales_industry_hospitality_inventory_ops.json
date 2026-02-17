@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_hospitality_inventory_ops",
+  "name": "sales_industry_hospitality_inventory_ops",
+  "title": "Sales — Hospitality — Inventory Ops",
+  "description": "Sales, Hospitality pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_hospitality",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=security_lead)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "industry_travel_mobile",
+  "name": "industry_travel_mobile",
+  "title": "Travel — Mobile",
+  "description": "Travel pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_travel",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=founder)."
+}

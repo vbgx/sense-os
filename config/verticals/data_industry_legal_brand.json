@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_legal_brand",
+  "name": "data_industry_legal_brand",
+  "title": "Data — Legal Services — Brand",
+  "description": "Data, Legal Services pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_legal",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=marketer)."
+}

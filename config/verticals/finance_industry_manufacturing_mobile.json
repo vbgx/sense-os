@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_manufacturing_mobile",
+  "name": "finance_industry_manufacturing_mobile",
+  "title": "Finance — Manufacturing — Mobile",
+  "description": "Finance, Manufacturing pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_manufacturing",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=marketer)."
+}

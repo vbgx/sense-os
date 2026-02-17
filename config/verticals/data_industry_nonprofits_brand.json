@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_nonprofits_brand",
+  "name": "data_industry_nonprofits_brand",
+  "title": "Data — Nonprofits — Brand",
+  "description": "Data, Nonprofits pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_nonprofits",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=marketer)."
+}

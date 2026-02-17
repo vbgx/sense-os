@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_fintech_pm",
+  "name": "ops_industry_fintech_pm",
+  "title": "Operations — Fintech — Product Management",
+  "description": "Operations, Fintech pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_fintech",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=product_lead)."
+}

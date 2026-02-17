@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_manufacturing_logistics_ops",
+  "name": "data_industry_manufacturing_logistics_ops",
+  "title": "Data — Manufacturing — Logistics Ops",
+  "description": "Data, Manufacturing pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_manufacturing",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "data",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=founder)."
+}

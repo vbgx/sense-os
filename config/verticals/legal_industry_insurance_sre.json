@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_insurance_sre",
+  "name": "legal_industry_insurance_sre",
+  "title": "Legal — Insurance — SRE",
+  "description": "Legal, Insurance pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_insurance",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_ecommerce_forecasting",
+  "name": "legal_industry_ecommerce_forecasting",
+  "title": "Legal — Ecommerce — Forecasting",
+  "description": "Legal, Ecommerce pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_ecommerce",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=engineer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_supply_chain_brand",
+  "name": "security_industry_supply_chain_brand",
+  "title": "Security — Supply Chain — Brand",
+  "description": "Security, Supply Chain pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_supply_chain",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=finance_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_fintech_community",
+  "name": "b2b_finance_industry_fintech_community",
+  "title": "B2B — Finance — Fintech — Community",
+  "description": "B2B, Finance, Fintech pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_fintech",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

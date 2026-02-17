@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_manufacturing_brand",
+  "name": "finance_industry_manufacturing_brand",
+  "title": "Finance — Manufacturing — Brand",
+  "description": "Finance, Manufacturing pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_manufacturing",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=product_lead)."
+}

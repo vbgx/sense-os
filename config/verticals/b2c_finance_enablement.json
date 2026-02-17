@@ -1,0 +1,33 @@
+{
+  "id": "b2c_finance_enablement",
+  "name": "b2c_finance_enablement",
+  "title": "B2C — Finance — Enablement",
+  "description": "B2C, Finance pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_agriculture_community",
+  "name": "ops_industry_agriculture_community",
+  "title": "Operations — Agriculture — Community",
+  "description": "Operations, Agriculture pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_agriculture",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=marketer)."
+}

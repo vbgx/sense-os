@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_manufacturing_mobile",
+  "name": "marketing_industry_manufacturing_mobile",
+  "title": "Marketing — Manufacturing — Mobile",
+  "description": "Marketing, Manufacturing pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_manufacturing",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=security_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_nonprofits_support_ops",
+  "name": "b2b_marketing_industry_nonprofits_support_ops",
+  "title": "B2B — Marketing — Nonprofits — Support Ops",
+  "description": "B2B, Marketing, Nonprofits pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_nonprofits",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=ops_manager)."
+}

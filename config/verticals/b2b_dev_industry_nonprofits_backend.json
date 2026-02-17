@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_nonprofits_backend",
+  "name": "b2b_dev_industry_nonprofits_backend",
+  "title": "B2B — Engineering — Nonprofits — Backend",
+  "description": "B2B, Engineering, Nonprofits pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_nonprofits",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=product_lead)."
+}

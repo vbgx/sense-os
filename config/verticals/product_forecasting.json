@@ -1,0 +1,31 @@
+{
+  "id": "product_forecasting",
+  "name": "product_forecasting",
+  "title": "Product — Forecasting",
+  "description": "Product pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_agriculture_seo",
+  "name": "hr_industry_agriculture_seo",
+  "title": "HR — Agriculture — SEO",
+  "description": "HR, Agriculture pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_agriculture",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=finance_lead)."
+}

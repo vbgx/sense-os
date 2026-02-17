@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_logistics_seo",
+  "name": "marketing_industry_logistics_seo",
+  "title": "Marketing — Logistics — SEO",
+  "description": "Marketing, Logistics pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_logistics",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=sales_rep)."
+}

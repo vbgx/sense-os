@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_logistics_frontend",
+  "name": "dev_industry_logistics_frontend",
+  "title": "Engineering — Logistics — Frontend",
+  "description": "Engineering, Logistics pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_logistics",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=finance_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_media_backend",
+  "name": "b2b_finance_industry_media_backend",
+  "title": "B2B — Finance — Media — Backend",
+  "description": "B2B, Finance, Media pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_media",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=marketer)."
+}

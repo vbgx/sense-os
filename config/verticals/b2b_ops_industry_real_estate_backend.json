@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_real_estate_backend",
+  "name": "b2b_ops_industry_real_estate_backend",
+  "title": "B2B — Operations — Real Estate — Backend",
+  "description": "B2B, Operations, Real Estate pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_real_estate",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=engineer)."
+}

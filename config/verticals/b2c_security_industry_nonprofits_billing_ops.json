@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_nonprofits_billing_ops",
+  "name": "b2c_security_industry_nonprofits_billing_ops",
+  "title": "B2C — Security — Nonprofits — Billing Ops",
+  "description": "B2C, Security, Nonprofits pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_nonprofits",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=finance_lead)."
+}

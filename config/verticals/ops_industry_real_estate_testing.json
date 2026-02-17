@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_real_estate_testing",
+  "name": "ops_industry_real_estate_testing",
+  "title": "Operations — Real Estate — Testing",
+  "description": "Operations, Real Estate pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_real_estate",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=finance_lead)."
+}

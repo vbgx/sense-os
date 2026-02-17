@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_insurance_sdr",
+  "name": "sales_industry_insurance_sdr",
+  "title": "Sales — Insurance — SDR/Outbound",
+  "description": "Sales, Insurance pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_insurance",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=sales_rep)."
+}

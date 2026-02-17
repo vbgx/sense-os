@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_retail_data_eng",
+  "name": "legal_industry_retail_data_eng",
+  "title": "Legal — Retail — Data Engineering",
+  "description": "Legal, Retail pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_retail",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=finance_lead)."
+}

@@ -1,31 +1,31 @@
 {
   "id": "dev_testing",
   "name": "dev_testing",
-  "title": "QA & Testing",
-  "description": "Test flakiness, coverage, e2e.",
+  "title": "Engineering — Testing",
+  "description": "Engineering pains and workflows around Testing.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
-    "dev"
+    "dev",
+    "testing"
   ],
   "default_queries": [
-    "flake tests",
-    "e2e maintenance",
-    "test data management"
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "SEO"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "dev testing",
-        "limit": 80
-      },
-      {
-        "name": "hackernews",
-        "query": "dev testing",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "marketer",
+  "axes": {
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=marketer)."
 }

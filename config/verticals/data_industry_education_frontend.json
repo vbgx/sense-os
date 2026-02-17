@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_education_frontend",
+  "name": "data_industry_education_frontend",
+  "title": "Data — Education — Frontend",
+  "description": "Data, Education pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_education",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=engineer)."
+}

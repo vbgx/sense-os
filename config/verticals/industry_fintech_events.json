@@ -1,0 +1,31 @@
+{
+  "id": "industry_fintech_events",
+  "name": "industry_fintech_events",
+  "title": "Fintech — Events",
+  "description": "Fintech pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_fintech",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=marketer)."
+}

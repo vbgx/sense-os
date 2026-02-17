@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_media_it_ops",
+  "name": "marketing_industry_media_it_ops",
+  "title": "Marketing — Media — IT Ops",
+  "description": "Marketing, Media pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_media",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=engineer)."
+}

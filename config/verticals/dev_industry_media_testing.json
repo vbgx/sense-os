@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_media_testing",
+  "name": "dev_industry_media_testing",
+  "title": "Engineering — Media — Testing",
+  "description": "Engineering, Media pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_media",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=finance_lead)."
+}

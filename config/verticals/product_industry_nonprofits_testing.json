@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_nonprofits_testing",
+  "name": "product_industry_nonprofits_testing",
+  "title": "Product — Nonprofits — Testing",
+  "description": "Product, Nonprofits pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_nonprofits",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=product_lead)."
+}

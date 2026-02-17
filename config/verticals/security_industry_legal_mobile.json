@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_legal_mobile",
+  "name": "security_industry_legal_mobile",
+  "title": "Security — Legal Services — Mobile",
+  "description": "Security, Legal Services pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_legal",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=finance_lead)."
+}

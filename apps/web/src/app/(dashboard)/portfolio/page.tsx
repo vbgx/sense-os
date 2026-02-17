@@ -1,6 +1,6 @@
 "use client";
 
-import { EmptyState } from "@/components/ui/EmptyState";
+import { EmptyBlock } from "@/components/ui/EmptyBlock";
 
 export default function Page() {
   return (
@@ -12,7 +12,7 @@ export default function Page() {
         </div>
       </div>
 
-      <EmptyState
+      <EmptyBlock
         title="No bets yet"
         description="When you commit on a cluster, it will appear here with a Bet Slip."
       />

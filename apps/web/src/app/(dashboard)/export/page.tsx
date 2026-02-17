@@ -1,6 +1,6 @@
 "use client";
 
-import { EmptyState } from "@/components/ui/EmptyState";
+import { EmptyBlock } from "@/components/ui/EmptyBlock";
 
 export default function Page() {
   return (
@@ -12,7 +12,7 @@ export default function Page() {
         </div>
       </div>
 
-      <EmptyState
+      <EmptyBlock
         title="Nothing to export"
         description="Open a cluster and use the Export action to generate a payload."
       />

@@ -8,7 +8,7 @@ import { useTopPains } from "@/lib/api/queries";
 import { OpportunityTable } from "@/components/opportunity/OpportunityTable";
 import { ClusterInspectDrawer } from "@/components/opportunity/ClusterInspectDrawer";
 import { Skeleton } from "@/components/ui/Skeleton";
-import { ErrorState } from "@/components/ui/ErrorState";
+import { ErrorBlock } from "@/components/ui/ErrorBlock";
 import { getErrorMessage } from "@/lib/utils/getErrorMessage";
 
 export default function Page() {
@@ -52,7 +52,7 @@ export default function Page() {
       {q.isLoading && <Skeleton className="h-[600px] w-full" />}
 
       {q.isError && (
-        <ErrorState
+        <ErrorBlock
           title="Couldn’t load opportunities"
           description={getErrorMessage(q.error)}
           onRetry={() => q.refetch()}

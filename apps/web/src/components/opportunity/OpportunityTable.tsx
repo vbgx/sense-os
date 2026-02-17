@@ -9,7 +9,7 @@ import {
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { useRef } from "react";
 import type { TopPain } from "@/lib/api/schemas";
-import { EmptyState } from "@/components/ui/EmptyState";
+import { EmptyBlock } from "@/components/ui/EmptyBlock";
 
 interface Props {
   data: TopPain[];
@@ -58,7 +58,7 @@ export function OpportunityTable({ data, onRowClick, onResetFilters }: Props) {
 
   if (!data || data.length === 0) {
     return (
-      <EmptyState
+      <EmptyBlock
         title="No opportunities found"
         description="No clusters match your current filters. Try widening the time window or resetting filters."
         actionLabel={onResetFilters ? "Reset filters" : undefined}

@@ -10,7 +10,7 @@ type Props = {
   testId?: string;
 };
 
-export function EmptyState({
+export function EmptyBlock({
   title,
   description,
   actionLabel,

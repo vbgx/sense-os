@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-export function ErrorState({
+export function ErrorBlock({
   title = "Something went wrong",
   description = "We couldn’t load this view. Try again.",
   onRetry,

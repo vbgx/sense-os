@@ -1,0 +1,22 @@
+[
+  {
+    "cluster_id": "c_demo_001",
+    "cluster_summary": "Teams struggle to keep SaaS spend under control across multiple tools",
+    "exploitability_score": 4.2,
+    "breakout_score": 3.8,
+    "severity_score": 4.5,
+    "opportunity_window_status": "underserved",
+    "confidence_score": 0.72,
+    "dominant_persona": "saas_founder"
+  },
+  {
+    "cluster_id": "c_demo_002",
+    "cluster_summary": "Operators need faster incident review without digging through dashboards",
+    "exploitability_score": 3.9,
+    "breakout_score": 3.2,
+    "severity_score": 4.0,
+    "opportunity_window_status": "open",
+    "confidence_score": 0.66,
+    "dominant_persona": "ops_manager"
+  }
+]

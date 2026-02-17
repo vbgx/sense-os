@@ -1,0 +1,40 @@
+name: web-e2e
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install
+        run: pnpm -C apps/web install
+
+      - name: Build
+        run: pnpm -C apps/web build
+
+      - name: Install Playwright browsers
+        run: pnpm -C apps/web exec playwright install --with-deps
+
+      - name: E2E
+        env:
+          CI: "true"
+          PORT: "3000"
+          # Prevent relying on backend API. We mock by route anyway.
+          NEXT_PUBLIC_API_BASE_URL: "http://localhost:8000"
+        run: pnpm -C apps/web exec playwright test

@@ -30,7 +30,11 @@ export function ClusterInspectDrawer() {
         if (!next) update({ inspect: undefined });
       }}
     >
-      <SheetContent side="right" className="w-[480px] sm:w-[520px]">
+      <SheetContent
+        side="right"
+        className="w-[480px] sm:w-[520px]"
+        data-testid="cluster-inspect-drawer"
+      >
         <SheetHeader>
           <SheetTitle>Inspect</SheetTitle>
         </SheetHeader>

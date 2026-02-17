@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { QueryProvider } from "@/providers/QueryProvider";
 import { ToastProvider } from "@/providers/ToastProvider";
+import { CommandPaletteContainer } from "@/components/layout/CommandPaletteContainer";
 
 export const metadata: Metadata = {
   title: "Sense-OS",
@@ -21,6 +22,7 @@ export default function RootLayout({
           <QueryProvider>
             {children}
             <ToastProvider />
+            <CommandPaletteContainer />
           </QueryProvider>
         </ThemeProvider>
       </body>

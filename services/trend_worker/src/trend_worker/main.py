@@ -64,9 +64,10 @@ def consume_trend_job(job_raw: Dict[str, Any]) -> Dict[str, Any] | None:
     computed, upserted = _extract_counts(result)
 
     log.info(
-        "trend_job day=%s vertical_id=%s cluster_version=%s formula_version=%s computed=%s upserted=%s",
+        "trend_job day=%s vertical_id=%s vertical_db_id=%s cluster_version=%s formula_version=%s computed=%s upserted=%s",
         day.isoformat(),
         payload.get("vertical_id"),
+        payload.get("vertical_db_id"),
         payload.get("cluster_version"),
         payload.get("formula_version"),
         computed,

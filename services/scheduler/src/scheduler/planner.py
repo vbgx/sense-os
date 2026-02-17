@@ -7,7 +7,9 @@ from scheduler.jobs import IngestJob, ProcessJob, ClusterJob, TrendJob
 
 
 def plan_vertical_run(
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     run_id: str,
     day: Optional[date] = None,
@@ -22,6 +24,8 @@ def plan_vertical_run(
 
     ingest = IngestJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         run_id=run_id,
         day=day_s,
@@ -32,6 +36,8 @@ def plan_vertical_run(
 
     process = ProcessJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         run_id=run_id,
         day=day_s,
         limit=limit,
@@ -40,6 +46,8 @@ def plan_vertical_run(
 
     cluster = ClusterJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         cluster_version="tfidf_v1",
         run_id=run_id,
         day=day_s,
@@ -49,6 +57,8 @@ def plan_vertical_run(
 
     trend = TrendJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         day=day_s or "",
         formula_version="formula_v1",
         cluster_version="tfidf_v1",

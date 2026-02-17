@@ -159,9 +159,10 @@ def _clean_summary(summary: str, max_total_chars: int = 400, max_sentence_len: i
 # -----------------------------
 
 def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
-    vertical_id = int(job.get("vertical_id") or 0)
-    if vertical_id <= 0:
-        raise ValueError(f"invalid vertical_id: {job.get('vertical_id')!r}")
+    vertical_id = str(job.get("vertical_id") or "")
+    vertical_db_id = int(job.get("vertical_db_id") or 0)
+    if vertical_db_id <= 0:
+        raise ValueError(f"invalid vertical_db_id: {job.get('vertical_db_id')!r}")
 
     cluster_version = str(job.get("cluster_version") or "tfidf_v2")
     run_id = job.get("run_id")
@@ -172,7 +173,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         rows = (
             db.query(PainInstance.id, PainInstance.signal_id, Signal.content)
             .join(Signal, Signal.id == PainInstance.signal_id)
-            .filter(PainInstance.vertical_id == vertical_id)
+            .filter(PainInstance.vertical_id == vertical_db_id)
             .order_by(PainInstance.id.asc())
             .all()
         )
@@ -189,7 +190,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         existing_cluster_ids = [
             int(x[0])
             for x in db.query(PainCluster.id)
-            .filter(PainCluster.vertical_id == vertical_id)
+            .filter(PainCluster.vertical_id == vertical_db_id)
             .filter(PainCluster.cluster_version == cluster_version)
             .all()
         ]
@@ -256,7 +257,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
 
             cluster_obj, _ = clusters_repo.upsert_cluster(
                 db,
-                vertical_id=vertical_id,
+                vertical_id=vertical_db_id,
                 cluster_version=cluster_version,
                 cluster_key=cluster_key,
                 title=title,
@@ -279,8 +280,9 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         db.commit()
 
         log.info(
-            "clustered vertical_id=%s clusters=%s pain_instances=%s links_inserted=%s run_id=%s",
+            "clustered vertical_id=%s vertical_db_id=%s clusters=%s pain_instances=%s links_inserted=%s run_id=%s",
             vertical_id,
+            vertical_db_id,
             created_clusters,
             len(pain_ids),
             total_links,

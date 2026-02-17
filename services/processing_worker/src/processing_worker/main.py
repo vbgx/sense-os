@@ -21,8 +21,9 @@ def handle_process_signals(job: dict[str, Any]) -> None:
     skipped_n = int(res.get("pain_instances_skipped", 0) or 0)
 
     log.info(
-        "Processed vertical_id=%s run_id=%s day=%s signals=%s",
+        "Processed vertical_id=%s vertical_db_id=%s run_id=%s day=%s signals=%s",
         job.get("vertical_id"),
+        job.get("vertical_db_id"),
         job.get("run_id"),
         job.get("day"),
         signals_n,

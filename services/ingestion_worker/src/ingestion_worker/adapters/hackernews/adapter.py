@@ -18,7 +18,9 @@ class HNAdapterConfig:
 def ingest_hackernews(
     *,
     client: HackerNewsClient,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int | None,
+    taxonomy_version: str | None,
     cfg: HNAdapterConfig,
 ) -> Iterable[Dict[str, Any]]:
     fetch_cfg = HNFetchConfig(
@@ -28,12 +30,21 @@ def ingest_hackernews(
 
     for kind in cfg.kinds:
         for story, raw_story in fetch_stories(client, kind=kind, cfg=fetch_cfg):
-            yield map_hn_story_to_signal_dict(story, raw_story, vertical_id=vertical_id, kind=kind)
+            yield map_hn_story_to_signal_dict(
+                story,
+                raw_story,
+                vertical_id=vertical_id,
+                vertical_db_id=vertical_db_id,
+                taxonomy_version=taxonomy_version,
+                kind=kind,
+            )
 
             for comment, raw_comment in iter_comments_flat(client, story=story, cfg=fetch_cfg):
                 yield map_hn_comment_to_signal_dict(
                     comment,
                     raw_comment,
                     vertical_id=vertical_id,
+                    vertical_db_id=vertical_db_id,
+                    taxonomy_version=taxonomy_version,
                     parent_story_id=story.id,
                 )

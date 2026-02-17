@@ -5,7 +5,15 @@ import json
 from typing import Any, Dict
 
 
-_CORE_FIELDS = ("type", "vertical_id", "day", "source", "run_id")
+_CORE_FIELDS = (
+    "type",
+    "vertical_id",
+    "vertical_db_id",
+    "taxonomy_version",
+    "day",
+    "source",
+    "run_id",
+)
 
 
 def _payload_hash(job: Dict[str, Any]) -> str:
@@ -21,12 +29,14 @@ def _payload_hash(job: Dict[str, Any]) -> str:
 def idempotency_key(job: Dict[str, Any]) -> str:
     """
     Deterministic key derived from:
-    (job_type, vertical_id, day, source, run_id, payload_hash)
+    (job_type, vertical_id, vertical_db_id, taxonomy_version, day, source, run_id, payload_hash)
     """
     job_type = str(job.get("type") or "")
-    vertical_id = "" if job.get("vertical_id") is None else str(job.get("vertical_id"))
+    vertical_id = str(job.get("vertical_id") or "")
+    vertical_db_id = "" if job.get("vertical_db_id") is None else str(job.get("vertical_db_id"))
+    taxonomy_version = str(job.get("taxonomy_version") or "")
     day = str(job.get("day") or "")
     source = str(job.get("source") or "")
     run_id = str(job.get("run_id") or "")
     payload_hash = _payload_hash(job)
-    return f"{job_type}:{vertical_id}:{day}:{source}:{run_id}:{payload_hash}"
+    return f"{job_type}:{vertical_id}:{vertical_db_id}:{taxonomy_version}:{day}:{source}:{run_id}:{payload_hash}"

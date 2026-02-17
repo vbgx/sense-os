@@ -22,8 +22,9 @@ def handle_ingest_vertical(job: dict[str, Any]) -> None:
     skipped = int(result.get("skipped", 0) or 0)
 
     log.info(
-        "Ingested vertical_id=%s source=%s run_id=%s fetched=%s inserted=%s skipped=%s",
+        "Ingested vertical_id=%s vertical_db_id=%s source=%s run_id=%s fetched=%s inserted=%s skipped=%s",
         job.get("vertical_id"),
+        job.get("vertical_db_id"),
         job.get("source"),
         job.get("run_id"),
         fetched,

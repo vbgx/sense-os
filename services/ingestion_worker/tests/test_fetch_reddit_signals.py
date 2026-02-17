@@ -37,11 +37,19 @@ def test_fetch_reddit_signals_uses_query_and_maps(monkeypatch):
     monkeypatch.setattr(fetch_module, "RedditClient", DummyClient)
     monkeypatch.setattr(fetch_module, "RateLimiter", DummyLimiter)
 
-    signals = fetch_module.fetch_reddit_signals(vertical_id=1, query="saas", limit=2)
+    signals = fetch_module.fetch_reddit_signals(
+        vertical_id="b2b_ops",
+        vertical_db_id=1,
+        taxonomy_version="2026-02-17",
+        query="saas",
+        limit=2,
+    )
 
     assert DummyClient.last_instance is not None
     assert DummyClient.last_instance.calls[0][0] == "saas"
-    assert signals[0]["vertical_id"] == 1
+    assert signals[0]["vertical_id"] == "b2b_ops"
+    assert signals[0]["vertical_db_id"] == 1
+    assert signals[0]["taxonomy_version"] == "2026-02-17"
     assert signals[0]["source"] == "reddit"
     assert signals[0]["external_id"] == "x1"
     assert signals[0]["created_at"] == datetime.fromtimestamp(1700000000, tz=timezone.utc)

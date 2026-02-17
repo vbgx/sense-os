@@ -10,6 +10,10 @@ def get_by_name(db: Session, name: str):
     return db.query(Vertical).filter(Vertical.name == name).one_or_none()
 
 
+def get_by_id(db: Session, vertical_id: int):
+    return db.query(Vertical).filter(Vertical.id == int(vertical_id)).one_or_none()
+
+
 def create(db: Session, name: str):
     vertical = Vertical(name=name)
     db.add(vertical)

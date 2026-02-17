@@ -13,13 +13,19 @@ class DummyWriter:
 def test_ingest_vertical_returns_summary(monkeypatch):
     captured = {}
 
-    def fake_fetch_reddit_signals(*, vertical_id: int, query: str, limit: int):
+    def fake_fetch_reddit_signals(
+        *, vertical_id: str, vertical_db_id: int | None, taxonomy_version: str | None, query: str, limit: int
+    ):
         captured["vertical_id"] = vertical_id
+        captured["vertical_db_id"] = vertical_db_id
+        captured["taxonomy_version"] = taxonomy_version
         captured["query"] = query
         captured["limit"] = limit
         return [
             {
                 "vertical_id": vertical_id,
+                "vertical_db_id": vertical_db_id,
+                "taxonomy_version": taxonomy_version,
                 "source": "reddit",
                 "external_id": "a",
                 "content": "hello",
@@ -28,6 +34,8 @@ def test_ingest_vertical_returns_summary(monkeypatch):
             },
             {
                 "vertical_id": vertical_id,
+                "vertical_db_id": vertical_db_id,
+                "taxonomy_version": taxonomy_version,
                 "source": "reddit",
                 "external_id": "b",
                 "content": "world",
@@ -41,12 +49,20 @@ def test_ingest_vertical_returns_summary(monkeypatch):
 
     result = ingest_module.ingest_vertical(
         {
-            "vertical_id": 1,
+            "vertical_id": "b2b_ops",
+            "vertical_db_id": 1,
+            "taxonomy_version": "2026-02-17",
             "source": "reddit",
             "query": "saas",
             "limit": 10,
         }
     )
 
-    assert captured == {"vertical_id": 1, "query": "saas", "limit": 10}
+    assert captured == {
+        "vertical_id": "b2b_ops",
+        "vertical_db_id": 1,
+        "taxonomy_version": "2026-02-17",
+        "query": "saas",
+        "limit": 10,
+    }
     assert result == {"fetched": 2, "inserted": 2, "skipped": 1}

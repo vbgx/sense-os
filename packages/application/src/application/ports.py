@@ -49,16 +49,16 @@ class PainInstancesRepo(Protocol):
 
 
 class SignalsRepo(Protocol):
-    def list_by_vertical(
+    def list_by_vertical_db_id(
         self,
         *,
-        vertical_id: int,
+        vertical_db_id: int,
         limit: int,
         offset: int,
     ) -> list[Any]:
         ...
 
-    def count_by_vertical(self, *, vertical_id: int) -> int:
+    def count_by_vertical_db_id(self, *, vertical_db_id: int) -> int:
         ...
 
     def count_last_days(self, *, days: int) -> int:

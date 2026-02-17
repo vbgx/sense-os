@@ -16,7 +16,8 @@ def _seed_many_pains(db_session, *, count: int) -> tuple[Vertical, list[PainInst
     pains: list[PainInstance] = []
     for idx in range(count):
         signal = Signal(
-            vertical_id=vertical.id,
+            vertical_db_id=vertical.id,
+            vertical_id=vertical.name,
             source="test",
             external_id=f"ext-perf-{idx}",
             content=f"content perf {idx}",

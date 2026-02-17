@@ -12,8 +12,8 @@ from db import models
 def create_if_absent(
     db: Session,
     *,
-    vertical_id: int,
-    vertical_key: str | None = None,
+    vertical_db_id: int | None = None,
+    vertical_id: str | None = None,
     taxonomy_version: str | None = None,
     source: str,
     external_id: str,
@@ -23,15 +23,16 @@ def create_if_absent(
 ) -> Tuple[models.Signal, bool]:
     if db.bind and db.bind.dialect.name == "postgresql":
         values = {
-            "vertical_id": int(vertical_id),
             "source": str(source),
             "external_id": str(external_id),
             "content": str(content),
             "url": url,
             "created_at": created_at,
         }
-        if vertical_key is not None:
-            values["vertical_key"] = str(vertical_key)
+        if vertical_db_id is not None:
+            values["vertical_db_id"] = int(vertical_db_id)
+        if vertical_id is not None:
+            values["vertical_id"] = str(vertical_id)
         if taxonomy_version is not None:
             values["taxonomy_version"] = str(taxonomy_version)
         stmt = (
@@ -66,15 +67,16 @@ def create_if_absent(
         return existing, False
 
     row_kwargs = {
-        "vertical_id": int(vertical_id),
         "source": str(source),
         "external_id": str(external_id),
         "content": str(content),
         "url": url,
         "created_at": created_at,
     }
-    if vertical_key is not None:
-        row_kwargs["vertical_key"] = str(vertical_key)
+    if vertical_db_id is not None:
+        row_kwargs["vertical_db_id"] = int(vertical_db_id)
+    if vertical_id is not None:
+        row_kwargs["vertical_id"] = str(vertical_id)
     if taxonomy_version is not None:
         row_kwargs["taxonomy_version"] = str(taxonomy_version)
     row = models.Signal(**row_kwargs)
@@ -83,17 +85,17 @@ def create_if_absent(
     return row, True
 
 
-def list_by_vertical(
+def list_by_vertical_db_id(
     db: Session,
     *,
-    vertical_id: int,
+    vertical_db_id: int,
     limit: int,
     offset: int,
     language_codes: Optional[Sequence[str]] = None,
 ) -> List[models.Signal]:
     q = (
         db.query(models.Signal)
-        .filter(models.Signal.vertical_id == int(vertical_id))
+        .filter(models.Signal.vertical_db_id == int(vertical_db_id))
         .order_by(models.Signal.id.asc())
     )
     if language_codes:

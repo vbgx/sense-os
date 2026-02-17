@@ -9,7 +9,7 @@ from processing_worker.storage.pain_instances_writer import write_pain_instance
 from processing_worker.pipeline.load_signals import load_batch
 
 
-def process_batch(*, signals: list[Any], vertical_id: int) -> dict[str, int]:
+def process_batch(*, signals: list[Any], vertical_db_id: int) -> dict[str, int]:
     created = 0
     skipped = 0
 
@@ -24,7 +24,7 @@ def process_batch(*, signals: list[Any], vertical_id: int) -> dict[str, int]:
         score, breakdown = score_features(features)
 
         _, was_created = write_pain_instance(
-            vertical_id=int(vertical_id),
+            vertical_id=int(vertical_db_id),
             signal_id=int(getattr(s, "id")),
             algo_version=str(ALGO_VERSION),
             pain_score=float(score),
@@ -43,8 +43,8 @@ def process_batch(*, signals: list[Any], vertical_id: int) -> dict[str, int]:
 
 
 def process_signals_batch(job: dict[str, Any]) -> dict[str, int]:
-    vertical_id = int(job.get("vertical_id") or 0)
-    if vertical_id <= 0:
+    vertical_db_id = int(job.get("vertical_db_id") or 0)
+    if vertical_db_id <= 0:
         return {"signals": 0, "pain_instances_created": 0, "pain_instances_skipped": 0}
 
     limit = job.get("limit")
@@ -54,5 +54,5 @@ def process_signals_batch(job: dict[str, Any]) -> dict[str, int]:
     limit_i = int(limit) if isinstance(limit, int) else 500
     offset_i = int(offset) if isinstance(offset, int) else 0
 
-    signals = load_batch(vertical_id=vertical_id, limit=limit_i, offset=offset_i)
-    return process_batch(signals=signals, vertical_id=vertical_id)
+    signals = load_batch(vertical_db_id=vertical_db_id, limit=limit_i, offset=offset_i)
+    return process_batch(signals=signals, vertical_db_id=vertical_db_id)

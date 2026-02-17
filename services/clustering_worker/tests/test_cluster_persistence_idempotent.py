@@ -19,7 +19,8 @@ def _seed_pains(db_session, *, count: int = 3) -> Vertical:
 
     for idx in range(count):
         signal = Signal(
-            vertical_id=vertical.id,
+            vertical_db_id=vertical.id,
+            vertical_id=vertical.name,
             source="test",
             external_id=f"ext-{idx}",
             content=f"content {idx}",
@@ -75,7 +76,9 @@ def test_cluster_job_processes_new_version(db_session, patch_link_many):
     """A new cluster_version should process and link pains."""
     vertical = _seed_pains(db_session, count=4)
 
-    result = run_clustering_job({"vertical_id": vertical.id, "cluster_version": "tfidf_v1"})
+    result = run_clustering_job(
+        {"vertical_id": vertical.name, "vertical_db_id": vertical.id, "cluster_version": "tfidf_v1"}
+    )
 
     assert result["clusters"] == 1
     assert result["pain_instances"] == 4
@@ -118,7 +121,9 @@ def test_cluster_job_skips_existing_version(db_session, monkeypatch):
 
     monkeypatch.setattr(cluster_signals_repo, "link_many", _patched)
 
-    result = run_clustering_job({"vertical_id": vertical.id, "cluster_version": "tfidf_v1"})
+    result = run_clustering_job(
+        {"vertical_id": vertical.name, "vertical_db_id": vertical.id, "cluster_version": "tfidf_v1"}
+    )
 
     assert result["skipped"] == 1
     assert calls["count"] == 0

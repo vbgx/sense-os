@@ -15,7 +15,8 @@ def _seed_trend_data(db_session, *, day: date) -> None:
     db_session.refresh(vertical)
 
     signal = Signal(
-        vertical_id=vertical.id,
+        vertical_db_id=vertical.id,
+        vertical_id=vertical.name,
         source="test",
         external_id="ext-trend",
         content="trend content",

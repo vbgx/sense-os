@@ -1,247 +1,183 @@
 # Sense-OS
 
-Sense-OS est une plateforme d'intelligence collective en temps réel 
-qui détecte, analyse et classe les "pains" (problèmes, tendances, questions) 
-exprimés par des communautés en ligne (par exemple, Reddit, Hacker News). 
-Grâce à un pipeline de traitement distribué, 
-Sense-OS transforme des signaux bruts en insights exploitables 
-tout en mettant l'accent sur l'idempotence, la performance et la scalabilité.
+## The Market Pain Intelligence Engine
 
-## 📌 Table des Matières
+Sense-OS is a decision-grade engine that detects, ranks, and explains
+emerging market pain in real time.
 
-Architecture
-Composants
-Prérequis
-Installation
-Utilisation
-Validation
-Développement
-Tests
-Contribuer
-Licence
+It transforms fragmented online signals into structured, time-sensitive
+opportunities.
 
----
+Not analytics.\
+Not trend watching.\
+Not keyword monitoring.
 
-## 🏗️ Architecture
+**Signal → Pain → Timing → Exploitability.**
 
-Sense-OS adopte une architecture modulaire et distribuée, 
-divisée en plusieurs workers spécialisés et une API REST pour la gestion des interactions. 
+Sense-OS is the sensing layer of Venture OS.
 
-Les principaux composants sont :
+------------------------------------------------------------------------
 
-- Ingestion Worker : Récupère les signaux depuis des sources externes (Reddit, Hacker News, etc.).
+## The Problem
 
-- Processing Worker : Extrait les caractéristiques des signaux, calcule les scores de "pain", et stocke les instances.
+Markets do not announce opportunities.\
+They leak them.
 
-- Clustering Worker : Regroupe les signaux similaires en clusters thématiques.
+In Reddit threads.\
+In Hacker News comments.\
+In Indie Hacker discussions.\
+In repeated operational frustration patterns.
 
-- Trend Worker : Calcule les métriques de tendance (vélocité, émergence, déclin).
+The signals are there --- but they are:
 
-- API Gateway : Fournit une interface REST pour interagir avec les données (pains, tendances, clusters).
+-   Noisy\
+-   Redundant\
+-   Emotionally biased\
+-   Hard to aggregate\
+-   Hard to time
 
-- Scheduler : Orchestration et planification des jobs de traitement.
+Most builders rely on:
 
-- Base de données PostgreSQL : Stocke les signaux, clusters et métriques.
+-   Intuition\
+-   Social momentum\
+-   Anecdotal feedback\
+-   Late-stage traction signals
 
-- Redis : Gère la communication asynchrone entre les workers.
+By the time something becomes obvious, it is already crowded.
 
----
+------------------------------------------------------------------------
 
-## 🧩 Composants
+## The Solution
 
-| Composant             | Description                                                                     | Dossier                           |
-| --------------------- | ------------------------------------------------------------------------------- | --------------------------------- |
-| **Ingestion Worker**  | Récupère et normalise les signaux depuis des sources externes.                  | `services/ingestion_worker`       |
-| **Processing Worker** | Traite les signaux pour extraire des "pains" (problèmes, questions, tendances). | `services/processing_worker`      |
-| **Clustering Worker** | Regroupe les signaux en clusters thématiques.                                   | `services/clustering_worker`      |
-| **Trend Worker**      | Calcule les métriques de tendance (vélocité, émergence, déclin).                | `services/trend_worker`           |
-| **API Gateway**       | Fournit une API REST pour accéder aux données.                                  | `apps/api_gateway`                |
-| **Scheduler**         | Planifie et orchestre les jobs pour les workers.                                | `services/scheduler`              |
-| **Base de données**   | Stocke les signaux, clusters, et métriques (migrations Alembic).                | `packages/db/src/db/migrations`  |
-| **Files Redis**       | Gère la communication asynchrone entre les workers.                             | `infra/docker/docker-compose.yml` |
+Sense-OS continuously:
 
----
+1.  Collects raw community signals\
+2.  Extracts structured pain instances\
+3.  Clusters recurring patterns\
+4.  Measures timing (growth, breakout, decline)\
+5.  Estimates saturation and competitive heat\
+6.  Ranks opportunities by exploitability
 
-## 📋 Prérequis
+The result is not raw data.
 
-Avant de commencer, vous devez avoir les éléments suivants installés :
+It is a ranked intelligence surface.
 
-- Docker et Docker Compose pour exécuter les services en local.
+------------------------------------------------------------------------
 
-- Python 3.12 pour le développement local.
+## What Makes It Different
 
-- PostgreSQL et Redis (gérés via docker-compose.yml).
+### Pain-Centric (Not Keyword-Centric)
 
-- Make pour utiliser les commandes du Makefile.
+We do not track topics.\
+We track structured frustration patterns.
 
----
+### Timing Intelligence
 
-## 🚀 Installation
+Every cluster is classified as:
 
-1- Cloner le dépôt :
+-   EARLY\
+-   PEAK\
+-   SATURATING
 
-```bash
-git clone https://github.com/votre-org/sense-os.git
-cd sense-os`
-```
+With velocity, breakout detection, and half-life metrics.
 
-2- Configurer l'environnement :
+### Exploitability Scoring
 
-```bash
-cp .env.example .env
-```
-Modifiez le fichier .env selon vos besoins (par exemple, les variables de base de données, clés API, etc.).
+Opportunities are ranked using a composite model:
 
-3- Démarrer les services :
+Severity × Growth × Recurrence × Monetizability × Underserved ×
+Confidence
 
-```bash
-make up
-```
-Cette commande démarre tous les services (PostgreSQL, Redis, API Gateway et workers).
+Not popularity.\
+Not engagement.\
+Exploitability.
 
-4- Appliquer les migrations :
+### Competitive Heat Layer
 
-```bash
-make migrate
-```
+We estimate:
 
+-   Repository density\
+-   Product Hunt overlap\
+-   Keyword saturation\
+-   External solution density
 
-5- Seed de la base de données :
+This reveals:
 
-```bash
-make seed
-```
+-   Overcrowded spaces\
+-   Underserved niches\
+-   Illusions of demand
 
----
+### Explainability
 
-## 🎯 Utilisation
+Every opportunity exposes:
 
-- Lancer un job manuel : Pour lancer un job d'ingestion et de traitement pour un vertical spécifique (ex. : saas depuis Reddit) :
+-   Representative signals\
+-   Key phrases\
+-   Persona inference\
+-   Risk flags\
+-   Score breakdown
 
-```bash
-make scheduler-once VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=50
-```
+No black box.
 
-- Calculer les tendances : Pour calculer les tendances d'un jour spécifique :
+------------------------------------------------------------------------
 
-```bash
-make trend-once VERTICAL_ID=1 DAY=2026-02-15
-```
+## Insight Surface
 
-- Accéder à l'API : L'API est disponible à l'adresse http://localhost:8000
-. Les endpoints disponibles :
+Sense-OS exposes a ranked decision API:
 
-GET /pains : Liste des "pains" détectés.
+-   `GET /insights/top_pains`
+-   `GET /insights/emerging_opportunities`
+-   `GET /insights/declining_risks`
+-   `GET /insights/{cluster_id}`
+-   `GET /insights/{cluster_id}/export`
 
-GET /pains/{id} : Détails d'un "pain".
+This is not raw data access.\
+This is a ranked intelligence layer.
 
-GET /trending : Clusters en tendance.
+------------------------------------------------------------------------
 
-GET /emerging : Clusters émergents.
+## Architecture
 
-GET /declining : Clusters en déclin.
+Sense-OS runs as a distributed processing engine:
 
----
+-   Ingestion Workers\
+-   Processing Workers\
+-   Clustering Engine\
+-   Trend Engine\
+-   Scheduler\
+-   Insight API
 
-## ✅ Validation
+The domain layer is isolated and versioned.\
+Scoring algorithms are deterministic.\
+All metrics are reproducible.
 
-Pour vérifier que tout fonctionne correctement, utilisez la commande suivante :
+The system is designed for:
 
-```bash
-make validate
-```
-Cette commande arrête les services existants, applique les migrations, seed la base de données, et lance un job d'ingestion et de traitement pour vérifier que les données sont accessibles via l'API.
+-   Idempotence\
+-   Drift detection\
+-   Algorithm versioning\
+-   Reliability at scale
 
----
+------------------------------------------------------------------------
 
-## 🛠️ Développement
+## Why This Matters
 
-Structure du projet
+The next generation of builders will not compete on:
 
-.sense-os/
-├── apps/               # Applications (API Gateway)
-├── services/           # Workers (ingestion, processing, clustering, trend, scheduler)
-├── packages/           # Bibliothèques partagées (db, domain, queue)
-├── infra/              # Infrastructure (Docker, SQL)
-├── docs/               # Documentation
-├── tools/              # Scripts utilitaires
-└── Makefile            # Commandes utiles
+-   Coding speed\
+-   AI wrappers\
+-   Surface polish
 
-Ajouter une nouvelle source de données
+They will compete on:
 
-Créez un adapter dans `services/ingestion_worker/src/ingestion_worker/adapters/`.
+-   Market timing\
+-   Pain selection\
+-   Opportunity clarity
 
-Configurez le vertical dans `tools/fixtures/verticals/`.
+Sense-OS is the intelligence advantage.
 
-Mettez à jour le scheduler pour inclure la nouvelle source.
+------------------------------------------------------------------------
 
-Développer localement
+## License
 
-Préparez un environnement Python avec `uv` :
-
-```bash
-make dev-install
-```
-
-Pour exécuter un worker localement sans Docker, utilisez :
-
-```bash
-make workers-local
-```
-
-
-Puis, dans un terminal séparé, lancez :
-
-```bash
-./tools/scripts/run_processing_worker.sh
-```
-
----
-
-## 🧪 Tests
-
-Tests unitaires : Les tests se trouvent dans les dossiers tests/ de chaque service. Pour les exécuter :
-
-```bash
-pytest -q
-```
-
-Checks CI (tests + invariants DB) :
-
-```bash
-make ci
-```
-
----
-
-## 🤝 Contribuer
-
-Les contributions sont les bienvenues ! Voici comment contribuer :
-
-Fork le projet.
-
-Créez une branche pour votre fonctionnalité (par exemple, git checkout -b feature/ma-fonctionnalité).
-
-Committez vos changements (ex. git commit -am 'Ajout de ma fonctionnalité').
-
-Poussez la branche (git push origin feature/ma-fonctionnalité).
-
-Ouvrez une Pull Request.
-
----
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
-
-Points clés
-
-Clarté : Explication simple et claire de l'architecture et des composants.
-
-Pratique : Commandes simples et directes avec make pour l'installation, la validation et les tests.
-
-Modularité : Structure du projet bien définie et guide pour ajouter de nouvelles sources.
-
-Idempotence : Mise en avant du test d'idempotence pour garantir la stabilité des processus.
-
-API : Documentation complète des endpoints disponibles pour interagir avec les données.
+MIT

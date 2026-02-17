@@ -91,7 +91,7 @@ class InsightsUseCase:
 
         return {
             "cluster_id": str(_get(cluster, "id")),
-            "vertical_id": _get(cluster, "vertical_id"),
+            "vertical_id": str(_get(cluster, "vertical_id")) if _get(cluster, "vertical_id") is not None else None,
             "cluster_summary": _get(cluster, "cluster_summary"),
             "exploitability_score": int(_get(cluster, "exploitability_score", 0) or 0),
             "exploitability_tier": str(_get(cluster, "exploitability_tier", "") or ""),

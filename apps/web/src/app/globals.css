@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
 
 /* ============================================
    THEME TOKENS — GRAFANA-STYLE DARK
@@ -117,7 +116,7 @@ body {
 }
 
 /* ============================================
-   TABLES (OPERATOR STYLE)
+   TABLES
    ============================================ */
 
 .table-container {
@@ -177,7 +176,7 @@ body {
 }
 
 /* ============================================
-   DRAWER (INSPECT PANEL)
+   DRAWER
    ============================================ */
 
 .inspect-drawer {
@@ -218,42 +217,4 @@ body {
 
 .page-title {
   @apply text-xl font-semibold;
-}
-
-.subtle-text {
-  color: var(--text-secondary);
-}
-
-/* ============================================
-   FILTERS / INPUTS
-   ============================================ */
-
-.input-dark {
-  background: var(--panel-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-}
-
-.input-dark:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
-}
-
-/* ============================================
-   TRANSITIONS
-   ============================================ */
-
-.fade-in {
-  animation: fadeIn 0.2s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

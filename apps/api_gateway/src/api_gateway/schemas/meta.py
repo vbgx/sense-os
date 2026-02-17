@@ -5,6 +5,7 @@ from datetime import datetime
 
 
 class MetaStatusOut(BaseModel):
+    status: str
     last_run_at: datetime | None
     scoring_version: str
     total_signals_7d: int

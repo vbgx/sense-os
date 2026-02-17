@@ -1,5 +1,7 @@
-import { redirect } from "next/navigation";
+"use client";
+
+import OverviewPage from "./(dashboard)/overview/page";
 
 export default function Page() {
-  redirect("/overview");
+  return <OverviewPage />;
 }

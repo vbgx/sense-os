@@ -20,7 +20,12 @@ class PainClustersRepo:
         )
 
     def get(self, cluster_id: str) -> PainCluster:
-        obj = self.session.query(PainCluster).filter(PainCluster.id == cluster_id).one_or_none()
+        try:
+            cluster_id_int = int(cluster_id)
+        except (TypeError, ValueError) as exc:
+            raise KeyError(f"cluster not found: {cluster_id}") from exc
+
+        obj = self.session.query(PainCluster).filter(PainCluster.id == cluster_id_int).one_or_none()
         if obj is None:
             raise KeyError(f"cluster not found: {cluster_id}")
         return obj

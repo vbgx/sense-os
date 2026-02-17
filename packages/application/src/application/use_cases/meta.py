@@ -4,38 +4,46 @@ from dataclasses import dataclass
 from typing import Any
 
 from application.ports import UnitOfWork
-from domain.versions import DEFAULT_ALGO_VERSION
+from domain.versions import SCORING_VERSION
 
 
 @dataclass
 class MetaUseCase:
-    uow: UnitOfWork
+  uow: UnitOfWork
 
-    def get_status(self) -> dict[str, Any]:
-        with self.uow:
-            # last_run_at (optional / best-effort)
-            last_run_at = None
-            scheduler = getattr(self.uow, "scheduler", None)
-            if scheduler is not None and hasattr(scheduler, "get_last_run"):
-                last_run_at = scheduler.get_last_run()
+  def get_status(self) -> dict[str, Any]:
+    last_run = None
+    total_clusters = 0
+    total_signals_7d = 0
 
-            # total_clusters (best-effort: count() else len(list()))
-            pain_clusters_repo = self.uow.pain_clusters
-            if hasattr(pain_clusters_repo, "count"):
-                total_clusters = pain_clusters_repo.count()
-            else:
-                total_clusters = len(pain_clusters_repo.list())
+    # Be resilient: meta must never crash the UI
+    try:
+      with self.uow:
+        # optional scheduler
+        scheduler = getattr(self.uow, "scheduler", None)
+        if scheduler is not None:
+          try:
+            last_run = scheduler.get_last_run()
+          except Exception:
+            last_run = None
 
-            # total_signals_7d (best-effort; fallback 0 if not available)
-            signals_repo = self.uow.signals
-            if hasattr(signals_repo, "count_last_days"):
-                total_signals_7d = signals_repo.count_last_days(days=7)
-            else:
-                total_signals_7d = 0
+        # optional repo methods (depending on adapter maturity)
+        pain_clusters = getattr(self.uow, "pain_clusters", None)
+        if pain_clusters is not None and hasattr(pain_clusters, "count"):
+          total_clusters = int(pain_clusters.count())
 
-        return {
-            "last_run_at": last_run_at,
-            "scoring_version": DEFAULT_ALGO_VERSION,
-            "total_signals_7d": total_signals_7d,
-            "total_clusters": total_clusters,
-        }
+        signals = getattr(self.uow, "signals", None)
+        if signals is not None and hasattr(signals, "count_last_days"):
+          total_signals_7d = int(signals.count_last_days(days=7))
+
+    except Exception:
+      # don't leak infra errors to the UI layer
+      pass
+
+    return {
+      "status": "ok",
+      "last_run_at": last_run,
+      "scoring_version": SCORING_VERSION,
+      "total_signals_7d": total_signals_7d,
+      "total_clusters": total_clusters,
+    }

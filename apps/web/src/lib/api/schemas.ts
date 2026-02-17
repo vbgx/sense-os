@@ -19,6 +19,15 @@ export const TopPainItemSchema = z
     score: z.number(),
     vertical_id: z.string().optional(),
     updated_at: ISODateTime.optional(),
+
+    exploitability: z.number().optional(),
+    growth: z.number().optional(),
+    severity: z.number().optional(),
+    underserved: z.number().optional(),
+    confidence: z.number().optional(),
+    persona: z.string().optional(),
+    tier: z.string().optional(),
+    emerging: z.boolean().optional(),
   })
   .passthrough();
 
@@ -73,6 +82,7 @@ export const InsightsDecliningSchema = z
   })
   .passthrough();
 
+export type TopPainItem = z.infer<typeof TopPainItemSchema>;
 export type InsightsTopPains = z.infer<typeof InsightsTopPainsSchema>;
 export type InsightsClusterDetail = z.infer<typeof InsightsClusterDetailSchema>;
 export type InsightsEmerging = z.infer<typeof InsightsEmergingSchema>;

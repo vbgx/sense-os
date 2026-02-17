@@ -2,63 +2,38 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchJson } from "@/lib/api/client";
 import {
   InsightsTopPainsSchema,
-  InsightsClusterDetailSchema,
-  InsightsEmergingSchema,
-  InsightsDecliningSchema,
   type InsightsTopPains,
-  type InsightsClusterDetail,
-  type InsightsEmerging,
-  type InsightsDeclining,
 } from "@/lib/api/schemas";
 
-function parseOrThrow<T>(schema: { parse: (x: unknown) => T }, payload: unknown): T {
-  return schema.parse(payload);
+type TopPainQueryParams = {
+  limit: number;
+  offset: number;
+  sort?: string;
+  vertical?: string;
+  score_min?: number;
+  score_max?: number;
+  emerging?: boolean;
+};
+
+function buildQuery(params: TopPainQueryParams) {
+  const qs = new URLSearchParams();
+
+  Object.entries(params).forEach(([k, v]) => {
+    if (v === undefined || v === null) return;
+    qs.set(k, String(v));
+  });
+
+  return qs.toString();
 }
 
-export function useTopPains(params?: { limit?: number; offset?: number }) {
-  const limit = params?.limit ?? 25;
-  const offset = params?.offset ?? 0;
-
+export function useTopPains(params: TopPainQueryParams) {
   return useQuery({
-    queryKey: ["insights", "top_pains", { limit, offset }],
+    queryKey: ["insights", "top_pains", params],
     queryFn: async (): Promise<InsightsTopPains> => {
-      const raw = await fetchJson<unknown>(`/insights/top-pains?limit=${limit}&offset=${offset}`);
-      return parseOrThrow(InsightsTopPainsSchema, raw);
+      const query = buildQuery(params);
+      const raw = await fetchJson<unknown>(`/insights/top-pains?${query}`);
+      return InsightsTopPainsSchema.parse(raw);
     },
-    staleTime: 15_000,
-  });
-}
-
-export function useClusterDetail(clusterId: string) {
-  return useQuery({
-    queryKey: ["insights", "cluster_detail", { clusterId }],
-    enabled: Boolean(clusterId),
-    queryFn: async (): Promise<InsightsClusterDetail> => {
-      const raw = await fetchJson<unknown>(`/insights/clusters/${encodeURIComponent(clusterId)}`);
-      return parseOrThrow(InsightsClusterDetailSchema, raw);
-    },
-    staleTime: 15_000,
-  });
-}
-
-export function useEmerging() {
-  return useQuery({
-    queryKey: ["insights", "emerging"],
-    queryFn: async (): Promise<InsightsEmerging> => {
-      const raw = await fetchJson<unknown>(`/insights/emerging`);
-      return parseOrThrow(InsightsEmergingSchema, raw);
-    },
-    staleTime: 15_000,
-  });
-}
-
-export function useDeclining() {
-  return useQuery({
-    queryKey: ["insights", "declining"],
-    queryFn: async (): Promise<InsightsDeclining> => {
-      const raw = await fetchJson<unknown>(`/insights/declining`);
-      return parseOrThrow(InsightsDecliningSchema, raw);
-    },
-    staleTime: 15_000,
+    staleTime: 10_000,
   });
 }

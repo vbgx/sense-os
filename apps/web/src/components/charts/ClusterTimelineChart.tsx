@@ -12,7 +12,7 @@ import type { TimelinePoint } from "@/lib/api/schemas";
 
 export function ClusterTimelineChart({ data }: { data: TimelinePoint[] }) {
   return (
-    <div className="h-[240px] w-full">
+    <div className="h-[240px] w-full" data-testid="timeline-chart">
       <ResponsiveContainer>
         <LineChart data={data}>
           <XAxis dataKey="date" tick={{ fontSize: 12 }} />

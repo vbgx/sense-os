@@ -7,6 +7,7 @@ type Props = {
   actionLabel?: string;
   onAction?: () => void;
   className?: string;
+  testId?: string;
 };
 
 export function EmptyState({
@@ -15,9 +16,11 @@ export function EmptyState({
   actionLabel,
   onAction,
   className,
+  testId,
 }: Props) {
   return (
     <div
+      data-testid={testId}
       className={[
         "rounded-xl border border-dashed p-8 text-center",
         "bg-background/40",

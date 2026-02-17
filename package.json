@@ -1,0 +1,12 @@
+{
+  "name": "sense-os-e2e",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  },
+  "scripts": {
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:headed": "playwright test --headed"
+  }
+}

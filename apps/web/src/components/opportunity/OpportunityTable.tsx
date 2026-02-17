@@ -20,10 +20,22 @@ interface Props {
 export function OpportunityTable({ data, onRowClick, onResetFilters }: Props) {
   const columns: ColumnDef<TopPain>[] = [
     { header: "Summary", accessorKey: "cluster_summary" },
-    { header: "Exploitability", accessorKey: "exploitability_score" },
+    {
+      header: "Exploitability",
+      accessorKey: "exploitability_score",
+      cell: ({ getValue }) => (
+        <span data-testid="pain-score">{String(getValue() ?? "—")}</span>
+      ),
+    },
     { header: "Growth", accessorKey: "breakout_score" },
     { header: "Severity", accessorKey: "severity_score" },
-    { header: "Underserved", accessorKey: "opportunity_window_status" },
+    {
+      header: "Underserved",
+      accessorKey: "opportunity_window_status",
+      cell: ({ getValue }) => (
+        <span data-testid="timing-status">{String(getValue() ?? "—")}</span>
+      ),
+    },
     { header: "Confidence", accessorKey: "confidence_score" },
     { header: "Persona", accessorKey: "dominant_persona" },
   ];
@@ -51,6 +63,7 @@ export function OpportunityTable({ data, onRowClick, onResetFilters }: Props) {
         description="No clusters match your current filters. Try widening the time window or resetting filters."
         actionLabel={onResetFilters ? "Reset filters" : undefined}
         onAction={onResetFilters}
+        testId="empty-state"
       />
     );
   }
@@ -58,6 +71,7 @@ export function OpportunityTable({ data, onRowClick, onResetFilters }: Props) {
   return (
     <div
       ref={parentRef}
+      data-testid="opportunity-table"
       className="h-[600px] overflow-auto rounded-md border bg-background"
     >
       <table className="w-full text-sm">
@@ -95,6 +109,8 @@ export function OpportunityTable({ data, onRowClick, onResetFilters }: Props) {
                       key={row.id}
                       role="button"
                       tabIndex={0}
+                      data-testid="opportunity-row"
+                      data-cluster-id={row.original.cluster_id}
                       className="absolute left-0 right-0 flex cursor-pointer border-b hover:bg-muted/40"
                       style={{ transform: `translateY(${virtualRow.start}px)` }}
                       onClick={() => onRowClick?.(row.original.cluster_id)}

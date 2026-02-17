@@ -115,6 +115,7 @@ export function ClusterInspectDrawer() {
               <Link
                 href={`/clusters/${encodeURIComponent(q.data.cluster_id)}`}
                 className="inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm hover:bg-muted"
+                data-testid="drawer-open-deep-dive"
               >
                 Open Deep Dive
               </Link>

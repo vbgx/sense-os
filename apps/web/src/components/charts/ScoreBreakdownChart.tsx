@@ -15,7 +15,7 @@ export function ScoreBreakdownChart({
   data: { name: string; value: number }[];
 }) {
   return (
-    <div className="h-[240px] w-full">
+    <div className="h-[240px] w-full" data-testid="score-breakdown">
       <ResponsiveContainer>
         <BarChart data={data}>
           <XAxis dataKey="name" tick={{ fontSize: 12 }} />

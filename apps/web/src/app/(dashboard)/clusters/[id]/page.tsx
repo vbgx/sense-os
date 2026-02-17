@@ -47,7 +47,9 @@ export default function Page() {
       <div className="space-y-2">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-semibold">{c.cluster_id}</h1>
+            <h1 className="text-2xl font-semibold" data-testid="cluster-title">
+              {c.cluster_id}
+            </h1>
             <div className="text-sm text-muted-foreground">
               window: {c.opportunity_window_status} • tier: {c.exploitability_tier} • confidence: {c.confidence_score}
             </div>

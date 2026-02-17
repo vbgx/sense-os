@@ -8,8 +8,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 export type BreakoutItem = {
   rank?: number;
-  cluster_id: string;
 
+  // legacy (cluster-first) + new (vertical-first)
+  cluster_id?: string;
   vertical_id?: string | null;
   vertical_label?: string | null;
 
@@ -18,6 +19,9 @@ export type BreakoutItem = {
   score?: number | null;
   breakout_score?: number | null;
   exploitability_score?: number | null;
+
+  // backend overview uses `confidence`, insights uses `confidence_score`
+  confidence?: number | null;
   confidence_score?: number | null;
 
   tier?: string | null;
@@ -31,7 +35,7 @@ type Props = {
   note?: string;
 };
 
-type SortKey = "score" | "momentum_7d" | "confidence_score" | "rank";
+type SortKey = "score" | "momentum_7d" | "confidence" | "confidence_score" | "rank";
 type SortDir = "desc" | "asc";
 
 function num(x: unknown): number {
@@ -82,6 +86,11 @@ function statusPill(status?: string | null) {
   return { label: status!, cls: "border-white/15 text-muted-foreground" };
 }
 
+function bestConfidence(it: BreakoutItem): number | null {
+  const c = it.confidence ?? it.confidence_score;
+  return typeof c === "number" && Number.isFinite(c) ? c : null;
+}
+
 export function TopBreakoutsTable({
   items,
   subtitle = "Ranked by opportunity score × momentum (live)",
@@ -98,8 +107,19 @@ export function TopBreakoutsTable({
     arr.sort((a, b) => {
       if (sortKey === "rank") return (num(a.rank) - num(b.rank)) * dir;
 
-      const av = sortKey === "score" ? num(a.score ?? a.breakout_score ?? a.exploitability_score) : num(a[sortKey]);
-      const bv = sortKey === "score" ? num(b.score ?? b.breakout_score ?? b.exploitability_score) : num(b[sortKey]);
+      const av =
+        sortKey === "score"
+          ? num(a.score ?? a.breakout_score ?? a.exploitability_score)
+          : sortKey === "confidence"
+            ? num(bestConfidence(a))
+            : num((a as any)[sortKey]);
+      const bv =
+        sortKey === "score"
+          ? num(b.score ?? b.breakout_score ?? b.exploitability_score)
+          : sortKey === "confidence"
+            ? num(bestConfidence(b))
+            : num((b as any)[sortKey]);
+
       if (av !== bv) return (av - bv) * dir;
 
       // tie-breakers
@@ -107,7 +127,7 @@ export function TopBreakoutsTable({
       if (s1 !== 0) return s1 * -1;
       const m1 = num(a.momentum_7d) - num(b.momentum_7d);
       if (m1 !== 0) return m1 * -1;
-      const c1 = num(a.confidence_score) - num(b.confidence_score);
+      const c1 = num(bestConfidence(a)) - num(bestConfidence(b));
       if (c1 !== 0) return c1 * -1;
 
       return (num(a.rank) - num(b.rank)) * 1;
@@ -138,7 +158,7 @@ export function TopBreakoutsTable({
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => { setSortKey("score"); setSortDir("desc"); }}>Score ↓</DropdownMenuItem>
               <DropdownMenuItem onClick={() => { setSortKey("momentum_7d"); setSortDir("desc"); }}>Δ 7d ↓</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => { setSortKey("confidence_score"); setSortDir("desc"); }}>Confidence ↓</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => { setSortKey("confidence"); setSortDir("desc"); }}>Confidence ↓</DropdownMenuItem>
               <DropdownMenuItem onClick={() => { setSortKey("rank"); setSortDir("asc"); }}>Rank ↑</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -171,15 +191,25 @@ export function TopBreakoutsTable({
                   const score = it.score ?? it.breakout_score ?? it.exploitability_score ?? null;
                   const shownRank = it.rank ?? idx + 1;
 
+                  const key = it.cluster_id ?? it.vertical_id ?? `${idx}`;
+                  const confidence = bestConfidence(it);
+
+                  // Navigate: prefer vertical deep dive when available, else cluster
+                  const href =
+                    it.vertical_id ? `/verticals/${it.vertical_id}` :
+                      it.cluster_id ? `/clusters/${it.cluster_id}` :
+                        null;
+
                   return (
                     <tr
-                      key={it.cluster_id}
-                      className="sense-row-hover cursor-pointer border-t"
-                      onClick={() => router.push(`/clusters/${it.cluster_id}`)}
-                      role="button"
-                      tabIndex={0}
+                      key={key}
+                      className={cn("sense-row-hover border-t", href ? "cursor-pointer" : "")}
+                      onClick={() => { if (href) router.push(href); }}
+                      role={href ? "button" : undefined}
+                      tabIndex={href ? 0 : undefined}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") router.push(`/clusters/${it.cluster_id}`);
+                        if (!href) return;
+                        if (e.key === "Enter" || e.key === " ") router.push(href);
                       }}
                     >
                       <td className="px-3 py-2 font-mono text-xs text-muted-foreground">{fmtRank(shownRank)}</td>
@@ -191,7 +221,11 @@ export function TopBreakoutsTable({
                               ? it.vertical_label
                               : it.cluster_summary?.trim()?.length
                                 ? it.cluster_summary
-                                : `Cluster ${it.cluster_id}`}
+                                : it.vertical_id
+                                  ? `Vertical ${it.vertical_id}`
+                                  : it.cluster_id
+                                    ? `Cluster ${it.cluster_id}`
+                                    : "—"}
                           </div>
                           <div className="font-mono text-[11px] text-muted-foreground/80">
                             {[
@@ -211,7 +245,7 @@ export function TopBreakoutsTable({
                       </td>
 
                       <td className="px-3 py-2 text-right font-mono tabular-nums">
-                        {it.confidence_score === null || it.confidence_score === undefined ? "—" : it.confidence_score.toFixed(2)}
+                        {confidence == null ? "—" : confidence.toFixed(2)}
                       </td>
 
                       <td className="px-3 py-2">

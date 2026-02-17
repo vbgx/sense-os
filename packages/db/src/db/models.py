@@ -13,7 +13,7 @@ from sqlalchemy import (
 )
 from sqlalchemy import JSON
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.sql import text
 
 Base = declarative_base()

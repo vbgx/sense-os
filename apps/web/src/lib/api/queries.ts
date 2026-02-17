@@ -1,298 +1,254 @@
-"use client";
+import { useQuery } from "@tanstack/react-query";
+import { z } from "zod";
+import { fetchJson } from "./client";
+import { OverviewApiSchema, type OverviewApi } from "./overview.schemas";
 
-import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
+/**
+ * GOAL:
+ * - make all pages compile again (strict TS)
+ * - keep Zod validation (but not over-fragile)
+ * - support the params your pages already pass
+ */
 
-import {
-  TopPainsSchema,
-  ClusterDetailSchema,
-  VerticalsResponseSchema,
-  TrendListResponseSchema,
-  OpsQueuesResponseSchema,
-  OpsRunsResponseSchema,
-} from "@/lib/api/schemas";
-
-import type {
-  TopPain,
-  ClusterDetail,
-  Vertical,
-  TrendListResponse,
-  OpsQueuesResponse,
-  OpsRunsResponse,
-} from "@/lib/api/schemas";
-
-import {
-  InsightsOverviewSchema,
-  type InsightsOverview,
-} from "@/lib/api/overview.schemas";
-
-/* ──────────────────────────────────────────────────────────
- * API client (tiny, typed, no magic)
- * ────────────────────────────────────────────────────────── */
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") || "http://localhost:8000";
-
-type ApiGetOptions = {
-  params?: Record<string, string | number | boolean | null | undefined>;
-  signal?: AbortSignal;
-};
-
-function buildUrl(path: string, params?: ApiGetOptions["params"]) {
-  const p = `${path.startsWith("/") ? "" : "/"}${path}`;
-  const url = new URL(`${API_BASE_URL}${p}`);
-  if (params) {
-    for (const [k, v] of Object.entries(params)) {
-      if (v === null || v === undefined) continue;
-      url.searchParams.set(k, String(v));
-    }
+// -----------------------------
+// Shared helpers
+// -----------------------------
+function qs(params?: Record<string, unknown>): string {
+  if (!params) return "";
+  const sp = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    if (v === undefined || v === null) continue;
+    sp.set(k, String(v));
   }
-  return url.toString();
+  const s = sp.toString();
+  return s ? `?${s}` : "";
 }
 
-async function apiGetJson(path: string, opts: ApiGetOptions = {}) {
-  const url = buildUrl(path, opts.params);
+// -----------------------------
+// TopPain (must match what your UI/components expect)
+// IMPORTANT: dominant_persona must be a string (not nullable) because UI types assume string.
+// We normalize null/undefined -> "".
+// -----------------------------
+export const TopPainSchema = z
+  .object({
+    cluster_id: z.string(),
 
-  const res = await fetch(url, {
-    method: "GET",
-    headers: { Accept: "application/json" },
-    signal: opts.signal,
-    cache: "no-store",
-  });
+    // identity / labels
+    vertical_id: z.string().nullable().optional(),
+    vertical_label: z.string().nullable().optional(),
+    cluster_summary: z.string().nullable().optional(),
 
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`API ${res.status} ${res.statusText}${text ? ` — ${text}` : ""}`);
-  }
+    // required by OpportunityTable / various pages
+    exploitability_score: z.number(),
+    exploitability_tier: z.string(),
+    severity_score: z.number(),
+    breakout_score: z.number(),
+    opportunity_window_status: z.string(),
+    confidence_score: z.number(),
 
-  return (await res.json()) as unknown;
-}
+    // used in filtering / command palette (normalize to string)
+    dominant_persona: z.string().optional().default(""),
+    build_signal: z.unknown().nullable().optional(),
 
-/* ──────────────────────────────────────────────────────────
- * Query keys (stable + centralized)
- * ────────────────────────────────────────────────────────── */
+    // optional extras used across pages
+    saturation_score: z.number().nullable().optional(),
+    momentum_7d: z.number().nullable().optional(),
+    tier: z.string().nullable().optional(),
+    status: z.string().nullable().optional(),
+    updated_at: z.string().optional(),
+  })
+  .passthrough()
+  .transform((x) => ({
+    ...x,
+    dominant_persona: typeof (x as any).dominant_persona === "string" ? (x as any).dominant_persona : "",
+  }));
 
+export type TopPain = z.infer<typeof TopPainSchema>;
+export const TopPainListSchema = z.array(TopPainSchema);
+
+// -----------------------------
+// Other schemas (keep permissive for now)
+// -----------------------------
+export const ClusterDetailSchema = z.any();
+export type ClusterDetail = z.infer<typeof ClusterDetailSchema>;
+
+export const VerticalSchema = z.any();
+export type Vertical = z.infer<typeof VerticalSchema>;
+
+// --- Ops responses used by analytics page ---
+export const OpsQueuesResponseSchema = z.object({ items: z.array(z.any()) }).passthrough();
+export type OpsQueuesResponse = z.infer<typeof OpsQueuesResponseSchema>;
+
+export const OpsRunsResponseSchema = z.object({ items: z.array(z.any()) }).passthrough();
+export type OpsRunsResponse = z.infer<typeof OpsRunsResponseSchema>;
+
+// --- Trends response used by vertical deep dive ---
+// UI expects TrendItem has sparkline: TrendSparkPoint[] (required in your schemas.ts).
+// We normalize missing sparkline -> [].
+const TrendItemCompatSchema = TopPainSchema.extend({
+  sparkline: z.array(z.any()).optional().default([]),
+}).transform((x) => ({
+  ...x,
+  sparkline: Array.isArray((x as any).sparkline) ? (x as any).sparkline : [],
+}));
+
+export const TrendListResponseSchema = z
+  .object({ items: z.array(TrendItemCompatSchema) })
+  .passthrough()
+  .transform((x) => ({
+    ...x,
+    items: Array.isArray((x as any).items) ? (x as any).items : [],
+  }));
+
+export type TrendListResponse = z.infer<typeof TrendListResponseSchema>;
+
+// -----------------------------
+// Query keys
+// -----------------------------
 export const qk = {
-  insights: {
-    overview: (params: OverviewParams) => ["insights", "overview", params] as const,
-    topPains: (params: TopPainsParams) => ["insights", "top_pains", params] as const,
-    emerging: (params: ListParams) => ["insights", "emerging_opportunities", params] as const,
-    declining: (params: ListParams) => ["insights", "declining_risks", params] as const,
-    clusterDetail: (clusterId: string) => ["insights", "cluster_detail", clusterId] as const,
+  overview: ["overview"] as const,
+
+  meta: {
+    status: () => ["meta", "status"] as const,
   },
-  verticals: {
-    list: () => ["verticals"] as const,
-  },
-  trends: {
-    trending: (params: TrendingParams) => ["trending", params] as const,
-  },
-  ops: {
-    queues: () => ["ops", "queues"] as const,
-    runs: () => ["ops", "runs"] as const,
-  },
+
+  topPains: (params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }) =>
+    ["insights", "top_pains", params?.vertical_id ?? "all", params?.tier ?? "all", params?.limit ?? 50, params?.offset ?? 0] as const,
+
+  emerging: (params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }) =>
+    ["insights", "emerging_opportunities", params?.vertical_id ?? "all", params?.tier ?? "all", params?.limit ?? 200, params?.offset ?? 0] as const,
+
+  declining: (params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }) =>
+    ["insights", "declining_risks", params?.vertical_id ?? "all", params?.tier ?? "all", params?.limit ?? 200, params?.offset ?? 0] as const,
+
+  clusterDetail: (clusterId: string) => ["insights", "cluster_detail", clusterId] as const,
+
+  verticals: () => ["verticals"] as const,
+
+  trending: (params?: { vertical_id?: string | number; limit?: number; offset?: number; sparkline_days?: number }) =>
+    ["trends", "trending", params?.vertical_id ?? "all", params?.sparkline_days ?? 30, params?.limit ?? 50, params?.offset ?? 0] as const,
+
+  opsQueues: () => ["ops", "queues"] as const,
+  opsRuns: () => ["ops", "runs"] as const,
 };
 
-/* ──────────────────────────────────────────────────────────
- * OVERVIEW
- * Endpoint: GET /insights/overview?window=7d&limit=10&offset=0
- * ────────────────────────────────────────────────────────── */
+// -----------------------------
+// API functions
+// -----------------------------
+export async function getOverview(): Promise<OverviewApi> {
+  const raw = await fetchJson<unknown>("/overview");
+  return OverviewApiSchema.parse(raw);
+}
 
-export type OverviewParams = {
-  window?: string; // "7d" | "30d" | ...
-  limit?: number;
-  offset?: number;
-  enabled?: boolean;
-};
+export async function getTopPains(params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }): Promise<TopPain[]> {
+  // backend currently may ignore tier; keep it as frontend-only filter param for now
+  const { tier: _tier, ...rest } = params ?? {};
+  const raw = await fetchJson<unknown>(`/insights/top_pains${qs(rest)}`);
+  const parsed = TopPainListSchema.parse(raw);
+  if (!_tier) return parsed;
+  return parsed.filter((x) => (x.tier ?? "").toLowerCase() === String(_tier).toLowerCase());
+}
 
-export function useInsightsOverview(
-  params: OverviewParams = {},
-  options?: UseQueryOptions<InsightsOverview>
-) {
+export async function getEmerging(params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }): Promise<TopPain[]> {
+  const { tier: _tier, ...rest } = params ?? {};
+  const raw = await fetchJson<unknown>(`/insights/emerging_opportunities${qs(rest)}`);
+  const parsed = TopPainListSchema.parse(raw);
+  if (!_tier) return parsed;
+  return parsed.filter((x) => (x.tier ?? "").toLowerCase() === String(_tier).toLowerCase());
+}
+
+export async function getDeclining(params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }): Promise<TopPain[]> {
+  const { tier: _tier, ...rest } = params ?? {};
+  const raw = await fetchJson<unknown>(`/insights/declining_risks${qs(rest)}`);
+  const parsed = TopPainListSchema.parse(raw);
+  if (!_tier) return parsed;
+  return parsed.filter((x) => (x.tier ?? "").toLowerCase() === String(_tier).toLowerCase());
+}
+
+export async function getClusterDetail(clusterId: string): Promise<ClusterDetail> {
+  const raw = await fetchJson<unknown>(`/insights/${encodeURIComponent(clusterId)}`);
+  return ClusterDetailSchema.parse(raw);
+}
+
+export async function getVerticals(): Promise<Vertical[]> {
+  const raw = await fetchJson<unknown>("/verticals/");
+  return z.array(VerticalSchema).parse(raw);
+}
+
+export async function getTrending(params?: { vertical_id?: string | number; limit?: number; offset?: number; sparkline_days?: number }): Promise<TrendListResponse> {
+  // backend might not support sparkline_days yet; send it anyway (harmless if ignored)
+  const raw = await fetchJson<unknown>(`/trends/trending${qs(params)}`);
+  return TrendListResponseSchema.parse(raw);
+}
+
+export async function getOpsQueues(): Promise<OpsQueuesResponse> {
+  const raw = await fetchJson<unknown>("/ops/queues");
+  return OpsQueuesResponseSchema.parse(raw);
+}
+
+export async function getOpsRuns(): Promise<OpsRunsResponse> {
+  const raw = await fetchJson<unknown>("/ops/runs");
+  return OpsRunsResponseSchema.parse(raw);
+}
+
+// -----------------------------
+// Hooks
+// -----------------------------
+export function useOverview() {
+  return useQuery({ queryKey: qk.overview, queryFn: getOverview });
+}
+
+export function useTopPains(params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }) {
+  return useQuery({ queryKey: qk.topPains(params), queryFn: () => getTopPains(params) });
+}
+
+export function useEmerging(params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }) {
+  return useQuery({ queryKey: qk.emerging(params), queryFn: () => getEmerging(params) });
+}
+
+export function useDeclining(params?: { limit?: number; offset?: number; vertical_id?: string | number; tier?: string | null }) {
+  return useQuery({ queryKey: qk.declining(params), queryFn: () => getDeclining(params) });
+}
+
+/**
+ * Backward-compat with old call sites:
+ * useClusterDetail(clusterId, enabled)
+ */
+export function useClusterDetail(clusterId: string, enabled?: boolean) {
   return useQuery({
-    queryKey: qk.insights.overview(params),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/insights/overview", {
-        signal,
-        params: {
-          window: params.window ?? "7d",
-          limit: params.limit ?? 10,
-          offset: params.offset ?? 0,
-        },
-      });
-      return InsightsOverviewSchema.parse(data);
-    },
-    staleTime: 30_000,
-    enabled: params.enabled ?? true,
-    ...options,
+    queryKey: qk.clusterDetail(clusterId),
+    queryFn: () => getClusterDetail(clusterId),
+    enabled: enabled ?? Boolean(clusterId),
   });
 }
 
-/* ──────────────────────────────────────────────────────────
- * INSIGHTS — lists
- * ────────────────────────────────────────────────────────── */
-
-export type ListParams = {
-  vertical_id?: string | null;
-  limit?: number;
-  offset?: number;
-};
-
-export type TopPainsParams = ListParams & {
-  tier?: string | null;
-  emerging_only?: boolean;
-};
-
-export function useTopPains(params: TopPainsParams, options?: UseQueryOptions<TopPain[]>) {
-  return useQuery({
-    queryKey: qk.insights.topPains(params),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/insights/top_pains", {
-        signal,
-        params: {
-          vertical_id: params.vertical_id ?? undefined,
-          tier: params.tier ?? undefined,
-          emerging_only: params.emerging_only ? true : undefined,
-          limit: params.limit ?? 50,
-          offset: params.offset ?? 0,
-        },
-      });
-      return TopPainsSchema.parse(data);
-    },
-    staleTime: 30_000,
-    ...options,
-  });
+export function useVerticals() {
+  return useQuery({ queryKey: qk.verticals(), queryFn: getVerticals });
 }
 
-export function useEmerging(params: ListParams, options?: UseQueryOptions<TopPain[]>) {
-  return useQuery({
-    queryKey: qk.insights.emerging(params),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/insights/emerging_opportunities", {
-        signal,
-        params: {
-          vertical_id: params.vertical_id ?? undefined,
-          limit: params.limit ?? 50,
-          offset: params.offset ?? 0,
-        },
-      });
-      return TopPainsSchema.parse(data);
-    },
-    staleTime: 30_000,
-    ...options,
-  });
-}
-
-export function useDeclining(params: ListParams, options?: UseQueryOptions<TopPain[]>) {
-  return useQuery({
-    queryKey: qk.insights.declining(params),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/insights/declining_risks", {
-        signal,
-        params: {
-          vertical_id: params.vertical_id ?? undefined,
-          limit: params.limit ?? 50,
-          offset: params.offset ?? 0,
-        },
-      });
-      return TopPainsSchema.parse(data);
-    },
-    staleTime: 30_000,
-    ...options,
-  });
-}
-
-export function useClusterDetail(
-  cluster_id: string,
-  enabled = true,
-  options?: UseQueryOptions<ClusterDetail>
-) {
-  return useQuery({
-    queryKey: qk.insights.clusterDetail(cluster_id),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson(`/insights/${encodeURIComponent(cluster_id)}`, { signal });
-      return ClusterDetailSchema.parse(data);
-    },
-    enabled: Boolean(cluster_id) && enabled,
-    staleTime: 30_000,
-    ...options,
-  });
-}
-
-/* ──────────────────────────────────────────────────────────
- * VERTICALS
- * ────────────────────────────────────────────────────────── */
-
-export function useVerticals(options?: UseQueryOptions<Vertical[]>) {
-  return useQuery({
-    queryKey: qk.verticals.list(),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/verticals/", { signal });
-      return VerticalsResponseSchema.parse(data).items;
-    },
-    staleTime: 60_000,
-    ...options,
-  });
-}
-
-/* ──────────────────────────────────────────────────────────
- * TRENDS
- * Endpoint: GET /trending?vertical_id=...
- * ────────────────────────────────────────────────────────── */
-
-export type TrendingParams = {
-  vertical_id: number;
+/**
+ * Old call sites pass:
+ * useTrending({ vertical_id, limit, offset, sparkline_days, enabled })
+ */
+export function useTrending(params?: {
+  vertical_id?: string | number;
   limit?: number;
   offset?: number;
   sparkline_days?: number;
   enabled?: boolean;
-};
-
-export function useTrending(params: TrendingParams, options?: UseQueryOptions<TrendListResponse>) {
+}) {
+  const { enabled, ...rest } = params ?? {};
   return useQuery({
-    queryKey: qk.trends.trending(params),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/trending", {
-        signal,
-        params: {
-          vertical_id: params.vertical_id,
-          limit: params.limit ?? 20,
-          offset: params.offset ?? 0,
-          sparkline_days: params.sparkline_days ?? 30,
-        },
-      });
-      return TrendListResponseSchema.parse(data);
-    },
-    enabled: params.enabled ?? true,
-    staleTime: 30_000,
-    ...options,
+    queryKey: qk.trending(rest),
+    queryFn: () => getTrending(rest),
+    enabled: enabled ?? true,
   });
 }
 
-/* ──────────────────────────────────────────────────────────
- * OPS (Transparency)
- * ────────────────────────────────────────────────────────── */
-
-export function useOpsQueues(options?: UseQueryOptions<OpsQueuesResponse>) {
-  return useQuery({
-    queryKey: qk.ops.queues(),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/ops/queues", { signal });
-      return OpsQueuesResponseSchema.parse(data);
-    },
-    staleTime: 10_000,
-    refetchInterval: 15_000,
-    ...options,
-  });
+export function useOpsQueues() {
+  return useQuery({ queryKey: qk.opsQueues(), queryFn: getOpsQueues });
 }
 
-export function useOpsRuns(options?: UseQueryOptions<OpsRunsResponse>) {
-  return useQuery({
-    queryKey: qk.ops.runs(),
-    queryFn: async ({ signal }) => {
-      const data = await apiGetJson("/ops/runs", { signal });
-      return OpsRunsResponseSchema.parse(data);
-    },
-    staleTime: 10_000,
-    refetchInterval: 30_000,
-    ...options,
-  });
+export function useOpsRuns() {
+  return useQuery({ queryKey: qk.opsRuns(), queryFn: getOpsRuns });
 }

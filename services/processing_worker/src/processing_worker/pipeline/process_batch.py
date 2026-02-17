@@ -15,7 +15,12 @@ def process_batch(*, signals: list[Any], vertical_db_id: int) -> dict[str, int]:
 
     for s in signals:
         # s is a SQLAlchemy Signal model (id, content, ...)
-        content = getattr(s, "content", None)
+        content = (
+            getattr(s, "content", None)
+            or getattr(s, "text", None)
+            or getattr(s, "body", None)
+            or getattr(s, "title", None)
+        )
         if not isinstance(content, str) or not content.strip():
             skipped += 1
             continue

@@ -1,70 +1,83 @@
 import { z } from "zod";
 
-/* ──────────────────────────────────────────────────────────
- * INSIGHTS — Overview
- * Endpoint: GET /insights/overview
- * ────────────────────────────────────────────────────────── */
+/* ---------------------------------- */
+/* Status                             */
+/* ---------------------------------- */
+
+export const OverviewStatusSchema = z.enum([
+  "hot",
+  "emerging",
+  "stable",
+  "saturated",
+  "declining",
+]);
+
+export type OverviewStatus = z.infer<typeof OverviewStatusSchema>;
+
+/* ---------------------------------- */
+/* KPI                                */
+/* ---------------------------------- */
 
 export const OverviewKpiSchema = z
   .object({
-    label: z.string(),
-    value: z.number(),
-    delta: z.number().optional(),
-    unit: z.string().optional(),
+    key: z.string().min(1),
+    label: z.string().min(1),
+    value: z.number().finite(),
+    delta_7d: z.number().finite().nullable().optional(),
+    sparkline: z.array(z.number().finite()).optional(),
   })
-  .passthrough();
+  .strict();
+
+export type OverviewKpi = z.infer<typeof OverviewKpiSchema>;
+
+/* ---------------------------------- */
+/* Breakout                           */
+/* ---------------------------------- */
 
 export const OverviewBreakoutSchema = z
   .object({
-    rank: z.number().int().optional(),
-    cluster_id: z.string(),
-    vertical_id: z.string().nullable().optional(),
-
-    vertical_label: z.string().nullable().optional(), // optional display
-    cluster_summary: z.string().nullable().optional(),
-
-    score: z.number().int().optional(), // optional alias
-    breakout_score: z.number().int().optional(),
-    exploitability_score: z.number().int().optional(),
-    confidence_score: z.number().int().optional(),
-
+    rank: z.number().int().min(1),
+    vertical_id: z.string().min(1),
+    vertical_label: z.string().min(1),
+    score: z.number().finite(),
+    momentum_7d: z.number().finite(),
+    confidence: z.number().min(0).max(1),
     tier: z.string().nullable().optional(),
-    status: z.string().nullable().optional(),
-    momentum_7d: z.number().optional(),
+    status: OverviewStatusSchema,
   })
-  .passthrough();
+  .strict();
+
+export type OverviewBreakout = z.infer<typeof OverviewBreakoutSchema>;
+
+/* ---------------------------------- */
+/* Heatmap                            */
+/* ---------------------------------- */
 
 export const OverviewHeatmapCellSchema = z
   .object({
-    industry: z.string().optional(),
-    function: z.string().optional(),
-    density: z.number(),
+    industry: z.string().min(1),
+    function: z.string().min(1),
+    value: z.number().finite(),
     top_vertical_id: z.string().nullable().optional(),
-    top_label: z.string().nullable().optional(),
+    top_vertical_label: z.string().nullable().optional(),
+    avg_score: z.number().finite().nullable().optional(),
+    momentum_7d: z.number().finite().nullable().optional(),
   })
-  .passthrough();
+  .strict();
 
-export const OverviewHeatmapSchema = z
-  .object({
-    rows: z.array(z.string()).default([]),
-    cols: z.array(z.string()).default([]),
-    cells: z.array(OverviewHeatmapCellSchema).default([]),
-  })
-  .passthrough();
-
-export const InsightsOverviewSchema = z
-  .object({
-    window: z.string().optional(),
-    updated_at: z.string().optional(),
-
-    kpis: z.array(OverviewKpiSchema).default([]),
-    breakouts: z.array(OverviewBreakoutSchema).default([]),
-    heatmap: OverviewHeatmapSchema.optional(),
-  })
-  .passthrough();
-
-export type OverviewKpi = z.infer<typeof OverviewKpiSchema>;
-export type OverviewBreakout = z.infer<typeof OverviewBreakoutSchema>;
 export type OverviewHeatmapCell = z.infer<typeof OverviewHeatmapCellSchema>;
-export type OverviewHeatmap = z.infer<typeof OverviewHeatmapSchema>;
-export type InsightsOverview = z.infer<typeof InsightsOverviewSchema>;
+
+/* ---------------------------------- */
+/* Root                               */
+/* ---------------------------------- */
+
+export const OverviewApiSchema = z
+  .object({
+    updated_at: z.string().datetime(),
+    kpis: z.array(OverviewKpiSchema).length(5), // ton design impose 5 KPI
+    breakouts: z.array(OverviewBreakoutSchema),
+    heatmap: z.array(OverviewHeatmapCellSchema),
+  })
+  .strict();
+
+export type OverviewApi = z.infer<typeof OverviewApiSchema>;

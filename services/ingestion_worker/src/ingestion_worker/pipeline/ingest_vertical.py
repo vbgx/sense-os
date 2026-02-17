@@ -4,9 +4,9 @@ import logging
 from typing import Any
 
 from ingestion_worker.adapters.reddit.fetch import fetch_reddit_signals
-from ingestion_worker.adapters.hackernews.fetch_signals import fetch_hackernews_signals
-from ingestion_worker.adapters.indiehackers.fetch_signals import fetch_indiehackers_signals
-from ingestion_worker.adapters.producthunt.fetch_signals import fetch_producthunt_signals
+from ingestion_worker.adapters.hackernews.fetch import fetch_hackernews_signals
+from ingestion_worker.adapters.indiehackers.fetch import fetch_indiehackers_signals
+from ingestion_worker.adapters.producthunt.fetch import fetch_producthunt_signals
 from ingestion_worker.storage.signals_writer import SignalsWriter
 
 log = logging.getLogger(__name__)

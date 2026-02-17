@@ -32,23 +32,10 @@ function clamp01(x: number) {
 }
 
 /**
- * Real gradient like mock:
- * - low: subtle white tint
- * - mid: green tint
- * - higher: amber tint
- * - top: orange tint
- *
- * We output an inset shadow tint so we keep your border/hover behavior.
+ * Real gradient like mock (inset tint).
  */
 function densityTint(v01: number): string {
   const v = clamp01(v01);
-
-  // piecewise RGBA targets (roughly matching mock classes d1..d5)
-  // d1: rgba(255,255,255,0.01)
-  // d2: rgba(39,209,127,0.06)
-  // d3: rgba(39,209,127,0.11)
-  // d4: rgba(255,191,60,0.10)
-  // d5: rgba(255,107,61,0.14)
 
   const stops = [
     { t: 0.0, r: 255, g: 255, b: 255, a: 0.01 },
@@ -111,10 +98,7 @@ export function Heatmap({
             <div className="px-2 py-2 font-mono text-[11px] text-muted-foreground/70" />
 
             {cols.map((c) => (
-              <div
-                key={c}
-                className="border-b px-2 py-2 font-mono text-[11px] text-muted-foreground"
-              >
+              <div key={c} className="border-b px-2 py-2 font-mono text-[11px] text-muted-foreground">
                 {c}
               </div>
             ))}

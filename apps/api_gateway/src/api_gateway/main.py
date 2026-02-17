@@ -14,6 +14,7 @@ from api_gateway.routers import (
     trends,
     verticals,
     meta,
+    overview
 )
 
 app = FastAPI(title="sense-os api")
@@ -36,3 +37,4 @@ app.include_router(verticals.router)
 app.include_router(pains.router)
 app.include_router(signals.router)
 app.include_router(meta.router)
+app.include_router(overview.router) 

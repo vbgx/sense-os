@@ -1,32 +1,28 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Sequence
 
-from ingestion_worker.adapters.hackernews.adapter import HNAdapterConfig, ingest_hackernews
-from ingestion_worker.adapters.hackernews.client import HackerNewsClient
+from ingestion_worker.adapters._base import FetchContext
+from ingestion_worker.domain import RawSignal
+
+from .client import HackerNewsClient
+from .map import map_hit_to_signal
 
 
-def fetch_hackernews_signals(
-    *,
-    vertical_id: str,
-    vertical_db_id: int | None,
-    taxonomy_version: str | None,
-    limit: int = 25,
-) -> List[Dict[str, Any]]:
-    client = HackerNewsClient()
-    cfg = HNAdapterConfig(
-        kinds=("ask", "show"),
-        max_stories=int(limit),
-        max_comments_per_story=30,
+def fetch_signals(*, client: HackerNewsClient, ctx: FetchContext) -> Sequence[RawSignal]:
+    # Optional cursor = page (0-based)
+    page = 0
+    if ctx.cursor:
+        try:
+            page = max(0, int(ctx.cursor))
+        except Exception:
+            page = 0
+
+    hits = client.search_by_date(
+        query=ctx.vertical_id,
+        hits_per_page=ctx.limit,
+        tags="story",
+        page=page,
     )
-    out: List[Dict[str, Any]] = []
-    for d in ingest_hackernews(
-        client=client,
-        vertical_id=vertical_id,
-        vertical_db_id=vertical_db_id,
-        taxonomy_version=taxonomy_version,
-        cfg=cfg,
-    ):
-        if d.get("content"):
-            out.append(d)
-    return out
+
+    return [map_hit_to_signal(h, query=ctx.vertical_id) for h in hits]

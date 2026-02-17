@@ -9,13 +9,15 @@ import {
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { useRef } from "react";
 import type { TopPain } from "@/lib/api/schemas";
+import { EmptyState } from "@/components/ui/EmptyState";
 
 interface Props {
   data: TopPain[];
   onRowClick?: (clusterId: string) => void;
+  onResetFilters?: () => void;
 }
 
-export function OpportunityTable({ data, onRowClick }: Props) {
+export function OpportunityTable({ data, onRowClick, onResetFilters }: Props) {
   const columns: ColumnDef<TopPain>[] = [
     { header: "Summary", accessorKey: "cluster_summary" },
     { header: "Exploitability", accessorKey: "exploitability_score" },
@@ -42,17 +44,34 @@ export function OpportunityTable({ data, onRowClick }: Props) {
     overscan: 10,
   });
 
+  if (!data || data.length === 0) {
+    return (
+      <EmptyState
+        title="No opportunities found"
+        description="No clusters match your current filters. Try widening the time window or resetting filters."
+        actionLabel={onResetFilters ? "Reset filters" : undefined}
+        onAction={onResetFilters}
+      />
+    );
+  }
+
   return (
-    <div ref={parentRef} className="h-[600px] overflow-auto rounded-md border">
+    <div
+      ref={parentRef}
+      className="h-[600px] overflow-auto rounded-md border bg-background"
+    >
       <table className="w-full text-sm">
-        <thead className="sticky top-0 border-b bg-background">
+        <thead className="sticky top-0 z-10 border-b bg-background">
           {table.getHeaderGroups().map((hg) => (
             <tr key={hg.id}>
               {hg.headers.map((header) => (
                 <th key={header.id} className="px-3 py-2 text-left font-medium">
                   {header.isPlaceholder
                     ? null
-                    : flexRender(header.column.columnDef.header, header.getContext())}
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      )}
                 </th>
               ))}
             </tr>
@@ -62,7 +81,12 @@ export function OpportunityTable({ data, onRowClick }: Props) {
         <tbody>
           <tr>
             <td colSpan={columns.length}>
-              <div style={{ height: rowVirtualizer.getTotalSize(), position: "relative" }}>
+              <div
+                style={{
+                  height: rowVirtualizer.getTotalSize(),
+                  position: "relative",
+                }}
+              >
                 {rowVirtualizer.getVirtualItems().map((virtualRow) => {
                   const row = table.getRowModel().rows[virtualRow.index];
 
@@ -71,7 +95,7 @@ export function OpportunityTable({ data, onRowClick }: Props) {
                       key={row.id}
                       role="button"
                       tabIndex={0}
-                      className="absolute left-0 right-0 flex border-b hover:bg-muted/40 cursor-pointer"
+                      className="absolute left-0 right-0 flex cursor-pointer border-b hover:bg-muted/40"
                       style={{ transform: `translateY(${virtualRow.start}px)` }}
                       onClick={() => onRowClick?.(row.original.cluster_id)}
                       onKeyDown={(e) => {

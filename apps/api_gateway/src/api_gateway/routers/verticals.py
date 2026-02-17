@@ -21,8 +21,8 @@ def _load_verticals_fixtures() -> list[VerticalOut]:
     Offline/dev fallback when the DB is unavailable.
 
     Supported sources:
-    - tools/fixtures/verticals/*.yml  (one file per vertical)
-    - tools/fixtures/verticals.yml   (list or mapping)
+    - config/verticals/*.yml  (one file per vertical)
+    - config/verticals/verticals.yml   (list or mapping)
     """
     root = _project_root()
     dir_path = root / "tools" / "fixtures" / "verticals"

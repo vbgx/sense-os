@@ -101,15 +101,15 @@ def load_vertical_docs_default() -> List[VerticalDoc]:
             return load_vertical_docs_from_dir(p)
 
     candidates = [
-        Path("/app/tools/fixtures/verticals"),
-        Path("tools/fixtures/verticals"),
+        Path("/app/config/verticals"),
+        Path("config/verticals"),
     ]
     for c in candidates:
         if c.exists() and c.is_dir():
             return load_vertical_docs_from_dir(c)
 
     raise FileNotFoundError(
-        "Vertical fixtures not found. Set VERTICALS_DIR or ensure tools/fixtures/verticals is available."
+        "Vertical fixtures not found. Set VERTICALS_DIR or ensure config/verticals is available."
     )
 
 

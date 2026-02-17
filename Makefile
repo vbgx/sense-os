@@ -69,7 +69,7 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  make seed\n"
 	@printf "  make queues\n"
 	@printf "  make scheduler-once VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=200\n"
-	@printf "  make seed-and-run VERTICAL=tools/fixtures/verticals/saas_founders.yml\n"
+	@printf "  make seed-and-run VERTICAL=config/verticals/saas_founders.yml\n"
 	@printf "  make trend-once VERTICAL_ID=1 DAY=2026-02-15\n"
 	@printf "  make backfill BACKFILL_SERIES=1\n"
 	@printf "  make validate-fast\n\n"
@@ -133,18 +133,18 @@ migrate: ## Usage: make migrate — Alembic upgrade head (single source of truth
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/migrate.sh
 
 migrate-list: ## Deprecated: legacy SQL migration list (use Alembic)
-	@echo "DEPRECATED: legacy SQL migrations moved to tools/legacy_sql. Use Alembic (make migrate)." >&2
+	@echo "DEPRECATED: legacy SQL migrations moved to (archived legacy SQL). Use Alembic (make migrate)." >&2
 	@exit 1
 
 migrate-file: ## Deprecated: legacy SQL migration file (use Alembic)
-	@echo "DEPRECATED: legacy SQL migrations moved to tools/legacy_sql. Use Alembic (make migrate)." >&2
+	@echo "DEPRECATED: legacy SQL migrations moved to (archived legacy SQL). Use Alembic (make migrate)." >&2
 	@exit 1
 
 seed: ## Usage: make seed — Seeds verticals via api-gateway container (python -m db.seed)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/seed_verticals.sh
 
 seed-and-run: ## Usage: make seed-and-run VERTICAL=path/to.yml [SOURCE=reddit LIMIT=50]
-	@[ -n "$(VERTICAL)" ] || (echo "ERROR: VERTICAL is required. Example: make seed-and-run VERTICAL=tools/fixtures/verticals/saas_founders.yml" >&2; exit 1)
+	@[ -n "$(VERTICAL)" ] || (echo "ERROR: VERTICAL is required. Example: make seed-and-run VERTICAL=config/verticals/saas_founders.yml" >&2; exit 1)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" SOURCE="$(SOURCE)" LIMIT="$(LIMIT)" \
 	  $(SCRIPTS_DIR)/seed_and_run_vertical.sh "$(VERTICAL)"
 
@@ -246,4 +246,4 @@ deprecated: ## Usage: make deprecated — Shows legacy scripts you should delete
 	@echo "  - tools/scripts/migrate_sql.sh"
 	@echo "  - tools/scripts/migrate_all_sql.sh"
 	@echo "  - tools/scripts/patch_makefile_migrate.py (legacy SQL)"
-	@echo "  - tools/legacy_sql/* (do not use)"
+	@echo "  - (archived legacy SQL)/* (do not use)"

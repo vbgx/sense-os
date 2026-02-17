@@ -13,7 +13,7 @@ from db.adapters import create_uow
 from scheduler import main as scheduler_main
 
 
-FIXTURES_DIR = Path(os.getenv("VERTICAL_FIXTURES_DIR", "/app/tools/fixtures/verticals"))
+FIXTURES_DIR = Path(os.getenv("VERTICALS_DIR", "/app/config/verticals"))
 
 
 @dataclass

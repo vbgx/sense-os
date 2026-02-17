@@ -1,0 +1,27 @@
+{
+  "id": "ops_asset_mgmt",
+  "name": "ops_asset_mgmt",
+  "title": "Asset Management",
+  "description": "Hardware/software inventory, lifecycle, audits.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "it"
+  ],
+  "default_queries": [
+    "asset inventory pain",
+    "device lifecycle",
+    "audit readiness"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops asset mgmt",
+        "limit": 80
+      }
+    ]
+  }
+}

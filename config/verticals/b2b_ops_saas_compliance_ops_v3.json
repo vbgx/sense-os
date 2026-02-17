@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_saas_compliance_ops_v3",
+  "name": "b2b_ops_saas_compliance_ops_v3",
+  "title": "Operations — SaaS — Compliance Ops",
+  "description": "Operations workflows and pain points for SaaS (Compliance Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "saas",
+    "compliance",
+    "controls"
+  ],
+  "default_queries": [
+    "SaaS approvals",
+    "approvals workflow SaaS",
+    "SaaS exceptions"
+  ],
+  "persona": {
+    "role": "Operations Analyst",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "SaaS",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "SaaS",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "SaaS",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "SaaS",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

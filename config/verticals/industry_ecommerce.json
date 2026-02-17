@@ -1,0 +1,55 @@
+{
+  "id": "industry_ecommerce",
+  "name": "industry_ecommerce",
+  "title": "Ecommerce",
+  "description:\" \"Online commerce ops": "storefront, fulfillment, returns, support, and conversion tooling.\"\"",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry",
+    "ecommerce",
+    "b2b"
+  ],
+  "default_queries": [
+    "returns management ecommerce",
+    "warehouse picking app",
+    "shopify fulfillment workflow",
+    "customer support macros ecommerce",
+    "conversion rate optimization tools"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "shopify fulfillment",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "ecommerce ops",
+        "limit": 80
+      }
+    ]
+  },
+  "persona": {
+    "title": "Ecom operators",
+    "pains": [
+      "returns eating margin",
+      "fulfillment errors and delays",
+      "support volume spikes"
+    ]
+  },
+  "keywords": {
+    "primary": [
+      "shopify",
+      "returns",
+      "fulfillment",
+      "support",
+      "cvr"
+    ],
+    "negative": [
+      "get rich quick",
+      "crypto"
+    ]
+  }
+}

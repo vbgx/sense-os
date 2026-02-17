@@ -1,0 +1,34 @@
+{
+  "id": "marketing_brand",
+  "name": "marketing_brand",
+  "title": "Brand Marketing",
+  "description": "Positioning, brand systems, consistency",
+  "version": 1,
+  "enabled": true,
+  "priority": 330,
+  "tags": [
+    "b2b",
+    "marketing",
+    "brand"
+  ],
+  "default_queries": [
+    "marketing_brand pain",
+    "Brand Marketing tools",
+    "Brand Marketing workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "marketing_brand",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

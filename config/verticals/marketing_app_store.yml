@@ -1,0 +1,19 @@
+id: marketing_app_store
+name: marketing_app_store
+title: "App Store Optimization"
+description: "Keywords, creatives, reviews, conversion tuning."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+- apps
+default_queries:
+- aso keyword research
+- creative testing
+- review management
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing app store
+    limit: 80

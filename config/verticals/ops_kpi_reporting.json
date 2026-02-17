@@ -1,0 +1,27 @@
+{
+  "id": "ops_kpi_reporting",
+  "name": "ops_kpi_reporting",
+  "title": "KPI Reporting Ops",
+  "description": "Metric definitions, reporting cadence, stakeholder dashboards.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "analytics"
+  ],
+  "default_queries": [
+    "kpi definition pain",
+    "reporting cadence",
+    "dashboard consistency"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops kpi reporting",
+        "limit": 80
+      }
+    ]
+  }
+}

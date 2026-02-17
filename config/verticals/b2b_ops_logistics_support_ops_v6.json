@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_logistics_support_ops_v6",
+  "name": "b2b_ops_logistics_support_ops_v6",
+  "title": "Operations — Logistics — Support Ops",
+  "description": "Operations workflows and pain points for Logistics (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "logistics",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "Logistics routing",
+    "routing workflow Logistics",
+    "Logistics approvals"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Logistics",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Logistics",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Logistics",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

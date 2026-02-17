@@ -1,0 +1,18 @@
+id: sales_prospecting
+name: sales_prospecting
+title: "Prospecting Workflows"
+description: "Research, personalization, multichannel outreach."
+version: 1
+enabled: true
+tags:
+- b2b
+- sales
+default_queries:
+- prospect research pain
+- personalization workflow
+- outreach tooling
+ingestion:
+  sources:
+  - name: reddit
+    query: sales prospecting
+    limit: 80

@@ -1,0 +1,26 @@
+{
+  "id": "marketing_community",
+  "name": "marketing_community",
+  "title": "Community",
+  "description": "Moderation, engagement, retention.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing"
+  ],
+  "default_queries": [
+    "community moderation",
+    "engagement drop",
+    "member churn"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "marketing community",
+        "limit": 80
+      }
+    ]
+  }
+}

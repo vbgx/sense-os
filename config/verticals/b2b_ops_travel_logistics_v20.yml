@@ -1,0 +1,30 @@
+id: b2b_ops_travel_logistics_v20
+name: b2b_ops_travel_logistics_v20
+title: "Operations — Travel — Logistics"
+description: "Operations workflows and pain points for Travel (Logistics)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- travel
+- logistics
+- shipping
+default_queries:
+- Travel exceptions
+- exceptions workflow Travel
+- Travel handoff
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Travel
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Travel
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

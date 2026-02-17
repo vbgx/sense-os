@@ -1,0 +1,18 @@
+id: b2c_investing
+name: b2c_investing
+title: "Investing (B2C)"
+description: "Portfolios, risk, education, habit loops."
+version: 1
+enabled: true
+tags:
+- b2c
+- finance
+default_queries:
+- investing plan pain
+- portfolio tracking
+- risk understanding
+ingestion:
+  sources:
+  - name: reddit
+    query: b2c investing
+    limit: 80

@@ -1,0 +1,24 @@
+id: marketing_paid
+name: marketing_paid
+title: "Paid Acquisition"
+description: "Ads ops, creative testing, landing pages"
+version: 1
+enabled: true
+priority: 310
+tags:
+- b2b
+- marketing
+- paid
+default_queries:
+- marketing_paid pain
+- Paid Acquisition tools
+- Paid Acquisition workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing_paid
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

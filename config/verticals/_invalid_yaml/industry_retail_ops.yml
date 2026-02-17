@@ -1,0 +1,19 @@
+id: industry_retail_ops
+name: industry_retail_ops
+title: "Retail Ops"
+description:" "Stores, workforce, stock, returns.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- retail
+default_queries:
+- store workforce scheduling
+- shrinkage tracking
+- returns operations
+ingestion:
+  sources:
+  - name: reddit
+    query: industry retail ops
+    limit: 80

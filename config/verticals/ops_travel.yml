@@ -1,0 +1,18 @@
+id: ops_travel
+name: ops_travel
+title: "Travel Ops"
+description: "Travel policies, expenses, approvals."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+default_queries:
+- fix expense approvals
+- travel policy enforcement
+- receipts pain
+ingestion:
+  sources:
+  - name: reddit
+    query: ops travel
+    limit: 80

@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_fintech_documentation_v12",
+  "name": "b2b_ops_fintech_documentation_v12",
+  "title": "Operations — FinTech — Documentation",
+  "description": "Operations workflows and pain points for FinTech (Documentation).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "fintech",
+    "docs",
+    "knowledge"
+  ],
+  "default_queries": [
+    "FinTech standard operating procedure",
+    "standard operating procedure workflow FinTech",
+    "FinTech routing"
+  ],
+  "persona": {
+    "role": "Operations Analyst",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "FinTech",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "FinTech",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

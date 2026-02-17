@@ -1,0 +1,33 @@
+id: b2b_ops_retail_onboarding_ops_v11
+name: b2b_ops_retail_onboarding_ops_v11
+title: "Operations — Retail — Onboarding Ops"
+description: "Operations workflows and pain points for Retail (Onboarding Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- retail
+- onboarding
+- training
+default_queries:
+- Retail standard operating procedure
+- standard operating procedure workflow Retail
+- Retail routing
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Retail
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Retail
+    limit: 80
+  - name: hackernews
+    query: Retail
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

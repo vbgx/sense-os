@@ -1,0 +1,22 @@
+id: dev_migrations
+name: dev_migrations
+title: "DB Migrations"
+description: "Schema changes, rollbacks, drift."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+- db
+default_queries:
+- migration drift
+- rollback pain
+- schema evolution workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: dev migrations
+    limit: 80
+  - name: hackernews
+    query: dev migrations
+    limit: 80

@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_healthcare_support_ops_v18",
+  "name": "b2b_ops_healthcare_support_ops_v18",
+  "title": "Operations — Healthcare — Support Ops",
+  "description": "Operations workflows and pain points for Healthcare (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "healthcare",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "Healthcare exceptions",
+    "exceptions workflow Healthcare",
+    "Healthcare handoff"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Healthcare",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Healthcare",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Healthcare",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

@@ -1,0 +1,33 @@
+id: b2b_ops_manufacturing_project_delivery_v25
+name: b2b_ops_manufacturing_project_delivery_v25
+title: "Operations — Manufacturing — Project Delivery"
+description: "Operations workflows and pain points for Manufacturing (Project Delivery)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- manufacturing
+- delivery
+- projects
+default_queries:
+- Manufacturing exceptions
+- exceptions workflow Manufacturing
+- Manufacturing handoff
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Manufacturing
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Manufacturing
+    limit: 80
+  - name: producthunt
+    query: Manufacturing
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

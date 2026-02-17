@@ -1,0 +1,30 @@
+id: b2b_ops_it_services_returns_v37
+name: b2b_ops_it_services_returns_v37
+title: "Operations — IT Services — Returns"
+description: "Operations workflows and pain points for IT Services (Returns)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- it_services
+- returns
+- reverse_logistics
+default_queries:
+- IT Services exceptions
+- exceptions workflow IT Services
+- IT Services handoff
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: IT Services
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: IT
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

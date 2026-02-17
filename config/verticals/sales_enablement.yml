@@ -1,0 +1,23 @@
+id: sales_enablement
+name: sales_enablement
+title: "Sales Enablement"
+description: "Content, training, battlecards, coaching"
+version: 1
+enabled: true
+priority: 270
+tags:
+- b2b
+- sales
+default_queries:
+- sales_enablement pain
+- Sales Enablement tools
+- Sales Enablement workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: sales_enablement
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

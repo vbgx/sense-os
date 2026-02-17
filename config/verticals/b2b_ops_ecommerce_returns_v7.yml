@@ -1,0 +1,36 @@
+id: b2b_ops_ecommerce_returns_v7
+name: b2b_ops_ecommerce_returns_v7
+title: "Operations — E-commerce — Returns"
+description: "Operations workflows and pain points for E-commerce (Returns)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- ecommerce
+- returns
+- reverse_logistics
+default_queries:
+- E-commerce handoff
+- handoff workflow E-commerce
+- E-commerce SLA
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: E-commerce
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: E-commerce
+    limit: 80
+  - name: hackernews
+    query: E-commerce
+    limit: 80
+  - name: indiehackers
+    query: E-commerce
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

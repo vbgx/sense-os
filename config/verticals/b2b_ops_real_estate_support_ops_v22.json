@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_real_estate_support_ops_v22",
+  "name": "b2b_ops_real_estate_support_ops_v22",
+  "title": "Operations — Real Estate — Support Ops",
+  "description": "Operations workflows and pain points for Real Estate (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "real_estate",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "Real Estate routing",
+    "routing workflow Real Estate",
+    "Real Estate approvals"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Real Estate",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Real",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Real",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

@@ -1,0 +1,19 @@
+id: ops_trust
+name: ops_trust
+title: "Trust Ops"
+description: "Trust center, security posture comms."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- security
+default_queries:
+- trust center updates
+- security questionnaires
+- compliance pages
+ingestion:
+  sources:
+  - name: reddit
+    query: ops trust
+    limit: 80

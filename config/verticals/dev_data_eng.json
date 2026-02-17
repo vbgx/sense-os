@@ -1,0 +1,32 @@
+{
+  "id": "dev_data_eng",
+  "name": "dev_data_eng",
+  "title": "Data Engineering",
+  "description": "Pipelines, quality, lineage.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "data"
+  ],
+  "default_queries": [
+    "data pipeline failures",
+    "lineage missing",
+    "data quality tests"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev data eng",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev data eng",
+        "limit": 80
+      }
+    ]
+  }
+}

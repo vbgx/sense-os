@@ -1,0 +1,18 @@
+id: b2c_productivity
+name: b2c_productivity
+title: "Productivity (B2C)"
+description: "Tasks, focus, habits, notes."
+version: 1
+enabled: true
+tags:
+- b2c
+- productivity
+default_queries:
+- task manager overwhelm
+- focus sessions
+- habit streaks
+ingestion:
+  sources:
+  - name: reddit
+    query: b2c productivity
+    limit: 80

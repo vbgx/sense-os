@@ -1,0 +1,48 @@
+{
+  "id": "b2b_dev_observability",
+  "name": "b2b_dev_observability",
+  "title": "B2B — Engineering: Observability",
+  "description": "B2B teams dealing with observability workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "dev:observability"
+  ],
+  "default_queries": [
+    "logs",
+    "logs workflow",
+    "logs tooling",
+    "logs automation",
+    "logs pain points",
+    "logs process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2b",
+    "function": "dev",
+    "subdomain": "observability"
+  }
+}

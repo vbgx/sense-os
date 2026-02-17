@@ -1,0 +1,25 @@
+id: dev_llmops
+name: dev_llmops
+title: "LLMOps"
+description: "Prompt/versioning, evals, monitoring."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+- ai
+default_queries:
+- prompt versioning pain
+- LLM evals
+- hallucination monitoring
+ingestion:
+  sources:
+  - name: reddit
+    query: dev llmops
+    limit: 80
+  - name: hackernews
+    query: dev llmops
+    limit: 80
+  - name: indiehackers
+    query: dev llmops
+    limit: 80

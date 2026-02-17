@@ -1,0 +1,49 @@
+{
+  "id": "industry_it_services",
+  "name": "industry_it_services",
+  "title": "IT Services",
+  "description:\" \"MSPs and IT service firms": "ticketing, SLAs, tooling sprawl, billing, and customer ops.\"\"",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry",
+    "it_services",
+    "b2b"
+  ],
+  "default_queries": [
+    "msp ticketing workflow",
+    "sla breach prevention",
+    "rmm psa integration",
+    "it services billing automation",
+    "client onboarding msp"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "rmm psa integration",
+        "limit": 80
+      }
+    ]
+  },
+  "persona": {
+    "title": "MSP owners and ops",
+    "pains": [
+      "tool sprawl and integration debt",
+      "sla tracking is weak",
+      "billing leakage from time logs"
+    ]
+  },
+  "keywords": {
+    "primary": [
+      "psa",
+      "rmm",
+      "sla",
+      "ticketing",
+      "billing"
+    ],
+    "negative": [
+      "crypto"
+    ]
+  }
+}

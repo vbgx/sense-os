@@ -1,0 +1,33 @@
+id: b2b_ops_creative_studios_inventory
+name: b2b_ops_creative_studios_inventory
+title: "Operations — Creative Studios — Inventory"
+description: "Operations workflows and pain points for Creative Studios (Inventory)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- creative_studios
+- inventory
+- warehouse
+default_queries:
+- Creative Studios routing
+- routing workflow Creative Studios
+- Creative Studios approvals
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: Creative Studios
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Creative
+    limit: 80
+  - name: producthunt
+    query: Creative
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

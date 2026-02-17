@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_hospitality_logistics_v11",
+  "name": "b2b_ops_hospitality_logistics_v11",
+  "title": "Operations — Hospitality — Logistics",
+  "description": "Operations workflows and pain points for Hospitality (Logistics).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "hospitality",
+    "logistics",
+    "shipping"
+  ],
+  "default_queries": [
+    "Hospitality SLA",
+    "SLA workflow Hospitality",
+    "Hospitality standard operating procedure"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Hospitality",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Hospitality",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "Hospitality",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

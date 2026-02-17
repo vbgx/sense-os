@@ -1,0 +1,19 @@
+id: sales_cs_handoff
+name: sales_cs_handoff
+title: "CS Handoffs"
+description: "Handover, onboarding, expectations."
+version: 1
+enabled: true
+tags:
+- b2b
+- sales
+- cs
+default_queries:
+- handoff checklist
+- onboarding expectations
+- customer confusion
+ingestion:
+  sources:
+  - name: reddit
+    query: sales cs handoff
+    limit: 80

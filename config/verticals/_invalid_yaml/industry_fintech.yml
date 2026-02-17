@@ -1,0 +1,30 @@
+id: industry_fintech
+name: industry_fintech
+title: "Fintech"
+description:" "Payments, lending, banking ops, KYC/AML, risk, fraud and compliance tooling.""
+version: 1
+enabled: true
+tags: [industry, fintech, b2b]
+default_queries:
+  - "kyc aml automation"
+  - "fraud detection payments"
+  - "chargeback management"
+  - "risk scoring api"
+  - "reconciliation payments"
+ingestion:
+  sources:
+    - name: reddit
+      query: "kyc aml"
+      limit: 80
+    - name: hackernews
+      query: "payments infrastructure"
+      limit: 80
+persona:
+  title: "Risk/Compliance/Ops at fintechs"
+  pains:
+    - "false positives in fraud systems"
+    - "manual reconciliation and reporting"
+    - "compliance burden slowing launches"
+keywords:
+  primary: ["kyc", "aml", "fraud", "chargebacks", "reconciliation", "risk"]
+  negative: ["memecoin", "airdrop", "trading signals"]

@@ -1,0 +1,19 @@
+id: ops_claims_ops
+name: ops_claims_ops
+title: "Claims Ops"
+description: "Intake, documentation, triage, adjuster workflows."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- insurance
+default_queries:
+- claims intake pain
+- document chase
+- adjuster workload
+ingestion:
+  sources:
+  - name: reddit
+    query: ops claims ops
+    limit: 80

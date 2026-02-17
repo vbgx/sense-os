@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_consulting_billing_ops_v27",
+  "name": "b2b_ops_consulting_billing_ops_v27",
+  "title": "Operations — Consulting — Billing Ops",
+  "description": "Operations workflows and pain points for Consulting (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "consulting",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "Consulting SLA",
+    "SLA workflow Consulting",
+    "Consulting standard operating procedure"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Consulting",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Consulting",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

@@ -1,0 +1,48 @@
+{
+  "id": "b2b_sales_pipeline",
+  "name": "b2b_sales_pipeline",
+  "title": "B2B — Sales: Pipeline",
+  "description": "B2B teams dealing with pipeline workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "sales:pipeline"
+  ],
+  "default_queries": [
+    "CRM",
+    "CRM workflow",
+    "CRM tooling",
+    "CRM automation",
+    "CRM pain points",
+    "CRM process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2b",
+    "function": "sales",
+    "subdomain": "pipeline"
+  }
+}

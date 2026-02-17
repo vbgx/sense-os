@@ -1,0 +1,22 @@
+id: ops_product_analytics
+name: ops_product_analytics
+title: "Product Analytics"
+description: "Events, funnels, data quality, dashboards."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- product
+default_queries:
+- funnel tracking pain
+- event schema drift
+- analytics governance
+ingestion:
+  sources:
+  - name: reddit
+    query: ops product analytics
+    limit: 80
+  - name: hackernews
+    query: ops product analytics
+    limit: 80

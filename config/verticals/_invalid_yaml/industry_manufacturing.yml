@@ -1,0 +1,27 @@
+id: industry_manufacturing
+name: industry_manufacturing
+title: "Manufacturing"
+description:" "Production planning, quality, maintenance, supply chain, ERP, and shop-floor visibility.""
+version: 1
+enabled: true
+tags: [industry, manufacturing, b2b]
+default_queries:
+  - "production planning software"
+  - "oee dashboard"
+  - "quality inspections manufacturing"
+  - "preventive maintenance cmms"
+  - "supplier lead time tracking"
+ingestion:
+  sources:
+    - name: reddit
+      query: "cmms manufacturing"
+      limit: 80
+persona:
+  title: "Ops and plant managers"
+  pains:
+    - "downtime and maintenance surprises"
+    - "quality issues and rework"
+    - "poor visibility across lines"
+keywords:
+  primary: ["oee", "cmms", "quality", "erp", "downtime"]
+  negative: ["crypto"]

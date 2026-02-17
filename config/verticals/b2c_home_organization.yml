@@ -1,0 +1,18 @@
+id: b2c_home_organization
+name: b2c_home_organization
+title: "Home Organization (B2C)"
+description: "Declutter plans, inventories, routines."
+version: 1
+enabled: true
+tags:
+- b2c
+- consumer
+default_queries:
+- declutter plan
+- home inventory pain
+- organization routines
+ingestion:
+  sources:
+  - name: reddit
+    query: b2c home organization
+    limit: 80

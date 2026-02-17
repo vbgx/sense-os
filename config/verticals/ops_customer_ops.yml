@@ -1,0 +1,19 @@
+id: ops_customer_ops
+name: ops_customer_ops
+title: "Customer Ops"
+description: "Handoffs, onboarding, renewals."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- cs
+default_queries:
+- customer onboarding pain
+- renewal workflow
+- health score issues
+ingestion:
+  sources:
+  - name: reddit
+    query: ops customer ops
+    limit: 80

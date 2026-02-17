@@ -1,0 +1,36 @@
+id: b2b_ops_energy_support_ops_v32
+name: b2b_ops_energy_support_ops_v32
+title: "Operations — Energy — Support Ops"
+description: "Operations workflows and pain points for Energy (Support Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- energy
+- support
+- tickets
+default_queries:
+- Energy approvals
+- approvals workflow Energy
+- Energy exceptions
+persona:
+  role: Ops Manager
+  segment: B2B
+  function: Operations
+  industry: Energy
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Energy
+    limit: 80
+  - name: hackernews
+    query: Energy
+    limit: 80
+  - name: indiehackers
+    query: Energy
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

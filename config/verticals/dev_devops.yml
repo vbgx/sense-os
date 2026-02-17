@@ -1,0 +1,25 @@
+id: dev_devops
+name: dev_devops
+title: "DevOps"
+description: "CI/CD pipelines, infra automation."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+- ops
+default_queries:
+- deploy pipeline slow
+- infra drift
+- environment parity
+ingestion:
+  sources:
+  - name: reddit
+    query: dev devops
+    limit: 80
+  - name: hackernews
+    query: dev devops
+    limit: 80
+  - name: indiehackers
+    query: dev devops
+    limit: 80

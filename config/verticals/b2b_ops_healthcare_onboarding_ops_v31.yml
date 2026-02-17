@@ -1,0 +1,36 @@
+id: b2b_ops_healthcare_onboarding_ops_v31
+name: b2b_ops_healthcare_onboarding_ops_v31
+title: "Operations — Healthcare — Onboarding Ops"
+description: "Operations workflows and pain points for Healthcare (Onboarding Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- healthcare
+- onboarding
+- training
+default_queries:
+- Healthcare standard operating procedure
+- standard operating procedure workflow Healthcare
+- Healthcare routing
+persona:
+  role: Ops Manager
+  segment: B2B
+  function: Operations
+  industry: Healthcare
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Healthcare
+    limit: 80
+  - name: hackernews
+    query: Healthcare
+    limit: 80
+  - name: indiehackers
+    query: Healthcare
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

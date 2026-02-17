@@ -1,0 +1,23 @@
+id: sales_ae
+name: sales_ae
+title: "Sales (AE)"
+description: "Deal cycles, proposals, negotiation and close"
+version: 1
+enabled: true
+priority: 260
+tags:
+- b2b
+- sales
+default_queries:
+- sales_ae pain
+- Sales (AE) tools
+- Sales (AE) workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: sales_ae
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

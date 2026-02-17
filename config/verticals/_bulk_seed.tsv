@@ -1,0 +1,260 @@
+# id	title	description	tags	default_queries_csv	sources_csv
+# NOTE: default_queries_csv = queries séparées par " | "
+# NOTE: sources_csv = sources séparées par "," ex: reddit,hackernews,indiehackers
+
+# --- B2B / Ops (40) ---
+ops_finance	Finance Ops	Invoicing, approvals, close, reporting.	b2b,ops,finance	invoice approval workflow | month-end close pain | accounts payable automation	reddit,hackernews,indiehackers
+ops_hr	HR Ops	Hiring, onboarding, HRIS, payroll ops.	b2b,ops,hr	HRIS integration pain | onboarding checklist automation | payroll errors	reddit,hackernews,indiehackers
+ops_legal	Legal Ops	Contracting, review workflows, CLM pain.	b2b,ops,legal	contract review workflow | CLM pain | vendor legal review	reddit,hackernews
+ops_procurement	Procurement	Vendor onboarding, purchasing workflows.	b2b,ops,procurement	vendor onboarding pain | purchase approvals | procurement workflow	reddit
+ops_it	IT Ops	Asset mgmt, access, tickets, provisioning.	b2b,ops,it	device provisioning pain | access requests slow | IT ticket backlog	reddit,hackernews
+ops_admin_ops	Admin Ops	General operations, internal process debt.	b2b,ops	internal process documentation | ops automation | handoff issues	reddit,indiehackers
+ops_revops	RevOps	CRM hygiene, pipeline, routing, attribution.	b2b,ops,sales	CRM data quality | lead routing broken | attribution mismatch	reddit,hackernews,indiehackers
+ops_support_ops	Support Ops	Macros, deflection, routing, QA.	b2b,ops,support	support queue triage | macro management | QA workflow	reddit
+ops_data_ops	Data Ops	Reverse ETL, metrics layer, freshness.	b2b,ops,data	data freshness issues | metric definitions drift | reverse ETL pain	reddit,hackernews
+ops_compliance	Compliance Ops	Audits, evidence collection, controls.	b2b,ops,compliance	SOC2 evidence collection | audit prep pain | controls automation	reddit,hackernews
+
+ops_pmops	Product Ops	Product processes, launches, tooling.	b2b,ops,product	product release checklist | roadmap hygiene | PRD workflow	reddit,indiehackers
+ops_mops	Marketing Ops	UTM, attribution, workflows, tooling.	b2b,ops,marketing	UTM governance pain | campaign ops workflow | attribution debugging	reddit,hackernews
+ops_sales_ops	Sales Ops	Quotes, approvals, handoffs, CPQ.	b2b,ops,sales	quote to cash pain | pricing approvals slow | CPQ issues	reddit
+ops_engineering_ops	Engineering Ops	Triage, oncall, incident, tech debt.	b2b,ops,dev	oncall burnout | incident postmortems | tech debt triage	reddit,hackernews
+ops_security_ops	Security Ops	Access reviews, policies, vendor reviews.	b2b,ops,security	vendor security review | access review automation | policy management	reddit,hackernews
+ops_facilities	Facilities	Office ops, vendors, maintenance.	b2b,ops	facilities vendor issues | maintenance tickets | space planning	reddit
+ops_travel	Travel Ops	Travel policies, expenses, approvals.	b2b,ops	fix expense approvals | travel policy enforcement | receipts pain	reddit
+ops_expenses	Expenses	Receipt capture, reimbursements, policy checks.	b2b,ops,finance	expense reimbursement pain | receipt capture issues | policy compliance	reddit
+ops_billing_ops	Billing Ops	Billing support, proration, disputes.	b2b,ops,finance	proration confusion | billing disputes | invoice corrections	reddit,hackernews
+ops_partner_ops	Partner Ops	Partner onboarding, portals, payouts.	b2b,ops,partners	partner onboarding flow | payout reconciliation | partner reporting	reddit
+
+ops_customer_ops	Customer Ops	Handoffs, onboarding, renewals.	b2b,ops,cs	customer onboarding pain | renewal workflow | health score issues	reddit
+ops_inventory_ops	Inventory Ops	Stock, purchasing, backorders.	b2b,ops,ecommerce	stockouts pain | reorder automation | backorder tracking	reddit
+ops_logistics	Logistics Ops	Shipping, routing, 3PL issues.	b2b,ops,logistics	shipping delays pain | 3PL integration | returns workflow	reddit
+ops_returns	Returns Ops	Returns, refunds, reverse logistics.	b2b,ops,ecommerce	returns automation | refund workflow pain | RMA tracking	reddit
+ops_quality	Quality Ops	QA, checks, defect tracking.	b2b,ops,quality	quality inspection workflow | defect triage | QA reporting	reddit
+ops_scheduling	Scheduling Ops	Shift planning, rosters, constraints.	b2b,ops	scheduling conflicts | shift swaps | roster optimization	reddit
+ops_field_service	Field Service Ops	Dispatch, routing, work orders.	b2b,ops	dispatch optimization | work order workflow | technician scheduling	reddit
+ops_training	Training Ops	Enablement, LMS pains, content.	b2b,ops	employee training tracking | LMS pain | onboarding training	reddit
+ops_documentation	Documentation Ops	SOPs, knowledge base, updates.	b2b,ops	SOP drift | knowledge base outdated | documentation workflow	reddit,indiehackers
+ops_meetings	Meetings Ops	Meeting overload, notes, actions.	b2b,ops	meeting notes automation | action items tracking | async status	reddit,indiehackers
+
+ops_contracts	Contracts	Templates, redlines, clauses.	b2b,ops,legal	contract templates | redlining workflow | clause library	reddit
+ops_risk	Risk Ops	Risk registers, incident tracking.	b2b,ops,risk	risk register workflow | vendor risk scoring | incident tracking	reddit
+ops_privacy	Privacy Ops	DSRs, GDPR ops, data mapping.	b2b,ops,privacy	GDPR DSAR workflow | data mapping pain | privacy reviews	reddit,hackernews
+ops_trust	Trust Ops	Trust center, security posture comms.	b2b,ops,security	trust center updates | security questionnaires | compliance pages	reddit
+ops_content_ops	Content Ops	Content production pipeline.	b2b,ops,marketing	content calendar pain | approvals workflow | content repurposing	reddit,indiehackers
+ops_localization	Localization Ops	Translations, workflows, QA.	b2b,ops	localization QA pain | translation workflow | i18n release issues	reddit
+ops_payroll	Payroll Ops	Payroll calculations, filings, errors.	b2b,ops,hr	payroll errors | payroll compliance | time tracking issues	reddit
+ops_time_tracking	Time Tracking	Timesheets, approvals, compliance.	b2b,ops,hr	timesheet approvals | time tracking friction | project time logging	reddit
+ops_budgeting	Budgeting Ops	Budgeting cycles, variance, planning.	b2b,ops,finance	budget variance pain | forecasting workflow | planning cycles	reddit,hackernews
+ops_proc_controls	Controls Ops	Internal controls, approvals, evidence.	b2b,ops,finance	internal controls workflow | approvals audit trail | evidence collection	reddit
+
+# --- Dev / Engineering (40) ---
+dev_platform	Platform Engineering	DevEx, golden paths, internal tools.	b2b,dev,engineering	CI is flaky | slow builds | internal tooling backlog	reddit,hackernews,indiehackers
+dev_security	Security Engineering	AppSec, secrets, scanning.	b2b,dev,security	secrets scanning pain | SAST noise | dependency vulnerabilities	reddit,hackernews
+dev_devops	DevOps	CI/CD pipelines, infra automation.	b2b,dev,ops	deploy pipeline slow | infra drift | environment parity	reddit,hackernews,indiehackers
+dev_observability	Observability	Logging, metrics, tracing, cost.	b2b,dev,ops	logs too noisy | tracing setup pain | monitoring cost explosion	reddit,hackernews
+dev_sre	SRE	Reliability, incidents, oncall.	b2b,dev,ops	oncall overload | incident response pain | error budget tracking	reddit,hackernews
+
+dev_backend	Backend Engineering	APIs, data, performance.	b2b,dev,engineering	api pagination pain | performance regression | schema evolution	reddit,hackernews
+dev_frontend	Frontend Engineering	UI, build tooling, DX.	b2b,dev,engineering	build toolchain pain | UI regression | type safety friction	reddit,indiehackers
+dev_mobile	Mobile Engineering	CI, releases, store issues.	b2b,dev,engineering	app store rejection | mobile CI pain | release automation	reddit
+dev_data_eng	Data Engineering	Pipelines, quality, lineage.	b2b,dev,data	data pipeline failures | lineage missing | data quality tests	reddit,hackernews
+dev_mlops	MLOps	Model deploys, monitoring, drift.	b2b,dev,ml	model drift monitoring | ML deployment pain | feature store issues	reddit,hackernews
+
+dev_testing	QA & Testing	Test flakiness, coverage, e2e.	b2b,dev	flake tests | e2e maintenance | test data management	reddit,hackernews
+dev_api_design	API Design	Versioning, contracts, DX.	b2b,dev	api versioning pain | openapi drift | breaking changes	reddit
+dev_architecture	Architecture	Boundaries, modularity, refactors.	b2b,dev	monolith refactor | dependency boundaries | layering violations	reddit,indiehackers
+dev_monorepo	Monorepo Tooling	Workspaces, caching, builds.	b2b,dev	pnpm workspace pain | build caching | monorepo CI speed	reddit,indiehackers
+dev_code_review	Code Review	PR hygiene, approval flow.	b2b,dev	code review bottleneck | PR size too big | review automation	reddit,indiehackers
+
+dev_release	Release Engineering	Versioning, changelogs, rollout.	b2b,dev	release coordination pain | rollback procedures | canary rollout	reddit,hackernews
+dev_feature_flags	Feature Flags	Rollouts, experiments, safety.	b2b,dev	feature flag sprawl | rollout safety | experiment tracking	reddit
+dev_docs	Developer Docs	Docs drift, reference, onboarding.	b2b,dev	dev docs outdated | onboarding engineers | docs automation	reddit,indiehackers
+dev_pkg_mgmt	Package Management	Deps, lockfiles, security.	b2b,dev	lockfile conflicts | dependency updates | supply chain risk	reddit,hackernews
+dev_compute_cost	Compute Cost Ops	Cloud cost and efficiency.	b2b,dev,ops	cloud cost spike | unused resources | cost allocation pain	reddit,hackernews
+
+# --- Sales (30) ---
+sales_sdr	SDR / Prospecting	Leads, enrichment, outreach.	b2b,sales	prospecting list building | enrichment accuracy | reply rate low	reddit,indiehackers
+sales_ae	Account Executives	Deals, proposals, follow-up.	b2b,sales	pricing objections | proposal workflow | follow up system	reddit
+sales_enablement	Sales Enablement	Content, playbooks, coaching.	b2b,sales	enablement content drift | ramp time high | playbook adoption	reddit
+sales_partners	Partnerships	Partner pipeline, co-sell.	b2b,sales,partners	partner onboarding | co-sell tracking | partner reporting	reddit
+sales_ops	Sales Ops	CRM admin, routing, reporting.	b2b,sales,ops	Salesforce admin backlog | lead routing | pipeline reporting	reddit
+sales_cs_handoff	CS Handoffs	Handover, onboarding, expectations.	b2b,sales,cs	handoff checklist | onboarding expectations | customer confusion	reddit
+sales_pricing	Pricing & Packaging	Experiments, approvals, governance.	b2b,sales,product	pricing approvals | packaging confusion | discount governance	reddit
+sales_forecasting	Forecasting	Forecast accuracy, rollups.	b2b,sales	forecast accuracy | commit calls | pipeline coverage	reddit
+sales_pipeline	Pipeline Hygiene	Stages, next steps, notes.	b2b,sales	pipeline hygiene | missing next steps | stale deals	reddit
+sales_enablement_ops	Enablement Ops	LMS, certification, tracking.	b2b,sales,ops	certification tracking | training completion | enablement analytics	reddit
+
+# --- Marketing (30) ---
+marketing_content	Content Marketing	Ideation, briefs, production.	b2b,marketing	content briefs | content calendar | distribution workflow	reddit,indiehackers
+marketing_paid	Paid Marketing	Ads, ROAS, attribution.	b2b,marketing,paid	ROAS volatility | attribution issues | creative testing	reddit
+marketing_lifecycle	Lifecycle Marketing	Email, onboarding, activation.	b2b,marketing	email deliverability | activation dropoff | lifecycle segmentation	reddit
+marketing_brand	Brand Marketing	Positioning, consistency, assets.	b2b,marketing,brand	brand consistency | asset management | brand guidelines	reddit
+marketing_seo	SEO	Keywords, content refresh, links.	b2b,marketing,seo	internal linking | content refresh | keyword clustering	reddit,hackernews
+
+marketing_pr	PR & Comms	Press, narratives, launches.	b2b,marketing	pr outreach | launch comms | media list management	reddit
+marketing_events	Events	Webinars, conferences, leads.	b2b,marketing	event lead capture | webinar ops | booth logistics	reddit
+marketing_social	Social	Content pipeline, scheduling.	b2b,marketing	social scheduling pain | content repurposing | community growth	reddit
+marketing_community	Community	Moderation, engagement, retention.	b2b,marketing	community moderation | engagement drop | member churn	reddit
+marketing_attribution	Attribution	Multi-touch, tracking, UTMs.	b2b,marketing	UTM governance | MTA setup | attribution mismatch	reddit,hackernews
+
+# --- B2C (30) ---
+b2c_personal_finance	Personal Finance (B2C)	Budgeting, subscriptions, saving.	b2c,finance	subscription tracker | budgeting app pain | expense categorization	reddit
+b2c_fitness	Fitness (B2C)	Routines, adherence, coaching.	b2c,health	habit tracker not working | workout planning | nutrition tracking	reddit
+b2c_language_learning	Language Learning (B2C)	Practice, retention, motivation.	b2c,education	language learning plateau | speaking practice | vocabulary retention	reddit
+b2c_sleep	Sleep (B2C)	Routines, tracking, insomnia tools.	b2c,health	sleep tracking accuracy | insomnia routine | bedtime reminders	reddit
+b2c_productivity	Productivity (B2C)	Tasks, focus, habits, notes.	b2c,productivity	task manager overwhelm | focus sessions | habit streaks	reddit
+
+# --- Fillers to reach 200 (you can keep adding lines freely) ---
+b2b_customer_success	Customer Success	Health scores, renewals, playbooks.	b2b,cs	customer health score | renewal process | onboarding friction	reddit
+b2b_support	Customer Support	Triage, deflection, tooling.	b2b,support	support backlog | ticket routing | deflection content	reddit
+b2b_ecommerce_ops	Ecommerce Ops	Inventory, shipping, returns.	b2b,ops,ecommerce	stockouts | shipping delays | returns workflow	reddit
+b2b_remote_ops	Remote Ops	Async work, tooling, rituals.	b2b,ops,remote	async status updates | meeting overload | remote onboarding	reddit
+b2b_devtools	DevTools	SDKs, DX, tooling, CI speed.	b2b,dev	devtools pain | sdk usability | build speed	reddit,hackernews,indiehackers
+
+# (TU PEUX DUPLIQUER DES BLOCS ET JUSTE CHANGER LES IDS/TITLES)
+industry_healthcare_it	Healthcare IT	Clinics, hospitals, patient workflows, compliance.	b2b,industry,healthcare	patient scheduling pain | EMR integration pain | clinic admin overhead	reddit,hackernews
+industry_legaltech	LegalTech	Law firms workflows, case mgmt, docs, billing.	b2b,industry,legal	case management pain | document automation | billing workflow	reddit,hackernews
+industry_fintech_ops	FinTech Ops	Reconciliation, risk, reporting, disputes.	b2b,industry,fintech	reconciliation pain | chargeback workflow | risk ops automation	reddit,hackernews
+industry_real_estate	Real Estate Ops	Property mgmt workflows, maintenance, leasing.	b2b,industry,realestate	maintenance ticket chaos | tenant communications | leasing workflow	reddit
+industry_construction	Construction Ops	Projects, bids, field coordination, change orders.	b2b,industry,construction	change order pain | field reporting | bid management	reddit
+industry_manufacturing	Manufacturing Ops	SOPs, QA, inventory, line efficiency.	b2b,industry,manufacturing	quality checks pain | inventory accuracy | downtime tracking	reddit
+industry_supply_chain	Supply Chain	Suppliers, lead times, disruptions, planning.	b2b,industry,supplychain	supplier delays | lead time uncertainty | demand planning pain	reddit
+industry_retail_ops	Retail Ops	Stores, workforce, stock, returns.	b2b,industry,retail	store workforce scheduling | shrinkage tracking | returns operations	reddit
+industry_education	EdTech Ops	Admin workflows, scheduling, content, compliance.	b2b,industry,education	class scheduling pain | student onboarding | reporting compliance	reddit
+industry_travel	Travel Ops	Bookings, itineraries, support, refund workflows.	b2b,industry,travel	refund workflow | booking changes | customer support overload	reddit
+
+industry_hospitality	Hospitality Ops	Staffing, reservations, reviews, vendors.	b2b,industry,hospitality	shift scheduling pain | reservation workflow | vendor coordination	reddit
+industry_logistics	Transportation & Logistics	Routing, dispatch, fleet, compliance.	b2b,industry,logistics	dispatch routing pain | fleet maintenance tracking | compliance paperwork	reddit
+industry_insurance	Insurance Ops	Claims intake, triage, fraud signals.	b2b,industry,insurance	claims processing pain | adjuster workflow | fraud triage	reddit
+industry_hr_agencies	Recruiting Agencies	Candidate pipelines, outreach, tracking.	b2b,industry,hr	candidate tracking pain | outreach automation | client reporting	reddit
+industry_accounting_firms	Accountants	Bookkeeping workflows, client portals, close.	b2b,industry,finance	client document chase | close workflow | bookkeeping automation	reddit
+industry_it_services	IT Services	Projects, tickets, client comms, billing.	b2b,industry,it	ticket triage | client onboarding | time billing pain	reddit
+industry_creative_studios	Creative Studios	Assets, approvals, client feedback loops.	b2b,industry,creative	client feedback chaos | asset versioning | approvals workflow	reddit
+industry_consulting	Consulting Ops	Delivery, knowledge, staffing, reporting.	b2b,industry,consulting	project staffing pain | client reporting | knowledge reuse	reddit
+industry_saas_security	SaaS Security	Vendor reviews, SOC2, access reviews.	b2b,industry,security	SOC2 evidence pain | security questionnaire | access review automation	reddit,hackernews
+industry_public_sector	Public Sector Ops	Forms, workflows, approvals, procurement.	b2b,industry,gov	procurement workflow | approvals bottleneck | form digitization	reddit
+
+b2c_mental_health	Mental Health (B2C)	Mood, therapy support, habit systems.	b2c,health	therapy journaling | mood tracking | mental health routines	reddit
+b2c_nutrition	Nutrition (B2C)	Meal planning, tracking, adherence.	b2c,health	meal planning pain | calorie tracking friction | grocery list automation	reddit
+b2c_parenting	Parenting (B2C)	Routines, tracking, family coordination.	b2c,consumer	family calendar chaos | chore tracking | parenting routines	reddit
+b2c_pet_care	Pet Care (B2C)	Schedules, vet docs, reminders.	b2c,consumer	vaccination reminders | pet expenses tracking | appointment planning	reddit
+b2c_home_maintenance	Home Maintenance (B2C)	Tasks, vendors, reminders, DIY.	b2c,consumer	home maintenance checklist | vendor coordination | repair tracking	reddit
+b2c_learning_kids	Learning for Kids (B2C)	Practice, engagement, motivation.	b2c,education	kids practice motivation | learning routines | progress tracking	reddit
+b2c_career	Personal Career (B2C)	Job search, portfolio, applications.	b2c,career	job applications tracking | interview prep | portfolio workflow	reddit
+b2c_creators	Creators (B2C)	Content pipeline, scheduling, repurpose.	b2c,creator	content scheduling pain | repurposing workflow | creator analytics	reddit,indiehackers
+b2c_reading	Reading (B2C)	Notes, tracking, retention, highlights.	b2c,consumer	reading notes pain | highlight organization | book tracking	reddit
+b2c_travel_planning	Travel Planning (B2C)	Itineraries, budgeting, coordination.	b2c,consumer	itinerary planning | group travel coordination | travel budgeting	reddit
+
+ops_product_analytics	Product Analytics	Events, funnels, data quality, dashboards.	b2b,ops,product	funnel tracking pain | event schema drift | analytics governance	reddit,hackernews
+ops_recruiting_ops	Recruiting Ops	ATS workflows, scheduling, feedback loops.	b2b,ops,hr	interview scheduling pain | feedback collection | candidate pipeline	reddit
+ops_onboarding	Customer Onboarding	Steps, docs, integrations, checklists.	b2b,ops,cs	customer onboarding checklist | integration setup pain | kickoff workflow	reddit
+ops_internal_comms	Internal Comms	Announcements, alignment, async.	b2b,ops	internal announcements | async updates | alignment rituals	reddit
+ops_vendor_mgmt	Vendor Management	Vendor tracking, renewals, reviews.	b2b,ops,vendor	vendor renewal tracking | vendor risk review | contract repository	reddit
+
+dev_api_testing	API Testing	Contract tests, mocking, tooling.	b2b,dev	api contract tests | mocking pain | integration test setup	reddit,indiehackers
+dev_migrations	DB Migrations	Schema changes, rollbacks, drift.	b2b,dev,db	migration drift | rollback pain | schema evolution workflow	reddit,hackernews
+dev_feature_store	Feature Stores	Features, serving, governance.	b2b,dev,ml	feature definition drift | serving latency | feature governance	reddit,hackernews
+dev_llmops	LLMOps	Prompt/versioning, evals, monitoring.	b2b,dev,ai	prompt versioning pain | LLM evals | hallucination monitoring	reddit,hackernews,indiehackers
+dev_edge_runtime	Edge Runtime	Deploys at edge, reproducibility, debugging.	b2b,dev	edge debugging pain | non-determinism | edge observability	reddit,hackernews
+
+sales_outbound	Outbound Sales	Sequencing, personalization, deliverability.	b2b,sales	deliverability issues | personalization at scale | sequence management	reddit,indiehackers
+sales_inbound	Inbound Sales	Qualification, routing, speed-to-lead.	b2b,sales	speed to lead | qualification workflow | handoff automation	reddit
+sales_renewals	Renewals	Forecast, process, negotiation.	b2b,sales,cs	renewal negotiation | renewal workflow | churn prevention	reddit
+sales_rev_intel	Revenue Intelligence	Call insights, next steps, coaching.	b2b,sales	forecast risk signals | call coaching | next step extraction	reddit
+sales_compensation	Sales Compensation	Plans, tracking, disputes.	b2b,sales,finance	commission disputes | comp plan tracking | payout workflow	reddit
+
+marketing_growth	Growth Marketing	Experiments, funnels, conversion.	b2b,marketing,growth	conversion rate pain | experiment tracking | landing page workflow	reddit,indiehackers
+marketing_creative_ops	Creative Ops	Creative briefs, approvals, assets.	b2b,marketing	creative approvals | asset versioning | brief workflow	reddit,indiehackers
+marketing_influencer	Influencer Marketing	Tracking, payouts, content.	b2b,marketing	creator outreach | influencer payout tracking | UGC approvals	reddit
+marketing_research	Market Research	Interviews, surveys, synthesis.	b2b,marketing	research synthesis | interview notes | survey analysis	reddit
+marketing_webops	Web Ops	Site changes, SEO hygiene, releases.	b2b,marketing,ops	website deploy workflow | SEO regressions | content publishing pain	reddit
+
+# --- extra fillers (add as many as you want) ---
+industry_nonprofits	Nonprofits Ops	Fundraising ops, donor mgmt, reporting.	b2b,industry,nonprofit	donor CRM pain | fundraising workflow | grant reporting	reddit
+industry_events	Events Industry	Ticketing ops, staffing, vendor ops.	b2b,industry,events	event staffing pain | vendor coordination | ticketing workflow	reddit
+industry_media	Media Ops	Publishing pipeline, rights, workflows.	b2b,industry,media	publishing workflow pain | asset rights tracking | editorial ops	reddit
+industry_biotech	Biotech Ops	Lab ops, compliance, inventory.	b2b,industry,biotech	lab inventory pain | compliance docs | experiment tracking	reddit
+industry_energy	Energy Ops	Maintenance, compliance, field workflows.	b2b,industry,energy	field maintenance workflow | compliance reporting | asset tracking	reddit
+ops_order_management	Order Management Ops	Orders routing, cancellations, substitutions, SLAs.	b2b,ops,orders	order routing pain | cancellation workflow | SLA breaches	reddit
+ops_warehouse_ops	Warehouse Ops	Picking, packing, inventory accuracy, dock scheduling.	b2b,ops,warehouse	picking errors | packing workflow | dock scheduling pain	reddit
+ops_supply_planning	Supply Planning	Forecasting, replenishment, allocation, stockouts.	b2b,ops,supply	stockout prevention | replenishment planning | demand forecast pain	reddit
+ops_fraud_ops	Fraud Ops	Triage, rules, false positives, investigator tooling.	b2b,ops,fintech	fraud triage pain | false positives | rule tuning workflow	reddit
+ops_claims_ops	Claims Ops	Intake, documentation, triage, adjuster workflows.	b2b,ops,insurance	claims intake pain | document chase | adjuster workload	reddit
+ops_chargebacks	Chargebacks & Disputes	Evidence collection, deadlines, win-rate optimization.	b2b,ops,fintech	chargeback evidence pain | dispute workflow | deadline tracking	reddit
+ops_incident_mgmt	Incident Management	On-call, postmortems, escalation, coordination.	b2b,ops,reliability	incident response pain | escalation workflow | postmortem tracking	reddit,hackernews
+ops_change_mgmt	Change Management	Approvals, release coordination, risk controls.	b2b,ops,governance	change approval pain | release coordination | risk assessment workflow	reddit
+ops_asset_mgmt	Asset Management	Hardware/software inventory, lifecycle, audits.	b2b,ops,it	asset inventory pain | device lifecycle | audit readiness	reddit
+ops_access_reviews	Access Reviews & Provisioning	Joiner/mover/leaver, reviews, entitlement drift.	b2b,ops,security	access review pain | provisioning workflow | entitlement drift	reddit,hackernews
+ops_kpi_reporting	KPI Reporting Ops	Metric definitions, reporting cadence, stakeholder dashboards.	b2b,ops,analytics	kpi definition pain | reporting cadence | dashboard consistency	reddit
+
+dev_kubernetes	Kubernetes & Platform Dev	Clusters, deploys, debugging, multi-env drift.	b2b,dev,platform	k8s debugging pain | cluster drift | deployment failures	reddit,hackernews
+dev_ci_cd	CI/CD Tooling	Pipelines, flaky tests, caching, speed and reliability.	b2b,dev,devops	flaky pipeline pain | build caching | slow CI	reddit,hackernews
+dev_infra_as_code	Infrastructure as Code	Terraform drift, modules, reviews, environments.	b2b,dev,devops	terraform drift | module versioning pain | env parity	reddit
+dev_database_perf	Database Performance	Slow queries, indexes, connection pools, profiling.	b2b,dev,db	slow query pain | index strategy | connection pool issues	reddit
+dev_graphql	GraphQL & API Layers	Schema evolution, tooling, performance, governance.	b2b,dev,api	graphql schema drift | resolver performance | api governance	reddit
+dev_rust_tooling	Rust Tooling & DX	Build times, dependency management, cross-compilation.	b2b,dev	rust build pain | dependency conflicts | cross compile issues	reddit
+dev_python_tooling	Python Tooling & DX	Env management, packaging, lint/format, reproducibility.	b2b,dev	python env pain | packaging conflicts | reproducible dev setup	reddit
+dev_js_tooling	JS Tooling & DX	Monorepos, bundlers, tsconfig drift, test runners.	b2b,dev	js monorepo pain | bundler config | test runner flakiness	reddit
+dev_typescript_tooling	TypeScript DX	Types, codegen, contracts, strictness vs speed.	b2b,dev,typescript	type drift pain | codegen contracts | strict typing friction	reddit
+dev_design_systems	Design Systems	Components, tokens, consistency, adoption.	b2b,dev,frontend	component drift | design tokens | ui consistency pain	reddit
+dev_runtime_performance	Runtime Performance	Profiling, memory leaks, latency budgets, regressions.	b2b,dev,perf	perf regression | memory leak detection | latency budget	reddit,hackernews
+
+sales_lead_gen	Lead Generation	Finding lists, enrichment, verification, routing.	b2b,sales	lead list quality | enrichment pain | routing workflow	reddit
+sales_prospecting	Prospecting Workflows	Research, personalization, multichannel outreach.	b2b,sales	prospect research pain | personalization workflow | outreach tooling	reddit
+sales_call_coaching	Call Coaching	Feedback loops, talk tracks, scoring, enablement.	b2b,sales	call feedback pain | talk track adherence | coaching workflow	reddit
+sales_crm_admin	CRM Admin	Objects, workflows, permissions, data cleanliness.	b2b,sales,ops	crm workflow pain | permissions drift | dirty data cleanup	reddit
+sales_salesforce_ops	Salesforce Ops	Automation, integrations, reporting, governance.	b2b,sales,ops	salesforce automation pain | integration drift | reporting accuracy	reddit
+sales_deal_desk	Deal Desk	Approvals, pricing exceptions, terms negotiation.	b2b,sales,finance	deal approvals pain | pricing exception workflow | terms negotiation	reddit
+sales_contracting	Sales Contracting	Redlines, templates, signatures, clause management.	b2b,sales,legal	contract redline pain | template drift | clause management	reddit
+sales_customer_expansion	Expansion & Upsell	Signals, playbooks, renewal-to-expansion motions.	b2b,sales,cs	expansion signal pain | playbook workflow | usage-to-upsell	reddit
+sales_channel_partners	Channel Partners	Partner onboarding, MDF, co-selling, tracking.	b2b,sales,partners	partner onboarding pain | co-selling tracking | MDF workflow	reddit
+sales_commission_ops	Commission Ops	Plan modeling, disputes, payroll handoff.	b2b,sales,finance	commission disputes | plan modeling | payout workflow	reddit
+sales_meeting_booking	Meeting Booking	Scheduling links, qualification, no-shows, routing.	b2b,sales	scheduling pain | no-show reduction | qualification routing	reddit
+
+marketing_email	Email Marketing	Segmentation, deliverability, templates, measurement.	b2b,marketing	email segmentation pain | deliverability issues | campaign measurement	reddit
+marketing_newsletter	Newsletters	Editorial pipeline, growth, engagement and churn.	b2b,marketing	newsletter growth pain | editorial workflow | engagement tracking	reddit
+marketing_abm	ABM (Account-Based Marketing)	Targeting, personalization, orchestration, measurement.	b2b,marketing,sales	abm orchestration pain | target account research | attribution gaps	reddit
+marketing_product_marketing	Product Marketing	Positioning, launch ops, messaging, enablement.	b2b,marketing,product	launch coordination pain | messaging consistency | enablement assets	reddit
+marketing_copywriting	Copywriting Ops	Briefs, variants, approvals, brand consistency.	b2b,marketing	copy brief pain | revision loops | brand consistency	reddit
+marketing_video	Video Marketing	Editing workflows, repurposing, captions, publishing.	b2b,marketing	editing workflow pain | repurposing pipeline | publishing cadence	reddit
+marketing_ugc	UGC Operations	Collecting, approvals, rights management, reuse.	b2b,marketing	ugc collection pain | rights approvals | asset reuse workflow	reddit
+marketing_affiliates	Affiliate Marketing	Tracking, payouts, fraud, partner discovery.	b2b,marketing	affiliate tracking pain | payout workflow | affiliate fraud	reddit
+marketing_referrals	Referral Programs	Incentives, tracking, anti-fraud, UX.	b2b,marketing	referral tracking pain | incentive design | referral fraud	reddit
+marketing_app_store	App Store Optimization	Keywords, creatives, reviews, conversion tuning.	b2b,marketing,apps	aso keyword research | creative testing | review management	reddit
+marketing_mobile_growth	Mobile Growth	Push, deep links, retention loops, cohort analysis.	b2b,marketing,mobile	push notification pain | retention loops | cohort analysis	reddit
+
+industry_agriculture	Agriculture Ops	Farm ops, procurement, logistics, compliance.	b2b,industry,agriculture	supply variability | equipment maintenance pain | compliance paperwork	reddit
+industry_aerospace	Aerospace Ops	Compliance, documentation, supplier quality.	b2b,industry,aerospace	supplier quality pain | compliance docs | traceability workflow	reddit
+industry_automotive	Automotive Ops	Dealers, parts, maintenance, fleet operations.	b2b,industry,automotive	parts availability pain | dealer workflow | service scheduling	reddit
+industry_pharma	Pharma Ops	Regulatory docs, batch tracking, QA workflows.	b2b,industry,pharma	batch traceability | qa approvals | regulatory documentation pain	reddit
+industry_telecom	Telecom Ops	Field service, provisioning, churn and support.	b2b,industry,telecom	provisioning workflow pain | field service dispatch | support overload	reddit
+industry_mining	Mining Ops	Safety, maintenance, logistics, reporting.	b2b,industry,mining	safety reporting pain | maintenance planning | logistics coordination	reddit
+industry_maritime	Maritime Ops	Fleet scheduling, maintenance, compliance.	b2b,industry,maritime	fleet scheduling pain | maintenance logs | compliance paperwork	reddit
+industry_food_beverage	Food & Beverage Ops	Supply, QA, production planning, traceability.	b2b,industry,food	traceability pain | qa workflow | production planning	reddit
+industry_beauty	Beauty Industry Ops	Supply chain, retail ops, creator partnerships.	b2b,industry,beauty	inventory planning | retail ops workflow | creator coordination	reddit
+industry_gaming	Gaming Industry Ops	Live ops, moderation, retention, community.	b2b,industry,gaming	live ops pain | moderation workflow | player retention signals	reddit
+industry_adtech	AdTech Ops	Campaign ops, tracking, fraud, reporting.	b2b,industry,adtech	tracking drift | campaign ops pain | click fraud detection	reddit
+
+b2c_investing	Investing (B2C)	Portfolios, risk, education, habit loops.	b2c,finance	investing plan pain | portfolio tracking | risk understanding	reddit
+b2c_budgeting_app	Budgeting (B2C)	Spending categories, alerts, subscriptions.	b2c,finance	budget categories pain | subscription tracking | spending alerts	reddit
+b2c_habit_tracking	Habit Tracking (B2C)	Routines, streaks, motivation, adherence.	b2c,consumer	habit streak pain | motivation loops | routine planning	reddit
+b2c_meditation	Meditation (B2C)	Guided sessions, consistency, tracking.	b2c,health	meditation consistency | guided session discovery | progress tracking	reddit
+b2c_dating	Dating (B2C)	Profiles, messaging, safety, matching quality.	b2c,consumer	dating profile pain | messaging fatigue | safety screening	reddit
+b2c_skincare	Skincare (B2C)	Routines, product tracking, sensitivity, results.	b2c,consumer	skincare routine pain | product compatibility | progress tracking	reddit
+b2c_meal_prep	Meal Prep (B2C)	Planning, batch cooking, grocery optimization.	b2c,health	meal prep planning | grocery optimization | batch cooking workflow	reddit
+b2c_music_practice	Music Practice (B2C)	Routines, drills, feedback loops, motivation.	b2c,education	music practice routine | drills planning | progress tracking	reddit
+b2c_gardening	Gardening (B2C)	Calendars, care schedules, plant tracking.	b2c,consumer	plant care schedule | garden planning | pest issue tracking	reddit
+b2c_home_organization	Home Organization (B2C)	Declutter plans, inventories, routines.	b2c,consumer	declutter plan | home inventory pain | organization routines	reddit
+b2c_childcare	Childcare (B2C)	Schedules, nanny coordination, logistics, documents.	b2c,consumer	childcare scheduling | daycare paperwork | nanny coordination	reddit
+
+b2b_accounting	B2B Accounting	Close workflows, approvals, audit trails.	b2b,finance,ops	close process pain | approval workflow | audit trail management	reddit
+b2b_procurement_suite	Procurement Suite	Sourcing, approvals, vendor mgmt, spend control.	b2b,ops,procurement	purchase approval pain | vendor onboarding | spend control workflow	reddit
+b2b_contract_lifecycle	Contract Lifecycle	Templates, obligations, renewals, clause search.	b2b,legal,ops	contract obligations | renewal tracking | clause search pain	reddit
+b2b_identity_access	Identity & Access (B2B)	SSO, provisioning, entitlement management.	b2b,security	it provisioning pain | sso rollout | entitlement management	reddit,hackernews
+b2b_it_ticketing	IT Ticketing	Triage, routing, SLA, knowledge base, automation.	b2b,ops,it	ticket triage pain | sla breaches | knowledge base gaps	reddit
+b2b_observability	Observability (B2B)	Logs/metrics/traces, cost controls, alert fatigue.	b2b,devops	observability cost pain | alert fatigue | tracing workflow	reddit,hackernews
+b2b_data_governance	Data Governance	Catalog, lineage, access policies, quality rules.	b2b,data,ops	data lineage pain | access policy drift | data quality rules	reddit
+b2b_customer_feedback	Customer Feedback Ops	Collection, routing, dedup, closing the loop.	b2b,product,ops	feedback dedup pain | routing workflow | closing-loop automation	reddit
+b2b_subscription_billing	Subscription Billing	Invoicing, proration, dunning, revenue recognition hooks.	b2b,finance,saas	proration pain | dunning workflow | invoice disputes	reddit
+b2b_compliance_audit	Compliance & Audit	Readiness, evidence collection, policies, controls.	b2b,security,compliance	evidence collection pain | policy management | control testing workflow	reddit
+b2b_training_lms	Training / LMS	Internal training ops, tracking, content governance.	b2b,ops,hr	training completion tracking | content governance | onboarding training	reddit

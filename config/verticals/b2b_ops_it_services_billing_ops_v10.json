@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_it_services_billing_ops_v10",
+  "name": "b2b_ops_it_services_billing_ops_v10",
+  "title": "Operations — IT Services — Billing Ops",
+  "description": "Operations workflows and pain points for IT Services (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "it_services",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "IT Services exceptions",
+    "exceptions workflow IT Services",
+    "IT Services handoff"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "IT Services",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "IT",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "IT",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "IT",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

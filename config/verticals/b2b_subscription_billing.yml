@@ -1,0 +1,19 @@
+id: b2b_subscription_billing
+name: b2b_subscription_billing
+title: "Subscription Billing"
+description: "Invoicing, proration, dunning, revenue recognition hooks."
+version: 1
+enabled: true
+tags:
+- b2b
+- finance
+- saas
+default_queries:
+- proration pain
+- dunning workflow
+- invoice disputes
+ingestion:
+  sources:
+  - name: reddit
+    query: b2b subscription billing
+    limit: 80

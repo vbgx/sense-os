@@ -1,0 +1,49 @@
+{
+  "id": "industry_healthcare",
+  "name": "industry_healthcare",
+  "title": "B2B — Healthcare",
+  "description": "Healthcare operators and teams: recurring ops pain across tools, workflows, compliance, and reporting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "healthcare",
+    "industry",
+    "ops"
+  ],
+  "default_queries": [
+    "HIPAA",
+    "HIPAA workflow",
+    "HIPAA tooling",
+    "HIPAA automation",
+    "HIPAA pain points",
+    "HIPAA process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2b",
+    "industry": "healthcare",
+    "function_hint": "ops"
+  }
+}

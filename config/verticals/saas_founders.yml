@@ -1,6 +1,31 @@
+id: saas_founders
 name: saas_founders
-description: SaaS founders building early-stage B2B products
+title: "SaaS Founders"
+description: "SaaS founders building early-stage B2B products"
+version: 1
+enabled: true
+tags:
+- b2b
+- saas
+- founders
 default_queries:
-  - "billing software"
-  - "stripe alternative"
-  - "saas churn problem"
+- billing software
+- stripe alternative
+- saas churn problem
+ingestion:
+  sources:
+  - name: reddit
+    query: saas
+    limit: 80
+  - name: hackernews
+    query: SaaS
+    limit: 80
+  - name: indiehackers
+    query: saas
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2
+owner: "internal"
+notes: "Default vertical for early B2B SaaS pains."

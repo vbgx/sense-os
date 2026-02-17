@@ -1,0 +1,23 @@
+id: customer_success
+name: customer_success
+title: "Customer Success"
+description: "Onboarding, renewals, expansion playbooks"
+version: 1
+enabled: true
+priority: 290
+tags:
+- b2b
+- cs
+default_queries:
+- customer_success pain
+- Customer Success tools
+- Customer Success workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: customer_success
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

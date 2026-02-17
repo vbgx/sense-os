@@ -1,0 +1,21 @@
+id: dev_release
+name: dev_release
+title: "Release Engineering"
+description: "Versioning, changelogs, rollout."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+default_queries:
+- release coordination pain
+- rollback procedures
+- canary rollout
+ingestion:
+  sources:
+  - name: reddit
+    query: dev release
+    limit: 80
+  - name: hackernews
+    query: dev release
+    limit: 80

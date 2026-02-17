@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_saas_billing_ops",
+  "name": "b2b_ops_saas_billing_ops",
+  "title": "Operations — SaaS — Billing Ops",
+  "description": "Operations workflows and pain points for SaaS (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "saas",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "SaaS standard operating procedure",
+    "standard operating procedure workflow SaaS",
+    "SaaS routing"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "SaaS",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "SaaS",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "SaaS",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

@@ -1,0 +1,27 @@
+{
+  "id": "dev_graphql",
+  "name": "dev_graphql",
+  "title": "GraphQL & API Layers",
+  "description": "Schema evolution, tooling, performance, governance.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "api"
+  ],
+  "default_queries": [
+    "graphql schema drift",
+    "resolver performance",
+    "api governance"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev graphql",
+        "limit": 80
+      }
+    ]
+  }
+}

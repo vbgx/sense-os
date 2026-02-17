@@ -1,0 +1,21 @@
+id: marketing_creative_ops
+name: marketing_creative_ops
+title: "Creative Ops"
+description: "Creative briefs, approvals, assets."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+default_queries:
+- creative approvals
+- asset versioning
+- brief workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing creative ops
+    limit: 80
+  - name: indiehackers
+    query: marketing creative ops
+    limit: 80

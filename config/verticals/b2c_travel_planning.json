@@ -1,0 +1,26 @@
+{
+  "id": "b2c_travel_planning",
+  "name": "b2c_travel_planning",
+  "title": "Travel Planning (B2C)",
+  "description": "Itineraries, budgeting, coordination.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "consumer"
+  ],
+  "default_queries": [
+    "itinerary planning",
+    "group travel coordination",
+    "travel budgeting"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c travel planning",
+        "limit": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+id: b2b_ops_fintech_billing_ops_v19
+name: b2b_ops_fintech_billing_ops_v19
+title: "Operations — FinTech — Billing Ops"
+description: "Operations workflows and pain points for FinTech (Billing Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- fintech
+- billing
+- payments
+default_queries:
+- FinTech standard operating procedure
+- standard operating procedure workflow FinTech
+- FinTech routing
+persona:
+  role: Ops Manager
+  segment: B2B
+  function: Operations
+  industry: FinTech
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: FinTech
+    limit: 80
+  - name: producthunt
+    query: FinTech
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

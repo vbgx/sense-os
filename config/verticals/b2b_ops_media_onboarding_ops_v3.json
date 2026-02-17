@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_media_onboarding_ops_v3",
+  "name": "b2b_ops_media_onboarding_ops_v3",
+  "title": "Operations — Media — Onboarding Ops",
+  "description": "Operations workflows and pain points for Media (Onboarding Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "media",
+    "onboarding",
+    "training"
+  ],
+  "default_queries": [
+    "Media approvals",
+    "approvals workflow Media",
+    "Media exceptions"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Media",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Media",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Media",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

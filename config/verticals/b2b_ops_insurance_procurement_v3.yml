@@ -1,0 +1,36 @@
+id: b2b_ops_insurance_procurement_v3
+name: b2b_ops_insurance_procurement_v3
+title: "Operations — Insurance — Procurement"
+description: "Operations workflows and pain points for Insurance (Procurement)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- insurance
+- procurement
+- vendors
+default_queries:
+- Insurance handoff
+- handoff workflow Insurance
+- Insurance SLA
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Insurance
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Insurance
+    limit: 80
+  - name: hackernews
+    query: Insurance
+    limit: 80
+  - name: indiehackers
+    query: Insurance
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

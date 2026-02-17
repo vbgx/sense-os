@@ -1,0 +1,27 @@
+{
+  "id": "ops_order_management",
+  "name": "ops_order_management",
+  "title": "Order Management Ops",
+  "description": "Orders routing, cancellations, substitutions, SLAs.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "orders"
+  ],
+  "default_queries": [
+    "order routing pain",
+    "cancellation workflow",
+    "SLA breaches"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops order management",
+        "limit": 80
+      }
+    ]
+  }
+}

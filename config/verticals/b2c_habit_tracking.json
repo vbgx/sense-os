@@ -1,0 +1,26 @@
+{
+  "id": "b2c_habit_tracking",
+  "name": "b2c_habit_tracking",
+  "title": "Habit Tracking (B2C)",
+  "description": "Routines, streaks, motivation, adherence.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "consumer"
+  ],
+  "default_queries": [
+    "habit streak pain",
+    "motivation loops",
+    "routine planning"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c habit tracking",
+        "limit": 80
+      }
+    ]
+  }
+}

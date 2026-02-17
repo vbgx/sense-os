@@ -1,0 +1,30 @@
+id: b2b_ops_media_procurement_v37
+name: b2b_ops_media_procurement_v37
+title: "Operations — Media — Procurement"
+description: "Operations workflows and pain points for Media (Procurement)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- media
+- procurement
+- vendors
+default_queries:
+- Media routing
+- routing workflow Media
+- Media approvals
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Media
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Media
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

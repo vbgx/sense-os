@@ -1,0 +1,27 @@
+{
+  "id": "b2b_data_governance",
+  "name": "b2b_data_governance",
+  "title": "Data Governance",
+  "description": "Catalog, lineage, access policies, quality rules.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "ops"
+  ],
+  "default_queries": [
+    "data lineage pain",
+    "access policy drift",
+    "data quality rules"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2b data governance",
+        "limit": 80
+      }
+    ]
+  }
+}

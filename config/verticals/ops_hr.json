@@ -1,0 +1,34 @@
+{
+  "id": "ops_hr",
+  "name": "ops_hr",
+  "title": "HR Ops",
+  "description": "Hiring, onboarding, payroll and people operations",
+  "version": 1,
+  "enabled": true,
+  "priority": 120,
+  "tags": [
+    "b2b",
+    "ops",
+    "hr"
+  ],
+  "default_queries": [
+    "ops_hr pain",
+    "HR Ops tools",
+    "HR Ops workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops_hr",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

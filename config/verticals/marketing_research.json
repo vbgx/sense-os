@@ -1,0 +1,26 @@
+{
+  "id": "marketing_research",
+  "name": "marketing_research",
+  "title": "Market Research",
+  "description": "Interviews, surveys, synthesis.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing"
+  ],
+  "default_queries": [
+    "research synthesis",
+    "interview notes",
+    "survey analysis"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "marketing research",
+        "limit": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+id: marketing_abm
+name: marketing_abm
+title: "ABM (Account-Based Marketing)"
+description: "Targeting, personalization, orchestration, measurement."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+- sales
+default_queries:
+- abm orchestration pain
+- target account research
+- attribution gaps
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing abm
+    limit: 80

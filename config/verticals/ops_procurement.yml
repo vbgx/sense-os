@@ -1,0 +1,23 @@
+id: ops_procurement
+name: ops_procurement
+title: "Procurement & Vendor Ops"
+description: "Sourcing, approvals, vendor management"
+version: 1
+enabled: true
+priority: 150
+tags:
+- b2b
+- ops
+default_queries:
+- ops_procurement pain
+- Procurement & Vendor Ops tools
+- Procurement & Vendor Ops workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: ops_procurement
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

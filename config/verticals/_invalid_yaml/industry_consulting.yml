@@ -1,0 +1,19 @@
+id: industry_consulting
+name: industry_consulting
+title: "Consulting Ops"
+description:" "Delivery, knowledge, staffing, reporting.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- consulting
+default_queries:
+- project staffing pain
+- client reporting
+- knowledge reuse
+ingestion:
+  sources:
+  - name: reddit
+    query: industry consulting
+    limit: 80

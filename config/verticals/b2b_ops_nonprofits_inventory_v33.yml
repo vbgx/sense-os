@@ -1,0 +1,30 @@
+id: b2b_ops_nonprofits_inventory_v33
+name: b2b_ops_nonprofits_inventory_v33
+title: "Operations — Nonprofits — Inventory"
+description: "Operations workflows and pain points for Nonprofits (Inventory)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- nonprofits
+- inventory
+- warehouse
+default_queries:
+- Nonprofits standard operating procedure
+- standard operating procedure workflow Nonprofits
+- Nonprofits routing
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Nonprofits
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Nonprofits
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

@@ -1,0 +1,50 @@
+{
+  "id": "industry_retail",
+  "name": "industry_retail",
+  "title": "Retail",
+  "description:\" \"Brick-and-mortar retail operations": "inventory, POS, staffing, pricing and loss prevention.\"\"",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry",
+    "retail",
+    "b2b"
+  ],
+  "default_queries": [
+    "inventory management retail",
+    "pos integration",
+    "retail staff scheduling",
+    "shrink loss prevention",
+    "price optimization retail"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "retail inventory",
+        "limit": 80
+      }
+    ]
+  },
+  "persona": {
+    "title": "Store ops managers",
+    "pains": [
+      "stockouts and overstocks",
+      "labor scheduling chaos",
+      "shrink and theft"
+    ]
+  },
+  "keywords": {
+    "primary": [
+      "pos",
+      "inventory",
+      "staffing",
+      "shrink",
+      "pricing"
+    ],
+    "negative": [
+      "dropshipping",
+      "crypto"
+    ]
+  }
+}

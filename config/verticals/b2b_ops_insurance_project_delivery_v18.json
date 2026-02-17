@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_insurance_project_delivery_v18",
+  "name": "b2b_ops_insurance_project_delivery_v18",
+  "title": "Operations — Insurance — Project Delivery",
+  "description": "Operations workflows and pain points for Insurance (Project Delivery).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "insurance",
+    "delivery",
+    "projects"
+  ],
+  "default_queries": [
+    "Insurance standard operating procedure",
+    "standard operating procedure workflow Insurance",
+    "Insurance routing"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Insurance",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Insurance",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Insurance",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

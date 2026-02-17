@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_construction_returns_v12",
+  "name": "b2b_ops_construction_returns_v12",
+  "title": "Operations — Construction — Returns",
+  "description": "Operations workflows and pain points for Construction (Returns).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "construction",
+    "returns",
+    "reverse_logistics"
+  ],
+  "default_queries": [
+    "Construction SLA",
+    "SLA workflow Construction",
+    "Construction standard operating procedure"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Construction",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Construction",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Construction",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Construction",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

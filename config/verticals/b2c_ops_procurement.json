@@ -1,0 +1,48 @@
+{
+  "id": "b2c_ops_procurement",
+  "name": "b2c_ops_procurement",
+  "title": "B2C — Operations: Procurement",
+  "description": "B2C teams dealing with procurement workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "ops:procurement"
+  ],
+  "default_queries": [
+    "procurement",
+    "procurement workflow",
+    "procurement tooling",
+    "procurement automation",
+    "procurement pain points",
+    "procurement process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2c",
+    "function": "ops",
+    "subdomain": "procurement"
+  }
+}

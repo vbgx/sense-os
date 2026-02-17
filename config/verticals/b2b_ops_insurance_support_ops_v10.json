@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_insurance_support_ops_v10",
+  "name": "b2b_ops_insurance_support_ops_v10",
+  "title": "Operations — Insurance — Support Ops",
+  "description": "Operations workflows and pain points for Insurance (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "insurance",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "Insurance handoff",
+    "handoff workflow Insurance",
+    "Insurance SLA"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Insurance",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Insurance",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "Insurance",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

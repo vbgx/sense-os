@@ -1,0 +1,33 @@
+id: b2b_ops_media_inventory_v6
+name: b2b_ops_media_inventory_v6
+title: "Operations — Media — Inventory"
+description: "Operations workflows and pain points for Media (Inventory)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- media
+- inventory
+- warehouse
+default_queries:
+- Media handoff
+- handoff workflow Media
+- Media SLA
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Media
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Media
+    limit: 80
+  - name: indiehackers
+    query: Media
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

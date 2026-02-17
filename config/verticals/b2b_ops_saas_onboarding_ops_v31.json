@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_saas_onboarding_ops_v31",
+  "name": "b2b_ops_saas_onboarding_ops_v31",
+  "title": "Operations — SaaS — Onboarding Ops",
+  "description": "Operations workflows and pain points for SaaS (Onboarding Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "saas",
+    "onboarding",
+    "training"
+  ],
+  "default_queries": [
+    "SaaS SLA",
+    "SLA workflow SaaS",
+    "SaaS standard operating procedure"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "SaaS",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "SaaS",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

@@ -1,0 +1,43 @@
+{
+  "id": "sales_support",
+  "name": "sales_support",
+  "title": "Sales Support",
+  "description": "Proposals, pricing approvals, CPQ, handoffs.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "ops"
+  ],
+  "default_queries": [
+    "proposal workflow",
+    "pricing approvals slow",
+    "quote to cash pain",
+    "CPQ implementation"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "CPQ",
+        "limit": 80
+      },
+      {
+        "name": "reddit",
+        "query": "quote to cash",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "pricing",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "proposals",
+        "limit": 80
+      }
+    ]
+  }
+}

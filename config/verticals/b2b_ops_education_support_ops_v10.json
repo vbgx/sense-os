@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_education_support_ops_v10",
+  "name": "b2b_ops_education_support_ops_v10",
+  "title": "Operations — Education — Support Ops",
+  "description": "Operations workflows and pain points for Education (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "education",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "Education SLA",
+    "SLA workflow Education",
+    "Education standard operating procedure"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Education",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Education",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Education",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

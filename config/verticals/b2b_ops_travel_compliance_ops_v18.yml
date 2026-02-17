@@ -1,0 +1,33 @@
+id: b2b_ops_travel_compliance_ops_v18
+name: b2b_ops_travel_compliance_ops_v18
+title: "Operations — Travel — Compliance Ops"
+description: "Operations workflows and pain points for Travel (Compliance Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- travel
+- compliance
+- controls
+default_queries:
+- Travel routing
+- routing workflow Travel
+- Travel approvals
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: Travel
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Travel
+    limit: 80
+  - name: producthunt
+    query: Travel
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

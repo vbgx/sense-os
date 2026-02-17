@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_hospitality_billing_ops_v13",
+  "name": "b2b_ops_hospitality_billing_ops_v13",
+  "title": "Operations — Hospitality — Billing Ops",
+  "description": "Operations workflows and pain points for Hospitality (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "hospitality",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "Hospitality routing",
+    "routing workflow Hospitality",
+    "Hospitality approvals"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Hospitality",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Hospitality",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Hospitality",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Hospitality",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

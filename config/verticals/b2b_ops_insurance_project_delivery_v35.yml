@@ -1,0 +1,30 @@
+id: b2b_ops_insurance_project_delivery_v35
+name: b2b_ops_insurance_project_delivery_v35
+title: "Operations — Insurance — Project Delivery"
+description: "Operations workflows and pain points for Insurance (Project Delivery)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- insurance
+- delivery
+- projects
+default_queries:
+- Insurance approvals
+- approvals workflow Insurance
+- Insurance exceptions
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Insurance
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Insurance
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

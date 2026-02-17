@@ -1,0 +1,33 @@
+id: b2b_ops_manufacturing_documentation_v15
+name: b2b_ops_manufacturing_documentation_v15
+title: "Operations — Manufacturing — Documentation"
+description: "Operations workflows and pain points for Manufacturing (Documentation)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- manufacturing
+- docs
+- knowledge
+default_queries:
+- Manufacturing SLA
+- SLA workflow Manufacturing
+- Manufacturing standard operating procedure
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Manufacturing
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Manufacturing
+    limit: 80
+  - name: producthunt
+    query: Manufacturing
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

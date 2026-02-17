@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_construction_inventory_v38",
+  "name": "b2b_ops_construction_inventory_v38",
+  "title": "Operations — Construction — Inventory",
+  "description": "Operations workflows and pain points for Construction (Inventory).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "construction",
+    "inventory",
+    "warehouse"
+  ],
+  "default_queries": [
+    "Construction routing",
+    "routing workflow Construction",
+    "Construction approvals"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Construction",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Construction",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Construction",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

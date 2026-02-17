@@ -1,0 +1,19 @@
+id: industry_events
+name: industry_events
+title: "Events Industry"
+description:" "Ticketing ops, staffing, vendor ops.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- events
+default_queries:
+- event staffing pain
+- vendor coordination
+- ticketing workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: industry events
+    limit: 80

@@ -1,0 +1,32 @@
+{
+  "id": "dev_compute_cost",
+  "name": "dev_compute_cost",
+  "title": "Compute Cost Ops",
+  "description": "Cloud cost and efficiency.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "ops"
+  ],
+  "default_queries": [
+    "cloud cost spike",
+    "unused resources",
+    "cost allocation pain"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev compute cost",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev compute cost",
+        "limit": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "ecommerce_ops",
+  "name": "ecommerce_ops",
+  "title": "Ecommerce Ops",
+  "description": "Operators running ecommerce operations and logistics",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ecommerce",
+    "operations",
+    "logistics"
+  ],
+  "default_queries": [
+    "inventory sync",
+    "returns management",
+    "warehouse picking"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ecommerce operations",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "inventory",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

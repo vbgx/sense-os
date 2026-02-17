@@ -1,0 +1,33 @@
+id: b2b_ops_accounting_support_ops_v30
+name: b2b_ops_accounting_support_ops_v30
+title: "Operations — Accounting Firms — Support Ops"
+description: "Operations workflows and pain points for Accounting Firms (Support Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- accounting
+- support
+- tickets
+default_queries:
+- Accounting Firms handoff
+- handoff workflow Accounting Firms
+- Accounting Firms SLA
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Accounting Firms
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Accounting
+    limit: 80
+  - name: producthunt
+    query: Accounting
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

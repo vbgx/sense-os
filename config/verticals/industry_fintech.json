@@ -1,0 +1,49 @@
+{
+  "id": "industry_fintech",
+  "name": "industry_fintech",
+  "title": "B2B — Fintech",
+  "description": "Fintech operators and teams: recurring ops pain across tools, workflows, compliance, and reporting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "fintech",
+    "industry",
+    "ops"
+  ],
+  "default_queries": [
+    "KYC",
+    "KYC workflow",
+    "KYC tooling",
+    "KYC automation",
+    "KYC pain points",
+    "KYC process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2b",
+    "industry": "fintech",
+    "function_hint": "ops"
+  }
+}

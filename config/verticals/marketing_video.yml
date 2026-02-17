@@ -1,0 +1,18 @@
+id: marketing_video
+name: marketing_video
+title: "Video Marketing"
+description: "Editing workflows, repurposing, captions, publishing."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+default_queries:
+- editing workflow pain
+- repurposing pipeline
+- publishing cadence
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing video
+    limit: 80

@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_accounting_support_ops_v9",
+  "name": "b2b_ops_accounting_support_ops_v9",
+  "title": "Operations — Accounting Firms — Support Ops",
+  "description": "Operations workflows and pain points for Accounting Firms (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "accounting",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "Accounting Firms standard operating procedure",
+    "standard operating procedure workflow Accounting Firms",
+    "Accounting Firms routing"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Accounting Firms",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Accounting",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Accounting",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

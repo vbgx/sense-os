@@ -1,0 +1,32 @@
+{
+  "id": "ops_pmops",
+  "name": "ops_pmops",
+  "title": "Product Ops",
+  "description": "Product processes, launches, tooling.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "product"
+  ],
+  "default_queries": [
+    "product release checklist",
+    "roadmap hygiene",
+    "PRD workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops pmops",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "ops pmops",
+        "limit": 80
+      }
+    ]
+  }
+}

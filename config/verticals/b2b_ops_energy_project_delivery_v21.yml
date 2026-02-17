@@ -1,0 +1,33 @@
+id: b2b_ops_energy_project_delivery_v21
+name: b2b_ops_energy_project_delivery_v21
+title: "Operations — Energy — Project Delivery"
+description: "Operations workflows and pain points for Energy (Project Delivery)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- energy
+- delivery
+- projects
+default_queries:
+- Energy approvals
+- approvals workflow Energy
+- Energy exceptions
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Energy
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Energy
+    limit: 80
+  - name: producthunt
+    query: Energy
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

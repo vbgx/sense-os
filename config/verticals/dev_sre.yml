@@ -1,0 +1,22 @@
+id: dev_sre
+name: dev_sre
+title: "SRE"
+description: "Reliability, incidents, oncall."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+- ops
+default_queries:
+- oncall overload
+- incident response pain
+- error budget tracking
+ingestion:
+  sources:
+  - name: reddit
+    query: dev sre
+    limit: 80
+  - name: hackernews
+    query: dev sre
+    limit: 80

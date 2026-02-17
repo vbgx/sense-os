@@ -1,0 +1,33 @@
+id: b2b_ops_insurance_logistics_v10
+name: b2b_ops_insurance_logistics_v10
+title: "Operations — Insurance — Logistics"
+description: "Operations workflows and pain points for Insurance (Logistics)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- insurance
+- logistics
+- shipping
+default_queries:
+- Insurance handoff
+- handoff workflow Insurance
+- Insurance SLA
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Insurance
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Insurance
+    limit: 80
+  - name: hackernews
+    query: Insurance
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

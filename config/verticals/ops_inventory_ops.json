@@ -1,0 +1,27 @@
+{
+  "id": "ops_inventory_ops",
+  "name": "ops_inventory_ops",
+  "title": "Inventory Ops",
+  "description": "Stock, purchasing, backorders.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "ecommerce"
+  ],
+  "default_queries": [
+    "stockouts pain",
+    "reorder automation",
+    "backorder tracking"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops inventory ops",
+        "limit": 80
+      }
+    ]
+  }
+}

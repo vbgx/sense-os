@@ -1,0 +1,22 @@
+id: ops_access_reviews
+name: ops_access_reviews
+title: "Access Reviews & Provisioning"
+description: "Joiner/mover/leaver, reviews, entitlement drift."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- security
+default_queries:
+- access review pain
+- provisioning workflow
+- entitlement drift
+ingestion:
+  sources:
+  - name: reddit
+    query: ops access reviews
+    limit: 80
+  - name: hackernews
+    query: ops access reviews
+    limit: 80

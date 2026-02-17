@@ -1,0 +1,36 @@
+id: b2b_ops_ecommerce_inventory_v30
+name: b2b_ops_ecommerce_inventory_v30
+title: "Operations — E-commerce — Inventory"
+description: "Operations workflows and pain points for E-commerce (Inventory)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- ecommerce
+- inventory
+- warehouse
+default_queries:
+- E-commerce standard operating procedure
+- standard operating procedure workflow E-commerce
+- E-commerce routing
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: E-commerce
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: E-commerce
+    limit: 80
+  - name: hackernews
+    query: E-commerce
+    limit: 80
+  - name: indiehackers
+    query: E-commerce
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

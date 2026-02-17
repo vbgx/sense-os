@@ -1,0 +1,21 @@
+id: dev_code_review
+name: dev_code_review
+title: "Code Review"
+description: "PR hygiene, approval flow."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+default_queries:
+- code review bottleneck
+- PR size too big
+- review automation
+ingestion:
+  sources:
+  - name: reddit
+    query: dev code review
+    limit: 80
+  - name: indiehackers
+    query: dev code review
+    limit: 80

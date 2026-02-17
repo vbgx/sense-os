@@ -1,0 +1,33 @@
+id: b2b_ops_energy_billing_ops_v4
+name: b2b_ops_energy_billing_ops_v4
+title: "Operations — Energy — Billing Ops"
+description: "Operations workflows and pain points for Energy (Billing Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- energy
+- billing
+- payments
+default_queries:
+- Energy handoff
+- handoff workflow Energy
+- Energy SLA
+persona:
+  role: Ops Manager
+  segment: B2B
+  function: Operations
+  industry: Energy
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Energy
+    limit: 80
+  - name: indiehackers
+    query: Energy
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

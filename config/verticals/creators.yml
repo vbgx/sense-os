@@ -1,0 +1,24 @@
+id: creators
+name: creators
+title: "Creators"
+description: "Creators monetizing audiences and content"
+version: 1
+enabled: true
+priority: 70
+tags:
+- creator
+- b2c
+- content
+default_queries:
+- creators pain
+- Creators tools
+- Creators workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: creators
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

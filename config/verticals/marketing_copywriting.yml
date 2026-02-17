@@ -1,0 +1,18 @@
+id: marketing_copywriting
+name: marketing_copywriting
+title: "Copywriting Ops"
+description: "Briefs, variants, approvals, brand consistency."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+default_queries:
+- copy brief pain
+- revision loops
+- brand consistency
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing copywriting
+    limit: 80

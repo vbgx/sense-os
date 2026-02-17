@@ -1,0 +1,49 @@
+{
+  "id": "industry_travel",
+  "name": "industry_travel",
+  "title": "Travel",
+  "description:\" \"Travel businesses": "booking ops, itinerary changes, customer support, partner integrations and pricing.\"\"",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry",
+    "travel",
+    "b2b"
+  ],
+  "default_queries": [
+    "travel itinerary changes automation",
+    "booking reconciliation",
+    "airline disruption support",
+    "travel agency crm",
+    "rate parity monitoring"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "travel booking reconciliation",
+        "limit": 80
+      }
+    ]
+  },
+  "persona": {
+    "title": "Travel ops teams",
+    "pains": [
+      "disruptions causing support storms",
+      "manual reconciliation",
+      "vendor integrations breaking"
+    ]
+  },
+  "keywords": {
+    "primary": [
+      "itinerary",
+      "reconciliation",
+      "disruption",
+      "integrations",
+      "pricing"
+    ],
+    "negative": [
+      "crypto"
+    ]
+  }
+}

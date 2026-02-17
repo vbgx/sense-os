@@ -1,0 +1,33 @@
+id: b2b_ops_fintech_logistics_v28
+name: b2b_ops_fintech_logistics_v28
+title: "Operations — FinTech — Logistics"
+description: "Operations workflows and pain points for FinTech (Logistics)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- fintech
+- logistics
+- shipping
+default_queries:
+- FinTech SLA
+- SLA workflow FinTech
+- FinTech standard operating procedure
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: FinTech
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: FinTech
+    limit: 80
+  - name: producthunt
+    query: FinTech
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

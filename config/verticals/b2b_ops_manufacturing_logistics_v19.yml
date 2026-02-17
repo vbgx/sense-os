@@ -1,0 +1,33 @@
+id: b2b_ops_manufacturing_logistics_v19
+name: b2b_ops_manufacturing_logistics_v19
+title: "Operations — Manufacturing — Logistics"
+description: "Operations workflows and pain points for Manufacturing (Logistics)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- manufacturing
+- logistics
+- shipping
+default_queries:
+- Manufacturing handoff
+- handoff workflow Manufacturing
+- Manufacturing SLA
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Manufacturing
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Manufacturing
+    limit: 80
+  - name: indiehackers
+    query: Manufacturing
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

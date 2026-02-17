@@ -1,0 +1,27 @@
+id: industry_hr_staffing
+name: industry_hr_staffing
+title: "HR & Staffing"
+description:" "Recruiting, staffing agencies, onboarding, timesheets, compliance and payroll adjacency.""
+version: 1
+enabled: true
+tags: [industry, hr, staffing, b2b]
+default_queries:
+  - "candidate sourcing workflow"
+  - "timesheet approvals pain"
+  - "onboarding automation hr"
+  - "ats integration issues"
+  - "staffing scheduling"
+ingestion:
+  sources:
+    - name: reddit
+      query: "ats integration issues"
+      limit: 80
+persona:
+  title: "Recruiting ops"
+  pains:
+    - "manual scheduling and follow-ups"
+    - "ats data hygiene"
+    - "timesheets and payroll errors"
+keywords:
+  primary: ["ats", "onboarding", "timesheets", "scheduling", "compliance"]
+  negative: ["crypto"]

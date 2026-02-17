@@ -1,0 +1,27 @@
+{
+  "id": "ops_warehouse_ops",
+  "name": "ops_warehouse_ops",
+  "title": "Warehouse Ops",
+  "description": "Picking, packing, inventory accuracy, dock scheduling.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "warehouse"
+  ],
+  "default_queries": [
+    "picking errors",
+    "packing workflow",
+    "dock scheduling pain"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops warehouse ops",
+        "limit": 80
+      }
+    ]
+  }
+}

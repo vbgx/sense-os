@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_agencies_billing_ops_v22",
+  "name": "b2b_ops_agencies_billing_ops_v22",
+  "title": "Operations — Agencies — Billing Ops",
+  "description": "Operations workflows and pain points for Agencies (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "agencies",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "Agencies SLA",
+    "SLA workflow Agencies",
+    "Agencies standard operating procedure"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Agencies",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Agencies",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Agencies",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

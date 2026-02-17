@@ -1,7 +1,141 @@
-# Default vertical fixtures (V0)
-
+# Vertical index (industry pack)
 verticals:
-  - name: default
-  - name: saas_founders
-  - name: ecommerce_ops
-  - name: remote_ops
+  - id: industry_healthcare
+    file: industry_healthcare.yml
+    enabled: true
+    priority: 10
+    title: Healthcare
+    tags: [industry, healthcare]
+
+  - id: industry_fintech
+    file: industry_fintech.yml
+    enabled: true
+    priority: 20
+    title: Fintech
+    tags: [industry, fintech]
+
+  - id: industry_retail
+    file: industry_retail.yml
+    enabled: true
+    priority: 30
+    title: Retail
+    tags: [industry, retail]
+
+  - id: industry_ecommerce
+    file: industry_ecommerce.yml
+    enabled: true
+    priority: 40
+    title: Ecommerce
+    tags: [industry, ecommerce]
+
+  - id: industry_logistics
+    file: industry_logistics.yml
+    enabled: true
+    priority: 50
+    title: Logistics
+    tags: [industry, logistics]
+
+  - id: industry_construction
+    file: industry_construction.yml
+    enabled: true
+    priority: 60
+    title: Construction
+    tags: [industry, construction]
+
+  - id: industry_manufacturing
+    file: industry_manufacturing.yml
+    enabled: true
+    priority: 70
+    title: Manufacturing
+    tags: [industry, manufacturing]
+
+  - id: industry_hospitality
+    file: industry_hospitality.yml
+    enabled: true
+    priority: 80
+    title: Hospitality
+    tags: [industry, hospitality]
+
+  - id: industry_travel
+    file: industry_travel.yml
+    enabled: true
+    priority: 90
+    title: Travel
+    tags: [industry, travel]
+
+  - id: industry_real_estate
+    file: industry_real_estate.yml
+    enabled: true
+    priority: 100
+    title: Real Estate
+    tags: [industry, real_estate]
+
+  - id: industry_legal
+    file: industry_legal.yml
+    enabled: true
+    priority: 110
+    title: Legal
+    tags: [industry, legal]
+
+  - id: industry_insurance
+    file: industry_insurance.yml
+    enabled: true
+    priority: 120
+    title: Insurance
+    tags: [industry, insurance]
+
+  - id: industry_education
+    file: industry_education.yml
+    enabled: true
+    priority: 130
+    title: Education
+    tags: [industry, education]
+
+  - id: industry_energy
+    file: industry_energy.yml
+    enabled: true
+    priority: 140
+    title: Energy
+    tags: [industry, energy]
+
+  - id: industry_media
+    file: industry_media.yml
+    enabled: true
+    priority: 150
+    title: Media
+    tags: [industry, media]
+
+  - id: industry_nonprofits
+    file: industry_nonprofits.yml
+    enabled: true
+    priority: 160
+    title: Nonprofits
+    tags: [industry, nonprofits]
+
+  - id: industry_hr_staffing
+    file: industry_hr_staffing.yml
+    enabled: true
+    priority: 170
+    title: HR & Staffing
+    tags: [industry, hr]
+
+  - id: industry_it_services
+    file: industry_it_services.yml
+    enabled: true
+    priority: 180
+    title: IT Services
+    tags: [industry, it_services]
+
+  - id: industry_public_sector
+    file: industry_public_sector.yml
+    enabled: true
+    priority: 190
+    title: Public Sector
+    tags: [industry, public_sector]
+
+  - id: industry_agriculture
+    file: industry_agriculture.yml
+    enabled: true
+    priority: 200
+    title: Agriculture
+    tags: [industry, agriculture]

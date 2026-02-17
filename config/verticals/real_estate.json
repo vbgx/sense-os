@@ -1,0 +1,33 @@
+{
+  "id": "real_estate",
+  "name": "real_estate",
+  "title": "Real Estate",
+  "description": "Agents and property managers handling leads and ops",
+  "version": 1,
+  "enabled": true,
+  "priority": 80,
+  "tags": [
+    "b2c",
+    "sales"
+  ],
+  "default_queries": [
+    "real_estate pain",
+    "Real Estate tools",
+    "Real Estate workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "real_estate",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

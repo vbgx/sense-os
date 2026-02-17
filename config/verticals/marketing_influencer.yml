@@ -1,0 +1,18 @@
+id: marketing_influencer
+name: marketing_influencer
+title: "Influencer Marketing"
+description: "Tracking, payouts, content."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+default_queries:
+- creator outreach
+- influencer payout tracking
+- UGC approvals
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing influencer
+    limit: 80

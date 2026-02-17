@@ -1,6 +1,26 @@
+id: ecommerce_ops
 name: ecommerce_ops
-description: Ecommerce operators managing logistics and tooling
+title: "Ecommerce Ops"
+description: "Operators running ecommerce operations and logistics"
+version: 1
+enabled: true
+tags:
+- ecommerce
+- operations
+- logistics
 default_queries:
-  - "shopify problem"
-  - "inventory management issue"
-  - "order fulfillment automation"
+- inventory sync
+- returns management
+- warehouse picking
+ingestion:
+  sources:
+  - name: reddit
+    query: ecommerce operations
+    limit: 80
+  - name: producthunt
+    query: inventory
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

@@ -1,0 +1,23 @@
+id: devops
+name: devops
+title: "DevOps"
+description: "CI/CD, infra automation, reliability workflows"
+version: 1
+enabled: true
+priority: 210
+tags:
+- b2b
+- devops
+default_queries:
+- devops pain
+- DevOps tools
+- DevOps workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: devops
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

@@ -1,0 +1,36 @@
+id: b2b_ops_it_services_compliance_ops_v28
+name: b2b_ops_it_services_compliance_ops_v28
+title: "Operations — IT Services — Compliance Ops"
+description: "Operations workflows and pain points for IT Services (Compliance Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- it_services
+- compliance
+- controls
+default_queries:
+- IT Services handoff
+- handoff workflow IT Services
+- IT Services SLA
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: IT Services
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: IT
+    limit: 80
+  - name: hackernews
+    query: IT
+    limit: 80
+  - name: indiehackers
+    query: IT
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

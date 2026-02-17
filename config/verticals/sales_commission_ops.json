@@ -1,0 +1,27 @@
+{
+  "id": "sales_commission_ops",
+  "name": "sales_commission_ops",
+  "title": "Commission Ops",
+  "description": "Plan modeling, disputes, payroll handoff.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "finance"
+  ],
+  "default_queries": [
+    "commission disputes",
+    "plan modeling",
+    "payout workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "sales commission ops",
+        "limit": 80
+      }
+    ]
+  }
+}

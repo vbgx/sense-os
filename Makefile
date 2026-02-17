@@ -247,3 +247,6 @@ deprecated: ## Usage: make deprecated — Shows legacy scripts you should delete
 	@echo "  - tools/scripts/migrate_all_sql.sh"
 	@echo "  - tools/scripts/patch_makefile_migrate.py (legacy SQL)"
 	@echo "  - (archived legacy SQL)/* (do not use)"
+
+verticals-validate: ## Validate YAML in config/verticals
+	@python tools/scripts/validate_verticals_yaml.py

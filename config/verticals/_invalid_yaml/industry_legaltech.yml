@@ -1,0 +1,22 @@
+id: industry_legaltech
+name: industry_legaltech
+title: "LegalTech"
+description:" "Law firms workflows, case mgmt, docs, billing.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- legal
+default_queries:
+- case management pain
+- document automation
+- billing workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: industry legaltech
+    limit: 80
+  - name: hackernews
+    query: industry legaltech
+    limit: 80

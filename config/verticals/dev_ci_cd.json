@@ -1,0 +1,32 @@
+{
+  "id": "dev_ci_cd",
+  "name": "dev_ci_cd",
+  "title": "CI/CD Tooling",
+  "description": "Pipelines, flaky tests, caching, speed and reliability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "devops"
+  ],
+  "default_queries": [
+    "flaky pipeline pain",
+    "build caching",
+    "slow CI"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev ci cd",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev ci cd",
+        "limit": 80
+      }
+    ]
+  }
+}

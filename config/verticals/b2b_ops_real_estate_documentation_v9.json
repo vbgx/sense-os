@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_real_estate_documentation_v9",
+  "name": "b2b_ops_real_estate_documentation_v9",
+  "title": "Operations — Real Estate — Documentation",
+  "description": "Operations workflows and pain points for Real Estate (Documentation).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "real_estate",
+    "docs",
+    "knowledge"
+  ],
+  "default_queries": [
+    "Real Estate handoff",
+    "handoff workflow Real Estate",
+    "Real Estate SLA"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Real Estate",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Real",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

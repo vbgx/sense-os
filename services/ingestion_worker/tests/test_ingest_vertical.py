@@ -12,6 +12,7 @@ class DummyWriter:
 
 def test_ingest_vertical_returns_summary(monkeypatch):
     captured = {}
+    writer = DummyWriter()
 
     def fake_fetch_reddit_signals(
         *, vertical_id: str, vertical_db_id: int | None, taxonomy_version: str | None, query: str, limit: int
@@ -45,7 +46,7 @@ def test_ingest_vertical_returns_summary(monkeypatch):
         ]
 
     monkeypatch.setattr(ingest_module, "fetch_reddit_signals", fake_fetch_reddit_signals)
-    monkeypatch.setattr(ingest_module, "SignalsWriter", lambda: DummyWriter())
+    monkeypatch.setattr(ingest_module, "SignalsWriter", lambda: writer)
 
     result = ingest_module.ingest_vertical(
         {
@@ -65,4 +66,7 @@ def test_ingest_vertical_returns_summary(monkeypatch):
         "query": "saas",
         "limit": 10,
     }
+    assert writer.seen
+    assert all(signal.get("vertical_id") for signal in writer.seen)
+    assert all(signal.get("taxonomy_version") for signal in writer.seen)
     assert result == {"fetched": 2, "inserted": 2, "skipped": 1}

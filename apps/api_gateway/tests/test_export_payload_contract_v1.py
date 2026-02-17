@@ -29,6 +29,8 @@ def test_valid_export_payload_contract():
     payload = _valid_payload()
     model = VentureOSExportPayloadV1Schema.model_validate(payload)
     assert model.export_version == "ventureos_export_v1"
+    assert model.vertical_id == "industry_retail"
+    assert model.taxonomy_version == "2026-02-17"
     assert len(model.validation_plan) == 3
 
 

@@ -1,12 +1,13 @@
-from db.repos import verticals as vertical_repo
-
-
-def test_verticals_list(client, db_session):
-    vertical_repo.create(db_session, "alpha")
-    vertical_repo.create(db_session, "beta")
-
+def test_verticals_list_includes_vic_fields(client):
     resp = client.get("/verticals")
     assert resp.status_code == 200
     data = resp.json()
-    names = {v["name"] for v in data}
-    assert {"alpha", "beta"}.issubset(names)
+    assert "items" in data
+    assert isinstance(data["items"], list)
+    assert data["items"]
+
+    sample = data["items"][0]
+    assert "meta" in sample
+    assert "tier" in sample
+    assert "taxonomy_version" in sample
+    assert isinstance(sample["taxonomy_version"], str)

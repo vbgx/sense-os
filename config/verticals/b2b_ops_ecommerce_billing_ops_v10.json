@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_ecommerce_billing_ops_v10",
+  "name": "b2b_ops_ecommerce_billing_ops_v10",
+  "title": "Operations — E-commerce — Billing Ops",
+  "description": "Operations workflows and pain points for E-commerce (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "ecommerce",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "E-commerce standard operating procedure",
+    "standard operating procedure workflow E-commerce",
+    "E-commerce routing"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "E-commerce",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "E-commerce",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "E-commerce",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

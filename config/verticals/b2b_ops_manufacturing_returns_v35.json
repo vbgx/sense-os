@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_manufacturing_returns_v35",
+  "name": "b2b_ops_manufacturing_returns_v35",
+  "title": "Operations — Manufacturing — Returns",
+  "description": "Operations workflows and pain points for Manufacturing (Returns).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "manufacturing",
+    "returns",
+    "reverse_logistics"
+  ],
+  "default_queries": [
+    "Manufacturing approvals",
+    "approvals workflow Manufacturing",
+    "Manufacturing exceptions"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Manufacturing",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Manufacturing",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Manufacturing",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Manufacturing",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

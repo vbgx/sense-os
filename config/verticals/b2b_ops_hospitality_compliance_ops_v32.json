@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_hospitality_compliance_ops_v32",
+  "name": "b2b_ops_hospitality_compliance_ops_v32",
+  "title": "Operations — Hospitality — Compliance Ops",
+  "description": "Operations workflows and pain points for Hospitality (Compliance Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "hospitality",
+    "compliance",
+    "controls"
+  ],
+  "default_queries": [
+    "Hospitality approvals",
+    "approvals workflow Hospitality",
+    "Hospitality exceptions"
+  ],
+  "persona": {
+    "role": "Operations Analyst",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Hospitality",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Hospitality",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Hospitality",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

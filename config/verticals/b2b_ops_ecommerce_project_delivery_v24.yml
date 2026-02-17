@@ -1,0 +1,33 @@
+id: b2b_ops_ecommerce_project_delivery_v24
+name: b2b_ops_ecommerce_project_delivery_v24
+title: "Operations — E-commerce — Project Delivery"
+description: "Operations workflows and pain points for E-commerce (Project Delivery)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- ecommerce
+- delivery
+- projects
+default_queries:
+- E-commerce routing
+- routing workflow E-commerce
+- E-commerce approvals
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: E-commerce
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: E-commerce
+    limit: 80
+  - name: producthunt
+    query: E-commerce
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

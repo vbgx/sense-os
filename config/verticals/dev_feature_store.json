@@ -1,0 +1,32 @@
+{
+  "id": "dev_feature_store",
+  "name": "dev_feature_store",
+  "title": "Feature Stores",
+  "description": "Features, serving, governance.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "ml"
+  ],
+  "default_queries": [
+    "feature definition drift",
+    "serving latency",
+    "feature governance"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev feature store",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev feature store",
+        "limit": 80
+      }
+    ]
+  }
+}

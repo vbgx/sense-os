@@ -1,0 +1,18 @@
+id: sales_forecasting
+name: sales_forecasting
+title: "Forecasting"
+description: "Forecast accuracy, rollups."
+version: 1
+enabled: true
+tags:
+- b2b
+- sales
+default_queries:
+- forecast accuracy
+- commit calls
+- pipeline coverage
+ingestion:
+  sources:
+  - name: reddit
+    query: sales forecasting
+    limit: 80

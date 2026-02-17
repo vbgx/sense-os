@@ -1,0 +1,32 @@
+{
+  "id": "dev_mlops",
+  "name": "dev_mlops",
+  "title": "MLOps",
+  "description": "Model deploys, monitoring, drift.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "ml"
+  ],
+  "default_queries": [
+    "model drift monitoring",
+    "ML deployment pain",
+    "feature store issues"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev mlops",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev mlops",
+        "limit": 80
+      }
+    ]
+  }
+}

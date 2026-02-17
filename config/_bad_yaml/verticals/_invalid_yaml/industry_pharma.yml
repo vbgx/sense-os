@@ -1,0 +1,19 @@
+id: industry_pharma
+name: industry_pharma
+title: "Pharma Ops"
+description:" "Regulatory docs, batch tracking, QA workflows.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- pharma
+default_queries:
+- batch traceability
+- qa approvals
+- regulatory documentation pain
+ingestion:
+  sources:
+  - name: reddit
+    query: industry pharma
+    limit: 80

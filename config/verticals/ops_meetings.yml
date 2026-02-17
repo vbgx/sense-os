@@ -1,0 +1,21 @@
+id: ops_meetings
+name: ops_meetings
+title: "Meetings Ops"
+description: "Meeting overload, notes, actions."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+default_queries:
+- meeting notes automation
+- action items tracking
+- async status
+ingestion:
+  sources:
+  - name: reddit
+    query: ops meetings
+    limit: 80
+  - name: indiehackers
+    query: ops meetings
+    limit: 80

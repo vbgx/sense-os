@@ -1,0 +1,26 @@
+{
+  "id": "sales_call_coaching",
+  "name": "sales_call_coaching",
+  "title": "Call Coaching",
+  "description": "Feedback loops, talk tracks, scoring, enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales"
+  ],
+  "default_queries": [
+    "call feedback pain",
+    "talk track adherence",
+    "coaching workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "sales call coaching",
+        "limit": 80
+      }
+    ]
+  }
+}

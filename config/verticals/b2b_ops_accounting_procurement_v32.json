@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_accounting_procurement_v32",
+  "name": "b2b_ops_accounting_procurement_v32",
+  "title": "Operations — Accounting Firms — Procurement",
+  "description": "Operations workflows and pain points for Accounting Firms (Procurement).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "accounting",
+    "procurement",
+    "vendors"
+  ],
+  "default_queries": [
+    "Accounting Firms handoff",
+    "handoff workflow Accounting Firms",
+    "Accounting Firms SLA"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Accounting Firms",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Accounting",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "Accounting",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

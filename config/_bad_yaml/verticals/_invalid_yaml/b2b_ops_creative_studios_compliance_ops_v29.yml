@@ -1,0 +1,37 @@
+id: b2b_ops_creative_studios_compliance_ops_v29
+name: b2b_ops_creative_studios_compliance_ops_v29
+title: "Operations — Creative Studios — Compliance Ops"
+description: "Operations workflows and pain points for Creative Studios (Compliance"
+  Ops).
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- creative_studios
+- compliance
+- controls
+default_queries:
+- Creative Studios routing
+- routing workflow Creative Studios
+- Creative Studios approvals
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Creative Studios
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Creative
+    limit: 80
+  - name: hackernews
+    query: Creative
+    limit: 80
+  - name: indiehackers
+    query: Creative
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

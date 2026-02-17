@@ -1,0 +1,26 @@
+{
+  "id": "marketing_ugc",
+  "name": "marketing_ugc",
+  "title": "UGC Operations",
+  "description": "Collecting, approvals, rights management, reuse.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing"
+  ],
+  "default_queries": [
+    "ugc collection pain",
+    "rights approvals",
+    "asset reuse workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "marketing ugc",
+        "limit": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "sales_contracting",
+  "name": "sales_contracting",
+  "title": "Sales Contracting",
+  "description": "Redlines, templates, signatures, clause management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "legal"
+  ],
+  "default_queries": [
+    "contract redline pain",
+    "template drift",
+    "clause management"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "sales contracting",
+        "limit": 80
+      }
+    ]
+  }
+}

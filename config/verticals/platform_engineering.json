@@ -1,0 +1,43 @@
+{
+  "id": "platform_engineering",
+  "name": "platform_engineering",
+  "title": "Platform Engineering",
+  "description": "DevEx, internal tools, CI/CD, golden paths.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "engineering"
+  ],
+  "default_queries": [
+    "developer experience pain",
+    "CI is flaky",
+    "slow build pipeline",
+    "internal tooling backlog"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "platform engineering",
+        "limit": 80
+      },
+      {
+        "name": "reddit",
+        "query": "CI flaky",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "developer productivity",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "devtools",
+        "limit": 80
+      }
+    ]
+  }
+}

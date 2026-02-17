@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_travel_billing_ops_v30",
+  "name": "b2b_ops_travel_billing_ops_v30",
+  "title": "Operations — Travel — Billing Ops",
+  "description": "Operations workflows and pain points for Travel (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "travel",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "Travel SLA",
+    "SLA workflow Travel",
+    "Travel standard operating procedure"
+  ],
+  "persona": {
+    "role": "Operations Analyst",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Travel",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Travel",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

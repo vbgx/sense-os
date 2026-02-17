@@ -1,0 +1,34 @@
+{
+  "id": "marketing_content",
+  "name": "marketing_content",
+  "title": "Content Marketing",
+  "description": "SEO, editorial planning, repurposing systems",
+  "version": 1,
+  "enabled": true,
+  "priority": 300,
+  "tags": [
+    "b2b",
+    "marketing",
+    "content"
+  ],
+  "default_queries": [
+    "marketing_content pain",
+    "Content Marketing tools",
+    "Content Marketing workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "marketing_content",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

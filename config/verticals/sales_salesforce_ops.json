@@ -1,0 +1,27 @@
+{
+  "id": "sales_salesforce_ops",
+  "name": "sales_salesforce_ops",
+  "title": "Salesforce Ops",
+  "description": "Automation, integrations, reporting, governance.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "ops"
+  ],
+  "default_queries": [
+    "salesforce automation pain",
+    "integration drift",
+    "reporting accuracy"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "sales salesforce ops",
+        "limit": 80
+      }
+    ]
+  }
+}

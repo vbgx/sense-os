@@ -1,0 +1,33 @@
+{
+  "id": "ecommerce",
+  "name": "ecommerce",
+  "title": "DTC & Ecommerce",
+  "description": "Brands selling online with Shopify-like stacks",
+  "version": 1,
+  "enabled": true,
+  "priority": 40,
+  "tags": [
+    "b2c",
+    "ecommerce"
+  ],
+  "default_queries": [
+    "ecommerce pain",
+    "DTC & Ecommerce tools",
+    "DTC & Ecommerce workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ecommerce",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

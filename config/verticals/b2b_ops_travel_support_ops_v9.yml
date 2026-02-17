@@ -1,0 +1,33 @@
+id: b2b_ops_travel_support_ops_v9
+name: b2b_ops_travel_support_ops_v9
+title: "Operations — Travel — Support Ops"
+description: "Operations workflows and pain points for Travel (Support Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- travel
+- support
+- tickets
+default_queries:
+- Travel handoff
+- handoff workflow Travel
+- Travel SLA
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: Travel
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Travel
+    limit: 80
+  - name: indiehackers
+    query: Travel
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

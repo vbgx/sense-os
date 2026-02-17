@@ -7,11 +7,17 @@ from api_gateway.schemas.build_signal import BuildSignalOut
 
 class TopPainOut(BaseModel):
     cluster_id: str
+    vertical_id: Optional[str] = None
+
     cluster_summary: Optional[str]
+
     exploitability_score: int
     exploitability_tier: str
     severity_score: int
+
     breakout_score: int
+    saturation_score: int
+
     opportunity_window_status: str
     confidence_score: int
     dominant_persona: str

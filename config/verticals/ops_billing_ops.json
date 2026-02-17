@@ -1,0 +1,32 @@
+{
+  "id": "ops_billing_ops",
+  "name": "ops_billing_ops",
+  "title": "Billing Ops",
+  "description": "Billing support, proration, disputes.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "finance"
+  ],
+  "default_queries": [
+    "proration confusion",
+    "billing disputes",
+    "invoice corrections"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops billing ops",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "ops billing ops",
+        "limit": 80
+      }
+    ]
+  }
+}

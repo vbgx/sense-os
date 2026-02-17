@@ -1,0 +1,30 @@
+id: b2b_ops_accounting_project_delivery_v29
+name: b2b_ops_accounting_project_delivery_v29
+title: "Operations — Accounting Firms — Project Delivery"
+description: "Operations workflows and pain points for Accounting Firms (Project Delivery)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- accounting
+- delivery
+- projects
+default_queries:
+- Accounting Firms routing
+- routing workflow Accounting Firms
+- Accounting Firms approvals
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Accounting Firms
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Accounting
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

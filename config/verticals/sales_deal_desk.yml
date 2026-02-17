@@ -1,0 +1,19 @@
+id: sales_deal_desk
+name: sales_deal_desk
+title: "Deal Desk"
+description: "Approvals, pricing exceptions, terms negotiation."
+version: 1
+enabled: true
+tags:
+- b2b
+- sales
+- finance
+default_queries:
+- deal approvals pain
+- pricing exception workflow
+- terms negotiation
+ingestion:
+  sources:
+  - name: reddit
+    query: sales deal desk
+    limit: 80

@@ -1,0 +1,36 @@
+id: b2b_ops_agencies_project_delivery_v5
+name: b2b_ops_agencies_project_delivery_v5
+title: "Operations — Agencies — Project Delivery"
+description: "Operations workflows and pain points for Agencies (Project Delivery)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- agencies
+- delivery
+- projects
+default_queries:
+- Agencies standard operating procedure
+- standard operating procedure workflow Agencies
+- Agencies routing
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Agencies
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Agencies
+    limit: 80
+  - name: hackernews
+    query: Agencies
+    limit: 80
+  - name: indiehackers
+    query: Agencies
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

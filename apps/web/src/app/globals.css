@@ -1,0 +1,220 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================
+   THEME TOKENS — GRAFANA-STYLE DARK
+   ============================================ */
+
+:root {
+  --bg: #0f1419;
+  --panel: #161c22;
+  --panel-2: #1b222a;
+  --border: #2a323c;
+
+  --text-primary: #e6edf3;
+  --text-secondary: #9aa4af;
+  --text-muted: #6b7683;
+
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.15);
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* Scrollbar (minimal, subtle) */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d3742;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.dashboard-layout {
+  @apply min-h-screen flex;
+}
+
+.sidebar {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+}
+
+.topbar {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.content-area {
+  background: var(--bg);
+}
+
+/* ============================================
+   CARDS / PANELS
+   ============================================ */
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.panel-soft {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.kpi-card {
+  @apply p-4;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.kpi-value {
+  @apply text-2xl font-semibold;
+}
+
+.kpi-label {
+  @apply text-xs uppercase tracking-wide;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.table-container {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.table-header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.table-row {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s ease;
+}
+
+.table-row:hover {
+  background: var(--panel-2);
+}
+
+.table-cell {
+  @apply px-4 py-2 text-sm;
+}
+
+.table-muted {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   BADGES / STATUS
+   ============================================ */
+
+.badge {
+  @apply px-2 py-1 text-xs font-medium rounded;
+}
+
+.badge-success {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.badge-accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ============================================
+   DRAWER
+   ============================================ */
+
+.inspect-drawer {
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+}
+
+/* ============================================
+   CHART STYLING
+   ============================================ */
+
+.chart-container {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  background-color: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.section-title {
+  @apply text-sm font-semibold uppercase tracking-wide;
+  color: var(--text-muted);
+}
+
+.page-title {
+  @apply text-xl font-semibold;
+}

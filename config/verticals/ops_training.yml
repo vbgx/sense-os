@@ -1,0 +1,18 @@
+id: ops_training
+name: ops_training
+title: "Training Ops"
+description: "Enablement, LMS pains, content."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+default_queries:
+- employee training tracking
+- LMS pain
+- onboarding training
+ingestion:
+  sources:
+  - name: reddit
+    query: ops training
+    limit: 80

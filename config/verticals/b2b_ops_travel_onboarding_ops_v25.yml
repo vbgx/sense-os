@@ -1,0 +1,33 @@
+id: b2b_ops_travel_onboarding_ops_v25
+name: b2b_ops_travel_onboarding_ops_v25
+title: "Operations — Travel — Onboarding Ops"
+description: "Operations workflows and pain points for Travel (Onboarding Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- travel
+- onboarding
+- training
+default_queries:
+- Travel approvals
+- approvals workflow Travel
+- Travel exceptions
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Travel
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Travel
+    limit: 80
+  - name: hackernews
+    query: Travel
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

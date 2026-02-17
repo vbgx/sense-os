@@ -7,7 +7,7 @@ Defines schema, migrations, and connectivity for Postgres and test databases.
 1. Alembic migrations (single source of truth):
 `tools/scripts/migrate.sh`
 2. Legacy SQL migrations (deprecated):
-`tools/legacy_sql/`
+`docs/archive/legacy_sql/`
 
 ## Connection Settings
 1. `POSTGRES_DSN` or `DATABASE_URL` for runtime.

@@ -1,0 +1,26 @@
+{
+  "id": "b2c_music_practice",
+  "name": "b2c_music_practice",
+  "title": "Music Practice (B2C)",
+  "description": "Routines, drills, feedback loops, motivation.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "education"
+  ],
+  "default_queries": [
+    "music practice routine",
+    "drills planning",
+    "progress tracking"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c music practice",
+        "limit": 80
+      }
+    ]
+  }
+}

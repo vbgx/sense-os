@@ -1,0 +1,22 @@
+id: industry_fintech_ops
+name: industry_fintech_ops
+title: "FinTech Ops"
+description:" "Reconciliation, risk, reporting, disputes.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- fintech
+default_queries:
+- reconciliation pain
+- chargeback workflow
+- risk ops automation
+ingestion:
+  sources:
+  - name: reddit
+    query: industry fintech ops
+    limit: 80
+  - name: hackernews
+    query: industry fintech ops
+    limit: 80

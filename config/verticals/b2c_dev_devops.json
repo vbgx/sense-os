@@ -1,0 +1,48 @@
+{
+  "id": "b2c_dev_devops",
+  "name": "b2c_dev_devops",
+  "title": "B2C — Engineering: DevOps",
+  "description": "B2C teams dealing with devops workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "dev:devops"
+  ],
+  "default_queries": [
+    "CI/CD",
+    "CI/CD workflow",
+    "CI/CD tooling",
+    "CI/CD automation",
+    "CI/CD pain points",
+    "CI/CD process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2c",
+    "function": "dev",
+    "subdomain": "devops"
+  }
+}

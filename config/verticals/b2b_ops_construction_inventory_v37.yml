@@ -1,0 +1,36 @@
+id: b2b_ops_construction_inventory_v37
+name: b2b_ops_construction_inventory_v37
+title: "Operations — Construction — Inventory"
+description: "Operations workflows and pain points for Construction (Inventory)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- construction
+- inventory
+- warehouse
+default_queries:
+- Construction SLA
+- SLA workflow Construction
+- Construction standard operating procedure
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Construction
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Construction
+    limit: 80
+  - name: hackernews
+    query: Construction
+    limit: 80
+  - name: indiehackers
+    query: Construction
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

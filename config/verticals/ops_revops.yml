@@ -1,0 +1,24 @@
+id: ops_revops
+name: ops_revops
+title: "RevOps"
+description: "CRM hygiene, pipeline ops, attribution plumbing"
+version: 1
+enabled: true
+priority: 180
+tags:
+- b2b
+- ops
+- sales
+default_queries:
+- ops_revops pain
+- RevOps tools
+- RevOps workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: ops_revops
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

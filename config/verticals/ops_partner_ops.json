@@ -1,0 +1,27 @@
+{
+  "id": "ops_partner_ops",
+  "name": "ops_partner_ops",
+  "title": "Partner Ops",
+  "description": "Partner onboarding, portals, payouts.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "partners"
+  ],
+  "default_queries": [
+    "partner onboarding flow",
+    "payout reconciliation",
+    "partner reporting"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops partner ops",
+        "limit": 80
+      }
+    ]
+  }
+}

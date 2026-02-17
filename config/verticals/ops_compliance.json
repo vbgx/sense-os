@@ -1,0 +1,32 @@
+{
+  "id": "ops_compliance",
+  "name": "ops_compliance",
+  "title": "Compliance Ops",
+  "description": "Audits, evidence collection, controls.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "compliance"
+  ],
+  "default_queries": [
+    "SOC2 evidence collection",
+    "audit prep pain",
+    "controls automation"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops compliance",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "ops compliance",
+        "limit": 80
+      }
+    ]
+  }
+}

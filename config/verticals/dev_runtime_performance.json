@@ -1,0 +1,32 @@
+{
+  "id": "dev_runtime_performance",
+  "name": "dev_runtime_performance",
+  "title": "Runtime Performance",
+  "description": "Profiling, memory leaks, latency budgets, regressions.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "perf"
+  ],
+  "default_queries": [
+    "perf regression",
+    "memory leak detection",
+    "latency budget"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev runtime performance",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev runtime performance",
+        "limit": 80
+      }
+    ]
+  }
+}

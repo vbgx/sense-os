@@ -1,0 +1,19 @@
+id: b2b_remote_ops
+name: b2b_remote_ops
+title: "Remote Ops"
+description: "Async work, tooling, rituals."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- remote
+default_queries:
+- async status updates
+- meeting overload
+- remote onboarding
+ingestion:
+  sources:
+  - name: reddit
+    query: b2b remote ops
+    limit: 80

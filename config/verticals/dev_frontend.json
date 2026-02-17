@@ -1,0 +1,32 @@
+{
+  "id": "dev_frontend",
+  "name": "dev_frontend",
+  "title": "Frontend Engineering",
+  "description": "UI, build tooling, DX.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "engineering"
+  ],
+  "default_queries": [
+    "build toolchain pain",
+    "UI regression",
+    "type safety friction"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev frontend",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "dev frontend",
+        "limit": 80
+      }
+    ]
+  }
+}

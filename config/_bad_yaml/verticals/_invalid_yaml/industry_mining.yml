@@ -1,0 +1,19 @@
+id: industry_mining
+name: industry_mining
+title: "Mining Ops"
+description:" "Safety, maintenance, logistics, reporting.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- mining
+default_queries:
+- safety reporting pain
+- maintenance planning
+- logistics coordination
+ingestion:
+  sources:
+  - name: reddit
+    query: industry mining
+    limit: 80

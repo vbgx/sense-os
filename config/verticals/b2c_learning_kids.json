@@ -1,0 +1,26 @@
+{
+  "id": "b2c_learning_kids",
+  "name": "b2c_learning_kids",
+  "title": "Learning for Kids (B2C)",
+  "description": "Practice, engagement, motivation.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "education"
+  ],
+  "default_queries": [
+    "kids practice motivation",
+    "learning routines",
+    "progress tracking"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c learning kids",
+        "limit": 80
+      }
+    ]
+  }
+}

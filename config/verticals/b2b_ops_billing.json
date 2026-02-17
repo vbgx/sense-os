@@ -1,0 +1,48 @@
+{
+  "id": "b2b_ops_billing",
+  "name": "b2b_ops_billing",
+  "title": "B2B — Operations: Billing",
+  "description": "B2B teams dealing with billing workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "ops:billing"
+  ],
+  "default_queries": [
+    "billing",
+    "billing workflow",
+    "billing tooling",
+    "billing automation",
+    "billing pain points",
+    "billing process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2b",
+    "function": "ops",
+    "subdomain": "billing"
+  }
+}

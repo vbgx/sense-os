@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_nonprofits_billing_ops_v24",
+  "name": "b2b_ops_nonprofits_billing_ops_v24",
+  "title": "Operations — Nonprofits — Billing Ops",
+  "description": "Operations workflows and pain points for Nonprofits (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "nonprofits",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "Nonprofits standard operating procedure",
+    "standard operating procedure workflow Nonprofits",
+    "Nonprofits routing"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Nonprofits",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Nonprofits",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Nonprofits",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

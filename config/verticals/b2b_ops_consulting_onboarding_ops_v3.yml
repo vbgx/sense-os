@@ -1,0 +1,33 @@
+id: b2b_ops_consulting_onboarding_ops_v3
+name: b2b_ops_consulting_onboarding_ops_v3
+title: "Operations — Consulting — Onboarding Ops"
+description: "Operations workflows and pain points for Consulting (Onboarding Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- consulting
+- onboarding
+- training
+default_queries:
+- Consulting exceptions
+- exceptions workflow Consulting
+- Consulting handoff
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Consulting
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Consulting
+    limit: 80
+  - name: producthunt
+    query: Consulting
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

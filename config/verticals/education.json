@@ -1,0 +1,33 @@
+{
+  "id": "education",
+  "name": "education",
+  "title": "Education",
+  "description": "Teachers and course creators building learning products",
+  "version": 1,
+  "enabled": true,
+  "priority": 100,
+  "tags": [
+    "b2c",
+    "edu"
+  ],
+  "default_queries": [
+    "education pain",
+    "Education tools",
+    "Education workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "education",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_construction_documentation_v30",
+  "name": "b2b_ops_construction_documentation_v30",
+  "title": "Operations — Construction — Documentation",
+  "description": "Operations workflows and pain points for Construction (Documentation).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "construction",
+    "docs",
+    "knowledge"
+  ],
+  "default_queries": [
+    "Construction handoff",
+    "handoff workflow Construction",
+    "Construction SLA"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Construction",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Construction",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "Construction",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

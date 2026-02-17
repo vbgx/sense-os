@@ -1,0 +1,19 @@
+id: b2b_contract_lifecycle
+name: b2b_contract_lifecycle
+title: "Contract Lifecycle"
+description: "Templates, obligations, renewals, clause search."
+version: 1
+enabled: true
+tags:
+- b2b
+- legal
+- ops
+default_queries:
+- contract obligations
+- renewal tracking
+- clause search pain
+ingestion:
+  sources:
+  - name: reddit
+    query: b2b contract lifecycle
+    limit: 80

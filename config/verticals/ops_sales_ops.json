@@ -1,0 +1,27 @@
+{
+  "id": "ops_sales_ops",
+  "name": "ops_sales_ops",
+  "title": "Sales Ops",
+  "description": "Quotes, approvals, handoffs, CPQ.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "sales"
+  ],
+  "default_queries": [
+    "quote to cash pain",
+    "pricing approvals slow",
+    "CPQ issues"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops sales ops",
+        "limit": 80
+      }
+    ]
+  }
+}

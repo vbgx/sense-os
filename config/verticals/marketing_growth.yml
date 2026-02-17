@@ -1,0 +1,22 @@
+id: marketing_growth
+name: marketing_growth
+title: "Growth Marketing"
+description: "Experiments, funnels, conversion."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+- growth
+default_queries:
+- conversion rate pain
+- experiment tracking
+- landing page workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing growth
+    limit: 80
+  - name: indiehackers
+    query: marketing growth
+    limit: 80

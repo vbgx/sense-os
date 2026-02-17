@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_energy_onboarding_ops_v2",
+  "name": "b2b_ops_energy_onboarding_ops_v2",
+  "title": "Operations — Energy — Onboarding Ops",
+  "description": "Operations workflows and pain points for Energy (Onboarding Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "energy",
+    "onboarding",
+    "training"
+  ],
+  "default_queries": [
+    "Energy handoff",
+    "handoff workflow Energy",
+    "Energy SLA"
+  ],
+  "persona": {
+    "role": "Operations Analyst",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Energy",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Energy",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

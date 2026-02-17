@@ -1,0 +1,21 @@
+id: b2b_identity_access
+name: b2b_identity_access
+title: "Identity & Access (B2B)"
+description: "SSO, provisioning, entitlement management."
+version: 1
+enabled: true
+tags:
+- b2b
+- security
+default_queries:
+- it provisioning pain
+- sso rollout
+- entitlement management
+ingestion:
+  sources:
+  - name: reddit
+    query: b2b identity access
+    limit: 80
+  - name: hackernews
+    query: b2b identity access
+    limit: 80

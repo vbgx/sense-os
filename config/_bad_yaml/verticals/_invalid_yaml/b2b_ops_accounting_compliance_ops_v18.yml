@@ -1,0 +1,31 @@
+id: b2b_ops_accounting_compliance_ops_v18
+name: b2b_ops_accounting_compliance_ops_v18
+title: "Operations — Accounting Firms — Compliance Ops"
+description: "Operations workflows and pain points for Accounting Firms (Compliance"
+  Ops).
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- accounting
+- compliance
+- controls
+default_queries:
+- Accounting Firms routing
+- routing workflow Accounting Firms
+- Accounting Firms approvals
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: Accounting Firms
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Accounting
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

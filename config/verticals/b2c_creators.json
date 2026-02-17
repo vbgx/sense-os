@@ -1,0 +1,31 @@
+{
+  "id": "b2c_creators",
+  "name": "b2c_creators",
+  "title": "Creators (B2C)",
+  "description": "Content pipeline, scheduling, repurpose.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "creator"
+  ],
+  "default_queries": [
+    "content scheduling pain",
+    "repurposing workflow",
+    "creator analytics"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c creators",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "b2c creators",
+        "limit": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "marketing_paid_social",
+  "name": "marketing_paid_social",
+  "title": "Paid Social",
+  "description": "Creative testing, attribution, ROAS volatility.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "paid"
+  ],
+  "default_queries": [
+    "creative testing workflow",
+    "ROAS dropped suddenly",
+    "attribution iOS changes",
+    "ad account banned"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "facebook ads ROAS",
+        "limit": 80
+      },
+      {
+        "name": "reddit",
+        "query": "creative testing",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "adtech",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "paid ads",
+        "limit": 80
+      }
+    ]
+  }
+}

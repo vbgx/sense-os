@@ -1,0 +1,17 @@
+{
+  "cluster_id": "c_demo_001",
+  "cluster_summary": "Teams struggle to keep SaaS spend under control across multiple tools",
+  "exploitability_tier": "A",
+  "opportunity_window_status": "underserved",
+  "exploitability_score": 4.2,
+  "severity_score": 4.5,
+  "recurrence_score": 4.1,
+  "monetizability_score": 3.7,
+  "breakout_score": 3.8,
+  "confidence_score": 0.72,
+  "key_phrases": ["SaaS spend", "cost control", "vendor sprawl"],
+  "representative_signals": [
+    { "id": 101, "text": "Our SaaS spend is exploding and no one owns it." },
+    { "id": 102, "text": "We need a simple way to track licenses across teams." }
+  ]
+}

@@ -1,5 +1,7 @@
-import { redirect } from "next/navigation";
+"use client";
 
-export default function Home() {
-  redirect("/opportunity");
+import OverviewPage from "./(dashboard)/overview/page";
+
+export default function Page() {
+  return <OverviewPage />;
 }

@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_ecommerce_logistics_v25",
+  "name": "b2b_ops_ecommerce_logistics_v25",
+  "title": "Operations — E-commerce — Logistics",
+  "description": "Operations workflows and pain points for E-commerce (Logistics).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "ecommerce",
+    "logistics",
+    "shipping"
+  ],
+  "default_queries": [
+    "E-commerce routing",
+    "routing workflow E-commerce",
+    "E-commerce approvals"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "E-commerce",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "E-commerce",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "E-commerce",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

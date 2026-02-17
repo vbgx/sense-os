@@ -1,0 +1,21 @@
+id: dev_testing
+name: dev_testing
+title: "QA & Testing"
+description: "Test flakiness, coverage, e2e."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+default_queries:
+- flake tests
+- e2e maintenance
+- test data management
+ingestion:
+  sources:
+  - name: reddit
+    query: dev testing
+    limit: 80
+  - name: hackernews
+    query: dev testing
+    limit: 80

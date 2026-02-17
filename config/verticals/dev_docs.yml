@@ -1,0 +1,21 @@
+id: dev_docs
+name: dev_docs
+title: "Developer Docs"
+description: "Docs drift, reference, onboarding."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+default_queries:
+- dev docs outdated
+- onboarding engineers
+- docs automation
+ingestion:
+  sources:
+  - name: reddit
+    query: dev docs
+    limit: 80
+  - name: indiehackers
+    query: dev docs
+    limit: 80

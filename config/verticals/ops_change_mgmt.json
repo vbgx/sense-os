@@ -1,0 +1,27 @@
+{
+  "id": "ops_change_mgmt",
+  "name": "ops_change_mgmt",
+  "title": "Change Management",
+  "description": "Approvals, release coordination, risk controls.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "governance"
+  ],
+  "default_queries": [
+    "change approval pain",
+    "release coordination",
+    "risk assessment workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops change mgmt",
+        "limit": 80
+      }
+    ]
+  }
+}

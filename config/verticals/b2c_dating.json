@@ -1,0 +1,26 @@
+{
+  "id": "b2c_dating",
+  "name": "b2c_dating",
+  "title": "Dating (B2C)",
+  "description": "Profiles, messaging, safety, matching quality.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "consumer"
+  ],
+  "default_queries": [
+    "dating profile pain",
+    "messaging fatigue",
+    "safety screening"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c dating",
+        "limit": 80
+      }
+    ]
+  }
+}

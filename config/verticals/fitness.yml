@@ -1,0 +1,23 @@
+id: fitness
+name: fitness
+title: "Fitness & Wellness"
+description: "Studios and practitioners running memberships and scheduling"
+version: 1
+enabled: true
+priority: 90
+tags:
+- b2c
+- health
+default_queries:
+- fitness pain
+- Fitness & Wellness tools
+- Fitness & Wellness workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: fitness
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

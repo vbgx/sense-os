@@ -1,0 +1,18 @@
+id: marketing_email
+name: marketing_email
+title: "Email Marketing"
+description: "Segmentation, deliverability, templates, measurement."
+version: 1
+enabled: true
+tags:
+- b2b
+- marketing
+default_queries:
+- email segmentation pain
+- deliverability issues
+- campaign measurement
+ingestion:
+  sources:
+  - name: reddit
+    query: marketing email
+    limit: 80

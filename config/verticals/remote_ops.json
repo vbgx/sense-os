@@ -1,0 +1,38 @@
+{
+  "id": "remote_ops",
+  "name": "remote_ops",
+  "title": "Remote Ops",
+  "description": "Teams operating remotely (async, process, tooling)",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "remote",
+    "ops",
+    "async"
+  ],
+  "default_queries": [
+    "async standup",
+    "meeting overload",
+    "handoff process"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "remote work process",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "remote teams",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

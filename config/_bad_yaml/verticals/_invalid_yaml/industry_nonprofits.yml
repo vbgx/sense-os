@@ -1,0 +1,27 @@
+id: industry_nonprofits
+name: industry_nonprofits
+title: "Nonprofits"
+description:" "Donor management, fundraising ops, reporting, volunteer coordination and compliance.""
+version: 1
+enabled: true
+tags: [industry, nonprofits, b2b]
+default_queries:
+  - "donor management pain"
+  - "fundraising crm alternatives"
+  - "grant reporting workflow"
+  - "volunteer scheduling"
+  - "nonprofit accounting issues"
+ingestion:
+  sources:
+    - name: reddit
+      query: "donor management software"
+      limit: 80
+persona:
+  title: "Nonprofit ops"
+  pains:
+    - "reporting to donors is painful"
+    - "fundraising tools are fragmented"
+    - "volunteer coordination is manual"
+keywords:
+  primary: ["donors", "fundraising", "grants", "volunteers", "reporting"]
+  negative: ["crypto"]

@@ -1,0 +1,33 @@
+id: b2b_ops_consulting_inventory_v20
+name: b2b_ops_consulting_inventory_v20
+title: "Operations — Consulting — Inventory"
+description: "Operations workflows and pain points for Consulting (Inventory)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- consulting
+- inventory
+- warehouse
+default_queries:
+- Consulting SLA
+- SLA workflow Consulting
+- Consulting standard operating procedure
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Consulting
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Consulting
+    limit: 80
+  - name: indiehackers
+    query: Consulting
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

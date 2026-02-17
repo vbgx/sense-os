@@ -1,0 +1,18 @@
+id: b2c_gardening
+name: b2c_gardening
+title: "Gardening (B2C)"
+description: "Calendars, care schedules, plant tracking."
+version: 1
+enabled: true
+tags:
+- b2c
+- consumer
+default_queries:
+- plant care schedule
+- garden planning
+- pest issue tracking
+ingestion:
+  sources:
+  - name: reddit
+    query: b2c gardening
+    limit: 80

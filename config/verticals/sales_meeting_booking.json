@@ -1,0 +1,26 @@
+{
+  "id": "sales_meeting_booking",
+  "name": "sales_meeting_booking",
+  "title": "Meeting Booking",
+  "description": "Scheduling links, qualification, no-shows, routing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales"
+  ],
+  "default_queries": [
+    "scheduling pain",
+    "no-show reduction",
+    "qualification routing"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "sales meeting booking",
+        "limit": 80
+      }
+    ]
+  }
+}

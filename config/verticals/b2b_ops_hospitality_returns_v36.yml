@@ -1,0 +1,36 @@
+id: b2b_ops_hospitality_returns_v36
+name: b2b_ops_hospitality_returns_v36
+title: "Operations — Hospitality — Returns"
+description: "Operations workflows and pain points for Hospitality (Returns)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- hospitality
+- returns
+- reverse_logistics
+default_queries:
+- Hospitality exceptions
+- exceptions workflow Hospitality
+- Hospitality handoff
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Hospitality
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Hospitality
+    limit: 80
+  - name: hackernews
+    query: Hospitality
+    limit: 80
+  - name: indiehackers
+    query: Hospitality
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

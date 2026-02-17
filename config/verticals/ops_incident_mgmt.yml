@@ -1,0 +1,22 @@
+id: ops_incident_mgmt
+name: ops_incident_mgmt
+title: "Incident Management"
+description: "On-call, postmortems, escalation, coordination."
+version: 1
+enabled: true
+tags:
+- b2b
+- ops
+- reliability
+default_queries:
+- incident response pain
+- escalation workflow
+- postmortem tracking
+ingestion:
+  sources:
+  - name: reddit
+    query: ops incident mgmt
+    limit: 80
+  - name: hackernews
+    query: ops incident mgmt
+    limit: 80

@@ -1,0 +1,30 @@
+id: b2b_ops_agencies_support_ops
+name: b2b_ops_agencies_support_ops
+title: "Operations — Agencies — Support Ops"
+description: "Operations workflows and pain points for Agencies (Support Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- agencies
+- support
+- tickets
+default_queries:
+- Agencies approvals
+- approvals workflow Agencies
+- Agencies exceptions
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Agencies
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Agencies
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

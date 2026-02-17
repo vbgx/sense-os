@@ -1,0 +1,30 @@
+id: b2b_ops_construction_compliance_ops_v11
+name: b2b_ops_construction_compliance_ops_v11
+title: "Operations — Construction — Compliance Ops"
+description: "Operations workflows and pain points for Construction (Compliance Ops)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- construction
+- compliance
+- controls
+default_queries:
+- Construction handoff
+- handoff workflow Construction
+- Construction SLA
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Construction
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Construction
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

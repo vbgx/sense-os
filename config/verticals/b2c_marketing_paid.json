@@ -1,0 +1,48 @@
+{
+  "id": "b2c_marketing_paid",
+  "name": "b2c_marketing_paid",
+  "title": "B2C — Marketing: Paid",
+  "description": "B2C teams dealing with paid workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "marketing:paid"
+  ],
+  "default_queries": [
+    "paid ads",
+    "paid ads workflow",
+    "paid ads tooling",
+    "paid ads automation",
+    "paid ads pain points",
+    "paid ads process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2c",
+    "function": "marketing",
+    "subdomain": "paid"
+  }
+}

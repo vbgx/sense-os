@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_fintech_support_ops_v34",
+  "name": "b2b_ops_fintech_support_ops_v34",
+  "title": "Operations — FinTech — Support Ops",
+  "description": "Operations workflows and pain points for FinTech (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "fintech",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "FinTech approvals",
+    "approvals workflow FinTech",
+    "FinTech exceptions"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "FinTech",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "FinTech",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

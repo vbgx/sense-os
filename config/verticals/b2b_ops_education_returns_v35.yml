@@ -1,0 +1,30 @@
+id: b2b_ops_education_returns_v35
+name: b2b_ops_education_returns_v35
+title: "Operations — Education — Returns"
+description: "Operations workflows and pain points for Education (Returns)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- education
+- returns
+- reverse_logistics
+default_queries:
+- Education routing
+- routing workflow Education
+- Education approvals
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Education
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Education
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

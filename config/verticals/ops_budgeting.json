@@ -1,0 +1,32 @@
+{
+  "id": "ops_budgeting",
+  "name": "ops_budgeting",
+  "title": "Budgeting Ops",
+  "description": "Budgeting cycles, variance, planning.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "finance"
+  ],
+  "default_queries": [
+    "budget variance pain",
+    "forecasting workflow",
+    "planning cycles"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops budgeting",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "ops budgeting",
+        "limit": 80
+      }
+    ]
+  }
+}

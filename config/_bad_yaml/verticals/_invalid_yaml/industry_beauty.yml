@@ -1,0 +1,19 @@
+id: industry_beauty
+name: industry_beauty
+title: "Beauty Industry Ops"
+description:" "Supply chain, retail ops, creator partnerships.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- beauty
+default_queries:
+- inventory planning
+- retail ops workflow
+- creator coordination
+ingestion:
+  sources:
+  - name: reddit
+    query: industry beauty
+    limit: 80

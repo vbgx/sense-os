@@ -1,0 +1,27 @@
+id: industry_energy
+name: industry_energy
+title: "Energy"
+description:" "Utilities and energy ops: asset maintenance, compliance, field work, reporting and reliability.""
+version: 1
+enabled: true
+tags: [industry, energy, b2b]
+default_queries:
+  - "field service energy utility"
+  - "asset maintenance tracking"
+  - "outage management system"
+  - "regulatory reporting utility"
+  - "work order dispatch"
+ingestion:
+  sources:
+    - name: reddit
+      query: "outage management system"
+      limit: 80
+persona:
+  title: "Utility ops"
+  pains:
+    - "outage response coordination"
+    - "field dispatch inefficiency"
+    - "compliance reporting burden"
+keywords:
+  primary: ["outage", "dispatch", "work orders", "compliance", "assets"]
+  negative: ["crypto"]

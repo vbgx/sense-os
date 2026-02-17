@@ -1,0 +1,18 @@
+id: b2b_support
+name: b2b_support
+title: "Customer Support"
+description: "Triage, deflection, tooling."
+version: 1
+enabled: true
+tags:
+- b2b
+- support
+default_queries:
+- support backlog
+- ticket routing
+- deflection content
+ingestion:
+  sources:
+  - name: reddit
+    query: b2b support
+    limit: 80

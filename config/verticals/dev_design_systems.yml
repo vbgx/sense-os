@@ -1,0 +1,19 @@
+id: dev_design_systems
+name: dev_design_systems
+title: "Design Systems"
+description: "Components, tokens, consistency, adoption."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+- frontend
+default_queries:
+- component drift
+- design tokens
+- ui consistency pain
+ingestion:
+  sources:
+  - name: reddit
+    query: dev design systems
+    limit: 80

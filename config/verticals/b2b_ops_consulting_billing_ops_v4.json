@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_consulting_billing_ops_v4",
+  "name": "b2b_ops_consulting_billing_ops_v4",
+  "title": "Operations — Consulting — Billing Ops",
+  "description": "Operations workflows and pain points for Consulting (Billing Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "consulting",
+    "billing",
+    "payments"
+  ],
+  "default_queries": [
+    "Consulting handoff",
+    "handoff workflow Consulting",
+    "Consulting SLA"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Consulting",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Consulting",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Consulting",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

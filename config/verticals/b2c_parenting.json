@@ -1,0 +1,26 @@
+{
+  "id": "b2c_parenting",
+  "name": "b2c_parenting",
+  "title": "Parenting (B2C)",
+  "description": "Routines, tracking, family coordination.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "consumer"
+  ],
+  "default_queries": [
+    "family calendar chaos",
+    "chore tracking",
+    "parenting routines"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2c parenting",
+        "limit": 80
+      }
+    ]
+  }
+}

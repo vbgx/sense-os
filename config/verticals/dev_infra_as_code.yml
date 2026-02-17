@@ -1,0 +1,19 @@
+id: dev_infra_as_code
+name: dev_infra_as_code
+title: "Infrastructure as Code"
+description: "Terraform drift, modules, reviews, environments."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+- devops
+default_queries:
+- terraform drift
+- module versioning pain
+- env parity
+ingestion:
+  sources:
+  - name: reddit
+    query: dev infra as code
+    limit: 80

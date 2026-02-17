@@ -1,0 +1,26 @@
+{
+  "id": "b2b_customer_success",
+  "name": "b2b_customer_success",
+  "title": "Customer Success",
+  "description": "Health scores, renewals, playbooks.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "cs"
+  ],
+  "default_queries": [
+    "customer health score",
+    "renewal process",
+    "onboarding friction"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2b customer success",
+        "limit": 80
+      }
+    ]
+  }
+}

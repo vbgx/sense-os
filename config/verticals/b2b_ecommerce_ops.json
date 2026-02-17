@@ -1,0 +1,27 @@
+{
+  "id": "b2b_ecommerce_ops",
+  "name": "b2b_ecommerce_ops",
+  "title": "Ecommerce Ops",
+  "description": "Inventory, shipping, returns.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "ecommerce"
+  ],
+  "default_queries": [
+    "stockouts",
+    "shipping delays",
+    "returns workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "b2b ecommerce ops",
+        "limit": 80
+      }
+    ]
+  }
+}

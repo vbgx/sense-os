@@ -1,0 +1,34 @@
+{
+  "id": "ops_it",
+  "name": "ops_it",
+  "title": "IT Ops",
+  "description": "Device management, access, internal support",
+  "version": 1,
+  "enabled": true,
+  "priority": 160,
+  "tags": [
+    "b2b",
+    "ops",
+    "it"
+  ],
+  "default_queries": [
+    "ops_it pain",
+    "IT Ops tools",
+    "IT Ops workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops_it",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

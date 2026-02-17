@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_consulting_compliance_ops_v39",
+  "name": "b2b_ops_consulting_compliance_ops_v39",
+  "title": "Operations — Consulting — Compliance Ops",
+  "description": "Operations workflows and pain points for Consulting (Compliance Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "consulting",
+    "compliance",
+    "controls"
+  ],
+  "default_queries": [
+    "Consulting approvals",
+    "approvals workflow Consulting",
+    "Consulting exceptions"
+  ],
+  "persona": {
+    "role": "Operations Analyst",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Consulting",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Consulting",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "Consulting",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

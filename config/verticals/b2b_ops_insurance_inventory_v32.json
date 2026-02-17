@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_insurance_inventory_v32",
+  "name": "b2b_ops_insurance_inventory_v32",
+  "title": "Operations — Insurance — Inventory",
+  "description": "Operations workflows and pain points for Insurance (Inventory).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "insurance",
+    "inventory",
+    "warehouse"
+  ],
+  "default_queries": [
+    "Insurance approvals",
+    "approvals workflow Insurance",
+    "Insurance exceptions"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Insurance",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Insurance",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

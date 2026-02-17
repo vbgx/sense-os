@@ -1,0 +1,21 @@
+id: dev_architecture
+name: dev_architecture
+title: "Architecture"
+description: "Boundaries, modularity, refactors."
+version: 1
+enabled: true
+tags:
+- b2b
+- dev
+default_queries:
+- monolith refactor
+- dependency boundaries
+- layering violations
+ingestion:
+  sources:
+  - name: reddit
+    query: dev architecture
+    limit: 80
+  - name: indiehackers
+    query: dev architecture
+    limit: 80

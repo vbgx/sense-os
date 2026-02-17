@@ -1,0 +1,39 @@
+{
+  "id": "solopreneurs",
+  "name": "solopreneurs",
+  "title": "Solopreneurs",
+  "description": "People building and selling solo products (bootstrapped, indie, audience-first)",
+  "version": 1,
+  "enabled": true,
+  "priority": 40,
+  "tags": [
+    "indie",
+    "solopreneur",
+    "bootstrapped"
+  ],
+  "default_queries": [
+    "how to get first customers",
+    "stripe taxes solopreneur",
+    "solo founder marketing"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "solopreneur",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "solopreneur",
+        "limit": 80
+      }
+    ]
+  },
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  }
+}

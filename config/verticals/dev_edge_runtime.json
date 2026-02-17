@@ -1,0 +1,31 @@
+{
+  "id": "dev_edge_runtime",
+  "name": "dev_edge_runtime",
+  "title": "Edge Runtime",
+  "description": "Deploys at edge, reproducibility, debugging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev"
+  ],
+  "default_queries": [
+    "edge debugging pain",
+    "non-determinism",
+    "edge observability"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev edge runtime",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev edge runtime",
+        "limit": 80
+      }
+    ]
+  }
+}

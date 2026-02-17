@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_insurance_inventory_v20",
+  "name": "b2b_ops_insurance_inventory_v20",
+  "title": "Operations — Insurance — Inventory",
+  "description": "Operations workflows and pain points for Insurance (Inventory).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "insurance",
+    "inventory",
+    "warehouse"
+  ],
+  "default_queries": [
+    "Insurance SLA",
+    "SLA workflow Insurance",
+    "Insurance standard operating procedure"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Insurance",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Insurance",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Insurance",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Insurance",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

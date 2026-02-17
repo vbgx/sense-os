@@ -1,0 +1,33 @@
+id: b2b_ops_construction_procurement_v26
+name: b2b_ops_construction_procurement_v26
+title: "Operations — Construction — Procurement"
+description: "Operations workflows and pain points for Construction (Procurement)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- construction
+- procurement
+- vendors
+default_queries:
+- Construction SLA
+- SLA workflow Construction
+- Construction standard operating procedure
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: Construction
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Construction
+    limit: 80
+  - name: indiehackers
+    query: Construction
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

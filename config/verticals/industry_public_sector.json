@@ -1,0 +1,49 @@
+{
+  "id": "industry_public_sector",
+  "name": "industry_public_sector",
+  "title": "Public Sector",
+  "description:\" \"Government and public orgs": "procurement, compliance, case management and legacy modernization.\"\"",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry",
+    "public_sector",
+    "b2b"
+  ],
+  "default_queries": [
+    "government procurement workflow",
+    "case management system pain",
+    "public sector compliance reporting",
+    "legacy system modernization",
+    "records management workflow"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "case management system",
+        "limit": 80
+      }
+    ]
+  },
+  "persona": {
+    "title": "Public sector ops/IT",
+    "pains": [
+      "procurement cycles are slow",
+      "legacy systems block change",
+      "compliance reporting is heavy"
+    ]
+  },
+  "keywords": {
+    "primary": [
+      "procurement",
+      "case management",
+      "records",
+      "legacy",
+      "compliance"
+    ],
+    "negative": [
+      "crypto"
+    ]
+  }
+}

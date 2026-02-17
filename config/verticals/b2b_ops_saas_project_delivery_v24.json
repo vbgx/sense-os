@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_saas_project_delivery_v24",
+  "name": "b2b_ops_saas_project_delivery_v24",
+  "title": "Operations — SaaS — Project Delivery",
+  "description": "Operations workflows and pain points for SaaS (Project Delivery).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "saas",
+    "delivery",
+    "projects"
+  ],
+  "default_queries": [
+    "SaaS handoff",
+    "handoff workflow SaaS",
+    "SaaS SLA"
+  ],
+  "persona": {
+    "role": "COO",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "SaaS",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "SaaS",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "SaaS",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

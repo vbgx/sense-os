@@ -1,0 +1,44 @@
+{
+  "id": "b2b_ops_saas_support_ops_v14",
+  "name": "b2b_ops_saas_support_ops_v14",
+  "title": "Operations — SaaS — Support Ops",
+  "description": "Operations workflows and pain points for SaaS (Support Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "saas",
+    "support",
+    "tickets"
+  ],
+  "default_queries": [
+    "SaaS approvals",
+    "approvals workflow SaaS",
+    "SaaS exceptions"
+  ],
+  "persona": {
+    "role": "Ops Manager",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "SaaS",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "SaaS",
+        "limit": 80
+      },
+      {
+        "name": "producthunt",
+        "query": "SaaS",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

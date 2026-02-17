@@ -1,0 +1,26 @@
+{
+  "id": "ops_localization",
+  "name": "ops_localization",
+  "title": "Localization Ops",
+  "description": "Translations, workflows, QA.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops"
+  ],
+  "default_queries": [
+    "localization QA pain",
+    "translation workflow",
+    "i18n release issues"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "ops localization",
+        "limit": 80
+      }
+    ]
+  }
+}

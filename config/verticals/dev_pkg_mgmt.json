@@ -1,0 +1,31 @@
+{
+  "id": "dev_pkg_mgmt",
+  "name": "dev_pkg_mgmt",
+  "title": "Package Management",
+  "description": "Deps, lockfiles, security.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev"
+  ],
+  "default_queries": [
+    "lockfile conflicts",
+    "dependency updates",
+    "supply chain risk"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "dev pkg mgmt",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "dev pkg mgmt",
+        "limit": 80
+      }
+    ]
+  }
+}

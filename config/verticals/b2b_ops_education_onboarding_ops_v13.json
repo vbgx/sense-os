@@ -1,0 +1,49 @@
+{
+  "id": "b2b_ops_education_onboarding_ops_v13",
+  "name": "b2b_ops_education_onboarding_ops_v13",
+  "title": "Operations — Education — Onboarding Ops",
+  "description": "Operations workflows and pain points for Education (Onboarding Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "education",
+    "onboarding",
+    "training"
+  ],
+  "default_queries": [
+    "Education standard operating procedure",
+    "standard operating procedure workflow Education",
+    "Education routing"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Education",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Education",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "Education",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "Education",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

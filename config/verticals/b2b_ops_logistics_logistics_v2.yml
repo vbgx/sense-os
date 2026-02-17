@@ -1,0 +1,32 @@
+id: b2b_ops_logistics_logistics_v2
+name: b2b_ops_logistics_logistics_v2
+title: "Operations — Logistics — Logistics"
+description: "Operations workflows and pain points for Logistics (Logistics)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- logistics
+- shipping
+default_queries:
+- Logistics standard operating procedure
+- standard operating procedure workflow Logistics
+- Logistics routing
+persona:
+  role: COO
+  segment: B2B
+  function: Operations
+  industry: Logistics
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Logistics
+    limit: 80
+  - name: hackernews
+    query: Logistics
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

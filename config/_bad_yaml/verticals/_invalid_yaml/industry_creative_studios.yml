@@ -1,0 +1,19 @@
+id: industry_creative_studios
+name: industry_creative_studios
+title: "Creative Studios"
+description:" "Assets, approvals, client feedback loops.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- creative
+default_queries:
+- client feedback chaos
+- asset versioning
+- approvals workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: industry creative studios
+    limit: 80

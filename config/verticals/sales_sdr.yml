@@ -1,0 +1,23 @@
+id: sales_sdr
+name: sales_sdr
+title: "SDR & Prospecting"
+description: "Outbound prospecting and list building workflows"
+version: 1
+enabled: true
+priority: 250
+tags:
+- b2b
+- sales
+default_queries:
+- sales_sdr pain
+- SDR & Prospecting tools
+- SDR & Prospecting workflow
+ingestion:
+  sources:
+  - name: reddit
+    query: sales_sdr
+    limit: 80
+defaults:
+  language_allowlist:
+  - en
+  min_signal_quality: 0.2

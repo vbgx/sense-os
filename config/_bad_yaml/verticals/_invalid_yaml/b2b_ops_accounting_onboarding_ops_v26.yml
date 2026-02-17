@@ -1,0 +1,34 @@
+id: b2b_ops_accounting_onboarding_ops_v26
+name: b2b_ops_accounting_onboarding_ops_v26
+title: "Operations — Accounting Firms — Onboarding Ops"
+description: "Operations workflows and pain points for Accounting Firms (Onboarding"
+  Ops).
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- accounting
+- onboarding
+- training
+default_queries:
+- Accounting Firms handoff
+- handoff workflow Accounting Firms
+- Accounting Firms SLA
+persona:
+  role: Head of Ops
+  segment: B2B
+  function: Operations
+  industry: Accounting Firms
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Accounting
+    limit: 80
+  - name: producthunt
+    query: Accounting
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

@@ -1,0 +1,43 @@
+{
+  "id": "fitness_habits_b2c",
+  "name": "fitness_habits_b2c",
+  "title": "Fitness & Habits (B2C)",
+  "description": "Habit tracking, coaching, adherence, routines.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "health",
+    "habits"
+  ],
+  "default_queries": [
+    "habit tracker not working",
+    "gym routine planning app",
+    "motivation to exercise",
+    "nutrition tracking pain"
+  ],
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "habit tracking app",
+        "limit": 80
+      },
+      {
+        "name": "reddit",
+        "query": "workout planning app",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "query": "fitness app",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "query": "habit app",
+        "limit": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+id: industry_food_beverage
+name: industry_food_beverage
+title: "Food & Beverage Ops"
+description:" "Supply, QA, production planning, traceability.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- food
+default_queries:
+- traceability pain
+- qa workflow
+- production planning
+ingestion:
+  sources:
+  - name: reddit
+    query: industry food beverage
+    limit: 80

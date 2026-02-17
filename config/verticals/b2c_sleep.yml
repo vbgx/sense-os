@@ -1,0 +1,18 @@
+id: b2c_sleep
+name: b2c_sleep
+title: "Sleep (B2C)"
+description: "Routines, tracking, insomnia tools."
+version: 1
+enabled: true
+tags:
+- b2c
+- health
+default_queries:
+- sleep tracking accuracy
+- insomnia routine
+- bedtime reminders
+ingestion:
+  sources:
+  - name: reddit
+    query: b2c sleep
+    limit: 80

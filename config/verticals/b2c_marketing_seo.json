@@ -1,0 +1,48 @@
+{
+  "id": "b2c_marketing_seo",
+  "name": "b2c_marketing_seo",
+  "title": "B2C — Marketing: SEO",
+  "description": "B2C teams dealing with seo workflows, tooling, and operational friction.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "marketing:seo"
+  ],
+  "default_queries": [
+    "SEO",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO automation",
+    "SEO pain points",
+    "SEO process"
+  ],
+  "defaults": {
+    "language_allowlist": [
+      "en"
+    ],
+    "min_signal_quality": 0.2
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "limit": 80
+      },
+      {
+        "name": "hackernews",
+        "limit": 80
+      },
+      {
+        "name": "indiehackers",
+        "limit": 80
+      }
+    ]
+  },
+  "taxonomy": {
+    "segment": "b2c",
+    "function": "marketing",
+    "subdomain": "seo"
+  }
+}

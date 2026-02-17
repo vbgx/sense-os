@@ -1,0 +1,33 @@
+id: b2b_ops_media_procurement_v4
+name: b2b_ops_media_procurement_v4
+title: "Operations — Media — Procurement"
+description: "Operations workflows and pain points for Media (Procurement)."
+version: 1
+enabled: true
+tags:
+- b2b
+- generated
+- ops
+- media
+- procurement
+- vendors
+default_queries:
+- Media handoff
+- handoff workflow Media
+- Media SLA
+persona:
+  role: Operations Analyst
+  segment: B2B
+  function: Operations
+  industry: Media
+  stage: growth
+ingestion:
+  sources:
+  - name: reddit
+    query: Media
+    limit: 80
+  - name: indiehackers
+    query: Media
+    limit: 80
+owner: "generated"
+notes: "Auto-generated seed vertical. Safe to edit manually."

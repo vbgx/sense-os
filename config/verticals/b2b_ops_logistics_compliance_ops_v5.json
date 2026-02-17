@@ -1,0 +1,39 @@
+{
+  "id": "b2b_ops_logistics_compliance_ops_v5",
+  "name": "b2b_ops_logistics_compliance_ops_v5",
+  "title": "Operations — Logistics — Compliance Ops",
+  "description": "Operations workflows and pain points for Logistics (Compliance Ops).",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "generated",
+    "ops",
+    "logistics",
+    "compliance",
+    "controls"
+  ],
+  "default_queries": [
+    "Logistics standard operating procedure",
+    "standard operating procedure workflow Logistics",
+    "Logistics routing"
+  ],
+  "persona": {
+    "role": "Head of Ops",
+    "segment": "B2B",
+    "function": "Operations",
+    "industry": "Logistics",
+    "stage": "growth"
+  },
+  "ingestion": {
+    "sources": [
+      {
+        "name": "reddit",
+        "query": "Logistics",
+        "limit": 80
+      }
+    ]
+  },
+  "owner": "generated",
+  "notes": "Auto-generated seed vertical. Safe to edit manually."
+}

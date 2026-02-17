@@ -1,0 +1,19 @@
+id: industry_automotive
+name: industry_automotive
+title: "Automotive Ops"
+description:" "Dealers, parts, maintenance, fleet operations.""
+version: 1
+enabled: true
+tags:
+- b2b
+- industry
+- automotive
+default_queries:
+- parts availability pain
+- dealer workflow
+- service scheduling
+ingestion:
+  sources:
+  - name: reddit
+    query: industry automotive
+    limit: 80

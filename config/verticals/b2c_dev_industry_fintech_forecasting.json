@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_fintech_forecasting",
+  "name": "b2c_dev_industry_fintech_forecasting",
+  "title": "B2C — Engineering — Fintech — Forecasting",
+  "description": "B2C, Engineering, Fintech pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_fintech",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=product_lead)."
+}

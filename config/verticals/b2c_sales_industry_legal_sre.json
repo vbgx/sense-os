@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_legal_sre",
+  "name": "b2c_sales_industry_legal_sre",
+  "title": "B2C — Sales — Legal Services — SRE",
+  "description": "B2C, Sales, Legal Services pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_legal",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=engineer)."
+}

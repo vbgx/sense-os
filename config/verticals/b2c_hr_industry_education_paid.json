@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_education_paid",
+  "name": "b2c_hr_industry_education_paid",
+  "title": "B2C — HR — Education — Paid Acquisition",
+  "description": "B2C, HR, Education pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_education",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=marketer)."
+}

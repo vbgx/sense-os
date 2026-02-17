@@ -1,0 +1,31 @@
+{
+  "id": "data_brand",
+  "name": "data_brand",
+  "title": "Data — Brand",
+  "description": "Data pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=finance_lead)."
+}

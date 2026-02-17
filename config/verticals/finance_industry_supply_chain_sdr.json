@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_supply_chain_sdr",
+  "name": "finance_industry_supply_chain_sdr",
+  "title": "Finance — Supply Chain — SDR/Outbound",
+  "description": "Finance, Supply Chain pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_supply_chain",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=security_lead)."
+}

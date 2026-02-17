@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_insurance_paid",
+  "name": "dev_industry_insurance_paid",
+  "title": "Engineering — Insurance — Paid Acquisition",
+  "description": "Engineering, Insurance pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_insurance",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=product_lead)."
+}

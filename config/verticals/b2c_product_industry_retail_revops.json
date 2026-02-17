@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_retail_revops",
+  "name": "b2c_product_industry_retail_revops",
+  "title": "B2C — Product — Retail — RevOps",
+  "description": "B2C, Product, Retail pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_retail",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=founder)."
+}

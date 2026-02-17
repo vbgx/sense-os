@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_logistics_procurement",
+  "name": "legal_industry_logistics_procurement",
+  "title": "Legal — Logistics — Procurement",
+  "description": "Legal, Logistics pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_logistics",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=product_lead)."
+}

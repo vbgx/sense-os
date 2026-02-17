@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_healthcare_api_design",
+  "name": "b2c_legal_industry_healthcare_api_design",
+  "title": "B2C — Legal — Healthcare — API Design",
+  "description": "B2C, Legal, Healthcare pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_healthcare",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_travel_mobile",
+  "name": "dev_industry_travel_mobile",
+  "title": "Engineering — Travel — Mobile",
+  "description": "Engineering, Travel pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_travel",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=product_lead)."
+}

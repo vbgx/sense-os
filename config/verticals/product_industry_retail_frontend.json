@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_retail_frontend",
+  "name": "product_industry_retail_frontend",
+  "title": "Product — Retail — Frontend",
+  "description": "Product, Retail pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_retail",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

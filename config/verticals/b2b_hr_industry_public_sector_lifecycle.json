@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_public_sector_lifecycle",
+  "name": "b2b_hr_industry_public_sector_lifecycle",
+  "title": "B2B — HR — Public Sector — Lifecycle",
+  "description": "B2B, HR, Public Sector pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_public_sector",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=marketer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_agriculture_frontend",
+  "name": "b2c_sales_industry_agriculture_frontend",
+  "title": "B2C — Sales — Agriculture — Frontend",
+  "description": "B2C, Sales, Agriculture pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_agriculture",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_it_services_enablement",
+  "name": "legal_industry_it_services_enablement",
+  "title": "Legal — IT Services (MSP) — Enablement",
+  "description": "Legal, IT Services (MSP) pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_it_services",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=engineer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_fintech_paid",
+  "name": "b2c_finance_industry_fintech_paid",
+  "title": "B2C — Finance — Fintech — Paid Acquisition",
+  "description": "B2C, Finance, Fintech pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_fintech",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=product_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_agriculture_lifecycle",
+  "name": "b2b_ops_industry_agriculture_lifecycle",
+  "title": "B2B — Operations — Agriculture — Lifecycle",
+  "description": "B2B, Operations, Agriculture pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_agriculture",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=sales_rep)."
+}

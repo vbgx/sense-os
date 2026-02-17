@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_supply_chain_pm",
+  "name": "b2b_hr_industry_supply_chain_pm",
+  "title": "B2B — HR — Supply Chain — Product Management",
+  "description": "B2B, HR, Supply Chain pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_supply_chain",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=finance_lead)."
+}

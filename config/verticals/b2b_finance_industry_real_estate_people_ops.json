@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_real_estate_people_ops",
+  "name": "b2b_finance_industry_real_estate_people_ops",
+  "title": "B2B — Finance — Real Estate — People Ops",
+  "description": "B2B, Finance, Real Estate pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_real_estate",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=sales_rep)."
+}

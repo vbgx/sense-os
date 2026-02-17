@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_media_people_ops",
+  "name": "dev_industry_media_people_ops",
+  "title": "Engineering — Media — People Ops",
+  "description": "Engineering, Media pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_media",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=finance_lead)."
+}

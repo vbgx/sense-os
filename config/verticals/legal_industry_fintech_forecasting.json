@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_fintech_forecasting",
+  "name": "legal_industry_fintech_forecasting",
+  "title": "Legal — Fintech — Forecasting",
+  "description": "Legal, Fintech pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_fintech",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=sales_rep)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_real_estate_brand",
+  "name": "b2b_dev_industry_real_estate_brand",
+  "title": "B2B — Engineering — Real Estate — Brand",
+  "description": "B2B, Engineering, Real Estate pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_real_estate",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

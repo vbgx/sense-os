@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_supply_chain_ae",
+  "name": "marketing_industry_supply_chain_ae",
+  "title": "Marketing — Supply Chain — Account Executive",
+  "description": "Marketing, Supply Chain pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_supply_chain",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=founder)."
+}

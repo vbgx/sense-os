@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_fintech_partners",
+  "name": "marketing_industry_fintech_partners",
+  "title": "Marketing — Fintech — Partnerships",
+  "description": "Marketing, Fintech pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_fintech",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
+}

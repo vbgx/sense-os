@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_energy_pricing",
+  "name": "hr_industry_energy_pricing",
+  "title": "HR — Energy — Pricing & Packaging",
+  "description": "HR, Energy pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_energy",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=engineer)."
+}

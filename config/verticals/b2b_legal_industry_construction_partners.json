@@ -1,0 +1,35 @@
+{
+  "id": "b2b_legal_industry_construction_partners",
+  "name": "b2b_legal_industry_construction_partners",
+  "title": "B2B — Legal — Construction — Partnerships",
+  "description": "B2B, Legal, Construction pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "industry_construction",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=security_lead)."
+}

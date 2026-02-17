@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_media_testing",
+  "name": "sales_industry_media_testing",
+  "title": "Sales — Media — Testing",
+  "description": "Sales, Media pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_media",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=security_lead)."
+}

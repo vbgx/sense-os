@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_energy_inventory_ops",
+  "name": "product_industry_energy_inventory_ops",
+  "title": "Product — Energy — Inventory Ops",
+  "description": "Product, Energy pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_energy",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=engineer)."
+}

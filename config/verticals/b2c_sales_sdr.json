@@ -1,0 +1,33 @@
+{
+  "id": "b2c_sales_sdr",
+  "name": "b2c_sales_sdr",
+  "title": "B2C — Sales — SDR/Outbound",
+  "description": "B2C, Sales pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_real_estate_it_ops",
+  "name": "security_industry_real_estate_it_ops",
+  "title": "Security — Real Estate — IT Ops",
+  "description": "Security, Real Estate pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_real_estate",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=finance_lead)."
+}

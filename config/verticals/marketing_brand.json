@@ -1,34 +1,31 @@
 {
   "id": "marketing_brand",
   "name": "marketing_brand",
-  "title": "Brand Marketing",
-  "description": "Positioning, brand systems, consistency",
+  "title": "Marketing — Brand",
+  "description": "Marketing pains and workflows around Brand.",
   "version": 1,
   "enabled": true,
-  "priority": 330,
   "tags": [
-    "b2b",
     "marketing",
     "brand"
   ],
   "default_queries": [
-    "marketing_brand pain",
-    "Brand Marketing tools",
-    "Brand Marketing workflow"
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "MVP"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "marketing_brand",
-        "limit": 80
-      }
-    ]
+  "persona": "founder",
+  "axes": {
+    "function": "marketing"
   },
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
-  }
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=founder)."
 }

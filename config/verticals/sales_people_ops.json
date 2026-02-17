@@ -1,0 +1,31 @@
+{
+  "id": "sales_people_ops",
+  "name": "sales_people_ops",
+  "title": "Sales — People Ops",
+  "description": "Sales pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=engineer)."
+}

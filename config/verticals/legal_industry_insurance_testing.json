@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_insurance_testing",
+  "name": "legal_industry_insurance_testing",
+  "title": "Legal — Insurance — Testing",
+  "description": "Legal, Insurance pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_insurance",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=founder)."
+}

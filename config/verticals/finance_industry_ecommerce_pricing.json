@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_ecommerce_pricing",
+  "name": "finance_industry_ecommerce_pricing",
+  "title": "Finance — Ecommerce — Pricing & Packaging",
+  "description": "Finance, Ecommerce pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_ecommerce",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=finance_lead)."
+}

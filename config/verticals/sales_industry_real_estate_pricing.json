@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_real_estate_pricing",
+  "name": "sales_industry_real_estate_pricing",
+  "title": "Sales — Real Estate — Pricing & Packaging",
+  "description": "Sales, Real Estate pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_real_estate",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=security_lead)."
+}

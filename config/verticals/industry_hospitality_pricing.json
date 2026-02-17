@@ -1,0 +1,31 @@
+{
+  "id": "industry_hospitality_pricing",
+  "name": "industry_hospitality_pricing",
+  "title": "Hospitality — Pricing & Packaging",
+  "description": "Hospitality pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_hospitality",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=finance_lead)."
+}

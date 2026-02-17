@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_hospitality_frontend",
+  "name": "b2c_industry_hospitality_frontend",
+  "title": "B2C — Hospitality — Frontend",
+  "description": "B2C, Hospitality pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_hospitality",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

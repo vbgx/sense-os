@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_insurance_events",
+  "name": "b2c_data_industry_insurance_events",
+  "title": "B2C — Data — Insurance — Events",
+  "description": "B2C, Data, Insurance pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_insurance",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

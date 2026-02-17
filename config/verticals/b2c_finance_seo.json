@@ -1,0 +1,33 @@
+{
+  "id": "b2c_finance_seo",
+  "name": "b2c_finance_seo",
+  "title": "B2C — Finance — SEO",
+  "description": "B2C, Finance pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=engineer)."
+}

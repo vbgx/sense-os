@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_ecommerce_pm",
+  "name": "b2b_security_industry_ecommerce_pm",
+  "title": "B2B — Security — Ecommerce — Product Management",
+  "description": "B2B, Security, Ecommerce pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_ecommerce",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

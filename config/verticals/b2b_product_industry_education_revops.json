@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_education_revops",
+  "name": "b2b_product_industry_education_revops",
+  "title": "B2B — Product — Education — RevOps",
+  "description": "B2B, Product, Education pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_education",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=finance_lead)."
+}

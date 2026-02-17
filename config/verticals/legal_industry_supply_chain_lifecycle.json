@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_supply_chain_lifecycle",
+  "name": "legal_industry_supply_chain_lifecycle",
+  "title": "Legal — Supply Chain — Lifecycle",
+  "description": "Legal, Supply Chain pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_supply_chain",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=finance_lead)."
+}

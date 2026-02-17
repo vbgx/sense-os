@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_travel_community",
+  "name": "legal_industry_travel_community",
+  "title": "Legal — Travel — Community",
+  "description": "Legal, Travel pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_travel",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=sales_rep)."
+}

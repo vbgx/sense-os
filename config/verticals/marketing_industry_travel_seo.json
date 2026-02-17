@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_travel_seo",
+  "name": "marketing_industry_travel_seo",
+  "title": "Marketing — Travel — SEO",
+  "description": "Marketing, Travel pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_travel",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=engineer)."
+}

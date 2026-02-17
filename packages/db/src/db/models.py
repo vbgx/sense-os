@@ -34,7 +34,14 @@ class Signal(Base):
     )
 
     id = Column(Integer, primary_key=True)
-    vertical_id = Column(Integer, nullable=False, index=True)
+    vertical_db_id = Column(Integer, nullable=False, index=True)
+    vertical_id = Column(String(255), nullable=True, index=True)
+    taxonomy_version = Column(
+        String(32),
+        nullable=False,
+        server_default=text("'2026-02-17'"),
+        index=True,
+    )
     source = Column(String(64), nullable=False, index=True)
     external_id = Column(String(255), nullable=False, index=True)
     content = Column(Text, nullable=False)

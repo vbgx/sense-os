@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_public_sector_events",
+  "name": "sales_industry_public_sector_events",
+  "title": "Sales — Public Sector — Events",
+  "description": "Sales, Public Sector pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_public_sector",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_insurance_brand",
+  "name": "product_industry_insurance_brand",
+  "title": "Product — Insurance — Brand",
+  "description": "Product, Insurance pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_insurance",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

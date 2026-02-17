@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_construction_partners",
+  "name": "b2c_marketing_industry_construction_partners",
+  "title": "B2C — Marketing — Construction — Partnerships",
+  "description": "B2C, Marketing, Construction pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_construction",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=security_lead)."
+}

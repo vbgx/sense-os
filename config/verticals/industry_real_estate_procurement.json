@@ -1,0 +1,31 @@
+{
+  "id": "industry_real_estate_procurement",
+  "name": "industry_real_estate_procurement",
+  "title": "Real Estate — Procurement",
+  "description": "Real Estate pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_real_estate",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=finance_lead)."
+}

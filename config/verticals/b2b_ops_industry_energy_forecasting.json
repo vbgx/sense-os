@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_energy_forecasting",
+  "name": "b2b_ops_industry_energy_forecasting",
+  "title": "B2B — Operations — Energy — Forecasting",
+  "description": "B2B, Operations, Energy pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_energy",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=security_lead)."
+}

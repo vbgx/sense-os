@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_insurance_events",
+  "name": "hr_industry_insurance_events",
+  "title": "HR — Insurance — Events",
+  "description": "HR, Insurance pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_insurance",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_it_services_observability",
+  "name": "finance_industry_it_services_observability",
+  "title": "Finance — IT Services (MSP) — Observability",
+  "description": "Finance, IT Services (MSP) pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_it_services",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=marketer)."
+}

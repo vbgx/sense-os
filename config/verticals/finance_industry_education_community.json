@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_education_community",
+  "name": "finance_industry_education_community",
+  "title": "Finance — Education — Community",
+  "description": "Finance, Education pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_education",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=engineer)."
+}

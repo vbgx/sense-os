@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_travel_pm",
+  "name": "legal_industry_travel_pm",
+  "title": "Legal — Travel — Product Management",
+  "description": "Legal, Travel pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_travel",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_logistics_billing_ops",
+  "name": "finance_industry_logistics_billing_ops",
+  "title": "Finance — Logistics — Billing Ops",
+  "description": "Finance, Logistics pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_logistics",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=security_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_fintech_observability",
+  "name": "b2c_security_industry_fintech_observability",
+  "title": "B2C — Security — Fintech — Observability",
+  "description": "B2C, Security, Fintech pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_fintech",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=sales_rep)."
+}

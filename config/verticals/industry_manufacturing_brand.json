@@ -1,0 +1,31 @@
+{
+  "id": "industry_manufacturing_brand",
+  "name": "industry_manufacturing_brand",
+  "title": "Manufacturing — Brand",
+  "description": "Manufacturing pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_manufacturing",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

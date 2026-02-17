@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_construction_community",
+  "name": "b2b_security_industry_construction_community",
+  "title": "B2B — Security — Construction — Community",
+  "description": "B2B, Security, Construction pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_construction",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=ops_manager)."
+}

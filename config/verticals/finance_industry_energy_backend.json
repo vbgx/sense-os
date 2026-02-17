@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_energy_backend",
+  "name": "finance_industry_energy_backend",
+  "title": "Finance — Energy — Backend",
+  "description": "Finance, Energy pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_energy",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=finance_lead)."
+}

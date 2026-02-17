@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_nonprofits_pricing",
+  "name": "data_industry_nonprofits_pricing",
+  "title": "Data — Nonprofits — Pricing & Packaging",
+  "description": "Data, Nonprofits pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_nonprofits",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=product_lead)."
+}

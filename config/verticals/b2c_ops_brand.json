@@ -1,0 +1,33 @@
+{
+  "id": "b2c_ops_brand",
+  "name": "b2c_ops_brand",
+  "title": "B2C — Operations — Brand",
+  "description": "B2C, Operations pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

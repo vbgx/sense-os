@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_public_sector_events",
+  "name": "dev_industry_public_sector_events",
+  "title": "Engineering — Public Sector — Events",
+  "description": "Engineering, Public Sector pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_public_sector",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=product_lead)."
+}

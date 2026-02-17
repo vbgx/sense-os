@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_nonprofits_community",
+  "name": "data_industry_nonprofits_community",
+  "title": "Data — Nonprofits — Community",
+  "description": "Data, Nonprofits pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_nonprofits",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

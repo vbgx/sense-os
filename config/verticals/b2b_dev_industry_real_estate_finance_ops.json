@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_real_estate_finance_ops",
+  "name": "b2b_dev_industry_real_estate_finance_ops",
+  "title": "B2B — Engineering — Real Estate — Finance Ops",
+  "description": "B2B, Engineering, Real Estate pains and workflows around Finance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_real_estate",
+    "finance_ops"
+  ],
+  "default_queries": [
+    "invoice approval bottleneck",
+    "expense policy enforcement",
+    "month end close automation",
+    "Finance Ops",
+    "Finance Ops pain",
+    "Finance Ops bottleneck",
+    "Finance Ops automation",
+    "Finance Ops workflow",
+    "Finance Ops tooling",
+    "Finance Ops process",
+    "Finance Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=finance_ops, persona=founder)."
+}

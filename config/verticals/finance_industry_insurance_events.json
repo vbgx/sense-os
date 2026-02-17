@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_insurance_events",
+  "name": "finance_industry_insurance_events",
+  "title": "Finance — Insurance — Events",
+  "description": "Finance, Insurance pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_insurance",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=engineer)."
+}

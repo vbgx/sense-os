@@ -1,33 +1,31 @@
 {
   "id": "sales_enablement",
   "name": "sales_enablement",
-  "title": "Sales Enablement",
-  "description": "Content, training, battlecards, coaching",
+  "title": "Sales — Enablement",
+  "description": "Sales pains and workflows around Enablement.",
   "version": 1,
   "enabled": true,
-  "priority": 270,
   "tags": [
-    "b2b",
-    "sales"
+    "sales",
+    "enablement"
   ],
   "default_queries": [
-    "sales_enablement pain",
-    "Sales Enablement tools",
-    "Sales Enablement workflow"
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "roadmap"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "sales_enablement",
-        "limit": 80
-      }
-    ]
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales"
   },
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
-  }
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=product_lead)."
 }

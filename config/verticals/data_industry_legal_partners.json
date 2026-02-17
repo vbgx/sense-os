@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_legal_partners",
+  "name": "data_industry_legal_partners",
+  "title": "Data — Legal Services — Partnerships",
+  "description": "Data, Legal Services pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_legal",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=engineer)."
+}

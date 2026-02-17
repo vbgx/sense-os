@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_construction_revops",
+  "name": "b2b_hr_industry_construction_revops",
+  "title": "B2B — HR — Construction — RevOps",
+  "description": "B2B, HR, Construction pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_construction",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=product_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_legal_enablement",
+  "name": "b2c_ops_industry_legal_enablement",
+  "title": "B2C — Operations — Legal Services — Enablement",
+  "description": "B2C, Operations, Legal Services pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_legal",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=finance_lead)."
+}

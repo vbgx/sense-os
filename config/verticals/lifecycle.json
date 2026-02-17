@@ -1,0 +1,28 @@
+{
+  "id": "lifecycle",
+  "name": "lifecycle",
+  "title": "Lifecycle",
+  "description": "General pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=security_lead)."
+}

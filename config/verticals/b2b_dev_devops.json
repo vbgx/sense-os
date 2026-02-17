@@ -1,48 +1,33 @@
 {
   "id": "b2b_dev_devops",
   "name": "b2b_dev_devops",
-  "title": "B2B — Engineering: DevOps",
-  "description": "B2B teams dealing with devops workflows, tooling, and operational friction.",
+  "title": "B2B — Engineering — DevOps",
+  "description": "B2B, Engineering pains and workflows around DevOps.",
   "version": 1,
   "enabled": true,
   "tags": [
     "b2b",
     "dev",
-    "dev:devops"
+    "devops"
   ],
   "default_queries": [
-    "CI/CD",
-    "CI/CD workflow",
-    "CI/CD tooling",
-    "CI/CD automation",
-    "CI/CD pain points",
-    "CI/CD process"
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "debug"
   ],
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev"
   },
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "limit": 80
-      },
-      {
-        "name": "hackernews",
-        "limit": 80
-      },
-      {
-        "name": "indiehackers",
-        "limit": 80
-      }
-    ]
-  },
-  "taxonomy": {
-    "segment": "b2b",
-    "function": "dev",
-    "subdomain": "devops"
-  }
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=engineer)."
 }

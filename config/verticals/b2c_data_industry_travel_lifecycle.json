@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_travel_lifecycle",
+  "name": "b2c_data_industry_travel_lifecycle",
+  "title": "B2C — Data — Travel — Lifecycle",
+  "description": "B2C, Data, Travel pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_travel",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=sales_rep)."
+}

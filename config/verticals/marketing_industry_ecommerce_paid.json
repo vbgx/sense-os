@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_ecommerce_paid",
+  "name": "marketing_industry_ecommerce_paid",
+  "title": "Marketing — Ecommerce — Paid Acquisition",
+  "description": "Marketing, Ecommerce pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_ecommerce",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=engineer)."
+}

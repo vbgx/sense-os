@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_legal_forecasting",
+  "name": "finance_industry_legal_forecasting",
+  "title": "Finance — Legal Services — Forecasting",
+  "description": "Finance, Legal Services pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_legal",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=product_lead)."
+}

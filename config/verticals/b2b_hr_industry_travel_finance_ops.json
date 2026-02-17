@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_travel_finance_ops",
+  "name": "b2b_hr_industry_travel_finance_ops",
+  "title": "B2B — HR — Travel — Finance Ops",
+  "description": "B2B, HR, Travel pains and workflows around Finance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_travel",
+    "finance_ops"
+  ],
+  "default_queries": [
+    "invoice approval bottleneck",
+    "expense policy enforcement",
+    "month end close automation",
+    "Finance Ops",
+    "Finance Ops pain",
+    "Finance Ops bottleneck",
+    "Finance Ops automation",
+    "Finance Ops workflow",
+    "Finance Ops tooling",
+    "Finance Ops process",
+    "Finance Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=finance_ops, persona=engineer)."
+}

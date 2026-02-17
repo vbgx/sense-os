@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_healthcare_paid",
+  "name": "b2c_hr_industry_healthcare_paid",
+  "title": "B2C — HR — Healthcare — Paid Acquisition",
+  "description": "B2C, HR, Healthcare pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_healthcare",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=founder)."
+}

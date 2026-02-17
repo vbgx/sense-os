@@ -1,0 +1,31 @@
+{
+  "id": "industry_education_pm",
+  "name": "industry_education_pm",
+  "title": "Education — Product Management",
+  "description": "Education pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_education",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=ops_manager)."
+}

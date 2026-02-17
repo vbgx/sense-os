@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_manufacturing_analytics",
+  "name": "finance_industry_manufacturing_analytics",
+  "title": "Finance — Manufacturing — Product Analytics",
+  "description": "Finance, Manufacturing pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_manufacturing",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=product_lead)."
+}

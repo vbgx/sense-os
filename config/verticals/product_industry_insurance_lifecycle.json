@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_insurance_lifecycle",
+  "name": "product_industry_insurance_lifecycle",
+  "title": "Product — Insurance — Lifecycle",
+  "description": "Product, Insurance pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_insurance",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=sales_rep)."
+}

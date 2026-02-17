@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_supply_chain_community",
+  "name": "sales_industry_supply_chain_community",
+  "title": "Sales — Supply Chain — Community",
+  "description": "Sales, Supply Chain pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_supply_chain",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

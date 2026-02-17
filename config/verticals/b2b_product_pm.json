@@ -1,0 +1,33 @@
+{
+  "id": "b2b_product_pm",
+  "name": "b2b_product_pm",
+  "title": "B2B — Product — Product Management",
+  "description": "B2B, Product pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

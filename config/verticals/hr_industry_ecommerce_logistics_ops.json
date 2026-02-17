@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_ecommerce_logistics_ops",
+  "name": "hr_industry_ecommerce_logistics_ops",
+  "title": "HR — Ecommerce — Logistics Ops",
+  "description": "HR, Ecommerce pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_ecommerce",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=engineer)."
+}

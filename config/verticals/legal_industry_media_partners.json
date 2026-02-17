@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_media_partners",
+  "name": "legal_industry_media_partners",
+  "title": "Legal — Media — Partnerships",
+  "description": "Legal, Media pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_media",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=sales_rep)."
+}

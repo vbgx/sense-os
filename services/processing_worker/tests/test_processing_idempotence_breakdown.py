@@ -25,7 +25,8 @@ def _seed_vertical_with_signal(db, *, external_id: str) -> Signal:
         db.refresh(vertical)
 
     signal = Signal(
-        vertical_id=vertical.id,
+        vertical_db_id=vertical.id,
+        vertical_id=vertical.name,
         source="test",
         external_id=external_id,
         content="Example content",
@@ -58,7 +59,7 @@ def test_create_if_absent_dedupes_on_algo_version_and_breakdown_hash():
 
     first, created_first = pain_instances_repo.create_if_absent(
         db,
-        vertical_id=signal_a.vertical_id,
+        vertical_id=signal_a.vertical_db_id,
         signal_id=signal_a.id,
         algo_version="algo_v1",
         pain_score=2.0,
@@ -68,7 +69,7 @@ def test_create_if_absent_dedupes_on_algo_version_and_breakdown_hash():
 
     second, created_second = pain_instances_repo.create_if_absent(
         db,
-        vertical_id=signal_b.vertical_id,
+        vertical_id=signal_b.vertical_db_id,
         signal_id=signal_b.id,
         algo_version="algo_v1",
         pain_score=2.0,
@@ -83,7 +84,7 @@ def test_create_if_absent_dedupes_on_algo_version_and_breakdown_hash():
     different_breakdown = {"score": 3.5, "pain_hits": 1}
     third, created_third = pain_instances_repo.create_if_absent(
         db,
-        vertical_id=signal_b.vertical_id,
+        vertical_id=signal_b.vertical_db_id,
         signal_id=signal_b.id,
         algo_version="algo_v1",
         pain_score=3.5,

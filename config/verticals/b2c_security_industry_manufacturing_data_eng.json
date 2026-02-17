@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_manufacturing_data_eng",
+  "name": "b2c_security_industry_manufacturing_data_eng",
+  "title": "B2C — Security — Manufacturing — Data Engineering",
+  "description": "B2C, Security, Manufacturing pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_manufacturing",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=security_lead)."
+}

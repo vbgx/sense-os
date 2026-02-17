@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_public_sector_brand",
+  "name": "data_industry_public_sector_brand",
+  "title": "Data — Public Sector — Brand",
+  "description": "Data, Public Sector pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_public_sector",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=finance_lead)."
+}

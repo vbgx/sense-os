@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_nonprofits_lifecycle",
+  "name": "marketing_industry_nonprofits_lifecycle",
+  "title": "Marketing — Nonprofits — Lifecycle",
+  "description": "Marketing, Nonprofits pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_nonprofits",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_hospitality_sre",
+  "name": "dev_industry_hospitality_sre",
+  "title": "Engineering — Hospitality — SRE",
+  "description": "Engineering, Hospitality pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_hospitality",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

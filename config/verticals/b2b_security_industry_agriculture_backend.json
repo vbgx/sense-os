@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_agriculture_backend",
+  "name": "b2b_security_industry_agriculture_backend",
+  "title": "B2B — Security — Agriculture — Backend",
+  "description": "B2B, Security, Agriculture pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_agriculture",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=ops_manager)."
+}

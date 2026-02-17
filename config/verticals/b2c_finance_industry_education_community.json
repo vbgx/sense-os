@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_education_community",
+  "name": "b2c_finance_industry_education_community",
+  "title": "B2C — Finance — Education — Community",
+  "description": "B2C, Finance, Education pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_education",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

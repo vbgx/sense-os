@@ -1,0 +1,31 @@
+{
+  "id": "dev_events",
+  "name": "dev_events",
+  "title": "Engineering — Events",
+  "description": "Engineering pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=security_lead)."
+}

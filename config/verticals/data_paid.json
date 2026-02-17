@@ -1,0 +1,31 @@
+{
+  "id": "data_paid",
+  "name": "data_paid",
+  "title": "Data — Paid Acquisition",
+  "description": "Data pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=security_lead)."
+}

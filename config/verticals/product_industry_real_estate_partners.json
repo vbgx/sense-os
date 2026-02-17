@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_real_estate_partners",
+  "name": "product_industry_real_estate_partners",
+  "title": "Product — Real Estate — Partnerships",
+  "description": "Product, Real Estate pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_real_estate",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=engineer)."
+}

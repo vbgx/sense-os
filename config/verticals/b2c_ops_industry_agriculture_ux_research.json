@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_agriculture_ux_research",
+  "name": "b2c_ops_industry_agriculture_ux_research",
+  "title": "B2C — Operations — Agriculture — User Research",
+  "description": "B2C, Operations, Agriculture pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_agriculture",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=engineer)."
+}

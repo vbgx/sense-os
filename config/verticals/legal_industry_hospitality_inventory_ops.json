@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_hospitality_inventory_ops",
+  "name": "legal_industry_hospitality_inventory_ops",
+  "title": "Legal — Hospitality — Inventory Ops",
+  "description": "Legal, Hospitality pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_hospitality",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_nonprofits_inventory_ops",
+  "name": "product_industry_nonprofits_inventory_ops",
+  "title": "Product — Nonprofits — Inventory Ops",
+  "description": "Product, Nonprofits pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_nonprofits",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=finance_lead)."
+}

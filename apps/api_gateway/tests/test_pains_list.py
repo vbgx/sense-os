@@ -16,7 +16,8 @@ def _seed_pains(db_session) -> Tuple[Vertical, List[PainInstance]]:
     signals = []
     for idx in range(3):
         signal = Signal(
-            vertical_id=vertical.id,
+            vertical_db_id=vertical.id,
+            vertical_id=vertical.name,
             source="test",
             external_id=f"ext-{idx}",
             content=f"content {idx}",

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_media_platform_eng",
+  "name": "b2b_marketing_industry_media_platform_eng",
+  "title": "B2B — Marketing — Media — Platform Engineering",
+  "description": "B2B, Marketing, Media pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_media",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=engineer)."
+}

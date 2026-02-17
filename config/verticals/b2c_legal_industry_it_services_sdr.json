@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_it_services_sdr",
+  "name": "b2c_legal_industry_it_services_sdr",
+  "title": "B2C — Legal — IT Services (MSP) — SDR/Outbound",
+  "description": "B2C, Legal, IT Services (MSP) pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_it_services",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=marketer)."
+}

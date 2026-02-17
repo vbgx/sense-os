@@ -1,0 +1,33 @@
+{
+  "id": "b2b_legal_enablement",
+  "name": "b2b_legal_enablement",
+  "title": "B2B — Legal — Enablement",
+  "description": "B2B, Legal pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=ops_manager)."
+}

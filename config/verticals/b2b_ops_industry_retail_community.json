@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_retail_community",
+  "name": "b2b_ops_industry_retail_community",
+  "title": "B2B — Operations — Retail — Community",
+  "description": "B2B, Operations, Retail pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_retail",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=founder)."
+}

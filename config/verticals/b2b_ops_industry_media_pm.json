@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_media_pm",
+  "name": "b2b_ops_industry_media_pm",
+  "title": "B2B — Operations — Media — Product Management",
+  "description": "B2B, Operations, Media pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_media",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

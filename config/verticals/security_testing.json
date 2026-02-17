@@ -1,0 +1,31 @@
+{
+  "id": "security_testing",
+  "name": "security_testing",
+  "title": "Security — Testing",
+  "description": "Security pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=ops_manager)."
+}

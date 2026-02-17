@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_energy_events",
+  "name": "marketing_industry_energy_events",
+  "title": "Marketing — Energy — Events",
+  "description": "Marketing, Energy pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_energy",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=security_lead)."
+}

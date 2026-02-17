@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_ecommerce_lifecycle",
+  "name": "b2c_sales_industry_ecommerce_lifecycle",
+  "title": "B2C — Sales — Ecommerce — Lifecycle",
+  "description": "B2C, Sales, Ecommerce pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_ecommerce",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=sales_rep)."
+}

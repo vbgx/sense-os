@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_healthcare_testing",
+  "name": "b2b_ops_industry_healthcare_testing",
+  "title": "B2B — Operations — Healthcare — Testing",
+  "description": "B2B, Operations, Healthcare pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_healthcare",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=product_lead)."
+}

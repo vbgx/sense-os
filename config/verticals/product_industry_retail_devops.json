@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_retail_devops",
+  "name": "product_industry_retail_devops",
+  "title": "Product — Retail — DevOps",
+  "description": "Product, Retail pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_retail",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=sales_rep)."
+}

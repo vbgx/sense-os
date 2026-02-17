@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_energy_partners",
+  "name": "legal_industry_energy_partners",
+  "title": "Legal — Energy — Partnerships",
+  "description": "Legal, Energy pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_energy",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

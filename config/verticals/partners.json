@@ -1,0 +1,28 @@
+{
+  "id": "partners",
+  "name": "partners",
+  "title": "Partnerships",
+  "description": "General pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

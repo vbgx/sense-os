@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_it_services_partners",
+  "name": "security_industry_it_services_partners",
+  "title": "Security — IT Services (MSP) — Partnerships",
+  "description": "Security, IT Services (MSP) pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_it_services",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "security",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

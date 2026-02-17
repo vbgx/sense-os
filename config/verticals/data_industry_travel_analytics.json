@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_travel_analytics",
+  "name": "data_industry_travel_analytics",
+  "title": "Data — Travel — Product Analytics",
+  "description": "Data, Travel pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_travel",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=marketer)."
+}

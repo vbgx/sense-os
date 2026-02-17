@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_it_services_backend",
+  "name": "hr_industry_it_services_backend",
+  "title": "HR — IT Services (MSP) — Backend",
+  "description": "HR, IT Services (MSP) pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_it_services",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=sales_rep)."
+}

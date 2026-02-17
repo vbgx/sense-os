@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_public_sector_forecasting",
+  "name": "marketing_industry_public_sector_forecasting",
+  "title": "Marketing — Public Sector — Forecasting",
+  "description": "Marketing, Public Sector pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_public_sector",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=ops_manager)."
+}

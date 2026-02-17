@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_supply_chain_partners",
+  "name": "dev_industry_supply_chain_partners",
+  "title": "Engineering — Supply Chain — Partnerships",
+  "description": "Engineering, Supply Chain pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_supply_chain",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=finance_lead)."
+}

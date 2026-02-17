@@ -1,0 +1,31 @@
+{
+  "id": "industry_media_people_ops",
+  "name": "industry_media_people_ops",
+  "title": "Media — People Ops",
+  "description": "Media pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_media",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=marketer)."
+}

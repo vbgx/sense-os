@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_insurance_devops",
+  "name": "legal_industry_insurance_devops",
+  "title": "Legal — Insurance — DevOps",
+  "description": "Legal, Insurance pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_insurance",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=security_lead)."
+}

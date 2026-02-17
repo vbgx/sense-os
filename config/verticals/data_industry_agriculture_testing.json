@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_agriculture_testing",
+  "name": "data_industry_agriculture_testing",
+  "title": "Data — Agriculture — Testing",
+  "description": "Data, Agriculture pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_agriculture",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "data",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=ops_manager)."
+}

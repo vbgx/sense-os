@@ -1,48 +1,33 @@
 {
   "id": "b2b_marketing_paid",
   "name": "b2b_marketing_paid",
-  "title": "B2B — Marketing: Paid",
-  "description": "B2B teams dealing with paid workflows, tooling, and operational friction.",
+  "title": "B2B — Marketing — Paid Acquisition",
+  "description": "B2B, Marketing pains and workflows around Paid Acquisition.",
   "version": 1,
   "enabled": true,
   "tags": [
     "b2b",
     "marketing",
-    "marketing:paid"
+    "paid"
   ],
   "default_queries": [
-    "paid ads",
-    "paid ads workflow",
-    "paid ads tooling",
-    "paid ads automation",
-    "paid ads pain points",
-    "paid ads process"
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "debug"
   ],
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing"
   },
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "limit": 80
-      },
-      {
-        "name": "hackernews",
-        "limit": 80
-      },
-      {
-        "name": "indiehackers",
-        "limit": 80
-      }
-    ]
-  },
-  "taxonomy": {
-    "segment": "b2b",
-    "function": "marketing",
-    "subdomain": "paid"
-  }
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=engineer)."
 }

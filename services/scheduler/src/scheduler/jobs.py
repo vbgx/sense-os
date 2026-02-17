@@ -20,7 +20,9 @@ def asdict(job: Any) -> dict:
 @dataclass(frozen=True)
 class IngestJob:
     type: str = "ingest_vertical"
-    vertical_id: int = 0
+    vertical_id: str = ""
+    vertical_db_id: int = 0
+    taxonomy_version: str = ""
     source: str = "reddit"
     run_id: str | None = None
 
@@ -36,7 +38,9 @@ class IngestJob:
 @dataclass(frozen=True)
 class ProcessJob:
     type: str = "process_signals"
-    vertical_id: int = 0
+    vertical_id: str = ""
+    vertical_db_id: int = 0
+    taxonomy_version: str = ""
     algo_version: str = "heuristics_v1"
     run_id: str | None = None
 
@@ -51,7 +55,9 @@ class ProcessJob:
 @dataclass(frozen=True)
 class ClusterJob:
     type: str = "cluster_vertical"
-    vertical_id: int = 0
+    vertical_id: str = ""
+    vertical_db_id: int = 0
+    taxonomy_version: str = ""
     cluster_version: str = "tfidf_v1"
     run_id: str | None = None
 
@@ -66,7 +72,9 @@ class ClusterJob:
 @dataclass(frozen=True)
 class TrendJob:
     type: str = "trend_day"
-    vertical_id: int = 0
+    vertical_id: str = ""
+    vertical_db_id: int = 0
+    taxonomy_version: str = ""
     day: str = ""  # ISO YYYY-MM-DD
     formula_version: str = "formula_v1"
     cluster_version: str = "tfidf_v1"
@@ -80,7 +88,9 @@ class TrendJob:
 
 def make_ingest_job(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     run_id: str | None = None,
     day: str | None = None,
@@ -90,6 +100,8 @@ def make_ingest_job(
 ) -> IngestJob:
     return IngestJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         run_id=run_id,
         day=day,
@@ -101,7 +113,9 @@ def make_ingest_job(
 
 def make_process_job(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     run_id: str | None = None,
     day: str | None = None,
     limit: int | None = None,
@@ -109,6 +123,8 @@ def make_process_job(
 ) -> ProcessJob:
     return ProcessJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         run_id=run_id,
         day=day,
         limit=limit,
@@ -118,7 +134,9 @@ def make_process_job(
 
 def make_cluster_job(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     run_id: str | None = None,
     day: str | None = None,
     limit: int | None = None,
@@ -126,15 +144,29 @@ def make_cluster_job(
 ) -> ClusterJob:
     return ClusterJob(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         run_id=run_id,
         day=day,
         limit=limit,
         offset=offset,
     )
 
-
-def make_trend_job(*, day: str, vertical_id: int, run_id: str | None = None) -> TrendJob:
-    return TrendJob(day=day, vertical_id=vertical_id, run_id=run_id)
+def make_trend_job(
+    *,
+    day: str,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
+    run_id: str | None = None,
+) -> TrendJob:
+    return TrendJob(
+        day=day,
+        vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
+        run_id=run_id,
+    )
 
 
 # ---------------------------------------------------------------------
@@ -143,7 +175,9 @@ def make_trend_job(*, day: str, vertical_id: int, run_id: str | None = None) -> 
 
 def make_ingest_vertical_job(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     run_id: str | None = None,
     day: str | None = None,
@@ -153,6 +187,8 @@ def make_ingest_vertical_job(
 ) -> IngestJob:
     return make_ingest_job(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         run_id=run_id,
         day=day,
@@ -164,7 +200,9 @@ def make_ingest_vertical_job(
 
 def make_process_signals_job(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     run_id: str | None = None,
     day: str | None = None,
     limit: int | None = None,
@@ -172,6 +210,8 @@ def make_process_signals_job(
 ) -> ProcessJob:
     return make_process_job(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         run_id=run_id,
         day=day,
         limit=limit,
@@ -181,7 +221,9 @@ def make_process_signals_job(
 
 def make_cluster_vertical_job(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     run_id: str | None = None,
     day: str | None = None,
     limit: int | None = None,
@@ -189,12 +231,26 @@ def make_cluster_vertical_job(
 ) -> ClusterJob:
     return make_cluster_job(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         run_id=run_id,
         day=day,
         limit=limit,
         offset=offset,
     )
 
-
-def make_trend_day_job(*, day: str, vertical_id: int, run_id: str | None = None) -> TrendJob:
-    return make_trend_job(day=day, vertical_id=vertical_id, run_id=run_id)
+def make_trend_day_job(
+    *,
+    day: str,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
+    run_id: str | None = None,
+) -> TrendJob:
+    return make_trend_job(
+        day=day,
+        vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
+        run_id=run_id,
+    )

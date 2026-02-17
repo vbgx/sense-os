@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_supply_chain_procurement",
+  "name": "finance_industry_supply_chain_procurement",
+  "title": "Finance — Supply Chain — Procurement",
+  "description": "Finance, Supply Chain pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_supply_chain",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=security_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_education_lifecycle",
+  "name": "b2c_data_industry_education_lifecycle",
+  "title": "B2C — Data — Education — Lifecycle",
+  "description": "B2C, Data, Education pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_education",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=ops_manager)."
+}

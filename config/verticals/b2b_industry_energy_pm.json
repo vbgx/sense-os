@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_energy_pm",
+  "name": "b2b_industry_energy_pm",
+  "title": "B2B — Energy — Product Management",
+  "description": "B2B, Energy pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_energy",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

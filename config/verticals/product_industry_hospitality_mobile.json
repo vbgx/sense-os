@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_hospitality_mobile",
+  "name": "product_industry_hospitality_mobile",
+  "title": "Product — Hospitality — Mobile",
+  "description": "Product, Hospitality pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_hospitality",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "product",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=founder)."
+}

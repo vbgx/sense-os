@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_travel_paid",
+  "name": "hr_industry_travel_paid",
+  "title": "HR — Travel — Paid Acquisition",
+  "description": "HR, Travel pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_travel",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=founder)."
+}

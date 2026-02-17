@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_nonprofits_sre",
+  "name": "legal_industry_nonprofits_sre",
+  "title": "Legal — Nonprofits — SRE",
+  "description": "Legal, Nonprofits pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_nonprofits",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=finance_lead)."
+}

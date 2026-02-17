@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_logistics_events",
+  "name": "hr_industry_logistics_events",
+  "title": "HR — Logistics — Events",
+  "description": "HR, Logistics pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_logistics",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=founder)."
+}

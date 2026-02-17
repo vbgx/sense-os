@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_ecommerce_paid",
+  "name": "b2b_dev_industry_ecommerce_paid",
+  "title": "B2B — Engineering — Ecommerce — Paid Acquisition",
+  "description": "B2B, Engineering, Ecommerce pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_ecommerce",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=finance_lead)."
+}

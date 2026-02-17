@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_construction_api_design",
+  "name": "b2c_legal_industry_construction_api_design",
+  "title": "B2C — Legal — Construction — API Design",
+  "description": "B2C, Legal, Construction pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_construction",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=sales_rep)."
+}

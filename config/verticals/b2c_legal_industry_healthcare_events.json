@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_healthcare_events",
+  "name": "b2c_legal_industry_healthcare_events",
+  "title": "B2C — Legal — Healthcare — Events",
+  "description": "B2C, Legal, Healthcare pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_healthcare",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=marketer)."
+}

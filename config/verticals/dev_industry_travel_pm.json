@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_travel_pm",
+  "name": "dev_industry_travel_pm",
+  "title": "Engineering — Travel — Product Management",
+  "description": "Engineering, Travel pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_travel",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

@@ -12,7 +12,8 @@ def _seed_one_pain(db_session) -> PainInstance:
     db_session.refresh(vertical)
 
     signal = Signal(
-        vertical_id=vertical.id,
+        vertical_db_id=vertical.id,
+        vertical_id=vertical.name,
         source="test",
         external_id="ext-detail",
         content="detail content",

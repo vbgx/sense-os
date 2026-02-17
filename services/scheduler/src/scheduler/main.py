@@ -9,6 +9,8 @@ from typing import Optional, Callable
 from sqlalchemy import text
 
 from db.session import SessionLocal
+from db.repos import verticals as verticals_repo
+from domain.versions import TAXONOMY_VERSION
 from scheduler.checkpoints import (
     ensure_checkpoint,
     get_checkpoint,
@@ -54,6 +56,17 @@ def _parse_day(s: Optional[str]) -> Optional[date]:
 def _default_day() -> date:
     # for backfill default window; "once" will infer day from DB after ingest
     return date.today() - timedelta(days=1)
+
+
+def _resolve_vertical_id(vertical_db_id: int) -> str:
+    db = SessionLocal()
+    try:
+        row = verticals_repo.get_by_id(db, int(vertical_db_id))
+    finally:
+        db.close()
+    if row is None:
+        raise SystemExit(f"vertical not found for id={vertical_db_id}")
+    return str(row.name)
 
 
 def _scalar(sql: str, params: Optional[dict[str, object]] = None):
@@ -108,10 +121,10 @@ def _wait_count_ge(
     )
 
 
-def _infer_latest_signal_day(vertical_id: int) -> date:
+def _infer_latest_signal_day(vertical_db_id: int) -> date:
     v = _scalar(
-        "select max(ingested_at)::date from signals where vertical_id=:vertical_id",
-        {"vertical_id": vertical_id},
+        "select max(ingested_at)::date from signals where vertical_db_id=:vertical_db_id",
+        {"vertical_db_id": vertical_db_id},
     )
     if v is None:
         raise SystemExit("could not infer day from signals (no signals ingested)")
@@ -121,7 +134,9 @@ def _infer_latest_signal_day(vertical_id: int) -> date:
 
 def _run_day_sequential(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     d: date,
     run_id: str,
@@ -138,11 +153,19 @@ def _run_day_sequential(
     day_s = d.isoformat()
     day_start = d.isoformat()
     next_day = (d + timedelta(days=1)).isoformat()
-    log.info("run_day vertical_id=%s day=%s run_id=%s", vertical_id, day_s, run_id)
+    log.info(
+        "run_day vertical_id=%s vertical_db_id=%s day=%s run_id=%s",
+        vertical_id,
+        vertical_db_id,
+        day_s,
+        run_id,
+    )
     day_timer_start = time.perf_counter()
 
     jobs = plan_vertical_run(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         run_id=run_id,
         day=d,
@@ -159,11 +182,11 @@ def _run_day_sequential(
         """
         select count(*)
         from signals
-        where vertical_id=:vertical_id
+        where vertical_db_id=:vertical_db_id
           and ingested_at >= :day_start
           and ingested_at < :day_end
         """.strip(),
-        {"vertical_id": vertical_id, "day_start": day_start, "day_end": next_day},
+        {"vertical_db_id": vertical_db_id, "day_start": day_start, "day_end": next_day},
         1,
         timeout_s=90,
     )
@@ -181,7 +204,7 @@ def _run_day_sequential(
           and created_at >= :day_start
           and created_at < :day_end
         """.strip(),
-        {"vertical_id": vertical_id, "day_start": day_start, "day_end": next_day},
+        {"vertical_id": vertical_db_id, "day_start": day_start, "day_end": next_day},
         1,
         timeout_s=90,
     )
@@ -198,7 +221,7 @@ def _run_day_sequential(
         join pain_instances pi on pi.id = cs.pain_instance_id
         where pi.vertical_id=:vertical_id
         """.strip(),
-        {"vertical_id": vertical_id},
+        {"vertical_id": vertical_db_id},
         1,
         timeout_s=90,
     )
@@ -227,7 +250,9 @@ def _run_day_sequential(
 
 def _run_once_infer_day_then_sequential(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     query: Optional[str],
     limit: Optional[int],
@@ -243,15 +268,18 @@ def _run_once_infer_day_then_sequential(
     """
     run_id = new_run_id()
     log.info(
-        "once_publish_ingest run_id=%s vertical_id=%s source=%s",
+        "once_publish_ingest run_id=%s vertical_id=%s vertical_db_id=%s source=%s",
         run_id,
         vertical_id,
+        vertical_db_id,
         source,
     )
 
     # publish ingest only (day=None) with SAME run_id
     jobs = plan_vertical_run(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         run_id=run_id,
         day=None,
@@ -264,18 +292,20 @@ def _run_once_infer_day_then_sequential(
 
     _wait_count_ge(
         "signals(any)",
-        "select count(*) from signals where vertical_id=:vertical_id",
-        {"vertical_id": vertical_id},
+        "select count(*) from signals where vertical_db_id=:vertical_db_id",
+        {"vertical_db_id": vertical_db_id},
         1,
         timeout_s=90,
     )
 
-    d = _infer_latest_signal_day(vertical_id)
+    d = _infer_latest_signal_day(vertical_db_id)
     log.info("once_inferred_day day=%s run_id=%s", d.isoformat(), run_id)
 
     # run process/cluster/trend for inferred day with SAME run_id
     _run_day_sequential(
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         d=d,
         run_id=run_id,
@@ -309,7 +339,9 @@ def _resolve_backfill_bounds(
 def _run_backfill_window(
     *,
     name: str,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     days: int,
     start: Optional[date],
@@ -327,7 +359,7 @@ def _run_backfill_window(
 
     state = ensure_checkpoint(
         name=name,
-        vertical_id=vertical_id,
+        vertical_id=vertical_db_id,
         source=source,
         start_day=start_day,
         end_day=end_day,
@@ -336,16 +368,21 @@ def _run_backfill_window(
     if seed_last_completed_day and start_day <= seed_last_completed_day <= end_day:
         seed_checkpoint(
             name=name,
-            vertical_id=vertical_id,
+            vertical_id=vertical_db_id,
             source=source,
             seed_last_completed_day=seed_last_completed_day,
         )
-        state = get_checkpoint(name=name, vertical_id=vertical_id, source=source) or state
+        state = get_checkpoint(name=name, vertical_id=vertical_db_id, source=source) or state
 
     cur = next_day_to_run(state)
     if cur > end_day:
-        mark_checkpoint_complete(name=name, vertical_id=vertical_id, source=source)
-        log.info("backfill_window_complete name=%s vertical_id=%s", name, vertical_id)
+        mark_checkpoint_complete(name=name, vertical_id=vertical_db_id, source=source)
+        log.info(
+            "backfill_window_complete name=%s vertical_id=%s vertical_db_id=%s",
+            name,
+            vertical_id,
+            vertical_db_id,
+        )
         return
 
     total_days = (end_day - start_day).days + 1
@@ -359,7 +396,9 @@ def _run_backfill_window(
     while cur <= end_day:
         run_id = new_run_id(day=cur)
         run_day_fn(
-            vertical_id=int(vertical_id),
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
             source=str(source),
             d=cur,
             run_id=run_id,
@@ -369,20 +408,22 @@ def _run_backfill_window(
         )
         mark_checkpoint_progress(
             name=name,
-            vertical_id=vertical_id,
+            vertical_id=vertical_db_id,
             source=source,
             last_completed_day=cur,
         )
         _emit_metric("backfill_day_completed", 1, window=name, day=cur.isoformat(), vertical_id=vertical_id)
         cur += timedelta(days=1)
 
-    mark_checkpoint_complete(name=name, vertical_id=vertical_id, source=source)
+    mark_checkpoint_complete(name=name, vertical_id=vertical_db_id, source=source)
     _emit_metric("backfill_window_complete", 1, window=name, vertical_id=vertical_id)
 
 
 def _run_backfill_series(
     *,
-    vertical_id: int,
+    vertical_id: str,
+    vertical_db_id: int,
+    taxonomy_version: str,
     source: str,
     query: Optional[str],
     limit: Optional[int],
@@ -396,6 +437,8 @@ def _run_backfill_series(
     _run_backfill_window(
         name="backfill_7d",
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         days=7,
         start=start,
@@ -405,12 +448,14 @@ def _run_backfill_series(
         offset=offset,
     )
 
-    seed_state = get_checkpoint(name="backfill_7d", vertical_id=vertical_id, source=source)
+    seed_state = get_checkpoint(name="backfill_7d", vertical_id=vertical_db_id, source=source)
     seed_last = seed_state.last_completed_day if seed_state else None
 
     _run_backfill_window(
         name="backfill_90d",
         vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=source,
         days=90,
         start=start,
@@ -424,10 +469,15 @@ def _run_backfill_series(
 
 def main() -> None:
     args = _parse_args()
+    vertical_db_id = int(args.vertical_id)
+    vertical_id = _resolve_vertical_id(vertical_db_id)
+    taxonomy_version = TAXONOMY_VERSION
 
     if args.mode == "once":
         _run_once_infer_day_then_sequential(
-            vertical_id=int(args.vertical_id),
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
             source=str(args.source),
             query=args.query,
             limit=args.limit,
@@ -443,7 +493,9 @@ def main() -> None:
 
     if args.series:
         _run_backfill_series(
-            vertical_id=int(args.vertical_id),
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
             source=str(args.source),
             query=args.query,
             limit=args.limit,
@@ -459,7 +511,9 @@ def main() -> None:
 
     _run_backfill_window(
         name=window_name,
-        vertical_id=int(args.vertical_id),
+        vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
         source=str(args.source),
         days=int(args.days),
         start=start,

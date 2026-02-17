@@ -14,6 +14,13 @@ def test_worker_consumes_ingest_job(monkeypatch):
 
     monkeypatch.setattr(worker_main, "ingest_vertical", fake_ingest)
 
-    job = {"type": "ingest_vertical", "vertical_id": 1, "source": "reddit", "run_id": "r1"}
+    job = {
+        "type": "ingest_vertical",
+        "vertical_id": "b2b_ops",
+        "vertical_db_id": 1,
+        "taxonomy_version": "2026-02-17",
+        "source": "reddit",
+        "run_id": "r1",
+    }
     assert handle_job(job) is True
-    assert called["job"]["vertical_id"] == 1
+    assert called["job"]["vertical_id"] == "b2b_ops"

@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_travel_testing",
+  "name": "security_industry_travel_testing",
+  "title": "Security — Travel — Testing",
+  "description": "Security, Travel pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_travel",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=product_lead)."
+}

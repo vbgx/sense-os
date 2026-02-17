@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_healthcare_events",
+  "name": "b2c_industry_healthcare_events",
+  "title": "B2C — Healthcare — Events",
+  "description": "B2C, Healthcare pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_healthcare",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=finance_lead)."
+}

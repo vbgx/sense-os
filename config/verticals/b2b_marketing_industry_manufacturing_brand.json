@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_manufacturing_brand",
+  "name": "b2b_marketing_industry_manufacturing_brand",
+  "title": "B2B — Marketing — Manufacturing — Brand",
+  "description": "B2B, Marketing, Manufacturing pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_manufacturing",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=finance_lead)."
+}

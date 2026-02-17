@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_nonprofits_analytics",
+  "name": "b2c_hr_industry_nonprofits_analytics",
+  "title": "B2C — HR — Nonprofits — Product Analytics",
+  "description": "B2C, HR, Nonprofits pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_nonprofits",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=security_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_logistics_partners",
+  "name": "b2b_hr_industry_logistics_partners",
+  "title": "B2B — HR — Logistics — Partnerships",
+  "description": "B2B, HR, Logistics pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_logistics",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=sales_rep)."
+}

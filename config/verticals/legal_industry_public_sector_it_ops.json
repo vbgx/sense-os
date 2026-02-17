@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_public_sector_it_ops",
+  "name": "legal_industry_public_sector_it_ops",
+  "title": "Legal — Public Sector — IT Ops",
+  "description": "Legal, Public Sector pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_public_sector",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=founder)."
+}

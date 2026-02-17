@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_logistics_events",
+  "name": "product_industry_logistics_events",
+  "title": "Product — Logistics — Events",
+  "description": "Product, Logistics pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_logistics",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=product_lead)."
+}

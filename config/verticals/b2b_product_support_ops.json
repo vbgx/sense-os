@@ -1,0 +1,33 @@
+{
+  "id": "b2b_product_support_ops",
+  "name": "b2b_product_support_ops",
+  "title": "B2B — Product — Support Ops",
+  "description": "B2B, Product pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=product_lead)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "industry_supply_chain_compliance_ops",
+  "name": "industry_supply_chain_compliance_ops",
+  "title": "Supply Chain — Compliance Ops",
+  "description": "Supply Chain pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_supply_chain",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=sales_rep)."
+}

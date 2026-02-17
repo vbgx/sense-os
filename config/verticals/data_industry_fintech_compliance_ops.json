@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_fintech_compliance_ops",
+  "name": "data_industry_fintech_compliance_ops",
+  "title": "Data — Fintech — Compliance Ops",
+  "description": "Data, Fintech pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_fintech",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "data",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=founder)."
+}

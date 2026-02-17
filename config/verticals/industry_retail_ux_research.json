@@ -1,0 +1,31 @@
+{
+  "id": "industry_retail_ux_research",
+  "name": "industry_retail_ux_research",
+  "title": "Retail — User Research",
+  "description": "Retail pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_retail",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=finance_lead)."
+}

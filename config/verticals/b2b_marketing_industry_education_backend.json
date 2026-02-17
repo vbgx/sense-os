@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_education_backend",
+  "name": "b2b_marketing_industry_education_backend",
+  "title": "B2B — Marketing — Education — Backend",
+  "description": "B2B, Marketing, Education pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_education",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=finance_lead)."
+}

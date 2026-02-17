@@ -13,19 +13,45 @@ log = logging.getLogger(__name__)
 
 
 def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
-    vertical_id = int(job["vertical_id"])
+    vertical_id = str(job["vertical_id"])
+    taxonomy_version = str(job["taxonomy_version"])
+    vertical_db_id = job.get("vertical_db_id")
+    vertical_db_id = int(vertical_db_id) if vertical_db_id is not None else None
+    if vertical_db_id is None:
+        raise ValueError("job missing vertical_db_id")
     source = str(job.get("source") or "reddit")
     query = str(job.get("query") or "saas")
     limit = int(job.get("limit") or 25)
 
     if source == "reddit":
-        signals = fetch_reddit_signals(vertical_id=vertical_id, query=query, limit=limit)
+        signals = fetch_reddit_signals(
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
+            query=query,
+            limit=limit,
+        )
     elif source == "hackernews":
-        signals = fetch_hackernews_signals(vertical_id=vertical_id, limit=limit)
+        signals = fetch_hackernews_signals(
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
+            limit=limit,
+        )
     elif source == "indiehackers":
-        signals = fetch_indiehackers_signals(vertical_id=vertical_id, limit=limit)
+        signals = fetch_indiehackers_signals(
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
+            limit=limit,
+        )
     elif source == "producthunt":
-        signals = fetch_producthunt_signals(vertical_id=vertical_id, limit=limit)
+        signals = fetch_producthunt_signals(
+            vertical_id=vertical_id,
+            vertical_db_id=vertical_db_id,
+            taxonomy_version=taxonomy_version,
+            limit=limit,
+        )
     else:
         raise ValueError(f"Unsupported ingestion source: {source}")
 

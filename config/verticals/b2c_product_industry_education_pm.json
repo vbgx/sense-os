@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_education_pm",
+  "name": "b2c_product_industry_education_pm",
+  "title": "B2C — Product — Education — Product Management",
+  "description": "B2C, Product, Education pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_education",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

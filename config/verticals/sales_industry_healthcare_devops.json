@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_healthcare_devops",
+  "name": "sales_industry_healthcare_devops",
+  "title": "Sales — Healthcare — DevOps",
+  "description": "Sales, Healthcare pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_healthcare",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=founder)."
+}

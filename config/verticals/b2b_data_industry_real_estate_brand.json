@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_real_estate_brand",
+  "name": "b2b_data_industry_real_estate_brand",
+  "title": "B2B — Data — Real Estate — Brand",
+  "description": "B2B, Data, Real Estate pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_real_estate",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=finance_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_real_estate_events",
+  "name": "b2c_security_industry_real_estate_events",
+  "title": "B2C — Security — Real Estate — Events",
+  "description": "B2C, Security, Real Estate pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_real_estate",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_hospitality_community",
+  "name": "legal_industry_hospitality_community",
+  "title": "Legal — Hospitality — Community",
+  "description": "Legal, Hospitality pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_hospitality",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=founder)."
+}

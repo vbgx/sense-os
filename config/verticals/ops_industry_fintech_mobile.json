@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_fintech_mobile",
+  "name": "ops_industry_fintech_mobile",
+  "title": "Operations — Fintech — Mobile",
+  "description": "Operations, Fintech pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_fintech",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=founder)."
+}

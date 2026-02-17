@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_logistics_support_ops",
+  "name": "b2b_data_industry_logistics_support_ops",
+  "title": "B2B — Data — Logistics — Support Ops",
+  "description": "B2B, Data, Logistics pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_logistics",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=founder)."
+}

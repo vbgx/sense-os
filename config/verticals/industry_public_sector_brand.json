@@ -1,0 +1,31 @@
+{
+  "id": "industry_public_sector_brand",
+  "name": "industry_public_sector_brand",
+  "title": "Public Sector — Brand",
+  "description": "Public Sector pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_public_sector",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=founder)."
+}

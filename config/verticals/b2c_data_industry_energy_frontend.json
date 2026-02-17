@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_energy_frontend",
+  "name": "b2c_data_industry_energy_frontend",
+  "title": "B2C — Data — Energy — Frontend",
+  "description": "B2C, Data, Energy pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_energy",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=engineer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_supply_chain_observability",
+  "name": "b2c_sales_industry_supply_chain_observability",
+  "title": "B2C — Sales — Supply Chain — Observability",
+  "description": "B2C, Sales, Supply Chain pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_supply_chain",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=ops_manager)."
+}

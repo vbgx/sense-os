@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_hospitality_api_design",
+  "name": "marketing_industry_hospitality_api_design",
+  "title": "Marketing — Hospitality — API Design",
+  "description": "Marketing, Hospitality pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_hospitality",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=founder)."
+}

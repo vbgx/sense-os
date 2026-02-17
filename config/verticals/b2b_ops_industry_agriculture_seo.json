@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_agriculture_seo",
+  "name": "b2b_ops_industry_agriculture_seo",
+  "title": "B2B — Operations — Agriculture — SEO",
+  "description": "B2B, Operations, Agriculture pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_agriculture",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=engineer)."
+}

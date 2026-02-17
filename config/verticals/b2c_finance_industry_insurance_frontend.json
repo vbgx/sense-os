@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_insurance_frontend",
+  "name": "b2c_finance_industry_insurance_frontend",
+  "title": "B2C — Finance — Insurance — Frontend",
+  "description": "B2C, Finance, Insurance pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_insurance",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

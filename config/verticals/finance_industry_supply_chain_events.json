@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_supply_chain_events",
+  "name": "finance_industry_supply_chain_events",
+  "title": "Finance — Supply Chain — Events",
+  "description": "Finance, Supply Chain pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_supply_chain",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=founder)."
+}

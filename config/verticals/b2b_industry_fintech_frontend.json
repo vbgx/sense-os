@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_fintech_frontend",
+  "name": "b2b_industry_fintech_frontend",
+  "title": "B2B — Fintech — Frontend",
+  "description": "B2B, Fintech pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_fintech",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

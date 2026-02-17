@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_energy_observability",
+  "name": "finance_industry_energy_observability",
+  "title": "Finance — Energy — Observability",
+  "description": "Finance, Energy pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_energy",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=engineer)."
+}

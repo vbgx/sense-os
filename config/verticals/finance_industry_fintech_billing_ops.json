@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_fintech_billing_ops",
+  "name": "finance_industry_fintech_billing_ops",
+  "title": "Finance — Fintech — Billing Ops",
+  "description": "Finance, Fintech pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_fintech",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=finance_lead)."
+}

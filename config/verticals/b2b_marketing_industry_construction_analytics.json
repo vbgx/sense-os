@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_construction_analytics",
+  "name": "b2b_marketing_industry_construction_analytics",
+  "title": "B2B — Marketing — Construction — Product Analytics",
+  "description": "B2B, Marketing, Construction pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_construction",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=finance_lead)."
+}

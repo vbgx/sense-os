@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_public_sector_inventory_ops",
+  "name": "hr_industry_public_sector_inventory_ops",
+  "title": "HR — Public Sector — Inventory Ops",
+  "description": "HR, Public Sector pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_public_sector",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=engineer)."
+}

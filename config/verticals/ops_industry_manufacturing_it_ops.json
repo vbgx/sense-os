@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_manufacturing_it_ops",
+  "name": "ops_industry_manufacturing_it_ops",
+  "title": "Operations — Manufacturing — IT Ops",
+  "description": "Operations, Manufacturing pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_manufacturing",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=sales_rep)."
+}

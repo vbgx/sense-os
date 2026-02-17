@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_energy_frontend",
+  "name": "product_industry_energy_frontend",
+  "title": "Product — Energy — Frontend",
+  "description": "Product, Energy pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_energy",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=finance_lead)."
+}

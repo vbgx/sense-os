@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_energy_devops",
+  "name": "b2c_sales_industry_energy_devops",
+  "title": "B2C — Sales — Energy — DevOps",
+  "description": "B2C, Sales, Energy pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_energy",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=product_lead)."
+}

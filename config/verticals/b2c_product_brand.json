@@ -1,0 +1,33 @@
+{
+  "id": "b2c_product_brand",
+  "name": "b2c_product_brand",
+  "title": "B2C — Product — Brand",
+  "description": "B2C, Product pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_nonprofits_lifecycle",
+  "name": "b2c_product_industry_nonprofits_lifecycle",
+  "title": "B2C — Product — Nonprofits — Lifecycle",
+  "description": "B2C, Product, Nonprofits pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_nonprofits",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=marketer)."
+}

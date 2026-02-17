@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_logistics_partners",
+  "name": "b2c_dev_industry_logistics_partners",
+  "title": "B2C — Engineering — Logistics — Partnerships",
+  "description": "B2C, Engineering, Logistics pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_logistics",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
+}

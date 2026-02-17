@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_nonprofits_brand",
+  "name": "sales_industry_nonprofits_brand",
+  "title": "Sales — Nonprofits — Brand",
+  "description": "Sales, Nonprofits pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_nonprofits",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=sales_rep)."
+}

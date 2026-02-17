@@ -1,0 +1,31 @@
+{
+  "id": "hr_frontend",
+  "name": "hr_frontend",
+  "title": "HR — Frontend",
+  "description": "HR pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "hr"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

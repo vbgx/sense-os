@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_public_sector_community",
+  "name": "sales_industry_public_sector_community",
+  "title": "Sales — Public Sector — Community",
+  "description": "Sales, Public Sector pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_public_sector",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_real_estate_billing_ops",
+  "name": "dev_industry_real_estate_billing_ops",
+  "title": "Engineering — Real Estate — Billing Ops",
+  "description": "Engineering, Real Estate pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_real_estate",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_insurance_pm",
+  "name": "ops_industry_insurance_pm",
+  "title": "Operations — Insurance — Product Management",
+  "description": "Operations, Insurance pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_insurance",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=finance_lead)."
+}

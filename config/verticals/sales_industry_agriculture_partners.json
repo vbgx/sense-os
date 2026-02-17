@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_agriculture_partners",
+  "name": "sales_industry_agriculture_partners",
+  "title": "Sales — Agriculture — Partnerships",
+  "description": "Sales, Agriculture pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_agriculture",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_energy_events",
+  "name": "sales_industry_energy_events",
+  "title": "Sales — Energy — Events",
+  "description": "Sales, Energy pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_energy",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

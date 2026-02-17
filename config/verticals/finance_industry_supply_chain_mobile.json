@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_supply_chain_mobile",
+  "name": "finance_industry_supply_chain_mobile",
+  "title": "Finance — Supply Chain — Mobile",
+  "description": "Finance, Supply Chain pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_supply_chain",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=sales_rep)."
+}

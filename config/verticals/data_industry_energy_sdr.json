@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_energy_sdr",
+  "name": "data_industry_energy_sdr",
+  "title": "Data — Energy — SDR/Outbound",
+  "description": "Data, Energy pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_energy",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=security_lead)."
+}

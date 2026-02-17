@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_education_brand",
+  "name": "hr_industry_education_brand",
+  "title": "HR — Education — Brand",
+  "description": "HR, Education pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_education",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=founder)."
+}

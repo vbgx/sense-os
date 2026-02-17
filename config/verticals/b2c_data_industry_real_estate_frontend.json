@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_real_estate_frontend",
+  "name": "b2c_data_industry_real_estate_frontend",
+  "title": "B2C — Data — Real Estate — Frontend",
+  "description": "B2C, Data, Real Estate pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_real_estate",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "finance_pm",
+  "name": "finance_pm",
+  "title": "Finance — Product Management",
+  "description": "Finance pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=finance_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_media_people_ops",
+  "name": "b2c_marketing_industry_media_people_ops",
+  "title": "B2C — Marketing — Media — People Ops",
+  "description": "B2C, Marketing, Media pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_media",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_public_sector_ux_research",
+  "name": "hr_industry_public_sector_ux_research",
+  "title": "HR — Public Sector — User Research",
+  "description": "HR, Public Sector pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_public_sector",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=engineer)."
+}

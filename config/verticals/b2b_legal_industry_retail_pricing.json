@@ -1,0 +1,35 @@
+{
+  "id": "b2b_legal_industry_retail_pricing",
+  "name": "b2b_legal_industry_retail_pricing",
+  "title": "B2B — Legal — Retail — Pricing & Packaging",
+  "description": "B2B, Legal, Retail pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "industry_retail",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=founder)."
+}

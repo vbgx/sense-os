@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_media_seo",
+  "name": "hr_industry_media_seo",
+  "title": "HR — Media — SEO",
+  "description": "HR, Media pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_media",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=engineer)."
+}

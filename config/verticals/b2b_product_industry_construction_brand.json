@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_construction_brand",
+  "name": "b2b_product_industry_construction_brand",
+  "title": "B2B — Product — Construction — Brand",
+  "description": "B2B, Product, Construction pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_construction",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=ops_manager)."
+}

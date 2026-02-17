@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_travel_pricing",
+  "name": "b2c_marketing_industry_travel_pricing",
+  "title": "B2C — Marketing — Travel — Pricing & Packaging",
+  "description": "B2C, Marketing, Travel pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_travel",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=founder)."
+}

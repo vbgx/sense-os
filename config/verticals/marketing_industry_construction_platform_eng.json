@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_construction_platform_eng",
+  "name": "marketing_industry_construction_platform_eng",
+  "title": "Marketing — Construction — Platform Engineering",
+  "description": "Marketing, Construction pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_construction",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=finance_lead)."
+}

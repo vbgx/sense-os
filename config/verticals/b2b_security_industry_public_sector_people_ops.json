@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_public_sector_people_ops",
+  "name": "b2b_security_industry_public_sector_people_ops",
+  "title": "B2B — Security — Public Sector — People Ops",
+  "description": "B2B, Security, Public Sector pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_public_sector",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=marketer)."
+}

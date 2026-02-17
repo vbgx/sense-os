@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_retail_paid",
+  "name": "sales_industry_retail_paid",
+  "title": "Sales — Retail — Paid Acquisition",
+  "description": "Sales, Retail pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_retail",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=product_lead)."
+}

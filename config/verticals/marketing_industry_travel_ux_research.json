@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_travel_ux_research",
+  "name": "marketing_industry_travel_ux_research",
+  "title": "Marketing — Travel — User Research",
+  "description": "Marketing, Travel pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_travel",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=sales_rep)."
+}

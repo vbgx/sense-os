@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_supply_chain_frontend",
+  "name": "dev_industry_supply_chain_frontend",
+  "title": "Engineering — Supply Chain — Frontend",
+  "description": "Engineering, Supply Chain pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_supply_chain",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

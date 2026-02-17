@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_travel_mobile",
+  "name": "marketing_industry_travel_mobile",
+  "title": "Marketing — Travel — Mobile",
+  "description": "Marketing, Travel pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_travel",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_education_sre",
+  "name": "hr_industry_education_sre",
+  "title": "HR — Education — SRE",
+  "description": "HR, Education pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_education",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=engineer)."
+}

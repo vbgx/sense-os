@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_legal_brand",
+  "name": "marketing_industry_legal_brand",
+  "title": "Marketing — Legal Services — Brand",
+  "description": "Marketing, Legal Services pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_legal",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_fintech_observability",
+  "name": "product_industry_fintech_observability",
+  "title": "Product — Fintech — Observability",
+  "description": "Product, Fintech pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_fintech",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=product_lead)."
+}

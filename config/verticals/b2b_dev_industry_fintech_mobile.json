@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_fintech_mobile",
+  "name": "b2b_dev_industry_fintech_mobile",
+  "title": "B2B — Engineering — Fintech — Mobile",
+  "description": "B2B, Engineering, Fintech pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_fintech",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=sales_rep)."
+}

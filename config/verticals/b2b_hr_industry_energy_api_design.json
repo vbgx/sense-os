@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_energy_api_design",
+  "name": "b2b_hr_industry_energy_api_design",
+  "title": "B2B — HR — Energy — API Design",
+  "description": "B2B, HR, Energy pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_energy",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=security_lead)."
+}

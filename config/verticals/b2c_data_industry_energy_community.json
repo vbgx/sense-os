@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_energy_community",
+  "name": "b2c_data_industry_energy_community",
+  "title": "B2C — Data — Energy — Community",
+  "description": "B2C, Data, Energy pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_energy",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

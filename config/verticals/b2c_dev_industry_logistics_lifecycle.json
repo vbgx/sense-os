@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_logistics_lifecycle",
+  "name": "b2c_dev_industry_logistics_lifecycle",
+  "title": "B2C — Engineering — Logistics — Lifecycle",
+  "description": "B2C, Engineering, Logistics pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_logistics",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=product_lead)."
+}

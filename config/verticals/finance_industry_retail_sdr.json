@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_retail_sdr",
+  "name": "finance_industry_retail_sdr",
+  "title": "Finance — Retail — SDR/Outbound",
+  "description": "Finance, Retail pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_retail",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=marketer)."
+}

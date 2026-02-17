@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_energy_backend",
+  "name": "hr_industry_energy_backend",
+  "title": "HR — Energy — Backend",
+  "description": "HR, Energy pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_energy",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=sales_rep)."
+}

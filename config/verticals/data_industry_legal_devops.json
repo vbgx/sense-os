@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_legal_devops",
+  "name": "data_industry_legal_devops",
+  "title": "Data — Legal Services — DevOps",
+  "description": "Data, Legal Services pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_legal",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=security_lead)."
+}

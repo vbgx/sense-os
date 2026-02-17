@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_construction_sdr",
+  "name": "security_industry_construction_sdr",
+  "title": "Security — Construction — SDR/Outbound",
+  "description": "Security, Construction pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_construction",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "security",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=engineer)."
+}

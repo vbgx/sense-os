@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_nonprofits_backend",
+  "name": "marketing_industry_nonprofits_backend",
+  "title": "Marketing — Nonprofits — Backend",
+  "description": "Marketing, Nonprofits pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_nonprofits",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=founder)."
+}

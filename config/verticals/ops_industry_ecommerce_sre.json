@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_ecommerce_sre",
+  "name": "ops_industry_ecommerce_sre",
+  "title": "Operations — Ecommerce — SRE",
+  "description": "Operations, Ecommerce pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_ecommerce",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=product_lead)."
+}

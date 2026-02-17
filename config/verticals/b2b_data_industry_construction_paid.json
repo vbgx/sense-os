@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_construction_paid",
+  "name": "b2b_data_industry_construction_paid",
+  "title": "B2B — Data — Construction — Paid Acquisition",
+  "description": "B2B, Data, Construction pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_construction",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=security_lead)."
+}

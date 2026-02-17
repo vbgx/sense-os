@@ -1,0 +1,33 @@
+{
+  "id": "b2b_sales_enablement",
+  "name": "b2b_sales_enablement",
+  "title": "B2B — Sales — Enablement",
+  "description": "B2B, Sales pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=finance_lead)."
+}

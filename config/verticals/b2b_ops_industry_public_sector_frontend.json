@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_public_sector_frontend",
+  "name": "b2b_ops_industry_public_sector_frontend",
+  "title": "B2B — Operations — Public Sector — Frontend",
+  "description": "B2B, Operations, Public Sector pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_public_sector",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_real_estate_inventory_ops",
+  "name": "b2c_product_industry_real_estate_inventory_ops",
+  "title": "B2C — Product — Real Estate — Inventory Ops",
+  "description": "B2C, Product, Real Estate pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_real_estate",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=engineer)."
+}

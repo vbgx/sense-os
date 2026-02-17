@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_public_sector_enablement",
+  "name": "finance_industry_public_sector_enablement",
+  "title": "Finance — Public Sector — Enablement",
+  "description": "Finance, Public Sector pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_public_sector",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=finance_lead)."
+}

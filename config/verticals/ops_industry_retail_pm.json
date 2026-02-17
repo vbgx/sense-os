@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_retail_pm",
+  "name": "ops_industry_retail_pm",
+  "title": "Operations — Retail — Product Management",
+  "description": "Operations, Retail pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_retail",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

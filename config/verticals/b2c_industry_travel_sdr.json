@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_travel_sdr",
+  "name": "b2c_industry_travel_sdr",
+  "title": "B2C — Travel — SDR/Outbound",
+  "description": "B2C, Travel pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_travel",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=security_lead)."
+}

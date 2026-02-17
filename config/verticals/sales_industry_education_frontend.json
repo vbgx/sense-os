@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_education_frontend",
+  "name": "sales_industry_education_frontend",
+  "title": "Sales — Education — Frontend",
+  "description": "Sales, Education pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_education",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

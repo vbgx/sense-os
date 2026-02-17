@@ -1,0 +1,31 @@
+{
+  "id": "industry_ecommerce_enablement",
+  "name": "industry_ecommerce_enablement",
+  "title": "Ecommerce — Enablement",
+  "description": "Ecommerce pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_ecommerce",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

@@ -6,7 +6,13 @@ from ingestion_worker.normalize.dates import to_utc_datetime
 from ingestion_worker.adapters.indiehackers.language import detect_language
 
 
-def map_indiehackers_entry(entry: dict, *, vertical_id: int) -> Dict:
+def map_indiehackers_entry(
+    entry: dict,
+    *,
+    vertical_id: str,
+    vertical_db_id: int | None,
+    taxonomy_version: str | None,
+) -> Dict:
     guid = entry["guid"]
     title = entry["title"]
     summary = entry["summary"]
@@ -16,13 +22,17 @@ def map_indiehackers_entry(entry: dict, *, vertical_id: int) -> Dict:
     language = detect_language(content)
 
     data = {
-        "vertical_id": int(vertical_id),
+        "vertical_id": str(vertical_id),
         "source": "indiehackers",
         "external_id": f"ih:{guid}",
         "content": content,
         "url": url,
         "language": language,
     }
+    if vertical_db_id is not None:
+        data["vertical_db_id"] = int(vertical_db_id)
+    if taxonomy_version is not None:
+        data["taxonomy_version"] = str(taxonomy_version)
     if published:
         data["created_at"] = to_utc_datetime(published)
     return data

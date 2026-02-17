@@ -1,0 +1,35 @@
+{
+  "id": "b2b_legal_industry_supply_chain_partners",
+  "name": "b2b_legal_industry_supply_chain_partners",
+  "title": "B2B — Legal — Supply Chain — Partnerships",
+  "description": "B2B, Legal, Supply Chain pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "industry_supply_chain",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=sales_rep)."
+}

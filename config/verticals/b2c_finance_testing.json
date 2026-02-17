@@ -1,0 +1,33 @@
+{
+  "id": "b2c_finance_testing",
+  "name": "b2c_finance_testing",
+  "title": "B2C — Finance — Testing",
+  "description": "B2C, Finance pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=security_lead)."
+}

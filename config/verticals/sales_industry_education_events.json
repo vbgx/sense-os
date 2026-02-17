@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_education_events",
+  "name": "sales_industry_education_events",
+  "title": "Sales — Education — Events",
+  "description": "Sales, Education pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_education",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=sales_rep)."
+}

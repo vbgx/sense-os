@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_legal_lifecycle",
+  "name": "product_industry_legal_lifecycle",
+  "title": "Product — Legal Services — Lifecycle",
+  "description": "Product, Legal Services pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_legal",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=finance_lead)."
+}

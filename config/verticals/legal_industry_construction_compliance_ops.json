@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_construction_compliance_ops",
+  "name": "legal_industry_construction_compliance_ops",
+  "title": "Legal — Construction — Compliance Ops",
+  "description": "Legal, Construction pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_construction",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=finance_lead)."
+}

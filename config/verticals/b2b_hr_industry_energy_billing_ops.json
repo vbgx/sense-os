@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_energy_billing_ops",
+  "name": "b2b_hr_industry_energy_billing_ops",
+  "title": "B2B — HR — Energy — Billing Ops",
+  "description": "B2B, HR, Energy pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_energy",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=engineer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_education_api_design",
+  "name": "b2b_industry_education_api_design",
+  "title": "B2B — Education — API Design",
+  "description": "B2B, Education pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_education",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=engineer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_legal_community",
+  "name": "product_industry_legal_community",
+  "title": "Product — Legal Services — Community",
+  "description": "Product, Legal Services pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_legal",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=finance_lead)."
+}

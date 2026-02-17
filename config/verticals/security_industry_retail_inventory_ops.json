@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_retail_inventory_ops",
+  "name": "security_industry_retail_inventory_ops",
+  "title": "Security — Retail — Inventory Ops",
+  "description": "Security, Retail pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_retail",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "security",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=finance_lead)."
+}

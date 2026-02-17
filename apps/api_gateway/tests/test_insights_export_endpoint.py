@@ -17,6 +17,8 @@ def test_export_response_structure_if_success():
         data = response.json()
         assert "export_version" in data
         assert "hypothesis_id" in data
+        assert "vertical_id" in data
+        assert "taxonomy_version" in data
         assert "persona" in data
         assert "pain" in data
         assert "wedge" in data
@@ -25,4 +27,3 @@ def test_export_response_structure_if_success():
         assert "opportunity_score" in data
         assert "timing_status" in data
         assert "risks" in data
-

@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_travel_testing",
+  "name": "sales_industry_travel_testing",
+  "title": "Sales — Travel — Testing",
+  "description": "Sales, Travel pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_travel",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=founder)."
+}

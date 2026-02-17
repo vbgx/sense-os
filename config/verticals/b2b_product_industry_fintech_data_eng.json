@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_fintech_data_eng",
+  "name": "b2b_product_industry_fintech_data_eng",
+  "title": "B2B — Product — Fintech — Data Engineering",
+  "description": "B2B, Product, Fintech pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_fintech",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=ops_manager)."
+}

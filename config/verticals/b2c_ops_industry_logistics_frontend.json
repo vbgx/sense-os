@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_logistics_frontend",
+  "name": "b2c_ops_industry_logistics_frontend",
+  "title": "B2C — Operations — Logistics — Frontend",
+  "description": "B2C, Operations, Logistics pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_logistics",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

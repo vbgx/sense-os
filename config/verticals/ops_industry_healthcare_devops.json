@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_healthcare_devops",
+  "name": "ops_industry_healthcare_devops",
+  "title": "Operations — Healthcare — DevOps",
+  "description": "Operations, Healthcare pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_healthcare",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

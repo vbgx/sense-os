@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_healthcare_frontend",
+  "name": "b2b_marketing_industry_healthcare_frontend",
+  "title": "B2B — Marketing — Healthcare — Frontend",
+  "description": "B2B, Marketing, Healthcare pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_healthcare",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=founder)."
+}

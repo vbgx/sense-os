@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_travel_observability",
+  "name": "product_industry_travel_observability",
+  "title": "Product — Travel — Observability",
+  "description": "Product, Travel pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_travel",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=engineer)."
+}

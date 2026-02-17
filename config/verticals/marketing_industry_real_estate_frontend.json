@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_real_estate_frontend",
+  "name": "marketing_industry_real_estate_frontend",
+  "title": "Marketing — Real Estate — Frontend",
+  "description": "Marketing, Real Estate pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_real_estate",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=ops_manager)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_manufacturing_people_ops",
+  "name": "b2b_ops_industry_manufacturing_people_ops",
+  "title": "B2B — Operations — Manufacturing — People Ops",
+  "description": "B2B, Operations, Manufacturing pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_manufacturing",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_education_pricing",
+  "name": "finance_industry_education_pricing",
+  "title": "Finance — Education — Pricing & Packaging",
+  "description": "Finance, Education pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_education",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=security_lead)."
+}

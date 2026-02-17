@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_real_estate_lifecycle",
+  "name": "ops_industry_real_estate_lifecycle",
+  "title": "Operations — Real Estate — Lifecycle",
+  "description": "Operations, Real Estate pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_real_estate",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=finance_lead)."
+}

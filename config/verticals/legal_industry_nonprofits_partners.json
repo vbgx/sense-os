@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_nonprofits_partners",
+  "name": "legal_industry_nonprofits_partners",
+  "title": "Legal — Nonprofits — Partnerships",
+  "description": "Legal, Nonprofits pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_nonprofits",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=founder)."
+}

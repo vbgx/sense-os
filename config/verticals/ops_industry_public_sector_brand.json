@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_public_sector_brand",
+  "name": "ops_industry_public_sector_brand",
+  "title": "Operations — Public Sector — Brand",
+  "description": "Operations, Public Sector pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_public_sector",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=founder)."
+}

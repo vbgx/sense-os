@@ -1,0 +1,31 @@
+{
+  "id": "data_procurement",
+  "name": "data_procurement",
+  "title": "Data — Procurement",
+  "description": "Data pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_real_estate_backend",
+  "name": "security_industry_real_estate_backend",
+  "title": "Security — Real Estate — Backend",
+  "description": "Security, Real Estate pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_real_estate",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "security",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=founder)."
+}

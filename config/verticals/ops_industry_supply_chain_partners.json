@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_supply_chain_partners",
+  "name": "ops_industry_supply_chain_partners",
+  "title": "Operations — Supply Chain — Partnerships",
+  "description": "Operations, Supply Chain pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_supply_chain",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=engineer)."
+}

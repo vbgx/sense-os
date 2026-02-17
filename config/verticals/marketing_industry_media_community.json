@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_media_community",
+  "name": "marketing_industry_media_community",
+  "title": "Marketing — Media — Community",
+  "description": "Marketing, Media pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_media",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=founder)."
+}

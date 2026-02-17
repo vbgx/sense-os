@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_insurance_partners",
+  "name": "data_industry_insurance_partners",
+  "title": "Data — Insurance — Partnerships",
+  "description": "Data, Insurance pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_insurance",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=finance_lead)."
+}

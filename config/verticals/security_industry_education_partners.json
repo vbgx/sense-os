@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_education_partners",
+  "name": "security_industry_education_partners",
+  "title": "Security — Education — Partnerships",
+  "description": "Security, Education pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_education",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "security",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=sales_rep)."
+}

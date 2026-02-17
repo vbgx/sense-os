@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_healthcare_ux_research",
+  "name": "dev_industry_healthcare_ux_research",
+  "title": "Engineering — Healthcare — User Research",
+  "description": "Engineering, Healthcare pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_healthcare",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=founder)."
+}

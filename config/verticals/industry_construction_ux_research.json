@@ -1,0 +1,31 @@
+{
+  "id": "industry_construction_ux_research",
+  "name": "industry_construction_ux_research",
+  "title": "Construction — User Research",
+  "description": "Construction pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_construction",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=sales_rep)."
+}

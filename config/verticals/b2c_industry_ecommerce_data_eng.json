@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_ecommerce_data_eng",
+  "name": "b2c_industry_ecommerce_data_eng",
+  "title": "B2C — Ecommerce — Data Engineering",
+  "description": "B2C, Ecommerce pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_ecommerce",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=sales_rep)."
+}

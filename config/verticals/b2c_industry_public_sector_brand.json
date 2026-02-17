@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_public_sector_brand",
+  "name": "b2c_industry_public_sector_brand",
+  "title": "B2C — Public Sector — Brand",
+  "description": "B2C, Public Sector pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_public_sector",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

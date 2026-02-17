@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_manufacturing_observability",
+  "name": "marketing_industry_manufacturing_observability",
+  "title": "Marketing — Manufacturing — Observability",
+  "description": "Marketing, Manufacturing pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_manufacturing",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=security_lead)."
+}

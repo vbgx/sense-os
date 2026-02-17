@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_healthcare_analytics",
+  "name": "hr_industry_healthcare_analytics",
+  "title": "HR — Healthcare — Product Analytics",
+  "description": "HR, Healthcare pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_healthcare",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=ops_manager)."
+}

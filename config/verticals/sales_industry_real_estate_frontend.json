@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_real_estate_frontend",
+  "name": "sales_industry_real_estate_frontend",
+  "title": "Sales — Real Estate — Frontend",
+  "description": "Sales, Real Estate pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_real_estate",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

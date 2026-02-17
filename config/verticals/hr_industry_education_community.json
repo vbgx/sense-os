@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_education_community",
+  "name": "hr_industry_education_community",
+  "title": "HR — Education — Community",
+  "description": "HR, Education pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_education",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

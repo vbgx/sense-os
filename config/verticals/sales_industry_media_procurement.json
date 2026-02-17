@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_media_procurement",
+  "name": "sales_industry_media_procurement",
+  "title": "Sales — Media — Procurement",
+  "description": "Sales, Media pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_media",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=sales_rep)."
+}

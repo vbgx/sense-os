@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_hospitality_enablement",
+  "name": "b2c_data_industry_hospitality_enablement",
+  "title": "B2C — Data — Hospitality — Enablement",
+  "description": "B2C, Data, Hospitality pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_hospitality",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=finance_lead)."
+}

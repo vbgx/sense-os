@@ -26,6 +26,8 @@ ALLOWED_TIMING_STATUS = (
 class VentureOSExportPayloadV1:
     export_version: str
     hypothesis_id: str
+    vertical_id: str
+    taxonomy_version: str
     persona: str
     pain: str
     wedge: str
@@ -45,6 +47,8 @@ def _stable_hypothesis_id(cluster_id: str) -> str:
 def build_ventureos_export_payload_v1(
     *,
     cluster_id: str,
+    vertical_id: str,
+    taxonomy_version: str,
     persona: str,
     pain: str,
     wedge: str,
@@ -86,6 +90,8 @@ def build_ventureos_export_payload_v1(
     payload = VentureOSExportPayloadV1(
         export_version=EXPORT_VERSION,
         hypothesis_id=_stable_hypothesis_id(cluster_id),
+        vertical_id=str(vertical_id).strip(),
+        taxonomy_version=str(taxonomy_version).strip(),
         persona=persona.strip(),
         pain=pain.strip(),
         wedge=wedge.strip(),
@@ -103,6 +109,8 @@ def to_dict(payload: VentureOSExportPayloadV1) -> dict:
     return {
         "export_version": payload.export_version,
         "hypothesis_id": payload.hypothesis_id,
+        "vertical_id": payload.vertical_id,
+        "taxonomy_version": payload.taxonomy_version,
         "persona": payload.persona,
         "pain": payload.pain,
         "wedge": payload.wedge,

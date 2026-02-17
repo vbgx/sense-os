@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_insurance_community",
+  "name": "b2c_security_industry_insurance_community",
+  "title": "B2C — Security — Insurance — Community",
+  "description": "B2C, Security, Insurance pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_insurance",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=sales_rep)."
+}

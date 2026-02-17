@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_logistics_people_ops",
+  "name": "b2c_data_industry_logistics_people_ops",
+  "title": "B2C — Data — Logistics — People Ops",
+  "description": "B2C, Data, Logistics pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_logistics",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=marketer)."
+}

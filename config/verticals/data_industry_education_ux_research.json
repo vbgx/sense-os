@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_education_ux_research",
+  "name": "data_industry_education_ux_research",
+  "title": "Data — Education — User Research",
+  "description": "Data, Education pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_education",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=finance_lead)."
+}

@@ -2,32 +2,27 @@
   "id": "devops",
   "name": "devops",
   "title": "DevOps",
-  "description": "CI/CD, infra automation, reliability workflows",
+  "description": "General pains and workflows around DevOps.",
   "version": 1,
   "enabled": true,
-  "priority": 210,
   "tags": [
-    "b2b",
     "devops"
   ],
   "default_queries": [
-    "devops pain",
-    "DevOps tools",
-    "DevOps workflow"
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "devops",
-        "limit": 80
-      }
-    ]
-  },
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
-  }
+  "persona": "ops_manager",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
 }

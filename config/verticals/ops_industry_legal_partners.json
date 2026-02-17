@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_legal_partners",
+  "name": "ops_industry_legal_partners",
+  "title": "Operations — Legal Services — Partnerships",
+  "description": "Operations, Legal Services pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_legal",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=security_lead)."
+}

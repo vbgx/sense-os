@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_ecommerce_pricing",
+  "name": "ops_industry_ecommerce_pricing",
+  "title": "Operations — Ecommerce — Pricing & Packaging",
+  "description": "Operations, Ecommerce pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_ecommerce",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=ops_manager)."
+}

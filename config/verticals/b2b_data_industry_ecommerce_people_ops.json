@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_ecommerce_people_ops",
+  "name": "b2b_data_industry_ecommerce_people_ops",
+  "title": "B2B — Data — Ecommerce — People Ops",
+  "description": "B2B, Data, Ecommerce pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_ecommerce",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=engineer)."
+}

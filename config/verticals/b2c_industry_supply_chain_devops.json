@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_supply_chain_devops",
+  "name": "b2c_industry_supply_chain_devops",
+  "title": "B2C — Supply Chain — DevOps",
+  "description": "B2C, Supply Chain pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_supply_chain",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
+}

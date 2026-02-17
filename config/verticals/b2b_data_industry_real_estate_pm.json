@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_real_estate_pm",
+  "name": "b2b_data_industry_real_estate_pm",
+  "title": "B2B — Data — Real Estate — Product Management",
+  "description": "B2B, Data, Real Estate pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_real_estate",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=product_lead)."
+}

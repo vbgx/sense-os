@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_it_services_pm",
+  "name": "data_industry_it_services_pm",
+  "title": "Data — IT Services (MSP) — Product Management",
+  "description": "Data, IT Services (MSP) pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_it_services",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "data",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=ops_manager)."
+}

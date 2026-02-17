@@ -1,0 +1,31 @@
+{
+  "id": "industry_legal_brand",
+  "name": "industry_legal_brand",
+  "title": "Legal Services — Brand",
+  "description": "Legal Services pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_legal",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

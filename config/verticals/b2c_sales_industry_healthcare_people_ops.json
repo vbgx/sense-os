@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_healthcare_people_ops",
+  "name": "b2c_sales_industry_healthcare_people_ops",
+  "title": "B2C — Sales — Healthcare — People Ops",
+  "description": "B2C, Sales, Healthcare pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_healthcare",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=engineer)."
+}

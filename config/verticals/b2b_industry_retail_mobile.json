@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_retail_mobile",
+  "name": "b2b_industry_retail_mobile",
+  "title": "B2B — Retail — Mobile",
+  "description": "B2B, Retail pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_retail",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=engineer)."
+}

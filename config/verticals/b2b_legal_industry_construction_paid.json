@@ -1,0 +1,35 @@
+{
+  "id": "b2b_legal_industry_construction_paid",
+  "name": "b2b_legal_industry_construction_paid",
+  "title": "B2B — Legal — Construction — Paid Acquisition",
+  "description": "B2B, Legal, Construction pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "industry_construction",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=engineer)."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "enablement",
+  "name": "enablement",
+  "title": "Enablement",
+  "description": "General pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

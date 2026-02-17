@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_fintech_partners",
+  "name": "b2c_legal_industry_fintech_partners",
+  "title": "B2C — Legal — Fintech — Partnerships",
+  "description": "B2C, Legal, Fintech pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_fintech",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
+}

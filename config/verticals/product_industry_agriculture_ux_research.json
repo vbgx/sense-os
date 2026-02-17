@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_agriculture_ux_research",
+  "name": "product_industry_agriculture_ux_research",
+  "title": "Product — Agriculture — User Research",
+  "description": "Product, Agriculture pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_agriculture",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=engineer)."
+}

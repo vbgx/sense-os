@@ -1,0 +1,33 @@
+{
+  "id": "b2c_hr_ux_research",
+  "name": "b2c_hr_ux_research",
+  "title": "B2C — HR — User Research",
+  "description": "B2C, HR pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=security_lead)."
+}

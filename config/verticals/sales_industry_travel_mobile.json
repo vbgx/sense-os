@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_travel_mobile",
+  "name": "sales_industry_travel_mobile",
+  "title": "Sales — Travel — Mobile",
+  "description": "Sales, Travel pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_travel",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=founder)."
+}

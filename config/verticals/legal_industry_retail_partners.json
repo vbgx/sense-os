@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_retail_partners",
+  "name": "legal_industry_retail_partners",
+  "title": "Legal — Retail — Partnerships",
+  "description": "Legal, Retail pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_retail",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=security_lead)."
+}

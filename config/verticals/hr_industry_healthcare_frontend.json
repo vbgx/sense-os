@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_healthcare_frontend",
+  "name": "hr_industry_healthcare_frontend",
+  "title": "HR — Healthcare — Frontend",
+  "description": "HR, Healthcare pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_healthcare",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=finance_lead)."
+}

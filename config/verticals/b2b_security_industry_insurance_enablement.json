@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_insurance_enablement",
+  "name": "b2b_security_industry_insurance_enablement",
+  "title": "B2B — Security — Insurance — Enablement",
+  "description": "B2B, Security, Insurance pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_insurance",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

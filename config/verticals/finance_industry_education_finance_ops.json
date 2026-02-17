@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_education_finance_ops",
+  "name": "finance_industry_education_finance_ops",
+  "title": "Finance — Education — Finance Ops",
+  "description": "Finance, Education pains and workflows around Finance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_education",
+    "finance_ops"
+  ],
+  "default_queries": [
+    "invoice approval bottleneck",
+    "expense policy enforcement",
+    "month end close automation",
+    "Finance Ops",
+    "Finance Ops pain",
+    "Finance Ops bottleneck",
+    "Finance Ops automation",
+    "Finance Ops workflow",
+    "Finance Ops tooling",
+    "Finance Ops process",
+    "Finance Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=finance_ops, persona=founder)."
+}

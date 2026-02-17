@@ -1,0 +1,31 @@
+{
+  "id": "finance_support_ops",
+  "name": "finance_support_ops",
+  "title": "Finance — Support Ops",
+  "description": "Finance pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=founder)."
+}

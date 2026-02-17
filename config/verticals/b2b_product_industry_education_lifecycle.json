@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_education_lifecycle",
+  "name": "b2b_product_industry_education_lifecycle",
+  "title": "B2B — Product — Education — Lifecycle",
+  "description": "B2B, Product, Education pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_education",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=security_lead)."
+}

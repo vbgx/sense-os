@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_fintech_backend",
+  "name": "sales_industry_fintech_backend",
+  "title": "Sales — Fintech — Backend",
+  "description": "Sales, Fintech pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_fintech",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=security_lead)."
+}

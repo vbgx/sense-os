@@ -1,0 +1,31 @@
+{
+  "id": "industry_construction_frontend",
+  "name": "industry_construction_frontend",
+  "title": "Construction — Frontend",
+  "description": "Construction pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_construction",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

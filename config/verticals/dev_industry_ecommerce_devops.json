@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_ecommerce_devops",
+  "name": "dev_industry_ecommerce_devops",
+  "title": "Engineering — Ecommerce — DevOps",
+  "description": "Engineering, Ecommerce pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_ecommerce",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=product_lead)."
+}

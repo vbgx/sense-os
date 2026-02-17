@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_fintech_lifecycle",
+  "name": "hr_industry_fintech_lifecycle",
+  "title": "HR — Fintech — Lifecycle",
+  "description": "HR, Fintech pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_fintech",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=engineer)."
+}

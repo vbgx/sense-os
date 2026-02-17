@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_real_estate_compliance_ops",
+  "name": "sales_industry_real_estate_compliance_ops",
+  "title": "Sales — Real Estate — Compliance Ops",
+  "description": "Sales, Real Estate pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_real_estate",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=finance_lead)."
+}

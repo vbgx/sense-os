@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_agriculture_logistics_ops",
+  "name": "marketing_industry_agriculture_logistics_ops",
+  "title": "Marketing — Agriculture — Logistics Ops",
+  "description": "Marketing, Agriculture pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_agriculture",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=sales_rep)."
+}

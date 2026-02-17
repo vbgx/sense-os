@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_travel_events",
+  "name": "dev_industry_travel_events",
+  "title": "Engineering — Travel — Events",
+  "description": "Engineering, Travel pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_travel",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=security_lead)."
+}

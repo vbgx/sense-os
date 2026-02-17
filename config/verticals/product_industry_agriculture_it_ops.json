@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_agriculture_it_ops",
+  "name": "product_industry_agriculture_it_ops",
+  "title": "Product — Agriculture — IT Ops",
+  "description": "Product, Agriculture pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_agriculture",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_ecommerce_testing",
+  "name": "b2c_industry_ecommerce_testing",
+  "title": "B2C — Ecommerce — Testing",
+  "description": "B2C, Ecommerce pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_ecommerce",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=sales_rep)."
+}

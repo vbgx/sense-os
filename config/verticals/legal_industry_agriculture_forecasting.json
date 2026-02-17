@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_agriculture_forecasting",
+  "name": "legal_industry_agriculture_forecasting",
+  "title": "Legal — Agriculture — Forecasting",
+  "description": "Legal, Agriculture pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_agriculture",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=ops_manager)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_ecommerce_api_design",
+  "name": "b2b_finance_industry_ecommerce_api_design",
+  "title": "B2B — Finance — Ecommerce — API Design",
+  "description": "B2B, Finance, Ecommerce pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_ecommerce",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=marketer)."
+}

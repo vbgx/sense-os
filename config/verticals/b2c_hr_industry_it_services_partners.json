@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_it_services_partners",
+  "name": "b2c_hr_industry_it_services_partners",
+  "title": "B2C — HR — IT Services (MSP) — Partnerships",
+  "description": "B2C, HR, IT Services (MSP) pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_it_services",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=finance_lead)."
+}

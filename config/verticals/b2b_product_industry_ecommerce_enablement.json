@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_ecommerce_enablement",
+  "name": "b2b_product_industry_ecommerce_enablement",
+  "title": "B2B — Product — Ecommerce — Enablement",
+  "description": "B2B, Product, Ecommerce pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_ecommerce",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=product_lead)."
+}

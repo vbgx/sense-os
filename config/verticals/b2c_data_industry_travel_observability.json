@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_travel_observability",
+  "name": "b2c_data_industry_travel_observability",
+  "title": "B2C — Data — Travel — Observability",
+  "description": "B2C, Data, Travel pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_travel",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=ops_manager)."
+}

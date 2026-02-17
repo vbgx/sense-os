@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_nonprofits_community",
+  "name": "dev_industry_nonprofits_community",
+  "title": "Engineering — Nonprofits — Community",
+  "description": "Engineering, Nonprofits pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_nonprofits",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=founder)."
+}

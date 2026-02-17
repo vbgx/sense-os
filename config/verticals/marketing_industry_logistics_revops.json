@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_logistics_revops",
+  "name": "marketing_industry_logistics_revops",
+  "title": "Marketing — Logistics — RevOps",
+  "description": "Marketing, Logistics pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_logistics",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=founder)."
+}

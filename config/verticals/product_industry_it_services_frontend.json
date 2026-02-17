@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_it_services_frontend",
+  "name": "product_industry_it_services_frontend",
+  "title": "Product — IT Services (MSP) — Frontend",
+  "description": "Product, IT Services (MSP) pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_it_services",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

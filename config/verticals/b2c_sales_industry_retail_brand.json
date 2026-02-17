@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_retail_brand",
+  "name": "b2c_sales_industry_retail_brand",
+  "title": "B2C — Sales — Retail — Brand",
+  "description": "B2C, Sales, Retail pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_retail",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=sales_rep)."
+}

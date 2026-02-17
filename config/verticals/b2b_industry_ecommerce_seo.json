@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_ecommerce_seo",
+  "name": "b2b_industry_ecommerce_seo",
+  "title": "B2B — Ecommerce — SEO",
+  "description": "B2B, Ecommerce pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_ecommerce",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=engineer)."
+}

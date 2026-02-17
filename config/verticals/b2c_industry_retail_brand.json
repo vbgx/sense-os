@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_retail_brand",
+  "name": "b2c_industry_retail_brand",
+  "title": "B2C — Retail — Brand",
+  "description": "B2C, Retail pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_retail",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

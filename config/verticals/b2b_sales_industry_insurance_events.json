@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_insurance_events",
+  "name": "b2b_sales_industry_insurance_events",
+  "title": "B2B — Sales — Insurance — Events",
+  "description": "B2B, Sales, Insurance pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_insurance",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

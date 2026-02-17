@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_energy_lifecycle",
+  "name": "b2c_industry_energy_lifecycle",
+  "title": "B2C — Energy — Lifecycle",
+  "description": "B2C, Energy pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_energy",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=engineer)."
+}

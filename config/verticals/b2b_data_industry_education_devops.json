@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_education_devops",
+  "name": "b2b_data_industry_education_devops",
+  "title": "B2B — Data — Education — DevOps",
+  "description": "B2B, Data, Education pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_education",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

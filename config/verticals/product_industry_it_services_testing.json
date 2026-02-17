@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_it_services_testing",
+  "name": "product_industry_it_services_testing",
+  "title": "Product — IT Services (MSP) — Testing",
+  "description": "Product, IT Services (MSP) pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_it_services",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=sales_rep)."
+}

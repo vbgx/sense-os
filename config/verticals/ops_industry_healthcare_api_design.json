@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_healthcare_api_design",
+  "name": "ops_industry_healthcare_api_design",
+  "title": "Operations — Healthcare — API Design",
+  "description": "Operations, Healthcare pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_healthcare",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=marketer)."
+}

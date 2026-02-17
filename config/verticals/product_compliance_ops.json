@@ -1,0 +1,31 @@
+{
+  "id": "product_compliance_ops",
+  "name": "product_compliance_ops",
+  "title": "Product — Compliance Ops",
+  "description": "Product pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=product_lead)."
+}

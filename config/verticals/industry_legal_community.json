@@ -1,0 +1,31 @@
+{
+  "id": "industry_legal_community",
+  "name": "industry_legal_community",
+  "title": "Legal Services — Community",
+  "description": "Legal Services pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_legal",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

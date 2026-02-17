@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_agriculture_sdr",
+  "name": "finance_industry_agriculture_sdr",
+  "title": "Finance — Agriculture — SDR/Outbound",
+  "description": "Finance, Agriculture pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_agriculture",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=security_lead)."
+}

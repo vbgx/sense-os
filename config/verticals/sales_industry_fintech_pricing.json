@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_fintech_pricing",
+  "name": "sales_industry_fintech_pricing",
+  "title": "Sales — Fintech — Pricing & Packaging",
+  "description": "Sales, Fintech pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_fintech",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=product_lead)."
+}

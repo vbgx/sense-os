@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_media_pm",
+  "name": "b2c_security_industry_media_pm",
+  "title": "B2C — Security — Media — Product Management",
+  "description": "B2C, Security, Media pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_media",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=finance_lead)."
+}

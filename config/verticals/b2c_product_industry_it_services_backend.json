@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_it_services_backend",
+  "name": "b2c_product_industry_it_services_backend",
+  "title": "B2C — Product — IT Services (MSP) — Backend",
+  "description": "B2C, Product, IT Services (MSP) pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_it_services",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=sales_rep)."
+}

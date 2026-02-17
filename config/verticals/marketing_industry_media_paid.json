@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_media_paid",
+  "name": "marketing_industry_media_paid",
+  "title": "Marketing — Media — Paid Acquisition",
+  "description": "Marketing, Media pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_media",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=founder)."
+}

@@ -19,9 +19,17 @@ def test_reddit_adapter_smoke_maps_fixture():
         url=None,
         created_at_iso=None,
     )
-    signal = map_post_to_signal(item, vertical_id=1, source="reddit")
+    signal = map_post_to_signal(
+        item,
+        vertical_id="b2b_ops",
+        vertical_db_id=1,
+        taxonomy_version="2026-02-17",
+        source="reddit",
+    )
 
-    assert signal["vertical_id"] == 1
+    assert signal["vertical_id"] == "b2b_ops"
+    assert signal["vertical_db_id"] == 1
+    assert signal["taxonomy_version"] == "2026-02-17"
     assert signal["source"] == "reddit"
     assert signal["external_id"] == raw["id"]
     assert "content" in signal

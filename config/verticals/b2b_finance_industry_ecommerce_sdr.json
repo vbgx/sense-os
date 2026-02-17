@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_ecommerce_sdr",
+  "name": "b2b_finance_industry_ecommerce_sdr",
+  "title": "B2B — Finance — Ecommerce — SDR/Outbound",
+  "description": "B2B, Finance, Ecommerce pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_ecommerce",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=sales_rep)."
+}

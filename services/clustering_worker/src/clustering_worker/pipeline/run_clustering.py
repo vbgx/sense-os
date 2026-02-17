@@ -8,7 +8,7 @@ from typing import Any
 
 from sqlalchemy import text
 
-from db.models import PainCluster, PainInstance, Signal
+from db.models import ClusterSignal, PainCluster, PainInstance, Signal
 from db.repos import cluster_signals as cluster_signals_repo
 from db.repos import pain_clusters as clusters_repo
 from db.session import SessionLocal
@@ -159,9 +159,10 @@ def _clean_summary(summary: str, max_total_chars: int = 400, max_sentence_len: i
 # -----------------------------
 
 def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
-    vertical_id = int(job.get("vertical_id") or 0)
-    if vertical_id <= 0:
-        raise ValueError(f"invalid vertical_id: {job.get('vertical_id')!r}")
+    vertical_id = str(job.get("vertical_id") or "")
+    vertical_db_id = int(job.get("vertical_db_id") or 0)
+    if vertical_db_id <= 0:
+        raise ValueError(f"invalid vertical_db_id: {job.get('vertical_db_id')!r}")
 
     cluster_version = str(job.get("cluster_version") or "tfidf_v2")
     run_id = job.get("run_id")
@@ -172,7 +173,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         rows = (
             db.query(PainInstance.id, PainInstance.signal_id, Signal.content)
             .join(Signal, Signal.id == PainInstance.signal_id)
-            .filter(PainInstance.vertical_id == vertical_id)
+            .filter(PainInstance.vertical_id == vertical_db_id)
             .order_by(PainInstance.id.asc())
             .all()
         )
@@ -180,7 +181,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         # --- SPAM FILTER APPLIED HERE ---
         filtered_rows = [r for r in rows if not _is_spam(r[2])]
         if not filtered_rows:
-            return {"clusters": 0, "pain_instances": 0, "links_inserted": 0}
+            return {"clusters": 0, "pain_instances": 0, "links_inserted": 0, "skipped": 0}
 
         pain_ids = [int(r[0]) for r in filtered_rows]
         texts = [_clean_text(r[2]) for r in filtered_rows]
@@ -189,19 +190,12 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         existing_cluster_ids = [
             int(x[0])
             for x in db.query(PainCluster.id)
-            .filter(PainCluster.vertical_id == vertical_id)
+            .filter(PainCluster.vertical_id == vertical_db_id)
             .filter(PainCluster.cluster_version == cluster_version)
             .all()
         ]
         if existing_cluster_ids:
-            db.execute(
-                text("DELETE FROM cluster_signals WHERE cluster_id = ANY(:ids)"),
-                {"ids": existing_cluster_ids},
-            )
-            db.query(PainCluster).filter(
-                PainCluster.id.in_(existing_cluster_ids)
-            ).delete(synchronize_session=False)
-            db.flush()
+            return {"clusters": 0, "pain_instances": len(pain_ids), "links_inserted": 0, "skipped": 1}
 
         vectorizer = TfidfVectorizer(
             stop_words="english",
@@ -210,7 +204,17 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
             max_df=0.9,
             strip_accents="unicode",
         )
-        X = vectorizer.fit_transform(texts)
+        try:
+            X = vectorizer.fit_transform(texts)
+        except ValueError:
+            vectorizer = TfidfVectorizer(
+                stop_words="english",
+                ngram_range=(1, 2),
+                min_df=1,
+                max_df=1.0,
+                strip_accents="unicode",
+            )
+            X = vectorizer.fit_transform(texts)
 
         n_docs = X.shape[0]
         n_components = min(50, max(2, n_docs - 1), X.shape[1] - 1 if X.shape[1] > 1 else 1)
@@ -256,7 +260,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
 
             cluster_obj, _ = clusters_repo.upsert_cluster(
                 db,
-                vertical_id=vertical_id,
+                vertical_id=vertical_db_id,
                 cluster_version=cluster_version,
                 cluster_key=cluster_key,
                 title=title,
@@ -279,8 +283,9 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         db.commit()
 
         log.info(
-            "clustered vertical_id=%s clusters=%s pain_instances=%s links_inserted=%s run_id=%s",
+            "clustered vertical_id=%s vertical_db_id=%s clusters=%s pain_instances=%s links_inserted=%s run_id=%s",
             vertical_id,
+            vertical_db_id,
             created_clusters,
             len(pain_ids),
             total_links,
@@ -291,6 +296,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
             "clusters": created_clusters,
             "pain_instances": len(pain_ids),
             "links_inserted": total_links,
+            "skipped": 0,
         }
 
     finally:

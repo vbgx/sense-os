@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_agriculture_enablement",
+  "name": "b2b_finance_industry_agriculture_enablement",
+  "title": "B2B — Finance — Agriculture — Enablement",
+  "description": "B2B, Finance, Agriculture pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_agriculture",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=finance_lead)."
+}

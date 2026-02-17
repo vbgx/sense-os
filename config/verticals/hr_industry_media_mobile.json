@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_media_mobile",
+  "name": "hr_industry_media_mobile",
+  "title": "HR — Media — Mobile",
+  "description": "HR, Media pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_media",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_legal_ae",
+  "name": "data_industry_legal_ae",
+  "title": "Data — Legal Services — Account Executive",
+  "description": "Data, Legal Services pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_legal",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=marketer)."
+}

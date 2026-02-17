@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_public_sector_brand",
+  "name": "b2b_hr_industry_public_sector_brand",
+  "title": "B2B — HR — Public Sector — Brand",
+  "description": "B2B, HR, Public Sector pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_public_sector",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=finance_lead)."
+}

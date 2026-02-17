@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_insurance_events",
+  "name": "marketing_industry_insurance_events",
+  "title": "Marketing — Insurance — Events",
+  "description": "Marketing, Insurance pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_insurance",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=founder)."
+}

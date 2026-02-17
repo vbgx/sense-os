@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_education_lifecycle",
+  "name": "data_industry_education_lifecycle",
+  "title": "Data — Education — Lifecycle",
+  "description": "Data, Education pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_education",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=finance_lead)."
+}

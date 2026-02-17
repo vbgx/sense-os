@@ -41,7 +41,8 @@ def main() -> None:
             barrier.wait(timeout=10)
             _row, created = signals_repo.create_if_absent(
                 db_local,
-                vertical_id=vertical.id,
+                vertical_db_id=vertical.id,
+                vertical_id=vertical.name,
                 source=source,
                 external_id=external_id,
                 content="ci payload",

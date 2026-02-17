@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_ecommerce_community",
+  "name": "legal_industry_ecommerce_community",
+  "title": "Legal — Ecommerce — Community",
+  "description": "Legal, Ecommerce pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_ecommerce",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=security_lead)."
+}

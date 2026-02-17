@@ -1,0 +1,33 @@
+{
+  "id": "b2b_sales_frontend",
+  "name": "b2b_sales_frontend",
+  "title": "B2B — Sales — Frontend",
+  "description": "B2B, Sales pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=finance_lead)."
+}

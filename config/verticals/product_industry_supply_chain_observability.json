@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_supply_chain_observability",
+  "name": "product_industry_supply_chain_observability",
+  "title": "Product — Supply Chain — Observability",
+  "description": "Product, Supply Chain pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_supply_chain",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=engineer)."
+}

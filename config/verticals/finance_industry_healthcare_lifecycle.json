@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_healthcare_lifecycle",
+  "name": "finance_industry_healthcare_lifecycle",
+  "title": "Finance — Healthcare — Lifecycle",
+  "description": "Finance, Healthcare pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_healthcare",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=marketer)."
+}

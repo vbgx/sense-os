@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_it_services_frontend",
+  "name": "b2b_data_industry_it_services_frontend",
+  "title": "B2B — Data — IT Services (MSP) — Frontend",
+  "description": "B2B, Data, IT Services (MSP) pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_it_services",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=engineer)."
+}

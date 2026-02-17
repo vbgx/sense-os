@@ -1,32 +1,31 @@
 {
   "id": "dev_observability",
   "name": "dev_observability",
-  "title": "Observability",
-  "description": "Logging, metrics, tracing, cost.",
+  "title": "Engineering — Observability",
+  "description": "Engineering pains and workflows around Observability.",
   "version": 1,
   "enabled": true,
   "tags": [
-    "b2b",
     "dev",
-    "ops"
+    "observability"
   ],
   "default_queries": [
-    "logs too noisy",
-    "tracing setup pain",
-    "monitoring cost explosion"
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "process"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "dev observability",
-        "limit": 80
-      },
-      {
-        "name": "hackernews",
-        "query": "dev observability",
-        "limit": 80
-      }
-    ]
-  }
+  "persona": "ops_manager",
+  "axes": {
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=ops_manager)."
 }

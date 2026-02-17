@@ -1,0 +1,41 @@
+{
+  "id": "b2b_ae",
+  "name": "b2b_ae",
+  "title": "B2B — Account Executive",
+  "description": "B2B pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=sales_rep).",
+  "tier": "core",
+  "meta": {
+    "audience": "b2b",
+    "function": null,
+    "industry": null,
+    "cluster": null,
+    "member": null,
+    "persona": "sales_rep",
+    "variant": null
+  }
+}

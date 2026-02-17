@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_logistics_mobile",
+  "name": "legal_industry_logistics_mobile",
+  "title": "Legal — Logistics — Mobile",
+  "description": "Legal, Logistics pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_logistics",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=security_lead)."
+}

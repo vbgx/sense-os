@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_healthcare_observability",
+  "name": "sales_industry_healthcare_observability",
+  "title": "Sales — Healthcare — Observability",
+  "description": "Sales, Healthcare pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_healthcare",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=founder)."
+}

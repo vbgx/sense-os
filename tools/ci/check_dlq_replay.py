@@ -58,7 +58,8 @@ def main() -> None:
                 vertical = verticals_repo.create(db, vertical_name)
             _row, _created = signals_repo.create_if_absent(
                 db,
-                vertical_id=vertical.id,
+                vertical_db_id=vertical.id,
+                vertical_id=vertical.name,
                 source="ci",
                 external_id=external_id,
                 content="ci payload",
@@ -80,6 +81,8 @@ def main() -> None:
     job = {
         "type": job_type,
         "vertical_id": None,
+        "vertical_db_id": None,
+        "taxonomy_version": None,
         "day": None,
         "source": "ci",
         "run_id": None,

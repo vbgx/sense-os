@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_logistics_people_ops",
+  "name": "b2b_product_industry_logistics_people_ops",
+  "title": "B2B — Product — Logistics — People Ops",
+  "description": "B2B, Product, Logistics pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_logistics",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=engineer)."
+}

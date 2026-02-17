@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_supply_chain_ux_research",
+  "name": "hr_industry_supply_chain_ux_research",
+  "title": "HR — Supply Chain — User Research",
+  "description": "HR, Supply Chain pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_supply_chain",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=founder)."
+}

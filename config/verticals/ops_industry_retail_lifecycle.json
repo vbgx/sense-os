@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_retail_lifecycle",
+  "name": "ops_industry_retail_lifecycle",
+  "title": "Operations — Retail — Lifecycle",
+  "description": "Operations, Retail pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_retail",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=marketer)."
+}

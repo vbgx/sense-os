@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_manufacturing_pricing",
+  "name": "sales_industry_manufacturing_pricing",
+  "title": "Sales — Manufacturing — Pricing & Packaging",
+  "description": "Sales, Manufacturing pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_manufacturing",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=engineer)."
+}

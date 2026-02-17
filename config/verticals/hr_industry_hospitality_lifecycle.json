@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_hospitality_lifecycle",
+  "name": "hr_industry_hospitality_lifecycle",
+  "title": "HR — Hospitality — Lifecycle",
+  "description": "HR, Hospitality pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_hospitality",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_public_sector_devops",
+  "name": "data_industry_public_sector_devops",
+  "title": "Data — Public Sector — DevOps",
+  "description": "Data, Public Sector pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_public_sector",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "data",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=sales_rep)."
+}

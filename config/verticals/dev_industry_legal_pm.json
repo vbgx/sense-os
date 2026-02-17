@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_legal_pm",
+  "name": "dev_industry_legal_pm",
+  "title": "Engineering — Legal Services — Product Management",
+  "description": "Engineering, Legal Services pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_legal",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=engineer)."
+}

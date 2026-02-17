@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_supply_chain_ux_research",
+  "name": "b2c_marketing_industry_supply_chain_ux_research",
+  "title": "B2C — Marketing — Supply Chain — User Research",
+  "description": "B2C, Marketing, Supply Chain pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_supply_chain",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=finance_lead)."
+}

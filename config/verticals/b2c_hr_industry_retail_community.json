@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_retail_community",
+  "name": "b2c_hr_industry_retail_community",
+  "title": "B2C — HR — Retail — Community",
+  "description": "B2C, HR, Retail pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_retail",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=finance_lead)."
+}

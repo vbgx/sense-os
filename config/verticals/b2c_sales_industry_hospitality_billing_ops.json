@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_hospitality_billing_ops",
+  "name": "b2c_sales_industry_hospitality_billing_ops",
+  "title": "B2C — Sales — Hospitality — Billing Ops",
+  "description": "B2C, Sales, Hospitality pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_hospitality",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=ops_manager)."
+}

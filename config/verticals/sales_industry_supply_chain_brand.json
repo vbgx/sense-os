@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_supply_chain_brand",
+  "name": "sales_industry_supply_chain_brand",
+  "title": "Sales — Supply Chain — Brand",
+  "description": "Sales, Supply Chain pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_supply_chain",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_agriculture_it_ops",
+  "name": "legal_industry_agriculture_it_ops",
+  "title": "Legal — Agriculture — IT Ops",
+  "description": "Legal, Agriculture pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_agriculture",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=ops_manager)."
+}

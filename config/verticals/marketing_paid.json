@@ -1,34 +1,31 @@
 {
   "id": "marketing_paid",
   "name": "marketing_paid",
-  "title": "Paid Acquisition",
-  "description": "Ads ops, creative testing, landing pages",
+  "title": "Marketing — Paid Acquisition",
+  "description": "Marketing pains and workflows around Paid Acquisition.",
   "version": 1,
   "enabled": true,
-  "priority": 310,
   "tags": [
-    "b2b",
     "marketing",
     "paid"
   ],
   "default_queries": [
-    "marketing_paid pain",
-    "Paid Acquisition tools",
-    "Paid Acquisition workflow"
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "compliance"
   ],
-  "ingestion": {
-    "sources": [
-      {
-        "name": "reddit",
-        "query": "marketing_paid",
-        "limit": 80
-      }
-    ]
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing"
   },
-  "defaults": {
-    "language_allowlist": [
-      "en"
-    ],
-    "min_signal_quality": 0.2
-  }
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=security_lead)."
 }

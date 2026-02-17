@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_supply_chain_community",
+  "name": "b2b_data_industry_supply_chain_community",
+  "title": "B2B — Data — Supply Chain — Community",
+  "description": "B2B, Data, Supply Chain pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_supply_chain",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=sales_rep)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "finance_observability",
+  "name": "finance_observability",
+  "title": "Finance — Observability",
+  "description": "Finance pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=product_lead)."
+}

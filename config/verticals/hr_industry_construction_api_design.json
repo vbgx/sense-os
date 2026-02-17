@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_construction_api_design",
+  "name": "hr_industry_construction_api_design",
+  "title": "HR — Construction — API Design",
+  "description": "HR, Construction pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_construction",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=founder)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_insurance_frontend",
+  "name": "data_industry_insurance_frontend",
+  "title": "Data — Insurance — Frontend",
+  "description": "Data, Insurance pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_insurance",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "data",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

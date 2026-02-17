@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_travel_community",
+  "name": "dev_industry_travel_community",
+  "title": "Engineering — Travel — Community",
+  "description": "Engineering, Travel pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_travel",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=marketer)."
+}

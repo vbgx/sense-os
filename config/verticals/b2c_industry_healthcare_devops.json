@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_healthcare_devops",
+  "name": "b2c_industry_healthcare_devops",
+  "title": "B2C — Healthcare — DevOps",
+  "description": "B2C, Healthcare pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_healthcare",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=product_lead)."
+}

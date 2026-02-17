@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_insurance_seo",
+  "name": "ops_industry_insurance_seo",
+  "title": "Operations — Insurance — SEO",
+  "description": "Operations, Insurance pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_insurance",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=sales_rep)."
+}

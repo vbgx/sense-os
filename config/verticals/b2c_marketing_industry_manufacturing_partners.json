@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_manufacturing_partners",
+  "name": "b2c_marketing_industry_manufacturing_partners",
+  "title": "B2C — Marketing — Manufacturing — Partnerships",
+  "description": "B2C, Marketing, Manufacturing pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_manufacturing",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=engineer)."
+}

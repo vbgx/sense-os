@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_fintech_api_design",
+  "name": "b2c_industry_fintech_api_design",
+  "title": "B2C — Fintech — API Design",
+  "description": "B2C, Fintech pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_fintech",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=founder)."
+}

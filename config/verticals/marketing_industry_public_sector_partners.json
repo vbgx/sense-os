@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_public_sector_partners",
+  "name": "marketing_industry_public_sector_partners",
+  "title": "Marketing — Public Sector — Partnerships",
+  "description": "Marketing, Public Sector pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_public_sector",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=finance_lead)."
+}

@@ -15,7 +15,8 @@ def _seed_trend_data(db_session, *, day: date) -> None:
     db_session.refresh(vertical)
 
     signal = Signal(
-        vertical_id=vertical.id,
+        vertical_db_id=vertical.id,
+        vertical_id=vertical.name,
         source="test",
         external_id="ext-trend-job",
         content="trend content",
@@ -61,7 +62,9 @@ def test_consume_trend_job(db_session):
     payload = {
         "type": "trend_job",
         "day": day.isoformat(),
-        "vertical_id": 1,
+        "vertical_id": "vertical-trend-job",
+        "vertical_db_id": 1,
+        "taxonomy_version": "2026-02-17",
         "cluster_version": "tfidf_v1",
         "formula_version": "formula_v1",
     }

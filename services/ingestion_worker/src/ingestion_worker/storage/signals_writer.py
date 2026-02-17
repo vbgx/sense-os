@@ -15,9 +15,18 @@ class SignalsWriter:
         try:
             for signal in signals:
                 created_at: Optional[datetime] = signal.get("created_at")
+                vertical_id = signal.get("vertical_id")
+                taxonomy_version = signal.get("taxonomy_version")
+                vertical_db_id = signal.get("vertical_db_id")
+                if not vertical_id or not taxonomy_version:
+                    raise ValueError("signal missing vertical_id or taxonomy_version")
+                if vertical_db_id is None:
+                    raise ValueError("signal missing vertical_db_id")
                 _, created = signals_repo.create_if_absent(
                     db,
-                    vertical_id=signal["vertical_id"],
+                    vertical_db_id=vertical_db_id,
+                    vertical_id=vertical_id,
+                    taxonomy_version=taxonomy_version,
                     source=signal["source"],
                     external_id=signal["external_id"],
                     content=signal["content"],

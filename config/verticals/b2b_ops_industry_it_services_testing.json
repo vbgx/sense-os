@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_it_services_testing",
+  "name": "b2b_ops_industry_it_services_testing",
+  "title": "B2B — Operations — IT Services (MSP) — Testing",
+  "description": "B2B, Operations, IT Services (MSP) pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_it_services",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=marketer)."
+}

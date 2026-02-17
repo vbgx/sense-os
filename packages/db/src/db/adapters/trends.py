@@ -38,6 +38,9 @@ class TrendsAdapter:
         self._Session = sessionmaker(bind=self._engine, autoflush=False, autocommit=False, future=True)
 
         self._cache_enabled = _env_bool("TRENDS_CACHE_ENABLED", default=False)
+        if dsn.startswith("sqlite"):
+            # Avoid cross-test cache flakiness when using sqlite in tests.
+            self._cache_enabled = False
         self._cache_ttl_s = int(os.getenv("TRENDS_CACHE_TTL_S", "60"))
         self._redis_url = os.getenv("REDIS_URL") or os.getenv("REDIS_DSN") or REDIS_URL
 

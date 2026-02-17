@@ -5,14 +5,29 @@ from typing import Generator, Iterator
 
 from sqlalchemy.orm import sessionmaker
 
-from .engine import engine
+from .engine import get_engine
 
-SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=engine,
-    expire_on_commit=False,
-)
+_session_factory = None
+_session_factory_dsn: str | None = None
+
+
+def _get_sessionmaker():
+    global _session_factory, _session_factory_dsn
+    engine = get_engine()
+    dsn = str(engine.url)
+    if _session_factory is None or _session_factory_dsn != dsn:
+        _session_factory = sessionmaker(
+            autocommit=False,
+            autoflush=False,
+            bind=engine,
+            expire_on_commit=False,
+        )
+        _session_factory_dsn = dsn
+    return _session_factory
+
+
+def SessionLocal():
+    return _get_sessionmaker()()
 
 
 def get_session() -> Generator:

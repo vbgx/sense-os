@@ -2,7 +2,7 @@ import time
 from sqlalchemy import text
 from sqlalchemy.exc import OperationalError
 
-from db.engine import engine
+from db.engine import get_engine
 
 
 def init_db(max_wait_s: int = 30, sleep_s: float = 1.0) -> None:
@@ -16,6 +16,7 @@ def init_db(max_wait_s: int = 30, sleep_s: float = 1.0) -> None:
 
     while time.time() < deadline:
         try:
+            engine = get_engine()
             with engine.connect() as conn:
                 conn.execute(text("SELECT 1"))
             return

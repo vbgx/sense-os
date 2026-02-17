@@ -109,12 +109,36 @@ export const VerticalSchema = z
   .object({
     id: z.union([z.number().int(), z.string()]),
     name: z.string(),
+    title: z.string().nullable().optional(),
+    description: z.string().nullable().optional(),
+    enabled: z.boolean().optional(),
+    tags: z.array(z.string()).default([]),
+    meta: z
+      .object({
+        audience: z.string().nullable().optional(),
+        function: z.string().nullable().optional(),
+        industry: z.string().nullable().optional(),
+        cluster: z.string().nullable().optional(),
+        member: z.string().nullable().optional(),
+        persona: z.string().nullable().optional(),
+        variant: z.string().nullable().optional(),
+      })
+      .passthrough()
+      .nullable()
+      .optional(),
+    tier: z.enum(["core", "experimental", "long_tail"]).nullable().optional(),
+    taxonomy_version: z.string().nullable().optional(),
   })
   .passthrough();
 
-export const VerticalsSchema = z.array(VerticalSchema);
+export const VerticalsResponseSchema = z
+  .object({
+    items: z.array(VerticalSchema).default([]),
+  })
+  .passthrough();
 
 export type Vertical = z.infer<typeof VerticalSchema>;
+export type VerticalsResponse = z.infer<typeof VerticalsResponseSchema>;
 
 /* ──────────────────────────────────────────────────────────
  * TRENDS

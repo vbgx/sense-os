@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   TopPainsSchema,
   ClusterDetailSchema,
-  VerticalsSchema,
+  VerticalsResponseSchema,
   TrendListResponseSchema,
   OpsQueuesResponseSchema,
   OpsRunsResponseSchema,
@@ -106,7 +106,7 @@ export function useVerticals() {
     queryKey: ["verticals"],
     queryFn: async () => {
       const data = await apiGetJson("/verticals/");
-      return VerticalsSchema.parse(data);
+      return VerticalsResponseSchema.parse(data).items;
     },
     staleTime: 60_000,
   });

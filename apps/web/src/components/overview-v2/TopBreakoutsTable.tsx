@@ -117,7 +117,7 @@ export function TopBreakoutsTable({
   }, [items, sortKey, sortDir]);
 
   return (
-    <section className="rounded-2xl border bg-card/40 shadow-sm">
+    <section className="rounded-2xl border bg-card/40 sense-panel">
       <header className="flex items-baseline justify-between gap-3 border-b px-4 py-3">
         <div className="flex flex-col gap-0.5">
           <div className="text-[13px] font-semibold tracking-tight">Top 10 Breakouts</div>
@@ -174,7 +174,7 @@ export function TopBreakoutsTable({
                   return (
                     <tr
                       key={it.cluster_id}
-                      className="cursor-pointer border-t hover:bg-background/20"
+                      className="sense-row-hover cursor-pointer border-t"
                       onClick={() => router.push(`/clusters/${it.cluster_id}`)}
                       role="button"
                       tabIndex={0}

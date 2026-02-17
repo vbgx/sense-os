@@ -218,3 +218,88 @@ body {
 .page-title {
   @apply text-xl font-semibold;
 }
+
+/* --- Sense UI v2 (global ambience) --- */
+:root{
+  --sense-bg: #0b0f14;
+  --sense-panel-shadow: 0 14px 50px rgba(0,0,0,.55);
+}
+
+/* Global background */
+body{
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
+    radial-gradient(900px 500px at 80% 10%, rgba(255,107,61,.08), transparent 60%),
+    var(--sense-bg);
+}
+
+/* Panel shadow helper (matches spec) */
+.sense-panel{
+  box-shadow: var(--sense-panel-shadow);
+}
+
+/* LED pulse (matches spec vibe) */
+@keyframes sense-led-pulse{
+  0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.22); }
+  70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+.sense-led{
+  animation: sense-led-pulse 1.6s ease-out infinite;
+}
+
+/* --- Sense UI v2 (global ambience) --- */
+:root{
+  --sense-bg: #0b0f14;
+  --sense-panel-shadow: 0 14px 50px rgba(0,0,0,.55);
+}
+
+/* Global background */
+body{
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
+    radial-gradient(900px 500px at 80% 10%, rgba(255,107,61,.08), transparent 60%),
+    var(--sense-bg);
+}
+
+/* Panel shadow helper (matches spec) */
+.sense-panel{
+  box-shadow: var(--sense-panel-shadow);
+}
+
+/* LED pulse (matches spec vibe) */
+@keyframes sense-led-pulse{
+  0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.22); }
+  70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+.sense-led{
+  animation: sense-led-pulse 1.6s ease-out infinite;
+}
+
+/* --- Sense OS: pixel-perfect ambience (mock spec) --- */
+:root{
+  --sense-bg: #0b0f14;
+  --sense-panel-shadow: 0 14px 50px rgba(0,0,0,.55);
+}
+
+body{
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
+    radial-gradient(900px 500px at 80% 10%, rgba(255,107,61,.08), transparent 60%),
+    var(--sense-bg);
+}
+
+/* exact panel shadow */
+.sense-panel{
+  box-shadow: var(--sense-panel-shadow);
+}
+
+/* premium row hover (TopBreakouts) */
+.sense-row-hover{
+  transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+.sense-row-hover:hover{
+  background: rgba(255,255,255,.03);
+  transform: translateY(-1px);
+}

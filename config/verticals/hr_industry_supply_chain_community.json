@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_supply_chain_community",
+  "name": "hr_industry_supply_chain_community",
+  "title": "HR — Supply Chain — Community",
+  "description": "HR, Supply Chain pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_supply_chain",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=founder)."
+}

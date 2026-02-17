@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_legal_platform_eng",
+  "name": "b2c_data_industry_legal_platform_eng",
+  "title": "B2C — Data — Legal Services — Platform Engineering",
+  "description": "B2C, Data, Legal Services pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_legal",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=sales_rep)."
+}

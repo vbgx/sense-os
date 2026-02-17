@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_energy_observability",
+  "name": "security_industry_energy_observability",
+  "title": "Security — Energy — Observability",
+  "description": "Security, Energy pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_energy",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=ops_manager)."
+}

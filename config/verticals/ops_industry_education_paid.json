@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_education_paid",
+  "name": "ops_industry_education_paid",
+  "title": "Operations — Education — Paid Acquisition",
+  "description": "Operations, Education pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_education",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=founder)."
+}

@@ -14,7 +14,9 @@ def test_rss_maps_emit_datetime_created_at():
             "link": "https://x",
             "published": "2026-02-16T12:00:00+00:00",
         },
-        vertical_id=1,
+        vertical_id="b2b_ops",
+        vertical_db_id=1,
+        taxonomy_version="2026-02-17",
     )
     assert isinstance(ih["created_at"], datetime)
 
@@ -26,6 +28,8 @@ def test_rss_maps_emit_datetime_created_at():
             "link": "https://y",
             "published": "2026-02-16T12:00:00+00:00",
         },
-        vertical_id=1,
+        vertical_id="b2b_ops",
+        vertical_db_id=1,
+        taxonomy_version="2026-02-17",
     )
     assert isinstance(ph["created_at"], datetime)

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_public_sector_billing_ops",
+  "name": "finance_industry_public_sector_billing_ops",
+  "title": "Finance — Public Sector — Billing Ops",
+  "description": "Finance, Public Sector pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_public_sector",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=sales_rep)."
+}

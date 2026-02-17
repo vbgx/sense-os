@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_supply_chain_pm",
+  "name": "dev_industry_supply_chain_pm",
+  "title": "Engineering — Supply Chain — Product Management",
+  "description": "Engineering, Supply Chain pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_supply_chain",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2b_product_community",
+  "name": "b2b_product_community",
+  "title": "B2B — Product — Community",
+  "description": "B2B, Product pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

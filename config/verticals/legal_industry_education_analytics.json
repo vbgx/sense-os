@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_education_analytics",
+  "name": "legal_industry_education_analytics",
+  "title": "Legal — Education — Product Analytics",
+  "description": "Legal, Education pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_education",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=finance_lead)."
+}

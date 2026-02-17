@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_travel_enablement",
+  "name": "b2c_finance_industry_travel_enablement",
+  "title": "B2C — Finance — Travel — Enablement",
+  "description": "B2C, Finance, Travel pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_travel",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

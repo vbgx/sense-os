@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_logistics_community",
+  "name": "security_industry_logistics_community",
+  "title": "Security — Logistics — Community",
+  "description": "Security, Logistics pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_logistics",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=ops_manager)."
+}

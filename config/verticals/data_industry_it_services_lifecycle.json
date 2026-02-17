@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_it_services_lifecycle",
+  "name": "data_industry_it_services_lifecycle",
+  "title": "Data — IT Services (MSP) — Lifecycle",
+  "description": "Data, IT Services (MSP) pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_it_services",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "data",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=ops_manager)."
+}

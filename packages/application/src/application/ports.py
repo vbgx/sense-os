@@ -7,11 +7,19 @@ class NotFoundError(Exception):
     """Raised when an entity is not found in a use case."""
 
 
+class SchedulerRepo(Protocol):
+    def get_last_run(self) -> Any:
+        ...
+
+
 class PainClustersRepo(Protocol):
     def list(self) -> list[Any]:
         ...
 
     def get(self, cluster_id: str) -> Any:
+        ...
+
+    def count(self) -> int:
         ...
 
     def list_top_pains(
@@ -41,16 +49,19 @@ class PainInstancesRepo(Protocol):
 
 
 class SignalsRepo(Protocol):
-    def list_by_vertical(
+    def list_by_vertical_db_id(
         self,
         *,
-        vertical_id: int,
+        vertical_db_id: int,
         limit: int,
         offset: int,
     ) -> list[Any]:
         ...
 
-    def count_by_vertical(self, *, vertical_id: int) -> int:
+    def count_by_vertical_db_id(self, *, vertical_db_id: int) -> int:
+        ...
+
+    def count_last_days(self, *, days: int) -> int:
         ...
 
     def get_by_ids(self, ids: Sequence[int]) -> list[Any]:
@@ -62,6 +73,9 @@ class VerticalsRepo(Protocol):
         ...
 
     def get_by_name(self, name: str) -> Any | None:
+        ...
+
+    def get_by_id(self, vertical_id: int) -> Any | None:
         ...
 
     def create(self, name: str) -> Any:
@@ -98,6 +112,7 @@ class UnitOfWork(Protocol):
     verticals: VerticalsRepo
     cluster_daily_history: ClusterDailyHistoryRepo
     trends: TrendsRepo
+    scheduler: SchedulerRepo
 
     def __enter__(self) -> "UnitOfWork":
         ...

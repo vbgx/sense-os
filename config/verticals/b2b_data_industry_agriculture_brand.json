@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_agriculture_brand",
+  "name": "b2b_data_industry_agriculture_brand",
+  "title": "B2B — Data — Agriculture — Brand",
+  "description": "B2B, Data, Agriculture pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_agriculture",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=product_lead)."
+}

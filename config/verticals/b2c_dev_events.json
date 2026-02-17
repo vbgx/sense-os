@@ -1,0 +1,33 @@
+{
+  "id": "b2c_dev_events",
+  "name": "b2c_dev_events",
+  "title": "B2C — Engineering — Events",
+  "description": "B2C, Engineering pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=marketer)."
+}

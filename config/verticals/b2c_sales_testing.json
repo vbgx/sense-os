@@ -1,0 +1,33 @@
+{
+  "id": "b2c_sales_testing",
+  "name": "b2c_sales_testing",
+  "title": "B2C — Sales — Testing",
+  "description": "B2C, Sales pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=finance_lead)."
+}

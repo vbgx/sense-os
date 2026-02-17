@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_hospitality_community",
+  "name": "b2c_finance_industry_hospitality_community",
+  "title": "B2C — Finance — Hospitality — Community",
+  "description": "B2C, Finance, Hospitality pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_hospitality",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=marketer)."
+}

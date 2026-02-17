@@ -1,0 +1,31 @@
+{
+  "id": "sales_sdr",
+  "name": "sales_sdr",
+  "title": "Sales — SDR/Outbound",
+  "description": "Sales pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=ops_manager)."
+}

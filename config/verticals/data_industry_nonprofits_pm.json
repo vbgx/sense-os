@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_nonprofits_pm",
+  "name": "data_industry_nonprofits_pm",
+  "title": "Data — Nonprofits — Product Management",
+  "description": "Data, Nonprofits pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_nonprofits",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=product_lead)."
+}

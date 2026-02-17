@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_retail_pm",
+  "name": "hr_industry_retail_pm",
+  "title": "HR — Retail — Product Management",
+  "description": "HR, Retail pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_retail",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=ops_manager)."
+}

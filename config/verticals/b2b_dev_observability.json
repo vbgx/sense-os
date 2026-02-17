@@ -1,0 +1,33 @@
+{
+  "id": "b2b_dev_observability",
+  "name": "b2b_dev_observability",
+  "title": "B2B — Engineering — Observability",
+  "description": "B2B, Engineering pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=ops_manager)."
+}

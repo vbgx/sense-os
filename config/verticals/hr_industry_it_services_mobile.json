@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_it_services_mobile",
+  "name": "hr_industry_it_services_mobile",
+  "title": "HR — IT Services (MSP) — Mobile",
+  "description": "HR, IT Services (MSP) pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_it_services",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=ops_manager)."
+}

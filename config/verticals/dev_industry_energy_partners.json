@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_energy_partners",
+  "name": "dev_industry_energy_partners",
+  "title": "Engineering — Energy — Partnerships",
+  "description": "Engineering, Energy pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_energy",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=finance_lead)."
+}

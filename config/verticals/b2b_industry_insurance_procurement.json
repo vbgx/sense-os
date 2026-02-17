@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_insurance_procurement",
+  "name": "b2b_industry_insurance_procurement",
+  "title": "B2B — Insurance — Procurement",
+  "description": "B2B, Insurance pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_insurance",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=security_lead)."
+}

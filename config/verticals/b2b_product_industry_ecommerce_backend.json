@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_ecommerce_backend",
+  "name": "b2b_product_industry_ecommerce_backend",
+  "title": "B2B — Product — Ecommerce — Backend",
+  "description": "B2B, Product, Ecommerce pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_ecommerce",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=founder)."
+}

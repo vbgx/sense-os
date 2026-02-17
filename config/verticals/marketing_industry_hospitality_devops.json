@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_hospitality_devops",
+  "name": "marketing_industry_hospitality_devops",
+  "title": "Marketing — Hospitality — DevOps",
+  "description": "Marketing, Hospitality pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_hospitality",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=founder)."
+}

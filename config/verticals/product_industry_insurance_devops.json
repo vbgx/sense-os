@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_insurance_devops",
+  "name": "product_industry_insurance_devops",
+  "title": "Product — Insurance — DevOps",
+  "description": "Product, Insurance pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_insurance",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=sales_rep)."
+}

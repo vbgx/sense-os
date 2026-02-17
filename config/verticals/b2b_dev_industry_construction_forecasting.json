@@ -1,0 +1,35 @@
+{
+  "id": "b2b_dev_industry_construction_forecasting",
+  "name": "b2b_dev_industry_construction_forecasting",
+  "title": "B2B — Engineering — Construction — Forecasting",
+  "description": "B2B, Engineering, Construction pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "dev",
+    "industry_construction",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "dev",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=sales_rep)."
+}

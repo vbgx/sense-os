@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_construction_compliance_ops",
+  "name": "b2b_ops_industry_construction_compliance_ops",
+  "title": "B2B — Operations — Construction — Compliance Ops",
+  "description": "B2B, Operations, Construction pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_construction",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_public_sector_events",
+  "name": "ops_industry_public_sector_events",
+  "title": "Operations — Public Sector — Events",
+  "description": "Operations, Public Sector pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_public_sector",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=founder)."
+}

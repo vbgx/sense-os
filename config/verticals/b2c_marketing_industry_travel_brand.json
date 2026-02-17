@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_travel_brand",
+  "name": "b2c_marketing_industry_travel_brand",
+  "title": "B2C — Marketing — Travel — Brand",
+  "description": "B2C, Marketing, Travel pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_travel",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=ops_manager)."
+}

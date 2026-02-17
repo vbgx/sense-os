@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_media_sre",
+  "name": "finance_industry_media_sre",
+  "title": "Finance — Media — SRE",
+  "description": "Finance, Media pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_media",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=security_lead)."
+}

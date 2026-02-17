@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_legal_testing",
+  "name": "security_industry_legal_testing",
+  "title": "Security — Legal Services — Testing",
+  "description": "Security, Legal Services pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_legal",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "security",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=sales_rep)."
+}

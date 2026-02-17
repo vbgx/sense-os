@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_education_analytics",
+  "name": "b2b_security_industry_education_analytics",
+  "title": "B2B — Security — Education — Product Analytics",
+  "description": "B2B, Security, Education pains and workflows around Product Analytics.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_education",
+    "analytics"
+  ],
+  "default_queries": [
+    "event tracking drift",
+    "metric definitions unclear",
+    "dashboard trust issues",
+    "Product Analytics",
+    "Product Analytics pain",
+    "Product Analytics bottleneck",
+    "Product Analytics automation",
+    "Product Analytics workflow",
+    "Product Analytics tooling",
+    "Product Analytics process",
+    "Product Analytics best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=founder)."
+}

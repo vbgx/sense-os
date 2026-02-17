@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_manufacturing_observability",
+  "name": "hr_industry_manufacturing_observability",
+  "title": "HR — Manufacturing — Observability",
+  "description": "HR, Manufacturing pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_manufacturing",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=engineer)."
+}

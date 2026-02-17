@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_media_devops",
+  "name": "legal_industry_media_devops",
+  "title": "Legal — Media — DevOps",
+  "description": "Legal, Media pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_media",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_it_services_mobile",
+  "name": "marketing_industry_it_services_mobile",
+  "title": "Marketing — IT Services (MSP) — Mobile",
+  "description": "Marketing, IT Services (MSP) pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_it_services",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=sales_rep)."
+}

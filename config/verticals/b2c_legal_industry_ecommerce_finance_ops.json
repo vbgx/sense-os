@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_ecommerce_finance_ops",
+  "name": "b2c_legal_industry_ecommerce_finance_ops",
+  "title": "B2C — Legal — Ecommerce — Finance Ops",
+  "description": "B2C, Legal, Ecommerce pains and workflows around Finance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_ecommerce",
+    "finance_ops"
+  ],
+  "default_queries": [
+    "invoice approval bottleneck",
+    "expense policy enforcement",
+    "month end close automation",
+    "Finance Ops",
+    "Finance Ops pain",
+    "Finance Ops bottleneck",
+    "Finance Ops automation",
+    "Finance Ops workflow",
+    "Finance Ops tooling",
+    "Finance Ops process",
+    "Finance Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=finance_ops, persona=founder)."
+}

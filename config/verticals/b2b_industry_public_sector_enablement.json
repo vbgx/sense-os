@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_public_sector_enablement",
+  "name": "b2b_industry_public_sector_enablement",
+  "title": "B2B — Public Sector — Enablement",
+  "description": "B2B, Public Sector pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_public_sector",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=product_lead)."
+}

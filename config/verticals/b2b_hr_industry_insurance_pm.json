@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_insurance_pm",
+  "name": "b2b_hr_industry_insurance_pm",
+  "title": "B2B — HR — Insurance — Product Management",
+  "description": "B2B, HR, Insurance pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_insurance",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

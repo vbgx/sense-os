@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_energy_testing",
+  "name": "finance_industry_energy_testing",
+  "title": "Finance — Energy — Testing",
+  "description": "Finance, Energy pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_energy",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=product_lead)."
+}

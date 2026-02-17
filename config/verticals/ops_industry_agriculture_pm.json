@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_agriculture_pm",
+  "name": "ops_industry_agriculture_pm",
+  "title": "Operations — Agriculture — Product Management",
+  "description": "Operations, Agriculture pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_agriculture",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=ops_manager)."
+}

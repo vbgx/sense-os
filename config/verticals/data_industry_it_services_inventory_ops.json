@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_it_services_inventory_ops",
+  "name": "data_industry_it_services_inventory_ops",
+  "title": "Data — IT Services (MSP) — Inventory Ops",
+  "description": "Data, IT Services (MSP) pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_it_services",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=marketer)."
+}

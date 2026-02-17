@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_it_services_events",
+  "name": "ops_industry_it_services_events",
+  "title": "Operations — IT Services (MSP) — Events",
+  "description": "Operations, IT Services (MSP) pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_it_services",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=security_lead)."
+}

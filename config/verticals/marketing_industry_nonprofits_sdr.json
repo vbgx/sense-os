@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_nonprofits_sdr",
+  "name": "marketing_industry_nonprofits_sdr",
+  "title": "Marketing — Nonprofits — SDR/Outbound",
+  "description": "Marketing, Nonprofits pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_nonprofits",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=product_lead)."
+}

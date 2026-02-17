@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_healthcare_forecasting",
+  "name": "sales_industry_healthcare_forecasting",
+  "title": "Sales — Healthcare — Forecasting",
+  "description": "Sales, Healthcare pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_healthcare",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=engineer)."
+}

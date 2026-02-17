@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_media_frontend",
+  "name": "b2c_dev_industry_media_frontend",
+  "title": "B2C — Engineering — Media — Frontend",
+  "description": "B2C, Engineering, Media pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_media",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=product_lead)."
+}

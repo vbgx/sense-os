@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_media_enablement",
+  "name": "security_industry_media_enablement",
+  "title": "Security — Media — Enablement",
+  "description": "Security, Media pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_media",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=ops_manager)."
+}

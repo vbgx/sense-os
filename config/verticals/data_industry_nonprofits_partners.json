@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_nonprofits_partners",
+  "name": "data_industry_nonprofits_partners",
+  "title": "Data — Nonprofits — Partnerships",
+  "description": "Data, Nonprofits pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_nonprofits",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

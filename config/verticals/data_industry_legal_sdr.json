@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_legal_sdr",
+  "name": "data_industry_legal_sdr",
+  "title": "Data — Legal Services — SDR/Outbound",
+  "description": "Data, Legal Services pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_legal",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_energy_data_eng",
+  "name": "b2b_industry_energy_data_eng",
+  "title": "B2B — Energy — Data Engineering",
+  "description": "B2B, Energy pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_energy",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=engineer)."
+}

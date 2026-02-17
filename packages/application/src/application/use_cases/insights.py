@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, List, Optional, Sequence
 
 from application.ports import NotFoundError, UnitOfWork
+from domain.versions import TAXONOMY_VERSION
 from domain.competition.external_solution_density_v1 import compute_competitive_density_score
 from domain.competition.keyword_saturation_v0 import compute_keyword_saturation_score_v0
 from domain.competition.ph_overlap_v0 import compute_ph_overlap_score_v0
@@ -91,11 +92,13 @@ class InsightsUseCase:
 
         return {
             "cluster_id": str(_get(cluster, "id")),
+            "vertical_id": str(_get(cluster, "vertical_id")) if _get(cluster, "vertical_id") is not None else None,
             "cluster_summary": _get(cluster, "cluster_summary"),
             "exploitability_score": int(_get(cluster, "exploitability_score", 0) or 0),
             "exploitability_tier": str(_get(cluster, "exploitability_tier", "") or ""),
             "severity_score": int(_get(cluster, "severity_score", 0) or 0),
             "breakout_score": int(_get(cluster, "breakout_score", 0) or 0),
+            "saturation_score": int(_get(cluster, "saturation_score", 0) or 0),
             "opportunity_window_status": str(_get(cluster, "opportunity_window_status", "") or ""),
             "confidence_score": int(_get(cluster, "confidence_score", 0) or 0),
             "dominant_persona": str(_get(cluster, "dominant_persona", "") or ""),
@@ -315,7 +318,13 @@ class InsightsUseCase:
 
         return hypothesis.__dict__.copy()
 
-    def export_ventureos_payload(self, cluster_id: str) -> dict[str, Any]:
+    def export_ventureos_payload(
+        self,
+        cluster_id: str,
+        *,
+        vertical_id: str | None = None,
+        taxonomy_version: str | None = None,
+    ) -> dict[str, Any]:
         from domain.insights.core_pain_statement_v1 import generate_core_pain_statement
         from domain.insights.early_validation_path_v1 import generate_early_validation_path
         from domain.insights.monetization_angle_v1 import generate_monetization_angle
@@ -332,6 +341,21 @@ class InsightsUseCase:
 
             if cluster is None:
                 raise NotFoundError("Cluster not found")
+
+            resolved_vertical_id = str(vertical_id or "").strip()
+            if not resolved_vertical_id:
+                vertical_db_id = _get(cluster, "vertical_id")
+                vertical = None
+                if vertical_db_id is not None:
+                    try:
+                        vertical = self.uow.verticals.get_by_id(int(vertical_db_id))
+                    except Exception:
+                        vertical = None
+                resolved_vertical_id = str(_get(vertical, "name") or "").strip()
+                if not resolved_vertical_id:
+                    raise NotFoundError("Vertical not found")
+
+            resolved_taxonomy_version = str(taxonomy_version or TAXONOMY_VERSION).strip() or TAXONOMY_VERSION
 
             key_phrases = [
                 item for item in _safe_json_list(_get(cluster, "key_phrases_json"))
@@ -391,6 +415,8 @@ class InsightsUseCase:
 
         payload = build_ventureos_export_payload_v1(
             cluster_id=str(_get(cluster, "id")),
+            vertical_id=resolved_vertical_id,
+            taxonomy_version=resolved_taxonomy_version,
             persona=persona,
             pain=pain,
             wedge=wedge,

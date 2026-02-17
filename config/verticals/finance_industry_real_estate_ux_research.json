@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_real_estate_ux_research",
+  "name": "finance_industry_real_estate_ux_research",
+  "title": "Finance — Real Estate — User Research",
+  "description": "Finance, Real Estate pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_real_estate",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=finance_lead)."
+}

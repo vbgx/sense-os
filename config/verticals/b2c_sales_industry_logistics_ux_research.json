@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_logistics_ux_research",
+  "name": "b2c_sales_industry_logistics_ux_research",
+  "title": "B2C — Sales — Logistics — User Research",
+  "description": "B2C, Sales, Logistics pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_logistics",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=ops_manager)."
+}

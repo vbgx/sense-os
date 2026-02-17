@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_fintech_sre",
+  "name": "data_industry_fintech_sre",
+  "title": "Data — Fintech — SRE",
+  "description": "Data, Fintech pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_fintech",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "data",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

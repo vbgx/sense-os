@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_travel_devops",
+  "name": "legal_industry_travel_devops",
+  "title": "Legal — Travel — DevOps",
+  "description": "Legal, Travel pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_travel",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

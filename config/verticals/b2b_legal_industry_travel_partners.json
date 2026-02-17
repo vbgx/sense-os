@@ -1,0 +1,35 @@
+{
+  "id": "b2b_legal_industry_travel_partners",
+  "name": "b2b_legal_industry_travel_partners",
+  "title": "B2B — Legal — Travel — Partnerships",
+  "description": "B2B, Legal, Travel pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "industry_travel",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=product_lead)."
+}

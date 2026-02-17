@@ -1,0 +1,33 @@
+{
+  "id": "b2b_product_forecasting",
+  "name": "b2b_product_forecasting",
+  "title": "B2B — Product — Forecasting",
+  "description": "B2B, Product pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=security_lead)."
+}

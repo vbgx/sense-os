@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_public_sector_paid",
+  "name": "sales_industry_public_sector_paid",
+  "title": "Sales — Public Sector — Paid Acquisition",
+  "description": "Sales, Public Sector pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_public_sector",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=finance_lead)."
+}

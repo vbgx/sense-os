@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_construction_events",
+  "name": "b2b_product_industry_construction_events",
+  "title": "B2B — Product — Construction — Events",
+  "description": "B2B, Product, Construction pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_construction",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=sales_rep)."
+}

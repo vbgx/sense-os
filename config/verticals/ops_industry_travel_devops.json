@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_travel_devops",
+  "name": "ops_industry_travel_devops",
+  "title": "Operations — Travel — DevOps",
+  "description": "Operations, Travel pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_travel",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
+}

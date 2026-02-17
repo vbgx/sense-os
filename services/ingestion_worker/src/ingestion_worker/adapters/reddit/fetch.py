@@ -22,7 +22,14 @@ def _parse_created_at(value: object) -> Optional[datetime]:
         return None
 
 
-def fetch_reddit_signals(*, vertical_id: int, query: str, limit: int) -> List[dict]:
+def fetch_reddit_signals(
+    *,
+    vertical_id: str,
+    vertical_db_id: int | None,
+    taxonomy_version: str | None,
+    query: str,
+    limit: int,
+) -> List[dict]:
     """Fetch reddit signals for a vertical using a search query."""
     client = RedditClient()
     rate_limiter = RateLimiter()
@@ -50,7 +57,15 @@ def fetch_reddit_signals(*, vertical_id: int, query: str, limit: int) -> List[di
             else:
                 item = p  # assume already RssItem-compatible
 
-            out.append(map_post_to_signal(item, vertical_id=vertical_id, source="reddit"))
+            out.append(
+                map_post_to_signal(
+                    item,
+                    vertical_id=vertical_id,
+                    vertical_db_id=vertical_db_id,
+                    taxonomy_version=taxonomy_version,
+                    source="reddit",
+                )
+            )
             if len(out) >= limit:
                 break
 

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_nonprofits_sdr",
+  "name": "dev_industry_nonprofits_sdr",
+  "title": "Engineering — Nonprofits — SDR/Outbound",
+  "description": "Engineering, Nonprofits pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_nonprofits",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=finance_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_healthcare_observability",
+  "name": "b2c_industry_healthcare_observability",
+  "title": "B2C — Healthcare — Observability",
+  "description": "B2C, Healthcare pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_healthcare",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_public_sector_backend",
+  "name": "marketing_industry_public_sector_backend",
+  "title": "Marketing — Public Sector — Backend",
+  "description": "Marketing, Public Sector pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_public_sector",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=marketer)."
+}

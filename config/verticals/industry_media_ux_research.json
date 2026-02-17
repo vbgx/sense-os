@@ -1,0 +1,31 @@
+{
+  "id": "industry_media_ux_research",
+  "name": "industry_media_ux_research",
+  "title": "Media — User Research",
+  "description": "Media pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_media",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=product_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_logistics_partners",
+  "name": "sales_industry_logistics_partners",
+  "title": "Sales — Logistics — Partnerships",
+  "description": "Sales, Logistics pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_logistics",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=finance_lead)."
+}

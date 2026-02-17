@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_logistics_enablement",
+  "name": "b2c_hr_industry_logistics_enablement",
+  "title": "B2C — HR — Logistics — Enablement",
+  "description": "B2C, HR, Logistics pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_logistics",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=ops_manager)."
+}

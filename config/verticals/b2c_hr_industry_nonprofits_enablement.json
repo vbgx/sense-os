@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_nonprofits_enablement",
+  "name": "b2c_hr_industry_nonprofits_enablement",
+  "title": "B2C — HR — Nonprofits — Enablement",
+  "description": "B2C, HR, Nonprofits pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_nonprofits",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_construction_frontend",
+  "name": "b2c_dev_industry_construction_frontend",
+  "title": "B2C — Engineering — Construction — Frontend",
+  "description": "B2C, Engineering, Construction pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_construction",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

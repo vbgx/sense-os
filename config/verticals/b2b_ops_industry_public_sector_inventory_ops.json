@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_public_sector_inventory_ops",
+  "name": "b2b_ops_industry_public_sector_inventory_ops",
+  "title": "B2B — Operations — Public Sector — Inventory Ops",
+  "description": "B2B, Operations, Public Sector pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_public_sector",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=finance_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_legal_testing",
+  "name": "b2b_security_industry_legal_testing",
+  "title": "B2B — Security — Legal Services — Testing",
+  "description": "B2B, Security, Legal Services pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_legal",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=engineer)."
+}

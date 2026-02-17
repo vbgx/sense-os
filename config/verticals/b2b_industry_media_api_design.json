@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_media_api_design",
+  "name": "b2b_industry_media_api_design",
+  "title": "B2B — Media — API Design",
+  "description": "B2B, Media pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_media",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=ops_manager)."
+}

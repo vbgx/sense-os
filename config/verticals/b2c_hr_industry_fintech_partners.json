@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_fintech_partners",
+  "name": "b2c_hr_industry_fintech_partners",
+  "title": "B2C — HR — Fintech — Partnerships",
+  "description": "B2C, HR, Fintech pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_fintech",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

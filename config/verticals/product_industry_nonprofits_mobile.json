@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_nonprofits_mobile",
+  "name": "product_industry_nonprofits_mobile",
+  "title": "Product — Nonprofits — Mobile",
+  "description": "Product, Nonprofits pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_nonprofits",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=marketer)."
+}

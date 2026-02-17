@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_real_estate_observability",
+  "name": "b2c_data_industry_real_estate_observability",
+  "title": "B2C — Data — Real Estate — Observability",
+  "description": "B2C, Data, Real Estate pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_real_estate",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=finance_lead)."
+}

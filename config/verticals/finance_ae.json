@@ -1,0 +1,31 @@
+{
+  "id": "finance_ae",
+  "name": "finance_ae",
+  "title": "Finance — Account Executive",
+  "description": "Finance pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=engineer)."
+}

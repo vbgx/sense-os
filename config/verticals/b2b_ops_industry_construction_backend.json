@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_construction_backend",
+  "name": "b2b_ops_industry_construction_backend",
+  "title": "B2B — Operations — Construction — Backend",
+  "description": "B2B, Operations, Construction pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_construction",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=ops_manager)."
+}

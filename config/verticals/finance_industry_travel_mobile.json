@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_travel_mobile",
+  "name": "finance_industry_travel_mobile",
+  "title": "Finance — Travel — Mobile",
+  "description": "Finance, Travel pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_travel",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=engineer)."
+}

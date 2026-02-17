@@ -1,0 +1,31 @@
+{
+  "id": "industry_media_mobile",
+  "name": "industry_media_mobile",
+  "title": "Media — Mobile",
+  "description": "Media pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_media",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=marketer)."
+}

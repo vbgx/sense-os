@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_real_estate_pricing",
+  "name": "dev_industry_real_estate_pricing",
+  "title": "Engineering — Real Estate — Pricing & Packaging",
+  "description": "Engineering, Real Estate pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_real_estate",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=marketer)."
+}

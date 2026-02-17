@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_legal_community",
+  "name": "ops_industry_legal_community",
+  "title": "Operations — Legal Services — Community",
+  "description": "Operations, Legal Services pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_legal",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=sales_rep)."
+}

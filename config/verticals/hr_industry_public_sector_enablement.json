@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_public_sector_enablement",
+  "name": "hr_industry_public_sector_enablement",
+  "title": "HR — Public Sector — Enablement",
+  "description": "HR, Public Sector pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_public_sector",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=ops_manager)."
+}

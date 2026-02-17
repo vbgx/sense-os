@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_real_estate_enablement",
+  "name": "b2b_data_industry_real_estate_enablement",
+  "title": "B2B — Data — Real Estate — Enablement",
+  "description": "B2B, Data, Real Estate pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_real_estate",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

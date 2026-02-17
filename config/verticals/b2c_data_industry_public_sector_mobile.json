@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_public_sector_mobile",
+  "name": "b2c_data_industry_public_sector_mobile",
+  "title": "B2C — Data — Public Sector — Mobile",
+  "description": "B2C, Data, Public Sector pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_public_sector",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=product_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_supply_chain_revops",
+  "name": "b2c_marketing_industry_supply_chain_revops",
+  "title": "B2C — Marketing — Supply Chain — RevOps",
+  "description": "B2C, Marketing, Supply Chain pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_supply_chain",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=engineer)."
+}

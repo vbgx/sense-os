@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_hospitality_devops",
+  "name": "b2b_product_industry_hospitality_devops",
+  "title": "B2B — Product — Hospitality — DevOps",
+  "description": "B2B, Product, Hospitality pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_hospitality",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
+}

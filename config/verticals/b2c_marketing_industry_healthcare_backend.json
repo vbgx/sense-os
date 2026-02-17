@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_healthcare_backend",
+  "name": "b2c_marketing_industry_healthcare_backend",
+  "title": "B2C — Marketing — Healthcare — Backend",
+  "description": "B2C, Marketing, Healthcare pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_healthcare",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=finance_lead)."
+}

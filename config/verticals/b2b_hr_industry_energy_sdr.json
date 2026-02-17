@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_energy_sdr",
+  "name": "b2b_hr_industry_energy_sdr",
+  "title": "B2B — HR — Energy — SDR/Outbound",
+  "description": "B2B, HR, Energy pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_energy",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=sales_rep)."
+}

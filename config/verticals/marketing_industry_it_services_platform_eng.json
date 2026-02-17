@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_it_services_platform_eng",
+  "name": "marketing_industry_it_services_platform_eng",
+  "title": "Marketing — IT Services (MSP) — Platform Engineering",
+  "description": "Marketing, IT Services (MSP) pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_it_services",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=founder)."
+}

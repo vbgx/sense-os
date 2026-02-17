@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_legal_devops",
+  "name": "b2c_legal_industry_legal_devops",
+  "title": "B2C — Legal — Legal Services — DevOps",
+  "description": "B2C, Legal, Legal Services pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_legal",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

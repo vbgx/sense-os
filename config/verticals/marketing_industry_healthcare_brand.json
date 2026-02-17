@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_healthcare_brand",
+  "name": "marketing_industry_healthcare_brand",
+  "title": "Marketing — Healthcare — Brand",
+  "description": "Marketing, Healthcare pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_healthcare",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=marketer)."
+}

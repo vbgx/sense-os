@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_energy_procurement",
+  "name": "marketing_industry_energy_procurement",
+  "title": "Marketing — Energy — Procurement",
+  "description": "Marketing, Energy pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_energy",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=finance_lead)."
+}

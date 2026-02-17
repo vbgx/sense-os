@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_media_sdr",
+  "name": "b2c_finance_industry_media_sdr",
+  "title": "B2C — Finance — Media — SDR/Outbound",
+  "description": "B2C, Finance, Media pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_media",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=finance_lead)."
+}

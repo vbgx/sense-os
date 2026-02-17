@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_it_services_seo",
+  "name": "b2c_industry_it_services_seo",
+  "title": "B2C — IT Services (MSP) — SEO",
+  "description": "B2C, IT Services (MSP) pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_it_services",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=ops_manager)."
+}

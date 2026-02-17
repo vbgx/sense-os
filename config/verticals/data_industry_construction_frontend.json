@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_construction_frontend",
+  "name": "data_industry_construction_frontend",
+  "title": "Data — Construction — Frontend",
+  "description": "Data, Construction pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_construction",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=finance_lead)."
+}

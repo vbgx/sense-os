@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_supply_chain_lifecycle",
+  "name": "data_industry_supply_chain_lifecycle",
+  "title": "Data — Supply Chain — Lifecycle",
+  "description": "Data, Supply Chain pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_supply_chain",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "data",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=security_lead)."
+}

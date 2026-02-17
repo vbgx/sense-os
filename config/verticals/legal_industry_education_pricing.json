@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_education_pricing",
+  "name": "legal_industry_education_pricing",
+  "title": "Legal — Education — Pricing & Packaging",
+  "description": "Legal, Education pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_education",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=sales_rep)."
+}

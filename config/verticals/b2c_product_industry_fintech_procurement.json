@@ -1,0 +1,35 @@
+{
+  "id": "b2c_product_industry_fintech_procurement",
+  "name": "b2c_product_industry_fintech_procurement",
+  "title": "B2C — Product — Fintech — Procurement",
+  "description": "B2C, Product, Fintech pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "industry_fintech",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "product",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=ops_manager)."
+}

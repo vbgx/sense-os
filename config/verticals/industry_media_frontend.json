@@ -1,0 +1,31 @@
+{
+  "id": "industry_media_frontend",
+  "name": "industry_media_frontend",
+  "title": "Media — Frontend",
+  "description": "Media pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_media",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_hospitality_partners",
+  "name": "product_industry_hospitality_partners",
+  "title": "Product — Hospitality — Partnerships",
+  "description": "Product, Hospitality pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_hospitality",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "product",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
+}

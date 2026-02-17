@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_retail_devops",
+  "name": "b2c_legal_industry_retail_devops",
+  "title": "B2C — Legal — Retail — DevOps",
+  "description": "B2C, Legal, Retail pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_retail",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
+}

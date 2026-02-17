@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_supply_chain_lifecycle",
+  "name": "b2b_security_industry_supply_chain_lifecycle",
+  "title": "B2B — Security — Supply Chain — Lifecycle",
+  "description": "B2B, Security, Supply Chain pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_supply_chain",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=engineer)."
+}

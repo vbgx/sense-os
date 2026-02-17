@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_insurance_sre",
+  "name": "security_industry_insurance_sre",
+  "title": "Security — Insurance — SRE",
+  "description": "Security, Insurance pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_insurance",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=ops_manager)."
+}

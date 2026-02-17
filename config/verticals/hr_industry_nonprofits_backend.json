@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_nonprofits_backend",
+  "name": "hr_industry_nonprofits_backend",
+  "title": "HR — Nonprofits — Backend",
+  "description": "HR, Nonprofits pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_nonprofits",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=ops_manager)."
+}

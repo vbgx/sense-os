@@ -1,0 +1,31 @@
+{
+  "id": "sales_inventory_ops",
+  "name": "sales_inventory_ops",
+  "title": "Sales — Inventory Ops",
+  "description": "Sales pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=ops_manager)."
+}

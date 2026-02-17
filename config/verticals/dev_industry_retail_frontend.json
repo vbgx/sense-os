@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_retail_frontend",
+  "name": "dev_industry_retail_frontend",
+  "title": "Engineering — Retail — Frontend",
+  "description": "Engineering, Retail pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_retail",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=ops_manager)."
+}

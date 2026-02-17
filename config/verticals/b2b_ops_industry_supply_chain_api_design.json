@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_supply_chain_api_design",
+  "name": "b2b_ops_industry_supply_chain_api_design",
+  "title": "B2B — Operations — Supply Chain — API Design",
+  "description": "B2B, Operations, Supply Chain pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_supply_chain",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=sales_rep)."
+}

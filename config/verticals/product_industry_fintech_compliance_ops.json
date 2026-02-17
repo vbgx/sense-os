@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_fintech_compliance_ops",
+  "name": "product_industry_fintech_compliance_ops",
+  "title": "Product — Fintech — Compliance Ops",
+  "description": "Product, Fintech pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_fintech",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "product",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=ops_manager)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_data_industry_legal_revops",
+  "name": "b2c_data_industry_legal_revops",
+  "title": "B2C — Data — Legal Services — RevOps",
+  "description": "B2C, Data, Legal Services pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "industry_legal",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "data",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=ops_manager)."
+}

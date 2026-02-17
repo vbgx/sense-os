@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_public_sector_devops",
+  "name": "finance_industry_public_sector_devops",
+  "title": "Finance — Public Sector — DevOps",
+  "description": "Finance, Public Sector pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_public_sector",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=ops_manager)."
+}

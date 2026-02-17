@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_public_sector_lifecycle",
+  "name": "b2c_finance_industry_public_sector_lifecycle",
+  "title": "B2C — Finance — Public Sector — Lifecycle",
+  "description": "B2C, Finance, Public Sector pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_public_sector",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=ops_manager)."
+}

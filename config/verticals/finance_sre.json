@@ -1,0 +1,31 @@
+{
+  "id": "finance_sre",
+  "name": "finance_sre",
+  "title": "Finance — SRE",
+  "description": "Finance pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=product_lead)."
+}

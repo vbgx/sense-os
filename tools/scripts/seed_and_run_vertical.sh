@@ -18,8 +18,8 @@ usage() {
 Usage: $0 <path/to/vertical.yml> [--source reddit] [--limit 50]
 
 Example:
-  $0 tools/fixtures/verticals/saas_founders.yml
-  $0 tools/fixtures/verticals/saas_founders.yml --source reddit --limit 80
+  $0 config/verticals/saas_founders.yml
+  $0 config/verticals/saas_founders.yml --source reddit --limit 80
 USAGE
 }
 

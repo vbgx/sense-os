@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_retail_devops",
+  "name": "b2b_ops_industry_retail_devops",
+  "title": "B2B — Operations — Retail — DevOps",
+  "description": "B2B, Operations, Retail pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_retail",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=engineer)."
+}

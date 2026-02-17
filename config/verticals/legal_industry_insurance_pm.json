@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_insurance_pm",
+  "name": "legal_industry_insurance_pm",
+  "title": "Legal — Insurance — Product Management",
+  "description": "Legal, Insurance pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_insurance",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=security_lead)."
+}

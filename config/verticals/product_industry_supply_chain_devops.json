@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_supply_chain_devops",
+  "name": "product_industry_supply_chain_devops",
+  "title": "Product — Supply Chain — DevOps",
+  "description": "Product, Supply Chain pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_supply_chain",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

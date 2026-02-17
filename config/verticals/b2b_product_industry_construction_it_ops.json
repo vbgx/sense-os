@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_construction_it_ops",
+  "name": "b2b_product_industry_construction_it_ops",
+  "title": "B2B — Product — Construction — IT Ops",
+  "description": "B2B, Product, Construction pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_construction",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=engineer)."
+}

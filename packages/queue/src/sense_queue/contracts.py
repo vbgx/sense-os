@@ -17,7 +17,9 @@ JobType = Literal[
 class BaseJob(TypedDict):
     type: JobType
     run_id: str
-    vertical_id: int
+    vertical_id: str
+    vertical_db_id: int
+    taxonomy_version: str
 
 
 class TrendJob(BaseJob):
@@ -40,7 +42,9 @@ class Job:
     type: str
     queue: str | None = None
     run_id: str | None = None
-    vertical_id: int | None = None
+    vertical_id: str | None = None
+    vertical_db_id: int | None = None
+    taxonomy_version: str | None = None
     day: str | None = None
     cluster_version: str | None = None
     formula_version: str | None = None
@@ -62,6 +66,8 @@ def validate_job(payload: dict[str, Any]) -> Job:
         queue=payload.get("queue"),
         run_id=payload.get("run_id"),
         vertical_id=payload.get("vertical_id"),
+        vertical_db_id=payload.get("vertical_db_id"),
+        taxonomy_version=payload.get("taxonomy_version"),
         day=payload.get("day"),
         cluster_version=payload.get("cluster_version"),
         formula_version=payload.get("formula_version"),

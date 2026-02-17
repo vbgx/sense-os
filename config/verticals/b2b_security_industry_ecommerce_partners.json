@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_ecommerce_partners",
+  "name": "b2b_security_industry_ecommerce_partners",
+  "title": "B2B — Security — Ecommerce — Partnerships",
+  "description": "B2B, Security, Ecommerce pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_ecommerce",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=ops_manager)."
+}

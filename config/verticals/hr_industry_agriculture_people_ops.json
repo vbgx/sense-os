@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_agriculture_people_ops",
+  "name": "hr_industry_agriculture_people_ops",
+  "title": "HR — Agriculture — People Ops",
+  "description": "HR, Agriculture pains and workflows around People Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_agriculture",
+    "people_ops"
+  ],
+  "default_queries": [
+    "onboarding checklist chaos",
+    "HR requests overflow",
+    "policy updates tracking",
+    "People Ops",
+    "People Ops pain",
+    "People Ops bottleneck",
+    "People Ops automation",
+    "People Ops workflow",
+    "People Ops tooling",
+    "People Ops process",
+    "People Ops best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=people_ops, persona=product_lead)."
+}

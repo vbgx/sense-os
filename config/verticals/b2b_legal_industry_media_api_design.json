@@ -1,0 +1,35 @@
+{
+  "id": "b2b_legal_industry_media_api_design",
+  "name": "b2b_legal_industry_media_api_design",
+  "title": "B2B — Legal — Media — API Design",
+  "description": "B2B, Legal, Media pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "legal",
+    "industry_media",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "legal",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=marketer)."
+}

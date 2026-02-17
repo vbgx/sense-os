@@ -1,0 +1,31 @@
+{
+  "id": "industry_logistics_revops",
+  "name": "industry_logistics_revops",
+  "title": "Logistics — RevOps",
+  "description": "Logistics pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_logistics",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=security_lead)."
+}

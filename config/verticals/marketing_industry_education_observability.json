@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_education_observability",
+  "name": "marketing_industry_education_observability",
+  "title": "Marketing — Education — Observability",
+  "description": "Marketing, Education pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_education",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=finance_lead)."
+}

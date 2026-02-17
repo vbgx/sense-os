@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_hospitality_events",
+  "name": "finance_industry_hospitality_events",
+  "title": "Finance — Hospitality — Events",
+  "description": "Finance, Hospitality pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_hospitality",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=sales_rep)."
+}

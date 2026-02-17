@@ -1,0 +1,31 @@
+{
+  "id": "product_partners",
+  "name": "product_partners",
+  "title": "Product — Partnerships",
+  "description": "Product pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=product_lead)."
+}

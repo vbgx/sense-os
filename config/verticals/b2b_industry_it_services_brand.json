@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_it_services_brand",
+  "name": "b2b_industry_it_services_brand",
+  "title": "B2B — IT Services (MSP) — Brand",
+  "description": "B2B, IT Services (MSP) pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_it_services",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

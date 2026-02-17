@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_construction_api_design",
+  "name": "b2b_ops_industry_construction_api_design",
+  "title": "B2B — Operations — Construction — API Design",
+  "description": "B2B, Operations, Construction pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_construction",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=finance_lead)."
+}

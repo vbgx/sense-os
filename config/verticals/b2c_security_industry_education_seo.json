@@ -1,0 +1,35 @@
+{
+  "id": "b2c_security_industry_education_seo",
+  "name": "b2c_security_industry_education_seo",
+  "title": "B2C — Security — Education — SEO",
+  "description": "B2C, Security, Education pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "security",
+    "industry_education",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "security",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=product_lead)."
+}

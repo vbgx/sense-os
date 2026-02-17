@@ -1,0 +1,35 @@
+{
+  "id": "b2c_marketing_industry_energy_mobile",
+  "name": "b2c_marketing_industry_energy_mobile",
+  "title": "B2C — Marketing — Energy — Mobile",
+  "description": "B2C, Marketing, Energy pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "marketing",
+    "industry_energy",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "marketing",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=founder)."
+}

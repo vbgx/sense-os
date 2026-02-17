@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_public_sector_partners",
+  "name": "b2c_dev_industry_public_sector_partners",
+  "title": "B2C — Engineering — Public Sector — Partnerships",
+  "description": "B2C, Engineering, Public Sector pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_public_sector",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=sales_rep)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_agriculture_support_ops",
+  "name": "b2b_industry_agriculture_support_ops",
+  "title": "B2B — Agriculture — Support Ops",
+  "description": "B2B, Agriculture pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_agriculture",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=finance_lead)."
+}

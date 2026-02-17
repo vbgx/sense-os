@@ -1,0 +1,31 @@
+{
+  "id": "data_partners",
+  "name": "data_partners",
+  "title": "Data — Partnerships",
+  "description": "Data pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

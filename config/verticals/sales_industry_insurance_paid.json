@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_insurance_paid",
+  "name": "sales_industry_insurance_paid",
+  "title": "Sales — Insurance — Paid Acquisition",
+  "description": "Sales, Insurance pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_insurance",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=ops_manager)."
+}

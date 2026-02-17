@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_healthcare_sdr",
+  "name": "finance_industry_healthcare_sdr",
+  "title": "Finance — Healthcare — SDR/Outbound",
+  "description": "Finance, Healthcare pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_healthcare",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=founder)."
+}

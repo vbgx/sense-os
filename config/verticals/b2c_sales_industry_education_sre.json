@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_education_sre",
+  "name": "b2c_sales_industry_education_sre",
+  "title": "B2C — Sales — Education — SRE",
+  "description": "B2C, Sales, Education pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_education",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

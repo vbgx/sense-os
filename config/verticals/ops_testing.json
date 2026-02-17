@@ -1,0 +1,31 @@
+{
+  "id": "ops_testing",
+  "name": "ops_testing",
+  "title": "Operations — Testing",
+  "description": "Operations pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=security_lead)."
+}

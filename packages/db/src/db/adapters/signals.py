@@ -13,18 +13,18 @@ class SignalsAdapter:
     def __init__(self, session: Session) -> None:
         self._session = session
 
-    def list_by_vertical(self, *, vertical_id: int, limit: int, offset: int):
-        return signals_repo.list_by_vertical(
+    def list_by_vertical_db_id(self, *, vertical_db_id: int, limit: int, offset: int):
+        return signals_repo.list_by_vertical_db_id(
             self._session,
-            vertical_id=int(vertical_id),
+            vertical_db_id=int(vertical_db_id),
             limit=int(limit),
             offset=int(offset),
         )
 
-    def count_by_vertical(self, *, vertical_id: int) -> int:
+    def count_by_vertical_db_id(self, *, vertical_db_id: int) -> int:
         return int(
             self._session.query(func.count(models.Signal.id))
-            .filter(models.Signal.vertical_id == int(vertical_id))
+            .filter(models.Signal.vertical_db_id == int(vertical_db_id))
             .scalar()
             or 0
         )

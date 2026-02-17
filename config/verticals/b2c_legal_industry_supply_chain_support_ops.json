@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_supply_chain_support_ops",
+  "name": "b2c_legal_industry_supply_chain_support_ops",
+  "title": "B2C — Legal — Supply Chain — Support Ops",
+  "description": "B2C, Legal, Supply Chain pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_supply_chain",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=sales_rep)."
+}

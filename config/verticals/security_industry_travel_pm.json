@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_travel_pm",
+  "name": "security_industry_travel_pm",
+  "title": "Security — Travel — Product Management",
+  "description": "Security, Travel pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_travel",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=ops_manager)."
+}

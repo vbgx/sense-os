@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_fintech_devops",
+  "name": "b2c_ops_industry_fintech_devops",
+  "title": "B2C — Operations — Fintech — DevOps",
+  "description": "B2C, Operations, Fintech pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_fintech",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

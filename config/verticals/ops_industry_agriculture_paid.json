@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_agriculture_paid",
+  "name": "ops_industry_agriculture_paid",
+  "title": "Operations — Agriculture — Paid Acquisition",
+  "description": "Operations, Agriculture pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_agriculture",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=sales_rep)."
+}

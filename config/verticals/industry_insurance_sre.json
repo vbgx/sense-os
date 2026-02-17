@@ -1,0 +1,31 @@
+{
+  "id": "industry_insurance_sre",
+  "name": "industry_insurance_sre",
+  "title": "Insurance — SRE",
+  "description": "Insurance pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_insurance",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

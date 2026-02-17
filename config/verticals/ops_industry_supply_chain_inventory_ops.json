@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_supply_chain_inventory_ops",
+  "name": "ops_industry_supply_chain_inventory_ops",
+  "title": "Operations — Supply Chain — Inventory Ops",
+  "description": "Operations, Supply Chain pains and workflows around Inventory Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_supply_chain",
+    "inventory_ops"
+  ],
+  "default_queries": [
+    "stockouts",
+    "inventory reconciliation",
+    "demand planning spreadsheet",
+    "Inventory Ops",
+    "Inventory Ops pain",
+    "Inventory Ops bottleneck",
+    "Inventory Ops automation",
+    "Inventory Ops workflow",
+    "Inventory Ops tooling",
+    "Inventory Ops process",
+    "Inventory Ops best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=inventory_ops, persona=security_lead)."
+}

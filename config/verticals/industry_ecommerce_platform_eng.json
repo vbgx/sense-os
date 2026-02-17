@@ -1,0 +1,31 @@
+{
+  "id": "industry_ecommerce_platform_eng",
+  "name": "industry_ecommerce_platform_eng",
+  "title": "Ecommerce — Platform Engineering",
+  "description": "Ecommerce pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_ecommerce",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=security_lead)."
+}

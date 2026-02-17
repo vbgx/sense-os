@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_education_enablement",
+  "name": "marketing_industry_education_enablement",
+  "title": "Marketing — Education — Enablement",
+  "description": "Marketing, Education pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_education",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=engineer)."
+}

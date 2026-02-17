@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_it_services_api_design",
+  "name": "b2b_industry_it_services_api_design",
+  "title": "B2B — IT Services (MSP) — API Design",
+  "description": "B2B, IT Services (MSP) pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_it_services",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=ops_manager)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_public_sector_forecasting",
+  "name": "hr_industry_public_sector_forecasting",
+  "title": "HR — Public Sector — Forecasting",
+  "description": "HR, Public Sector pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_public_sector",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=security_lead)."
+}

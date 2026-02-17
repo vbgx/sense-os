@@ -1,0 +1,31 @@
+{
+  "id": "industry_hospitality_devops",
+  "name": "industry_hospitality_devops",
+  "title": "Hospitality — DevOps",
+  "description": "Hospitality pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_hospitality",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=engineer)."
+}

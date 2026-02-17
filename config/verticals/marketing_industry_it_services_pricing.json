@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_it_services_pricing",
+  "name": "marketing_industry_it_services_pricing",
+  "title": "Marketing — IT Services (MSP) — Pricing & Packaging",
+  "description": "Marketing, IT Services (MSP) pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_it_services",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=founder)."
+}

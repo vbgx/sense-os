@@ -1,0 +1,35 @@
+{
+  "id": "b2b_data_industry_healthcare_frontend",
+  "name": "b2b_data_industry_healthcare_frontend",
+  "title": "B2B — Data — Healthcare — Frontend",
+  "description": "B2B, Data, Healthcare pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "data",
+    "industry_healthcare",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=ops_manager)."
+}

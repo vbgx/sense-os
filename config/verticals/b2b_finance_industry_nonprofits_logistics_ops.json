@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_nonprofits_logistics_ops",
+  "name": "b2b_finance_industry_nonprofits_logistics_ops",
+  "title": "B2B — Finance — Nonprofits — Logistics Ops",
+  "description": "B2B, Finance, Nonprofits pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_nonprofits",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=finance_lead)."
+}

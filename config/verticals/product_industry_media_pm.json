@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_media_pm",
+  "name": "product_industry_media_pm",
+  "title": "Product — Media — Product Management",
+  "description": "Product, Media pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_media",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "product",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=ops_manager)."
+}

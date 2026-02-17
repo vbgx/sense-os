@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_media_pricing",
+  "name": "hr_industry_media_pricing",
+  "title": "HR — Media — Pricing & Packaging",
+  "description": "HR, Media pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_media",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=security_lead)."
+}

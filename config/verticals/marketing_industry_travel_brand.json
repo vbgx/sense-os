@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_travel_brand",
+  "name": "marketing_industry_travel_brand",
+  "title": "Marketing — Travel — Brand",
+  "description": "Marketing, Travel pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_travel",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

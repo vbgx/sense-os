@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_energy_events",
+  "name": "b2b_marketing_industry_energy_events",
+  "title": "B2B — Marketing — Energy — Events",
+  "description": "B2B, Marketing, Energy pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_energy",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=marketer)."
+}

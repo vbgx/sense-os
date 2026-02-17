@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_legal_events",
+  "name": "hr_industry_legal_events",
+  "title": "HR — Legal Services — Events",
+  "description": "HR, Legal Services pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_legal",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=finance_lead)."
+}

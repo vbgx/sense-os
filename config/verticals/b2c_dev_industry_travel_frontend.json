@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_travel_frontend",
+  "name": "b2c_dev_industry_travel_frontend",
+  "title": "B2C — Engineering — Travel — Frontend",
+  "description": "B2C, Engineering, Travel pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_travel",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

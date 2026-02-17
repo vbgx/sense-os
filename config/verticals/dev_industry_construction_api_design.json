@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_construction_api_design",
+  "name": "dev_industry_construction_api_design",
+  "title": "Engineering — Construction — API Design",
+  "description": "Engineering, Construction pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_construction",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=ops_manager)."
+}

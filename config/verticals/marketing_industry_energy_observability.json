@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_energy_observability",
+  "name": "marketing_industry_energy_observability",
+  "title": "Marketing — Energy — Observability",
+  "description": "Marketing, Energy pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_energy",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=sales_rep)."
+}

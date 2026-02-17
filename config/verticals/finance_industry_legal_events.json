@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_legal_events",
+  "name": "finance_industry_legal_events",
+  "title": "Finance — Legal Services — Events",
+  "description": "Finance, Legal Services pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_legal",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=founder)."
+}

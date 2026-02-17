@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_energy_community",
+  "name": "b2b_ops_industry_energy_community",
+  "title": "B2B — Operations — Energy — Community",
+  "description": "B2B, Operations, Energy pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_energy",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=marketer)."
+}

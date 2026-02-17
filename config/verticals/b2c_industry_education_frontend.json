@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_education_frontend",
+  "name": "b2c_industry_education_frontend",
+  "title": "B2C — Education — Frontend",
+  "description": "B2C, Education pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_education",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=engineer)."
+}

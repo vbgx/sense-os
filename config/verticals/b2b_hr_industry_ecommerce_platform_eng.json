@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_ecommerce_platform_eng",
+  "name": "b2b_hr_industry_ecommerce_platform_eng",
+  "title": "B2B — HR — Ecommerce — Platform Engineering",
+  "description": "B2B, HR, Ecommerce pains and workflows around Platform Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_ecommerce",
+    "platform_eng"
+  ],
+  "default_queries": [
+    "internal developer portal pain",
+    "golden paths platform",
+    "service scaffolding",
+    "Platform Engineering",
+    "Platform Engineering pain",
+    "Platform Engineering bottleneck",
+    "Platform Engineering automation",
+    "Platform Engineering workflow",
+    "Platform Engineering tooling",
+    "Platform Engineering process",
+    "Platform Engineering best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=platform_eng, persona=ops_manager)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_supply_chain_events",
+  "name": "marketing_industry_supply_chain_events",
+  "title": "Marketing — Supply Chain — Events",
+  "description": "Marketing, Supply Chain pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_supply_chain",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=product_lead)."
+}

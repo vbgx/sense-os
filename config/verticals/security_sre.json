@@ -1,0 +1,31 @@
+{
+  "id": "security_sre",
+  "name": "security_sre",
+  "title": "Security — SRE",
+  "description": "Security pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "security"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=security_lead)."
+}

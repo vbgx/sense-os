@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_travel_sre",
+  "name": "legal_industry_travel_sre",
+  "title": "Legal — Travel — SRE",
+  "description": "Legal, Travel pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_travel",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=sales_rep)."
+}

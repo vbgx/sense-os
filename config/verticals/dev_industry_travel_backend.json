@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_travel_backend",
+  "name": "dev_industry_travel_backend",
+  "title": "Engineering — Travel — Backend",
+  "description": "Engineering, Travel pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_travel",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=product_lead)."
+}

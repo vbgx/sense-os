@@ -1,0 +1,28 @@
+{
+  "id": "compliance_ops",
+  "name": "compliance_ops",
+  "title": "Compliance Ops",
+  "description": "General pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=founder)."
+}

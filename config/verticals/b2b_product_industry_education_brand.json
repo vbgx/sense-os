@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_education_brand",
+  "name": "b2b_product_industry_education_brand",
+  "title": "B2B — Product — Education — Brand",
+  "description": "B2B, Product, Education pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_education",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_public_sector_data_eng",
+  "name": "ops_industry_public_sector_data_eng",
+  "title": "Operations — Public Sector — Data Engineering",
+  "description": "Operations, Public Sector pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_public_sector",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=ops_manager)."
+}

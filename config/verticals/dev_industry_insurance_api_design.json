@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_insurance_api_design",
+  "name": "dev_industry_insurance_api_design",
+  "title": "Engineering — Insurance — API Design",
+  "description": "Engineering, Insurance pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_insurance",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=security_lead)."
+}

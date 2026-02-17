@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_agriculture_pm",
+  "name": "sales_industry_agriculture_pm",
+  "title": "Sales — Agriculture — Product Management",
+  "description": "Sales, Agriculture pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_agriculture",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=product_lead)."
+}

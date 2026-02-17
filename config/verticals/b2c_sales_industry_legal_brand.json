@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_legal_brand",
+  "name": "b2c_sales_industry_legal_brand",
+  "title": "B2C — Sales — Legal Services — Brand",
+  "description": "B2C, Sales, Legal Services pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_legal",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=ops_manager)."
+}

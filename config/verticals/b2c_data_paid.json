@@ -1,0 +1,33 @@
+{
+  "id": "b2c_data_paid",
+  "name": "b2c_data_paid",
+  "title": "B2C — Data — Paid Acquisition",
+  "description": "B2C, Data pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "data",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=ops_manager)."
+}

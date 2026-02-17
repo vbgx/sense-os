@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_real_estate_observability",
+  "name": "ops_industry_real_estate_observability",
+  "title": "Operations — Real Estate — Observability",
+  "description": "Operations, Real Estate pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_real_estate",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=sales_rep)."
+}

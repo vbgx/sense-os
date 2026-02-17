@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_real_estate_enablement",
+  "name": "product_industry_real_estate_enablement",
+  "title": "Product — Real Estate — Enablement",
+  "description": "Product, Real Estate pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_real_estate",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "product",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=sales_rep)."
+}

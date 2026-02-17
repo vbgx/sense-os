@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_insurance_backend",
+  "name": "legal_industry_insurance_backend",
+  "title": "Legal — Insurance — Backend",
+  "description": "Legal, Insurance pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_insurance",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=product_lead)."
+}

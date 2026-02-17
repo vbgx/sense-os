@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_hospitality_observability",
+  "name": "hr_industry_hospitality_observability",
+  "title": "HR — Hospitality — Observability",
+  "description": "HR, Hospitality pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_hospitality",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=product_lead)."
+}

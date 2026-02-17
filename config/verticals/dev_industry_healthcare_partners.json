@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_healthcare_partners",
+  "name": "dev_industry_healthcare_partners",
+  "title": "Engineering — Healthcare — Partnerships",
+  "description": "Engineering, Healthcare pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_healthcare",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=security_lead)."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "industry_travel_procurement",
+  "name": "industry_travel_procurement",
+  "title": "Travel — Procurement",
+  "description": "Travel pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_travel",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=sales_rep)."
+}

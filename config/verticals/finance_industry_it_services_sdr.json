@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_it_services_sdr",
+  "name": "finance_industry_it_services_sdr",
+  "title": "Finance — IT Services (MSP) — SDR/Outbound",
+  "description": "Finance, IT Services (MSP) pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_it_services",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=engineer)."
+}

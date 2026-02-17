@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_education_testing",
+  "name": "finance_industry_education_testing",
+  "title": "Finance — Education — Testing",
+  "description": "Finance, Education pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_education",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=founder)."
+}

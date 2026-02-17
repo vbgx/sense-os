@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_hospitality_ux_research",
+  "name": "product_industry_hospitality_ux_research",
+  "title": "Product — Hospitality — User Research",
+  "description": "Product, Hospitality pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_hospitality",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "product",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=product_lead)."
+}

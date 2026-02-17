@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_insurance_revops",
+  "name": "hr_industry_insurance_revops",
+  "title": "HR — Insurance — RevOps",
+  "description": "HR, Insurance pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_insurance",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=finance_lead)."
+}

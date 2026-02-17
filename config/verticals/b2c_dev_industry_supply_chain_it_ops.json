@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_supply_chain_it_ops",
+  "name": "b2c_dev_industry_supply_chain_it_ops",
+  "title": "B2C — Engineering — Supply Chain — IT Ops",
+  "description": "B2C, Engineering, Supply Chain pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_supply_chain",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=sales_rep)."
+}

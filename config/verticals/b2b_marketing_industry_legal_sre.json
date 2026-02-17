@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_legal_sre",
+  "name": "b2b_marketing_industry_legal_sre",
+  "title": "B2B — Marketing — Legal Services — SRE",
+  "description": "B2B, Marketing, Legal Services pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_legal",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=ops_manager)."
+}

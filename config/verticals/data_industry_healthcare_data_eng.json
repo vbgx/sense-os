@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_healthcare_data_eng",
+  "name": "data_industry_healthcare_data_eng",
+  "title": "Data — Healthcare — Data Engineering",
+  "description": "Data, Healthcare pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_healthcare",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "data",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=founder)."
+}

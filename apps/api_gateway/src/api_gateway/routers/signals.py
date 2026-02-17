@@ -46,11 +46,11 @@ def signals_list(
     if vid is None:
         raise HTTPException(status_code=422, detail="vertical_id is required (e.g. ?vertical_id=1)")
 
-    rows, total = use_case.list_signals(vertical_id=int(vid), limit=limit, offset=offset)
+    rows, total = use_case.list_signals(vertical_db_id=int(vid), limit=limit, offset=offset)
     items = [
         {
             "id": int(_get(s, "id")),
-            "vertical_id": int(_get(s, "vertical_id")),
+            "vertical_id": int(_get(s, "vertical_db_id")),
             "source": str(_get(s, "source")),
             "external_id": str(_get(s, "external_id")),
             "content": str(_get(s, "content")),

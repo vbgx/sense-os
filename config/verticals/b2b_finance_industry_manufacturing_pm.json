@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_manufacturing_pm",
+  "name": "b2b_finance_industry_manufacturing_pm",
+  "title": "B2B — Finance — Manufacturing — Product Management",
+  "description": "B2B, Finance, Manufacturing pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_manufacturing",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

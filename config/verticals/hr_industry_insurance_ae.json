@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_insurance_ae",
+  "name": "hr_industry_insurance_ae",
+  "title": "HR — Insurance — Account Executive",
+  "description": "HR, Insurance pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_insurance",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=sales_rep)."
+}

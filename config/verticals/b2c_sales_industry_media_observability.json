@@ -1,0 +1,35 @@
+{
+  "id": "b2c_sales_industry_media_observability",
+  "name": "b2c_sales_industry_media_observability",
+  "title": "B2C — Sales — Media — Observability",
+  "description": "B2C, Sales, Media pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "sales",
+    "industry_media",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "sales",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=finance_lead)."
+}

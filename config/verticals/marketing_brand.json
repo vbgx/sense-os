@@ -1,0 +1,31 @@
+{
+  "id": "marketing_brand",
+  "name": "marketing_brand",
+  "title": "Marketing — Brand",
+  "description": "Marketing pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "marketing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=founder)."
+}

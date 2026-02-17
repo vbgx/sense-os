@@ -1,0 +1,31 @@
+{
+  "id": "sales_pricing",
+  "name": "sales_pricing",
+  "title": "Sales — Pricing & Packaging",
+  "description": "Sales pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "sales"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=founder)."
+}

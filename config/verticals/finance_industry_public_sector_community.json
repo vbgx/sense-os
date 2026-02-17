@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_public_sector_community",
+  "name": "finance_industry_public_sector_community",
+  "title": "Finance — Public Sector — Community",
+  "description": "Finance, Public Sector pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_public_sector",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=sales_rep)."
+}

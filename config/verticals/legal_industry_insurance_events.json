@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_insurance_events",
+  "name": "legal_industry_insurance_events",
+  "title": "Legal — Insurance — Events",
+  "description": "Legal, Insurance pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_insurance",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

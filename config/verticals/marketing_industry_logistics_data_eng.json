@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_logistics_data_eng",
+  "name": "marketing_industry_logistics_data_eng",
+  "title": "Marketing — Logistics — Data Engineering",
+  "description": "Marketing, Logistics pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_logistics",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=ops_manager)."
+}

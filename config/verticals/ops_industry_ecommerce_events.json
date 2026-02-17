@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_ecommerce_events",
+  "name": "ops_industry_ecommerce_events",
+  "title": "Operations — Ecommerce — Events",
+  "description": "Operations, Ecommerce pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_ecommerce",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=product_lead)."
+}

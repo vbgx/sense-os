@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_fintech_sre",
+  "name": "b2c_finance_industry_fintech_sre",
+  "title": "B2C — Finance — Fintech — SRE",
+  "description": "B2C, Finance, Fintech pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_fintech",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=product_lead)."
+}

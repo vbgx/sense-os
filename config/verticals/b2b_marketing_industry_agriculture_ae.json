@@ -1,0 +1,35 @@
+{
+  "id": "b2b_marketing_industry_agriculture_ae",
+  "name": "b2b_marketing_industry_agriculture_ae",
+  "title": "B2B — Marketing — Agriculture — Account Executive",
+  "description": "B2B, Marketing, Agriculture pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "marketing",
+    "industry_agriculture",
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "marketing",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=product_lead)."
+}

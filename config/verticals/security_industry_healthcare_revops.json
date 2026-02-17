@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_healthcare_revops",
+  "name": "security_industry_healthcare_revops",
+  "title": "Security — Healthcare — RevOps",
+  "description": "Security, Healthcare pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_healthcare",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "security",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=sales_rep)."
+}

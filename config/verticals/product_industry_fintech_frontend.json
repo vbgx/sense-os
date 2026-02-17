@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_fintech_frontend",
+  "name": "product_industry_fintech_frontend",
+  "title": "Product — Fintech — Frontend",
+  "description": "Product, Fintech pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_fintech",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=marketer)."
+}

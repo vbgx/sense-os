@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_fintech_lifecycle",
+  "name": "b2b_security_industry_fintech_lifecycle",
+  "title": "B2B — Security — Fintech — Lifecycle",
+  "description": "B2B, Security, Fintech pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_fintech",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=ops_manager)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_energy_devops",
+  "name": "b2b_security_industry_energy_devops",
+  "title": "B2B — Security — Energy — DevOps",
+  "description": "B2B, Security, Energy pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_energy",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

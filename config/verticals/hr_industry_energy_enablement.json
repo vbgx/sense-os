@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_energy_enablement",
+  "name": "hr_industry_energy_enablement",
+  "title": "HR — Energy — Enablement",
+  "description": "HR, Energy pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_energy",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=ops_manager)."
+}

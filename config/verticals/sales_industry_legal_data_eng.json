@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_legal_data_eng",
+  "name": "sales_industry_legal_data_eng",
+  "title": "Sales — Legal Services — Data Engineering",
+  "description": "Sales, Legal Services pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_legal",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=engineer)."
+}

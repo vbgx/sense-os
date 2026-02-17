@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_insurance_forecasting",
+  "name": "ops_industry_insurance_forecasting",
+  "title": "Operations — Insurance — Forecasting",
+  "description": "Operations, Insurance pains and workflows around Forecasting.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_insurance",
+    "forecasting"
+  ],
+  "default_queries": [
+    "pipeline hygiene",
+    "commit accuracy",
+    "stage definitions unclear",
+    "Forecasting",
+    "Forecasting pain",
+    "Forecasting bottleneck",
+    "Forecasting automation",
+    "Forecasting workflow",
+    "Forecasting tooling",
+    "Forecasting process",
+    "Forecasting best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=forecasting, persona=marketer)."
+}

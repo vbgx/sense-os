@@ -38,3 +38,16 @@ def get_insights_use_case(uow: UnitOfWork = Depends(get_uow)) -> InsightsUseCase
 
 def get_verticals_use_case(uow: UnitOfWork = Depends(get_uow)) -> VerticalsUseCase:
     return VerticalsUseCase(uow=uow)
+
+from application.use_cases.meta import MetaUseCase
+
+
+def get_meta_use_case(uow=Depends(get_uow)) -> MetaUseCase:
+    return MetaUseCase(uow=uow)
+
+# --- Meta (EPIC 09.12) -----------------------------------------------------
+
+def get_meta_use_case(uow=Depends(get_uow)):
+    from application.use_cases.meta import MetaUseCase
+
+    return MetaUseCase(uow=uow)

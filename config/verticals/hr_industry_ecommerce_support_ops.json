@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_ecommerce_support_ops",
+  "name": "hr_industry_ecommerce_support_ops",
+  "title": "HR — Ecommerce — Support Ops",
+  "description": "HR, Ecommerce pains and workflows around Support Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_ecommerce",
+    "support_ops"
+  ],
+  "default_queries": [
+    "support backlog triage",
+    "ticket tagging automation",
+    "knowledge base drift",
+    "Support Ops",
+    "Support Ops pain",
+    "Support Ops bottleneck",
+    "Support Ops automation",
+    "Support Ops workflow",
+    "Support Ops tooling",
+    "Support Ops process",
+    "Support Ops best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=support_ops, persona=marketer)."
+}

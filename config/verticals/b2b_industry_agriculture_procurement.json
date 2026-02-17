@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_agriculture_procurement",
+  "name": "b2b_industry_agriculture_procurement",
+  "title": "B2B — Agriculture — Procurement",
+  "description": "B2B, Agriculture pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_agriculture",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=finance_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_healthcare_community",
+  "name": "b2c_finance_industry_healthcare_community",
+  "title": "B2C — Finance — Healthcare — Community",
+  "description": "B2C, Finance, Healthcare pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_healthcare",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_healthcare"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=ops_manager)."
+}

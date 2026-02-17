@@ -16,8 +16,9 @@ log = logging.getLogger("clustering-worker")
 def handle_cluster_vertical(job: dict[str, Any]) -> None:
     run_clustering_job(job)
     log.info(
-        "cluster_job vertical_id=%s run_id=%s day=%s cluster_version=%s",
+        "cluster_job vertical_id=%s vertical_db_id=%s run_id=%s day=%s cluster_version=%s",
         job.get("vertical_id"),
+        job.get("vertical_db_id"),
         job.get("run_id"),
         job.get("day"),
         job.get("cluster_version"),

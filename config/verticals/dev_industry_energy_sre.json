@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_energy_sre",
+  "name": "dev_industry_energy_sre",
+  "title": "Engineering — Energy — SRE",
+  "description": "Engineering, Energy pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_energy",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=engineer)."
+}

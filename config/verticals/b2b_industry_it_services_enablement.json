@@ -1,0 +1,33 @@
+{
+  "id": "b2b_industry_it_services_enablement",
+  "name": "b2b_industry_it_services_enablement",
+  "title": "B2B — IT Services (MSP) — Enablement",
+  "description": "B2B, IT Services (MSP) pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "industry_it_services",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=security_lead)."
+}

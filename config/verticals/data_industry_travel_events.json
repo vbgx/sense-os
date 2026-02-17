@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_travel_events",
+  "name": "data_industry_travel_events",
+  "title": "Data — Travel — Events",
+  "description": "Data, Travel pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_travel",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "data",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=sales_rep)."
+}

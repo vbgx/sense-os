@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_public_sector_logistics_ops",
+  "name": "sales_industry_public_sector_logistics_ops",
+  "title": "Sales — Public Sector — Logistics Ops",
+  "description": "Sales, Public Sector pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_public_sector",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=ops_manager)."
+}

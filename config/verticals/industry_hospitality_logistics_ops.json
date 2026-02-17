@@ -1,0 +1,31 @@
+{
+  "id": "industry_hospitality_logistics_ops",
+  "name": "industry_hospitality_logistics_ops",
+  "title": "Hospitality — Logistics Ops",
+  "description": "Hospitality pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_hospitality",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=finance_lead)."
+}

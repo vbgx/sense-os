@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_travel_backend",
+  "name": "b2b_hr_industry_travel_backend",
+  "title": "B2B — HR — Travel — Backend",
+  "description": "B2B, HR, Travel pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_travel",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=marketer)."
+}

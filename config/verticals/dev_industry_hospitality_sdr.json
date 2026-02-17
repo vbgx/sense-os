@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_hospitality_sdr",
+  "name": "dev_industry_hospitality_sdr",
+  "title": "Engineering — Hospitality — SDR/Outbound",
+  "description": "Engineering, Hospitality pains and workflows around SDR/Outbound.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_hospitality",
+    "sdr"
+  ],
+  "default_queries": [
+    "cold email deliverability",
+    "prospecting list quality",
+    "reply handling workflow",
+    "SDR/Outbound",
+    "SDR/Outbound pain",
+    "SDR/Outbound bottleneck",
+    "SDR/Outbound automation",
+    "SDR/Outbound workflow",
+    "SDR/Outbound tooling",
+    "SDR/Outbound process",
+    "SDR/Outbound best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sdr, persona=founder)."
+}

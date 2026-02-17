@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_travel_it_ops",
+  "name": "b2b_sales_industry_travel_it_ops",
+  "title": "B2B — Sales — Travel — IT Ops",
+  "description": "B2B, Sales, Travel pains and workflows around IT Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_travel",
+    "it_ops"
+  ],
+  "default_queries": [
+    "access provisioning delays",
+    "asset tracking mess",
+    "SaaS sprawl management",
+    "IT Ops",
+    "IT Ops pain",
+    "IT Ops bottleneck",
+    "IT Ops automation",
+    "IT Ops workflow",
+    "IT Ops tooling",
+    "IT Ops process",
+    "IT Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=founder)."
+}

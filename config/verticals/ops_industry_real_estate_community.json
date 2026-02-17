@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_real_estate_community",
+  "name": "ops_industry_real_estate_community",
+  "title": "Operations — Real Estate — Community",
+  "description": "Operations, Real Estate pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_real_estate",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

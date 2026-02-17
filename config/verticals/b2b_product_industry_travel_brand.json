@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_travel_brand",
+  "name": "b2b_product_industry_travel_brand",
+  "title": "B2B — Product — Travel — Brand",
+  "description": "B2B, Product, Travel pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_travel",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

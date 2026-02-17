@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_media_revops",
+  "name": "ops_industry_media_revops",
+  "title": "Operations — Media — RevOps",
+  "description": "Operations, Media pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_media",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=product_lead)."
+}

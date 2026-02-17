@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_retail_brand",
+  "name": "dev_industry_retail_brand",
+  "title": "Engineering — Retail — Brand",
+  "description": "Engineering, Retail pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_retail",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=security_lead)."
+}

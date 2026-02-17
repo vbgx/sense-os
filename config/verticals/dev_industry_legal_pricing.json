@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_legal_pricing",
+  "name": "dev_industry_legal_pricing",
+  "title": "Engineering — Legal Services — Pricing & Packaging",
+  "description": "Engineering, Legal Services pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_legal",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=security_lead)."
+}

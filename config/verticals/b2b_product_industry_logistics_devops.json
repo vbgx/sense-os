@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_logistics_devops",
+  "name": "b2b_product_industry_logistics_devops",
+  "title": "B2B — Product — Logistics — DevOps",
+  "description": "B2B, Product, Logistics pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_logistics",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=security_lead)."
+}

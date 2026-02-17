@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_logistics_logistics_ops",
+  "name": "security_industry_logistics_logistics_ops",
+  "title": "Security — Logistics — Logistics Ops",
+  "description": "Security, Logistics pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_logistics",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=ops_manager)."
+}

@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "taxonomy_version": "2026-02-17",
+  "taxonomy_id": "taxonomy_v3",
+  "engine": {
+    "id_prefix": "",
+    "default_enabled": true,
+    "default_priority_step": 10,
+
+    "default_language_allowlist": ["en"],
+    "default_min_signal_quality": 0.2,
+
+    "default_sources": [
+      { "name": "reddit", "limit": 80 },
+      { "name": "hackernews", "limit": 80 },
+      { "name": "indiehackers", "limit": 80 }
+    ],
+
+    "seed": 1337,
+    "determinism": {
+      "sort_everything": true,
+      "stable_hash": "sha1",
+      "stable_order": "lexicographic"
+    }
+  },
+
+  "axes": {
+    "audience": [
+      { "id": "b2b", "label": "B2B" },
+      { "id": "b2c", "label": "B2C" }
+    ],
+
+    "function": [
+      { "id": "ops", "label": "Operations" },
+      { "id": "dev", "label": "Engineering" },
+      { "id": "sales", "label": "Sales" },
+      { "id": "marketing", "label": "Marketing" },
+      { "id": "product", "label": "Product" },
+      { "id": "finance", "label": "Finance" },
+      { "id": "hr", "label": "HR" },
+      { "id": "legal", "label": "Legal" },
+      { "id": "security", "label": "Security" },
+      { "id": "data", "label": "Data" }
+    ],
+
+    "industry": [
+      { "id": "industry_healthcare", "label": "Healthcare" },
+      { "id": "industry_fintech", "label": "Fintech" },
+      { "id": "industry_retail", "label": "Retail" },
+      { "id": "industry_construction", "label": "Construction" },
+      { "id": "industry_manufacturing", "label": "Manufacturing" },
+      { "id": "industry_supply_chain", "label": "Supply Chain" },
+      { "id": "industry_education", "label": "Education" },
+      { "id": "industry_hospitality", "label": "Hospitality" },
+      { "id": "industry_logistics", "label": "Logistics" },
+      { "id": "industry_insurance", "label": "Insurance" },
+      { "id": "industry_real_estate", "label": "Real Estate" },
+      { "id": "industry_media", "label": "Media" },
+      { "id": "industry_energy", "label": "Energy" },
+      { "id": "industry_public_sector", "label": "Public Sector" },
+      { "id": "industry_agriculture", "label": "Agriculture" },
+      { "id": "industry_it_services", "label": "IT Services (MSP)" },
+      { "id": "industry_legal", "label": "Legal Services" },
+      { "id": "industry_ecommerce", "label": "Ecommerce" },
+      { "id": "industry_travel", "label": "Travel" },
+      { "id": "industry_nonprofits", "label": "Nonprofits" }
+    ]
+  },
+
+  "personas": [
+    {
+      "id": "ops_manager",
+      "label": "Ops Manager",
+      "keywords": ["process", "handoffs", "coordination", "SOP", "queue", "backlog", "overhead"]
+    },
+    {
+      "id": "founder",
+      "label": "Founder",
+      "keywords": ["MVP", "traction", "pricing", "distribution", "runway", "churn"]
+    },
+    {
+      "id": "engineer",
+      "label": "Engineer",
+      "keywords": ["debug", "deploy", "CI", "latency", "monitoring", "oncall"]
+    },
+    {
+      "id": "marketer",
+      "label": "Marketer",
+      "keywords": ["SEO", "landing page", "attribution", "CAC", "funnels", "creative"]
+    },
+    {
+      "id": "sales_rep",
+      "label": "Sales",
+      "keywords": ["pipeline", "prospecting", "objections", "CRM", "quota", "follow-up"]
+    },
+    {
+      "id": "finance_lead",
+      "label": "Finance Lead",
+      "keywords": ["cashflow", "billing", "collections", "invoice", "close", "forecast"]
+    },
+    {
+      "id": "security_lead",
+      "label": "Security Lead",
+      "keywords": ["compliance", "risk", "audit", "controls", "vulnerabilities", "incident"]
+    },
+    {
+      "id": "product_lead",
+      "label": "Product Lead",
+      "keywords": ["roadmap", "prioritization", "research", "retention", "activation", "metrics"]
+    }
+  ],
+
+  "clusters": [
+    {
+      "id": "ops",
+      "label": "Operations",
+      "members": [
+        { "id": "procurement", "label": "Procurement", "default_queries": ["vendor onboarding pain", "procurement approval workflow", "purchase order automation"] },
+        { "id": "finance_ops", "label": "Finance Ops", "default_queries": ["invoice approval bottleneck", "expense policy enforcement", "month end close automation"] },
+        { "id": "revops", "label": "RevOps", "default_queries": ["lead routing issues", "crm hygiene problems", "revenue leakage churn"] },
+        { "id": "support_ops", "label": "Support Ops", "default_queries": ["support backlog triage", "ticket tagging automation", "knowledge base drift"] },
+        { "id": "people_ops", "label": "People Ops", "default_queries": ["onboarding checklist chaos", "HR requests overflow", "policy updates tracking"] },
+        { "id": "it_ops", "label": "IT Ops", "default_queries": ["access provisioning delays", "asset tracking mess", "SaaS sprawl management"] },
+        { "id": "compliance_ops", "label": "Compliance Ops", "default_queries": ["evidence collection pain", "control testing overhead", "audit readiness scramble"] },
+        { "id": "billing_ops", "label": "Billing Ops", "default_queries": ["billing disputes", "refund workflow pain", "invoice accuracy issues"] },
+        { "id": "logistics_ops", "label": "Logistics Ops", "default_queries": ["last-mile delays", "carrier claims workflow", "warehouse receiving bottlenecks"] },
+        { "id": "inventory_ops", "label": "Inventory Ops", "default_queries": ["stockouts", "inventory reconciliation", "demand planning spreadsheet"] }
+      ]
+    },
+
+    {
+      "id": "dev",
+      "label": "Engineering",
+      "members": [
+        { "id": "devops", "label": "DevOps", "default_queries": ["deploy failures", "ci flaky tests", "infra drift terraform"] },
+        { "id": "platform_eng", "label": "Platform Engineering", "default_queries": ["internal developer portal pain", "golden paths platform", "service scaffolding"] },
+        { "id": "observability", "label": "Observability", "default_queries": ["missing traces", "noisy alerts", "SLO burn rate confusion"] },
+        { "id": "sre", "label": "SRE", "default_queries": ["oncall overload", "incident postmortems", "latency regressions"] },
+        { "id": "backend", "label": "Backend", "default_queries": ["API performance", "database bottlenecks", "queue reliability issues"] },
+        { "id": "frontend", "label": "Frontend", "default_queries": ["bundle size regression", "hydration errors", "design system drift"] },
+        { "id": "mobile", "label": "Mobile", "default_queries": ["crash loops", "offline sync issues", "release train pain"] },
+        { "id": "testing", "label": "Testing", "default_queries": ["end-to-end flaky tests", "test data setup pain", "slow CI pipelines"] },
+        { "id": "api_design", "label": "API Design", "default_queries": ["breaking API changes", "OpenAPI drift", "pagination inconsistency"] },
+        { "id": "data_eng", "label": "Data Engineering", "default_queries": ["etl pipeline failures", "data quality checks", "schema drift"] }
+      ]
+    },
+
+    {
+      "id": "sales",
+      "label": "Sales",
+      "members": [
+        { "id": "sdr", "label": "SDR/Outbound", "default_queries": ["cold email deliverability", "prospecting list quality", "reply handling workflow"] },
+        { "id": "ae", "label": "Account Executive", "default_queries": ["demo no-shows", "proposal cycle delays", "stakeholder alignment"] },
+        { "id": "enablement", "label": "Enablement", "default_queries": ["battlecard drift", "messaging inconsistency", "ramp time too long"] },
+        { "id": "partners", "label": "Partnerships", "default_queries": ["co-sell motion confusion", "partner onboarding", "lead sharing process"] },
+        { "id": "pricing", "label": "Pricing & Packaging", "default_queries": ["discount approvals", "pricing page confusion", "plan mismatch churn"] },
+        { "id": "forecasting", "label": "Forecasting", "default_queries": ["pipeline hygiene", "commit accuracy", "stage definitions unclear"] }
+      ]
+    },
+
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "members": [
+        { "id": "seo", "label": "SEO", "default_queries": ["content decay", "keyword cannibalization", "technical SEO backlog"] },
+        { "id": "paid", "label": "Paid Acquisition", "default_queries": ["CAC rising", "attribution mismatch", "creative fatigue"] },
+        { "id": "lifecycle", "label": "Lifecycle", "default_queries": ["activation drop-off", "email deliverability issues", "onboarding sequence gaps"] },
+        { "id": "brand", "label": "Brand", "default_queries": ["positioning unclear", "brand consistency", "messaging fragmentation"] },
+        { "id": "community", "label": "Community", "default_queries": ["engagement drop", "moderation overhead", "content calendar chaos"] },
+        { "id": "events", "label": "Events", "default_queries": ["lead capture workflow", "booth follow-up process", "event ROI tracking"] }
+      ]
+    },
+
+    {
+      "id": "product",
+      "label": "Product",
+      "members": [
+        { "id": "pm", "label": "Product Management", "default_queries": ["prioritization fights", "roadmap churn", "stakeholder alignment"] },
+        { "id": "ux_research", "label": "User Research", "default_queries": ["recruiting participants", "insight repository mess", "research ops overhead"] },
+        { "id": "analytics", "label": "Product Analytics", "default_queries": ["event tracking drift", "metric definitions unclear", "dashboard trust issues"] }
+      ]
+    }
+  ],
+
+  "rules": {
+    "id_format": {
+      "allowed": "^[a-z0-9_]+$",
+      "max_len": 80
+    },
+
+    "generation": {
+      "strategy": "deterministic_combinator",
+      "max_generate": 20000,
+
+      "axes_recipe": [
+        { "type": "audience", "mode": "prefix", "enabled": true },
+        { "type": "industry", "mode": "append", "enabled": true, "strip_prefix": "industry_" },
+        { "type": "function", "mode": "append", "enabled": true },
+        { "type": "cluster_member", "mode": "append", "enabled": true }
+      ],
+
+      "persona_rotation": true,
+      "persona_rotation_mode": "stable_hash",
+      "persona_hash_key": "vertical_id",
+
+      "variants": {
+        "enabled": true,
+        "variant_suffix": "_v",
+        "variant_count_per_vertical": 2,
+        "variant_mode": "keywords_reshuffle",
+        "variant_hash_key": "vertical_id"
+      },
+
+      "priority": {
+        "mode": "deterministic_rank",
+        "step": 10,
+        "rank_key_order": ["industry", "function", "cluster_member", "audience"],
+        "pinned": [
+          { "id": "b2b_saas_founders", "priority": 10 },
+          { "id": "b2b_industry_fintech_ops_revops", "priority": 20 },
+          { "id": "b2b_industry_healthcare_dev_observability", "priority": 30 }
+        ]
+      },
+
+      "output": {
+        "format": "json_only",
+        "index_file": "verticals.json",
+        "index_version": 1,
+
+        "per_vertical": {
+          "version": 1,
+          "enabled": true,
+          "owner": "taxonomy",
+          "tags_from_axes": true,
+
+          "defaults": {
+            "language_allowlist": ["en"],
+            "min_signal_quality": 0.2
+          },
+
+          "ingestion": {
+            "sources": [
+              { "name": "reddit", "query": null, "limit": 80 },
+              { "name": "hackernews", "query": null, "limit": 80 },
+              { "name": "indiehackers", "query": null, "limit": 80 }
+            ]
+          }
+        },
+
+        "text_templates": {
+          "title": "{AudienceLabel} {IndustryLabel} — {MemberLabel}",
+          "description": "{PersonaLabel} pains in {IndustryLabel} around {MemberLabel}.",
+          "notes": "Generated by taxonomy engine {taxonomy_id} ({taxonomy_version}). cluster={cluster_id} member={member_id} audience={audience_id} function={function_id} industry={industry_id} persona={persona_id} variant={variant_id}."
+        }
+      }
+    },
+
+    "validation": {
+      "require_fields": ["id", "name", "title", "description", "default_queries"],
+      "default_queries": { "min": 3, "max": 12 },
+      "text_fields": { "max_len": 240 },
+      "no_yaml_dependency": true
+    }
+  }
+}

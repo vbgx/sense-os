@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_insurance_sre",
+  "name": "b2b_product_industry_insurance_sre",
+  "title": "B2B — Product — Insurance — SRE",
+  "description": "B2B, Product, Insurance pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_insurance",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=marketer)."
+}

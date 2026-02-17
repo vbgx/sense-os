@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_fintech_backend",
+  "name": "dev_industry_fintech_backend",
+  "title": "Engineering — Fintech — Backend",
+  "description": "Engineering, Fintech pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_fintech",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=engineer)."
+}

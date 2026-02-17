@@ -1,0 +1,35 @@
+{
+  "id": "b2b_finance_industry_nonprofits_enablement",
+  "name": "b2b_finance_industry_nonprofits_enablement",
+  "title": "B2B — Finance — Nonprofits — Enablement",
+  "description": "B2B, Finance, Nonprofits pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "industry_nonprofits",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=engineer)."
+}

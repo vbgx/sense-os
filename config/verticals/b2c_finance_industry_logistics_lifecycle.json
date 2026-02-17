@@ -1,0 +1,35 @@
+{
+  "id": "b2c_finance_industry_logistics_lifecycle",
+  "name": "b2c_finance_industry_logistics_lifecycle",
+  "title": "B2C — Finance — Logistics — Lifecycle",
+  "description": "B2C, Finance, Logistics pains and workflows around Lifecycle.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "industry_logistics",
+    "lifecycle"
+  ],
+  "default_queries": [
+    "activation drop-off",
+    "email deliverability issues",
+    "onboarding sequence gaps",
+    "Lifecycle",
+    "Lifecycle pain",
+    "Lifecycle bottleneck",
+    "Lifecycle automation",
+    "Lifecycle workflow",
+    "Lifecycle tooling",
+    "Lifecycle process",
+    "Lifecycle best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=lifecycle, persona=founder)."
+}

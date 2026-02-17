@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_public_sector_observability",
+  "name": "hr_industry_public_sector_observability",
+  "title": "HR — Public Sector — Observability",
+  "description": "HR, Public Sector pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_public_sector",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=ops_manager)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_travel_billing_ops",
+  "name": "hr_industry_travel_billing_ops",
+  "title": "HR — Travel — Billing Ops",
+  "description": "HR, Travel pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_travel",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=engineer)."
+}

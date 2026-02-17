@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_travel_paid",
+  "name": "legal_industry_travel_paid",
+  "title": "Legal — Travel — Paid Acquisition",
+  "description": "Legal, Travel pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_travel",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=marketer)."
+}

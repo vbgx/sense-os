@@ -1,0 +1,33 @@
+{
+  "id": "b2c_finance_brand",
+  "name": "b2c_finance_brand",
+  "title": "B2C — Finance — Brand",
+  "description": "B2C, Finance pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "finance",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=sales_rep)."
+}

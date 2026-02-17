@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_supply_chain_devops",
+  "name": "b2b_sales_industry_supply_chain_devops",
+  "title": "B2B — Sales — Supply Chain — DevOps",
+  "description": "B2B, Sales, Supply Chain pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_supply_chain",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=finance_lead)."
+}

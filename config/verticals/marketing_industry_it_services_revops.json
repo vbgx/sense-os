@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_it_services_revops",
+  "name": "marketing_industry_it_services_revops",
+  "title": "Marketing — IT Services (MSP) — RevOps",
+  "description": "Marketing, IT Services (MSP) pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_it_services",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=finance_lead)."
+}

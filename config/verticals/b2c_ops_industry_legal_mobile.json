@@ -1,0 +1,35 @@
+{
+  "id": "b2c_ops_industry_legal_mobile",
+  "name": "b2c_ops_industry_legal_mobile",
+  "title": "B2C — Operations — Legal Services — Mobile",
+  "description": "B2C, Operations, Legal Services pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "industry_legal",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops",
+    "industry": "industry_legal"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=security_lead)."
+}

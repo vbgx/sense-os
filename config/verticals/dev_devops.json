@@ -1,0 +1,31 @@
+{
+  "id": "dev_devops",
+  "name": "dev_devops",
+  "title": "Engineering — DevOps",
+  "description": "Engineering pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "dev"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=marketer)."
+}

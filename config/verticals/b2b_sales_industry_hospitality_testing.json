@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_hospitality_testing",
+  "name": "b2b_sales_industry_hospitality_testing",
+  "title": "B2B — Sales — Hospitality — Testing",
+  "description": "B2B, Sales, Hospitality pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_hospitality",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=marketer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_security_industry_nonprofits_procurement",
+  "name": "b2b_security_industry_nonprofits_procurement",
+  "title": "B2B — Security — Nonprofits — Procurement",
+  "description": "B2B, Security, Nonprofits pains and workflows around Procurement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "security",
+    "industry_nonprofits",
+    "procurement"
+  ],
+  "default_queries": [
+    "vendor onboarding pain",
+    "procurement approval workflow",
+    "purchase order automation",
+    "Procurement",
+    "Procurement pain",
+    "Procurement bottleneck",
+    "Procurement automation",
+    "Procurement workflow",
+    "Procurement tooling",
+    "Procurement process",
+    "Procurement best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "security",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=procurement, persona=marketer)."
+}

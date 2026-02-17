@@ -1,0 +1,31 @@
+{
+  "id": "industry_media_testing",
+  "name": "industry_media_testing",
+  "title": "Media — Testing",
+  "description": "Media pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_media",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=marketer)."
+}

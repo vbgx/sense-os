@@ -1,0 +1,33 @@
+{
+  "id": "b2c_ops_enablement",
+  "name": "b2c_ops_enablement",
+  "title": "B2C — Operations — Enablement",
+  "description": "B2C, Operations pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "ops",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "ops"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=product_lead)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_fintech_paid",
+  "name": "b2b_hr_industry_fintech_paid",
+  "title": "B2B — HR — Fintech — Paid Acquisition",
+  "description": "B2B, HR, Fintech pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_fintech",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=sales_rep)."
+}

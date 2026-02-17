@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_real_estate_logistics_ops",
+  "name": "b2b_ops_industry_real_estate_logistics_ops",
+  "title": "B2B — Operations — Real Estate — Logistics Ops",
+  "description": "B2B, Operations, Real Estate pains and workflows around Logistics Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_real_estate",
+    "logistics_ops"
+  ],
+  "default_queries": [
+    "last-mile delays",
+    "carrier claims workflow",
+    "warehouse receiving bottlenecks",
+    "Logistics Ops",
+    "Logistics Ops pain",
+    "Logistics Ops bottleneck",
+    "Logistics Ops automation",
+    "Logistics Ops workflow",
+    "Logistics Ops tooling",
+    "Logistics Ops process",
+    "Logistics Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=logistics_ops, persona=engineer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_travel_devops",
+  "name": "b2b_hr_industry_travel_devops",
+  "title": "B2B — HR — Travel — DevOps",
+  "description": "B2B, HR, Travel pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_travel",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=sales_rep)."
+}

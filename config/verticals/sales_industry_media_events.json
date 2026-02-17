@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_media_events",
+  "name": "sales_industry_media_events",
+  "title": "Sales — Media — Events",
+  "description": "Sales, Media pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_media",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_media"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=security_lead)."
+}

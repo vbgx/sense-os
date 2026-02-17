@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_nonprofits_compliance_ops",
+  "name": "security_industry_nonprofits_compliance_ops",
+  "title": "Security — Nonprofits — Compliance Ops",
+  "description": "Security, Nonprofits pains and workflows around Compliance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_nonprofits",
+    "compliance_ops"
+  ],
+  "default_queries": [
+    "evidence collection pain",
+    "control testing overhead",
+    "audit readiness scramble",
+    "Compliance Ops",
+    "Compliance Ops pain",
+    "Compliance Ops bottleneck",
+    "Compliance Ops automation",
+    "Compliance Ops workflow",
+    "Compliance Ops tooling",
+    "Compliance Ops process",
+    "Compliance Ops best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "security",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=compliance_ops, persona=engineer)."
+}

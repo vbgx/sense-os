@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_construction_ux_research",
+  "name": "hr_industry_construction_ux_research",
+  "title": "HR — Construction — User Research",
+  "description": "HR, Construction pains and workflows around User Research.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_construction",
+    "ux_research"
+  ],
+  "default_queries": [
+    "recruiting participants",
+    "insight repository mess",
+    "research ops overhead",
+    "User Research",
+    "User Research pain",
+    "User Research bottleneck",
+    "User Research automation",
+    "User Research workflow",
+    "User Research tooling",
+    "User Research process",
+    "User Research best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=ux_research, persona=finance_lead)."
+}

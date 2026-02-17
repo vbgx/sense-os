@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_education_brand",
+  "name": "marketing_industry_education_brand",
+  "title": "Marketing — Education — Brand",
+  "description": "Marketing, Education pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_education",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

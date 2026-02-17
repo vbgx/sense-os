@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_education_brand",
+  "name": "security_industry_education_brand",
+  "title": "Security — Education — Brand",
+  "description": "Security, Education pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_education",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "security",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=ops_manager)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sales_industry_travel_enablement",
+  "name": "sales_industry_travel_enablement",
+  "title": "Sales — Travel — Enablement",
+  "description": "Sales, Travel pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "sales",
+    "industry_travel",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "sales",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=ops_manager)."
+}

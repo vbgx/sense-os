@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_energy_pm",
+  "name": "marketing_industry_energy_pm",
+  "title": "Marketing — Energy — Product Management",
+  "description": "Marketing, Energy pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_energy",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=sales_rep)."
+}

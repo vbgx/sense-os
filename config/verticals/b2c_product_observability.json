@@ -1,0 +1,33 @@
+{
+  "id": "b2c_product_observability",
+  "name": "b2c_product_observability",
+  "title": "B2C — Product — Observability",
+  "description": "B2C, Product pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "product",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "audience": "b2c",
+    "function": "product"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=engineer)."
+}

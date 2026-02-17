@@ -1,0 +1,35 @@
+{
+  "id": "b2c_hr_industry_manufacturing_billing_ops",
+  "name": "b2c_hr_industry_manufacturing_billing_ops",
+  "title": "B2C — HR — Manufacturing — Billing Ops",
+  "description": "B2C, HR, Manufacturing pains and workflows around Billing Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "hr",
+    "industry_manufacturing",
+    "billing_ops"
+  ],
+  "default_queries": [
+    "billing disputes",
+    "refund workflow pain",
+    "invoice accuracy issues",
+    "Billing Ops",
+    "Billing Ops pain",
+    "Billing Ops bottleneck",
+    "Billing Ops automation",
+    "Billing Ops workflow",
+    "Billing Ops tooling",
+    "Billing Ops process",
+    "Billing Ops best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "audience": "b2c",
+    "function": "hr",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=founder)."
+}

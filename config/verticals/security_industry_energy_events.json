@@ -1,0 +1,33 @@
+{
+  "id": "security_industry_energy_events",
+  "name": "security_industry_energy_events",
+  "title": "Security — Energy — Events",
+  "description": "Security, Energy pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "security",
+    "industry_energy",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "function": "security",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=founder)."
+}

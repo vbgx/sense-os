@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_travel_events",
+  "name": "marketing_industry_travel_events",
+  "title": "Marketing — Travel — Events",
+  "description": "Marketing, Travel pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_travel",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=marketer)."
+}

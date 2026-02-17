@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_retail_community",
+  "name": "finance_industry_retail_community",
+  "title": "Finance — Retail — Community",
+  "description": "Finance, Retail pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_retail",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_retail"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=product_lead)."
+}

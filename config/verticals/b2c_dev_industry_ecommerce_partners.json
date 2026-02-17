@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_ecommerce_partners",
+  "name": "b2c_dev_industry_ecommerce_partners",
+  "title": "B2C — Engineering — Ecommerce — Partnerships",
+  "description": "B2C, Engineering, Ecommerce pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_ecommerce",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_ecommerce"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "b2b_product_industry_insurance_partners",
+  "name": "b2b_product_industry_insurance_partners",
+  "title": "B2B — Product — Insurance — Partnerships",
+  "description": "B2B, Product, Insurance pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "product",
+    "industry_insurance",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "product",
+    "industry": "industry_insurance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=marketer)."
+}

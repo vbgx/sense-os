@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_nonprofits_testing",
+  "name": "hr_industry_nonprofits_testing",
+  "title": "HR — Nonprofits — Testing",
+  "description": "HR, Nonprofits pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_nonprofits",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_nonprofits"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=ops_manager)."
+}

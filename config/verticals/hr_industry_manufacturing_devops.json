@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_manufacturing_devops",
+  "name": "hr_industry_manufacturing_devops",
+  "title": "HR — Manufacturing — DevOps",
+  "description": "HR, Manufacturing pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_manufacturing",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=finance_lead)."
+}

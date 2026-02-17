@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_construction_pricing",
+  "name": "marketing_industry_construction_pricing",
+  "title": "Marketing — Construction — Pricing & Packaging",
+  "description": "Marketing, Construction pains and workflows around Pricing & Packaging.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_construction",
+    "pricing"
+  ],
+  "default_queries": [
+    "discount approvals",
+    "pricing page confusion",
+    "plan mismatch churn",
+    "Pricing & Packaging",
+    "Pricing & Packaging pain",
+    "Pricing & Packaging bottleneck",
+    "Pricing & Packaging automation",
+    "Pricing & Packaging workflow",
+    "Pricing & Packaging tooling",
+    "Pricing & Packaging process",
+    "Pricing & Packaging best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pricing, persona=product_lead)."
+}

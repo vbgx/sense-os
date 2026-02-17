@@ -1,0 +1,31 @@
+{
+  "id": "industry_logistics_sre",
+  "name": "industry_logistics_sre",
+  "title": "Logistics — SRE",
+  "description": "Logistics pains and workflows around SRE.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "industry_logistics",
+    "sre"
+  ],
+  "default_queries": [
+    "oncall overload",
+    "incident postmortems",
+    "latency regressions",
+    "SRE",
+    "SRE pain",
+    "SRE bottleneck",
+    "SRE automation",
+    "SRE workflow",
+    "SRE tooling",
+    "SRE process",
+    "SRE best practices",
+    "MVP"
+  ],
+  "persona": "founder",
+  "axes": {
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=sre, persona=founder)."
+}

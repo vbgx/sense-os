@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_real_estate_brand",
+  "name": "hr_industry_real_estate_brand",
+  "title": "HR — Real Estate — Brand",
+  "description": "HR, Real Estate pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_real_estate",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=engineer)."
+}

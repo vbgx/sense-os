@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_travel_paid",
+  "name": "product_industry_travel_paid",
+  "title": "Product — Travel — Paid Acquisition",
+  "description": "Product, Travel pains and workflows around Paid Acquisition.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_travel",
+    "paid"
+  ],
+  "default_queries": [
+    "CAC rising",
+    "attribution mismatch",
+    "creative fatigue",
+    "Paid Acquisition",
+    "Paid Acquisition pain",
+    "Paid Acquisition bottleneck",
+    "Paid Acquisition automation",
+    "Paid Acquisition workflow",
+    "Paid Acquisition tooling",
+    "Paid Acquisition process",
+    "Paid Acquisition best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_travel"
+  },
+  "notes": "Generated deterministically from taxonomy (member=paid, persona=engineer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "dev_industry_manufacturing_finance_ops",
+  "name": "dev_industry_manufacturing_finance_ops",
+  "title": "Engineering — Manufacturing — Finance Ops",
+  "description": "Engineering, Manufacturing pains and workflows around Finance Ops.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "dev",
+    "industry_manufacturing",
+    "finance_ops"
+  ],
+  "default_queries": [
+    "invoice approval bottleneck",
+    "expense policy enforcement",
+    "month end close automation",
+    "Finance Ops",
+    "Finance Ops pain",
+    "Finance Ops bottleneck",
+    "Finance Ops automation",
+    "Finance Ops workflow",
+    "Finance Ops tooling",
+    "Finance Ops process",
+    "Finance Ops best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "dev",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=finance_ops, persona=finance_lead)."
+}

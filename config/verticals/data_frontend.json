@@ -1,0 +1,31 @@
+{
+  "id": "data_frontend",
+  "name": "data_frontend",
+  "title": "Data — Frontend",
+  "description": "Data pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "data"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=engineer)."
+}

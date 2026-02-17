@@ -1,0 +1,35 @@
+{
+  "id": "b2b_hr_industry_real_estate_api_design",
+  "name": "b2b_hr_industry_real_estate_api_design",
+  "title": "B2B — HR — Real Estate — API Design",
+  "description": "B2B, HR, Real Estate pains and workflows around API Design.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "hr",
+    "industry_real_estate",
+    "api_design"
+  ],
+  "default_queries": [
+    "breaking API changes",
+    "OpenAPI drift",
+    "pagination inconsistency",
+    "API Design",
+    "API Design pain",
+    "API Design bottleneck",
+    "API Design automation",
+    "API Design workflow",
+    "API Design tooling",
+    "API Design process",
+    "API Design best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2b",
+    "function": "hr",
+    "industry": "industry_real_estate"
+  },
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=sales_rep)."
+}

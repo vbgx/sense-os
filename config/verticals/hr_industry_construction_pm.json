@@ -1,0 +1,33 @@
+{
+  "id": "hr_industry_construction_pm",
+  "name": "hr_industry_construction_pm",
+  "title": "HR — Construction — Product Management",
+  "description": "HR, Construction pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "hr",
+    "industry_construction",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "hr",
+    "industry": "industry_construction"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

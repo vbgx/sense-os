@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_logistics_enablement",
+  "name": "ops_industry_logistics_enablement",
+  "title": "Operations — Logistics — Enablement",
+  "description": "Operations, Logistics pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_logistics",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=security_lead)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "finance_industry_hospitality_mobile",
+  "name": "finance_industry_hospitality_mobile",
+  "title": "Finance — Hospitality — Mobile",
+  "description": "Finance, Hospitality pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "finance",
+    "industry_hospitality",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "finance",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=sales_rep)."
+}

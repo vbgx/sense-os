@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_supply_chain_enablement",
+  "name": "marketing_industry_supply_chain_enablement",
+  "title": "Marketing — Supply Chain — Enablement",
+  "description": "Marketing, Supply Chain pains and workflows around Enablement.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_supply_chain",
+    "enablement"
+  ],
+  "default_queries": [
+    "battlecard drift",
+    "messaging inconsistency",
+    "ramp time too long",
+    "Enablement",
+    "Enablement pain",
+    "Enablement bottleneck",
+    "Enablement automation",
+    "Enablement workflow",
+    "Enablement tooling",
+    "Enablement process",
+    "Enablement best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=enablement, persona=marketer)."
+}

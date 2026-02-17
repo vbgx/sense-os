@@ -1,0 +1,35 @@
+{
+  "id": "b2b_sales_industry_fintech_observability",
+  "name": "b2b_sales_industry_fintech_observability",
+  "title": "B2B — Sales — Fintech — Observability",
+  "description": "B2B, Sales, Fintech pains and workflows around Observability.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "sales",
+    "industry_fintech",
+    "observability"
+  ],
+  "default_queries": [
+    "missing traces",
+    "noisy alerts",
+    "SLO burn rate confusion",
+    "Observability",
+    "Observability pain",
+    "Observability bottleneck",
+    "Observability automation",
+    "Observability workflow",
+    "Observability tooling",
+    "Observability process",
+    "Observability best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2b",
+    "function": "sales",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=observability, persona=marketer)."
+}

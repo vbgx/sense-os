@@ -1,0 +1,35 @@
+{
+  "id": "b2b_ops_industry_supply_chain_events",
+  "name": "b2b_ops_industry_supply_chain_events",
+  "title": "B2B — Operations — Supply Chain — Events",
+  "description": "B2B, Operations, Supply Chain pains and workflows around Events.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "ops",
+    "industry_supply_chain",
+    "events"
+  ],
+  "default_queries": [
+    "lead capture workflow",
+    "booth follow-up process",
+    "event ROI tracking",
+    "Events",
+    "Events pain",
+    "Events bottleneck",
+    "Events automation",
+    "Events workflow",
+    "Events tooling",
+    "Events process",
+    "Events best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2b",
+    "function": "ops",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=events, persona=ops_manager)."
+}

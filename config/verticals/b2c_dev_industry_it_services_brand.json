@@ -1,0 +1,35 @@
+{
+  "id": "b2c_dev_industry_it_services_brand",
+  "name": "b2c_dev_industry_it_services_brand",
+  "title": "B2C — Engineering — IT Services (MSP) — Brand",
+  "description": "B2C, Engineering, IT Services (MSP) pains and workflows around Brand.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "dev",
+    "industry_it_services",
+    "brand"
+  ],
+  "default_queries": [
+    "positioning unclear",
+    "brand consistency",
+    "messaging fragmentation",
+    "Brand",
+    "Brand pain",
+    "Brand bottleneck",
+    "Brand automation",
+    "Brand workflow",
+    "Brand tooling",
+    "Brand process",
+    "Brand best practices",
+    "process"
+  ],
+  "persona": "ops_manager",
+  "axes": {
+    "audience": "b2c",
+    "function": "dev",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=brand, persona=ops_manager)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_supply_chain_data_eng",
+  "name": "ops_industry_supply_chain_data_eng",
+  "title": "Operations — Supply Chain — Data Engineering",
+  "description": "Operations, Supply Chain pains and workflows around Data Engineering.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_supply_chain",
+    "data_eng"
+  ],
+  "default_queries": [
+    "etl pipeline failures",
+    "data quality checks",
+    "schema drift",
+    "Data Engineering",
+    "Data Engineering pain",
+    "Data Engineering bottleneck",
+    "Data Engineering automation",
+    "Data Engineering workflow",
+    "Data Engineering tooling",
+    "Data Engineering process",
+    "Data Engineering best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_supply_chain"
+  },
+  "notes": "Generated deterministically from taxonomy (member=data_eng, persona=marketer)."
+}

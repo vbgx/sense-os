@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_logistics_backend",
+  "name": "ops_industry_logistics_backend",
+  "title": "Operations — Logistics — Backend",
+  "description": "Operations, Logistics pains and workflows around Backend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_logistics",
+    "backend"
+  ],
+  "default_queries": [
+    "API performance",
+    "database bottlenecks",
+    "queue reliability issues",
+    "Backend",
+    "Backend pain",
+    "Backend bottleneck",
+    "Backend automation",
+    "Backend workflow",
+    "Backend tooling",
+    "Backend process",
+    "Backend best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=backend, persona=finance_lead)."
+}

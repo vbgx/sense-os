@@ -16,7 +16,14 @@ def test_idempotency_key_changes_on_payload_change():
 
 
 def test_idempotency_key_ignores_retry_metadata():
-    base = {"type": "ingest_vertical", "vertical_id": 1, "source": "reddit", "run_id": "r1"}
+    base = {
+        "type": "ingest_vertical",
+        "vertical_id": "b2b_ops",
+        "vertical_db_id": 1,
+        "taxonomy_version": "2026-02-17",
+        "source": "reddit",
+        "run_id": "r1",
+    }
     retry = {
         **base,
         "_attempt": 2,

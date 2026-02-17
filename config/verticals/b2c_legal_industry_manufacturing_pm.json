@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_manufacturing_pm",
+  "name": "b2c_legal_industry_manufacturing_pm",
+  "title": "B2C — Legal — Manufacturing — Product Management",
+  "description": "B2C, Legal, Manufacturing pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_manufacturing",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "b2b_finance_mobile",
+  "name": "b2b_finance_mobile",
+  "title": "B2B — Finance — Mobile",
+  "description": "B2B, Finance pains and workflows around Mobile.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2b",
+    "finance",
+    "mobile"
+  ],
+  "default_queries": [
+    "crash loops",
+    "offline sync issues",
+    "release train pain",
+    "Mobile",
+    "Mobile pain",
+    "Mobile bottleneck",
+    "Mobile automation",
+    "Mobile workflow",
+    "Mobile tooling",
+    "Mobile process",
+    "Mobile best practices",
+    "cashflow"
+  ],
+  "persona": "finance_lead",
+  "axes": {
+    "audience": "b2b",
+    "function": "finance"
+  },
+  "notes": "Generated deterministically from taxonomy (member=mobile, persona=finance_lead)."
+}

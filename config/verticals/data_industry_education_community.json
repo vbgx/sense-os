@@ -1,0 +1,33 @@
+{
+  "id": "data_industry_education_community",
+  "name": "data_industry_education_community",
+  "title": "Data — Education — Community",
+  "description": "Data, Education pains and workflows around Community.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "data",
+    "industry_education",
+    "community"
+  ],
+  "default_queries": [
+    "engagement drop",
+    "moderation overhead",
+    "content calendar chaos",
+    "Community",
+    "Community pain",
+    "Community bottleneck",
+    "Community automation",
+    "Community workflow",
+    "Community tooling",
+    "Community process",
+    "Community best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "data",
+    "industry": "industry_education"
+  },
+  "notes": "Generated deterministically from taxonomy (member=community, persona=engineer)."
+}

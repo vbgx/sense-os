@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_agriculture_revops",
+  "name": "marketing_industry_agriculture_revops",
+  "title": "Marketing — Agriculture — RevOps",
+  "description": "Marketing, Agriculture pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_agriculture",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_agriculture"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=security_lead)."
+}

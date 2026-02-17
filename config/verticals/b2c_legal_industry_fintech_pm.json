@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_fintech_pm",
+  "name": "b2c_legal_industry_fintech_pm",
+  "title": "B2C — Legal — Fintech — Product Management",
+  "description": "B2C, Legal, Fintech pains and workflows around Product Management.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_fintech",
+    "pm"
+  ],
+  "default_queries": [
+    "prioritization fights",
+    "roadmap churn",
+    "stakeholder alignment",
+    "Product Management",
+    "Product Management pain",
+    "Product Management bottleneck",
+    "Product Management automation",
+    "Product Management workflow",
+    "Product Management tooling",
+    "Product Management process",
+    "Product Management best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_fintech"
+  },
+  "notes": "Generated deterministically from taxonomy (member=pm, persona=marketer)."
+}

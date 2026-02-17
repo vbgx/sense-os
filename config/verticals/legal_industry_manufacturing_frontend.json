@@ -1,0 +1,33 @@
+{
+  "id": "legal_industry_manufacturing_frontend",
+  "name": "legal_industry_manufacturing_frontend",
+  "title": "Legal — Manufacturing — Frontend",
+  "description": "Legal, Manufacturing pains and workflows around Frontend.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "legal",
+    "industry_manufacturing",
+    "frontend"
+  ],
+  "default_queries": [
+    "bundle size regression",
+    "hydration errors",
+    "design system drift",
+    "Frontend",
+    "Frontend pain",
+    "Frontend bottleneck",
+    "Frontend automation",
+    "Frontend workflow",
+    "Frontend tooling",
+    "Frontend process",
+    "Frontend best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "legal",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=frontend, persona=sales_rep)."
+}

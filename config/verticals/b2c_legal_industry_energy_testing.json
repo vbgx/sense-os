@@ -1,0 +1,35 @@
+{
+  "id": "b2c_legal_industry_energy_testing",
+  "name": "b2c_legal_industry_energy_testing",
+  "title": "B2C — Legal — Energy — Testing",
+  "description": "B2C, Legal, Energy pains and workflows around Testing.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "legal",
+    "industry_energy",
+    "testing"
+  ],
+  "default_queries": [
+    "end-to-end flaky tests",
+    "test data setup pain",
+    "slow CI pipelines",
+    "Testing",
+    "Testing pain",
+    "Testing bottleneck",
+    "Testing automation",
+    "Testing workflow",
+    "Testing tooling",
+    "Testing process",
+    "Testing best practices",
+    "compliance"
+  ],
+  "persona": "security_lead",
+  "axes": {
+    "audience": "b2c",
+    "function": "legal",
+    "industry": "industry_energy"
+  },
+  "notes": "Generated deterministically from taxonomy (member=testing, persona=security_lead)."
+}

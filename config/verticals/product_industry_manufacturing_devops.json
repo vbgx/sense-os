@@ -1,0 +1,33 @@
+{
+  "id": "product_industry_manufacturing_devops",
+  "name": "product_industry_manufacturing_devops",
+  "title": "Product — Manufacturing — DevOps",
+  "description": "Product, Manufacturing pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "product",
+    "industry_manufacturing",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "debug"
+  ],
+  "persona": "engineer",
+  "axes": {
+    "function": "product",
+    "industry": "industry_manufacturing"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=engineer)."
+}

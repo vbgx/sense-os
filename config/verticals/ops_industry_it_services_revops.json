@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_it_services_revops",
+  "name": "ops_industry_it_services_revops",
+  "title": "Operations — IT Services (MSP) — RevOps",
+  "description": "Operations, IT Services (MSP) pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_it_services",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=sales_rep)."
+}

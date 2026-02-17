@@ -1,0 +1,33 @@
+{
+  "id": "b2c_industry_public_sector_seo",
+  "name": "b2c_industry_public_sector_seo",
+  "title": "B2C — Public Sector — SEO",
+  "description": "B2C, Public Sector pains and workflows around SEO.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "b2c",
+    "industry_public_sector",
+    "seo"
+  ],
+  "default_queries": [
+    "content decay",
+    "keyword cannibalization",
+    "technical SEO backlog",
+    "SEO",
+    "SEO pain",
+    "SEO bottleneck",
+    "SEO automation",
+    "SEO workflow",
+    "SEO tooling",
+    "SEO process",
+    "SEO best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "audience": "b2c",
+    "industry": "industry_public_sector"
+  },
+  "notes": "Generated deterministically from taxonomy (member=seo, persona=sales_rep)."
+}

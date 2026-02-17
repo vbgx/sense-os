@@ -1,0 +1,33 @@
+{
+  "id": "marketing_industry_hospitality_revops",
+  "name": "marketing_industry_hospitality_revops",
+  "title": "Marketing — Hospitality — RevOps",
+  "description": "Marketing, Hospitality pains and workflows around RevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "marketing",
+    "industry_hospitality",
+    "revops"
+  ],
+  "default_queries": [
+    "lead routing issues",
+    "crm hygiene problems",
+    "revenue leakage churn",
+    "RevOps",
+    "RevOps pain",
+    "RevOps bottleneck",
+    "RevOps automation",
+    "RevOps workflow",
+    "RevOps tooling",
+    "RevOps process",
+    "RevOps best practices",
+    "SEO"
+  ],
+  "persona": "marketer",
+  "axes": {
+    "function": "marketing",
+    "industry": "industry_hospitality"
+  },
+  "notes": "Generated deterministically from taxonomy (member=revops, persona=marketer)."
+}

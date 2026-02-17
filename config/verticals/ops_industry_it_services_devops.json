@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_it_services_devops",
+  "name": "ops_industry_it_services_devops",
+  "title": "Operations — IT Services (MSP) — DevOps",
+  "description": "Operations, IT Services (MSP) pains and workflows around DevOps.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_it_services",
+    "devops"
+  ],
+  "default_queries": [
+    "deploy failures",
+    "ci flaky tests",
+    "infra drift terraform",
+    "DevOps",
+    "DevOps pain",
+    "DevOps bottleneck",
+    "DevOps automation",
+    "DevOps workflow",
+    "DevOps tooling",
+    "DevOps process",
+    "DevOps best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_it_services"
+  },
+  "notes": "Generated deterministically from taxonomy (member=devops, persona=sales_rep)."
+}

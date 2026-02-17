@@ -1,0 +1,38 @@
+{
+  "id": "ae",
+  "name": "ae",
+  "title": "Account Executive",
+  "description": "General pains and workflows around Account Executive.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ae"
+  ],
+  "default_queries": [
+    "demo no-shows",
+    "proposal cycle delays",
+    "stakeholder alignment",
+    "Account Executive",
+    "Account Executive pain",
+    "Account Executive bottleneck",
+    "Account Executive automation",
+    "Account Executive workflow",
+    "Account Executive tooling",
+    "Account Executive process",
+    "Account Executive best practices",
+    "pipeline"
+  ],
+  "persona": "sales_rep",
+  "axes": {},
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=sales_rep).",
+  "tier": "core",
+  "meta": {
+    "audience": null,
+    "function": null,
+    "industry": null,
+    "cluster": null,
+    "member": null,
+    "persona": "sales_rep",
+    "variant": null
+  }
+}

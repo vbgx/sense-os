@@ -1,0 +1,33 @@
+{
+  "id": "ops_industry_logistics_partners",
+  "name": "ops_industry_logistics_partners",
+  "title": "Operations — Logistics — Partnerships",
+  "description": "Operations, Logistics pains and workflows around Partnerships.",
+  "version": 1,
+  "enabled": true,
+  "tags": [
+    "ops",
+    "industry_logistics",
+    "partners"
+  ],
+  "default_queries": [
+    "co-sell motion confusion",
+    "partner onboarding",
+    "lead sharing process",
+    "Partnerships",
+    "Partnerships pain",
+    "Partnerships bottleneck",
+    "Partnerships automation",
+    "Partnerships workflow",
+    "Partnerships tooling",
+    "Partnerships process",
+    "Partnerships best practices",
+    "roadmap"
+  ],
+  "persona": "product_lead",
+  "axes": {
+    "function": "ops",
+    "industry": "industry_logistics"
+  },
+  "notes": "Generated deterministically from taxonomy (member=partners, persona=product_lead)."
+}

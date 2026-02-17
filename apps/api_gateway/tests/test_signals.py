@@ -8,7 +8,8 @@ def test_signals_list(client, db_session):
     db_session.refresh(vertical)
 
     sig = Signal(
-        vertical_id=vertical.id,
+        vertical_db_id=vertical.id,
+        vertical_id=vertical.name,
         source="reddit",
         external_id="ext-1",
         content="example",

@@ -19,8 +19,19 @@ def test_publisher_publishes_jobs(monkeypatch):
     monkeypatch.setattr("scheduler.publisher.RedisJobQueueClient", DummyClient)
 
     jobs = [
-        IngestJob(vertical_id=1, source="reddit", run_id="r1"),
-        ProcessJob(vertical_id=1, run_id="r1"),
+        IngestJob(
+            vertical_id="b2b_ops",
+            vertical_db_id=1,
+            taxonomy_version="2026-02-17",
+            source="reddit",
+            run_id="r1",
+        ),
+        ProcessJob(
+            vertical_id="b2b_ops",
+            vertical_db_id=1,
+            taxonomy_version="2026-02-17",
+            run_id="r1",
+        ),
     ]
     n = publish_jobs(jobs)
 

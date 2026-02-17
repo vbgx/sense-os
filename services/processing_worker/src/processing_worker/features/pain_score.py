@@ -35,3 +35,18 @@ def score_text(text: str) -> tuple[float, dict]:
         **f,
     }
     return score, breakdown
+
+# Backward-compatible API expected by tests
+
+def compute_pain_score(feature_map: dict | str) -> tuple[float, dict]:
+    if isinstance(feature_map, dict):
+        question = float(feature_map.get("question", 0.0))
+        frustration = float(feature_map.get("frustration", 0.0))
+        score = clamp(2.5 * question + 2.5 * frustration, 0.0, 5.0)
+        breakdown = {
+            "algo": "features_v1",
+            "score": round(score, 2),
+            **feature_map,
+        }
+        return score, breakdown
+    return score_text(feature_map)

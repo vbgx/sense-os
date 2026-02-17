@@ -32,3 +32,9 @@ def features(text: str) -> dict:
         "money_hits": count_any(t, MONEY_WORDS),
         "len": len(t),
     }
+
+# Backward-compatible API expected by tests
+
+def extract_markers(text: str) -> dict:
+    return features(text)
+

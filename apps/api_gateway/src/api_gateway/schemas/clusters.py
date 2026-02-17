@@ -1,29 +1,17 @@
 from __future__ import annotations
 
-from datetime import datetime
-
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
-class ClusterItem(BaseModel):
-    id: int
-    vertical_id: int
-    cluster_version: str
-    cluster_key: str
-    title: str
-    size: int
-    created_at: datetime | None = None
+class ClusterOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True, extra="allow")
 
-    class Config:
-        from_attributes = True
-
-
-class Page(BaseModel):
-    limit: int
-    offset: int
+    id: str | int
+    title: str | None = None
+    cluster_summary: str | None = None
+    confidence_score: int = 0
 
 
 class ClusterListOut(BaseModel):
-    page: Page
     total: int
-    items: list[ClusterItem]
+    items: list[ClusterOut]

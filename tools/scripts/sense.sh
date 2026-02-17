@@ -6,7 +6,7 @@ cmd="${1:-}"
 shift || true
 
 case "$cmd" in
-  migrate)   exec "$SCRIPT_DIR/migrate_sql.sh" "$@" ;;
+  migrate)   exec "$SCRIPT_DIR/migrate.sh" "$@" ;;
   seed)     exec "$SCRIPT_DIR/seed_verticals.sh" "$@" ;;
   flush-redis) exec "$SCRIPT_DIR/flush_redis.sh" "$@" ;;
   logs)
@@ -19,7 +19,7 @@ case "$cmd" in
     echo "Usage: $0 <command>"
     echo
     echo "Commands:"
-    echo "  migrate         Apply infra/sql/*.sql"
+    echo "  migrate         Alembic upgrade head"
     echo "  seed            Seed verticals"
     echo "  flush-redis     FLUSHALL (requires FORCE=1)"
     echo "  logs <service>  Follow docker compose logs"

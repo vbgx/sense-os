@@ -5,7 +5,7 @@ ENV = os.getenv("ENV", "dev")
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql+psycopg://sense:sense@localhost:5432/sense",
+    "postgresql+psycopg://postgres:postgres@localhost:5432/sense",
 )
 
 REDIS_URL = os.getenv(

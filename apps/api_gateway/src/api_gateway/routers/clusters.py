@@ -1,75 +1,53 @@
 from __future__ import annotations
 
-from datetime import datetime
-from typing import Any, Optional
+from fastapi import APIRouter, Depends, Query
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
+from api_gateway.schemas.clusters import ClusterListOut, ClusterOut
+from api_gateway.schemas.timeline import TimelinePointOut
+from api_gateway.dependencies import get_clusters_use_case
+from application.use_cases.clusters import ClustersUseCase
 
-from api_gateway.dependencies import get_db
-from api_gateway.schemas.clusters import ClusterListOut
-from api_gateway.services.clusters_service import list_clusters
-
-router = APIRouter(tags=["clusters"])
+router = APIRouter(prefix="/clusters", tags=["clusters"])
 
 
-def _get(obj: Any, key: str, default: Any = None) -> Any:
-    if obj is None:
-        return default
-    if isinstance(obj, dict):
-        return obj.get(key, default)
-    return getattr(obj, key, default)
-
-
-def _dt(v: Any) -> Optional[str]:
-    if v is None:
-        return None
-    if isinstance(v, str):
-        return v
-    if isinstance(v, datetime):
-        return v.isoformat()
-    try:
-        return str(v)
-    except Exception:
-        return None
-
-
-@router.get("/clusters", response_model=ClusterListOut)
-def clusters_list(
-    *,
-    db: Session = Depends(get_db),
-    vertical_id: Optional[int] = Query(default=None, ge=1),
-    vertical: Optional[int] = Query(default=None, ge=1),
-    cluster_version: Optional[str] = Query(default=None),
-    limit: int = Query(default=20, ge=1, le=200),
-    offset: int = Query(default=0, ge=0),
-):
-    vid = vertical_id if vertical_id is not None else vertical
-    if vid is None:
-        raise HTTPException(status_code=422, detail="vertical_id is required (e.g. ?vertical_id=1)")
-
-    rows, total = list_clusters(
-        db=db,
-        vertical_id=int(vid),
-        limit=limit,
-        offset=offset,
-        cluster_version=cluster_version,
+@router.get("", response_model=ClusterListOut)
+def list_clusters(
+    use_case: ClustersUseCase = Depends(get_clusters_use_case),
+    vertical_id: int | None = Query(default=None),
+    min_exploitability: int | None = Query(default=None, ge=0, le=100),
+    max_exploitability: int | None = Query(default=None, ge=0, le=100),
+    order_by: str | None = Query(default=None, description="Supported: exploitability_score"),
+    desc: bool = Query(default=True),
+) -> ClusterListOut:
+    rows = use_case.list_clusters(
+        vertical_id=vertical_id,
+        min_exploitability=min_exploitability,
+        max_exploitability=max_exploitability,
+        order_by=order_by,
+        desc=desc,
     )
-    items = [
-        {
-            "id": int(_get(c, "id")),
-            "vertical_id": int(_get(c, "vertical_id")),
-            "cluster_version": str(_get(c, "cluster_version")),
-            "cluster_key": str(_get(c, "cluster_key")),
-            "title": str(_get(c, "title")),
-            "size": int(_get(c, "size")),
-            "created_at": _dt(_get(c, "created_at")),
-        }
-        for c in (rows or [])
-    ]
+    return ClusterListOut(total=len(rows), items=rows)
 
-    return {
-        "items": items,
-        "total": int(total or 0),
-        "page": {"limit": int(limit), "offset": int(offset)},
-    }
+
+@router.get("/{cluster_id}", response_model=ClusterOut)
+def get_cluster(cluster_id: str, use_case: ClustersUseCase = Depends(get_clusters_use_case)) -> ClusterOut:
+    return use_case.get_cluster(cluster_id)
+
+
+@router.get("/{cluster_id}/timeline", response_model=list[TimelinePointOut])
+def get_cluster_timeline(
+    cluster_id: str,
+    days: int = Query(default=90, ge=1, le=3650),
+    use_case: ClustersUseCase = Depends(get_clusters_use_case),
+) -> list[TimelinePointOut]:
+    rows = use_case.list_cluster_timeline(cluster_id=cluster_id, days=days)
+    return [
+        TimelinePointOut(
+            date=r.day,
+            volume=r.volume,
+            growth_rate=r.growth_rate,
+            velocity=r.velocity,
+            breakout_flag=r.breakout_flag,
+        )
+        for r in rows
+    ]

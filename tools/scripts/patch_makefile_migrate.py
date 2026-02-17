@@ -8,7 +8,7 @@ s = MAKEFILE.read_text(encoding="utf-8")
 
 replacement = (
     "migrate:\n"
-    "\t@COMPOSE_FILE=$(COMPOSE_FILE) ./tools/scripts/migrate_all_sql.sh\n"
+    "\t@COMPOSE_FILE=$(COMPOSE_FILE) ./tools/scripts/migrate.sh\n"
 )
 
 m = re.search(r"(?m)^[A-Za-z0-9_.-]+:\s*$", s)

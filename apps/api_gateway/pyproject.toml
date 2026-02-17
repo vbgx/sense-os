@@ -11,6 +11,7 @@ dependencies = [
   "uvicorn[standard]>=0.27.0",
   "pydantic>=2.6.0",
   "docker>=7.0.0",
+  "sense-application",
   "sense-db",
   "sense-domain",
   "sense-queue",

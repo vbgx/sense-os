@@ -1,80 +1,26 @@
 from __future__ import annotations
 
-from dataclasses import asdict as _asdict
-import logging
-from typing import Any, Iterable, Tuple
+from typing import Any
 
-from db.session import SessionLocal
-from db.repos import pain_clusters as repo
-
-log = logging.getLogger(__name__)
-
-def _get(obj: Any, key: str, default: Any = None) -> Any:
-    if isinstance(obj, dict):
-        return obj.get(key, default)
-    if hasattr(obj, "__dataclass_fields__"):
-        return _asdict(obj).get(key, default)
-    return getattr(obj, key, default)
+from db.session import session_scope
+from db.models import PainCluster
 
 
-def _normalize_title(s: Any) -> str:
-    t = str(s or "").strip()
-    if not t:
-        t = "(untitled)"
-    return t[:255]
+class ClustersWriter:
+    def write_clusters(self, clusters: list[dict[str, Any]]) -> None:
+        with session_scope() as s:
+            for payload in clusters:
+                cluster_id = payload.get("cluster_id") or payload.get("id")
+                if cluster_id is None:
+                    continue
 
+                obj = s.get(PainCluster, cluster_id)
+                if obj is None:
+                    obj = PainCluster(id=cluster_id)
+                    s.add(obj)
 
-def write_clusters(
-    clusters: Iterable[Any],
-    *,
-    vertical_id: int,
-    cluster_version: str,
-) -> Tuple[int, int, int]:
-    """
-    Persist clusters idempotently.
+                if "cluster_summary" in payload:
+                    obj.cluster_summary = payload["cluster_summary"]
 
-    Accepts items that are dict-like OR objects with fields:
-      - cluster_key
-      - title
-      - size
-
-    Returns (inserted, updated, unchanged).
-    """
-    inserted = 0
-    updated = 0
-    unchanged = 0
-
-    db = SessionLocal()
-    try:
-        for c in clusters:
-            cluster_key = _get(c, "cluster_key")
-            title = _normalize_title(_get(c, "title"))
-            size = int(_get(c, "size", 0))
-
-            _, was_inserted, was_updated = repo.upsert_cluster(
-                db,
-                vertical_id=int(vertical_id),
-                cluster_version=str(cluster_version),
-                cluster_key=str(cluster_key),
-                title=title,
-                size=size,
-            )
-
-            if was_inserted:
-                inserted += 1
-            elif was_updated:
-                updated += 1
-            else:
-                unchanged += 1
-
-        log.info(
-            "clusters_persisted vertical_id=%s cluster_version=%s inserted=%s updated=%s unchanged=%s",
-            vertical_id,
-            cluster_version,
-            inserted,
-            updated,
-            unchanged,
-        )
-        return inserted, updated, unchanged
-    finally:
-        db.close()
+                if "confidence_score" in payload:
+                    obj.confidence_score = int(payload["confidence_score"])

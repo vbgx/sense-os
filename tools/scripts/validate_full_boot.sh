@@ -283,6 +283,15 @@ trap on_failure ERR
   if [ "$NO_DOWN" -eq 0 ]; then
     step "=== 2️⃣  DOCKER DOWN (clean volumes) ==="
     dc down -v
+    # Ensure stale containers from interrupted runs don't block startup
+    for name in \
+      docker-api-gateway-1 \
+      docker-ingestion-worker-1 \
+      docker-processing-worker-1 \
+      docker-clustering-worker-1 \
+      docker-trend-worker-1; do
+      docker rm -f "$name" >/dev/null 2>&1 || true
+    done
   else
     step "=== 2️⃣  DOCKER DOWN (skipped) ==="
     echo "ℹ️  --no-down set"
@@ -297,8 +306,8 @@ trap on_failure ERR
   step "=== 4️⃣b WAIT FOR REDIS HEALTH (up to ${POSTGRES_WAIT_S}s) ==="
   wait_service_healthy redis "$POSTGRES_WAIT_S"
 
-  step "=== 5️⃣  MIGRATE DB (via migrate_sql.sh) ==="
-  COMPOSE_FILE="$COMPOSE_FILE" "$SCRIPT_DIR/migrate_sql.sh"
+  step "=== 5️⃣  MIGRATE DB (via Alembic) ==="
+  COMPOSE_FILE="$COMPOSE_FILE" "$SCRIPT_DIR/migrate.sh"
 
   step "=== 6️⃣  BOOT APP SERVICES (api + workers) ==="
   if [ "$NO_BUILD" -eq 1 ]; then

@@ -4,11 +4,10 @@ from datetime import datetime
 from typing import Any, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
 
-from api_gateway.dependencies import get_db
+from api_gateway.dependencies import get_signals_use_case
 from api_gateway.schemas.signals import SignalListOut
-from api_gateway.services.signals_service import list_signals
+from application.use_cases.signals import SignalsUseCase
 
 router = APIRouter(tags=["signals"])
 
@@ -37,7 +36,7 @@ def _dt(v: Any) -> Optional[str]:
 @router.get("/signals", response_model=SignalListOut)
 def signals_list(
     *,
-    db: Session = Depends(get_db),
+    use_case: SignalsUseCase = Depends(get_signals_use_case),
     vertical_id: Optional[int] = Query(default=None, ge=1),
     vertical: Optional[int] = Query(default=None, ge=1),
     limit: int = Query(default=20, ge=1, le=200),
@@ -47,7 +46,7 @@ def signals_list(
     if vid is None:
         raise HTTPException(status_code=422, detail="vertical_id is required (e.g. ?vertical_id=1)")
 
-    rows, total = list_signals(db=db, vertical_id=int(vid), limit=limit, offset=offset)
+    rows, total = use_case.list_signals(vertical_id=int(vid), limit=limit, offset=offset)
     items = [
         {
             "id": int(_get(s, "id")),

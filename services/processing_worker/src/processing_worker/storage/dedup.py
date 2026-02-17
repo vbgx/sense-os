@@ -1,6 +1,5 @@
 """
 Processing dedup policy (V1):
-- Idempotency key = algo_version + breakdown_hash.
 - DB uniqueness enforces (algo_version, breakdown_hash).
 """
 
@@ -26,9 +25,3 @@ def breakdown_hash(breakdown: Any) -> str:
     normalized = _normalize_breakdown(breakdown)
     return hashlib.md5(normalized.encode("utf-8")).hexdigest()
 
-
-def idempotency_key(algo_version: str, breakdown: Any) -> str:
-    """
-    Idempotency key derived from algo_version and breakdown.
-    """
-    return f"{algo_version}:{breakdown_hash(breakdown)}"

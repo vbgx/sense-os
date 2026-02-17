@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime, timedelta
 from sqlalchemy import func
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from db.models import ClusterDailyMetric, ClusterSignal, PainCluster, PainInstance, Signal
@@ -13,7 +14,11 @@ def compute_for_day(
     *,
     formula_version: str,
     cluster_version: str,
+    vertical_id: int | None = None,
 ) -> list[dict]:
+    day_start = datetime.combine(day, datetime.min.time())
+    day_end = day_start + timedelta(days=1)
+
     q = (
         db.query(
             PainCluster.id.label("cluster_id"),
@@ -26,9 +31,13 @@ def compute_for_day(
         .join(PainInstance, PainInstance.id == ClusterSignal.pain_instance_id)
         .join(Signal, Signal.id == PainInstance.signal_id)
         .filter(PainCluster.cluster_version == cluster_version)
-        .filter(func.date(Signal.ingested_at) == day)
+        .filter(Signal.ingested_at >= day_start)
+        .filter(Signal.ingested_at < day_end)
         .group_by(PainCluster.id)
     )
+
+    if vertical_id is not None and int(vertical_id) > 0:
+        q = q.filter(PainCluster.vertical_id == int(vertical_id))
 
     rows = q.all()
     out: list[dict] = []
@@ -67,6 +76,56 @@ def upsert_metrics(
     score_diversity: float,
     score_confidence: float,
 ) -> tuple[ClusterDailyMetric, bool]:
+    fields = {
+        "frequency": frequency,
+        "engagement": engagement,
+        "avg_score": avg_score,
+        "source_count": source_count,
+        "velocity": velocity,
+        "emerging": emerging,
+        "declining": declining,
+        "score": score,
+        "score_volume": score_volume,
+        "score_velocity": score_velocity,
+        "score_novelty": score_novelty,
+        "score_diversity": score_diversity,
+        "score_confidence": score_confidence,
+    }
+
+    if db.bind and db.bind.dialect.name == "postgresql":
+        existing = (
+            db.query(ClusterDailyMetric)
+            .filter(ClusterDailyMetric.cluster_id == cluster_id)
+            .filter(ClusterDailyMetric.day == day)
+            .filter(ClusterDailyMetric.formula_version == formula_version)
+            .one_or_none()
+        )
+        created = existing is None
+
+        stmt = (
+            pg_insert(ClusterDailyMetric)
+            .values(
+                cluster_id=cluster_id,
+                day=day,
+                formula_version=formula_version,
+                **fields,
+            )
+            .on_conflict_do_update(
+                index_elements=["cluster_id", "day", "formula_version"],
+                set_=fields,
+            )
+        )
+        db.execute(stmt)
+        db.commit()
+        obj = (
+            db.query(ClusterDailyMetric)
+            .filter(ClusterDailyMetric.cluster_id == cluster_id)
+            .filter(ClusterDailyMetric.day == day)
+            .filter(ClusterDailyMetric.formula_version == formula_version)
+            .one()
+        )
+        return obj, created
+
     obj = (
         db.query(ClusterDailyMetric)
         .filter(ClusterDailyMetric.cluster_id == cluster_id)
@@ -100,21 +159,6 @@ def upsert_metrics(
         return obj, True
 
     changed = False
-    fields = {
-        "frequency": frequency,
-        "engagement": engagement,
-        "avg_score": avg_score,
-        "source_count": source_count,
-        "velocity": velocity,
-        "emerging": emerging,
-        "declining": declining,
-        "score": score,
-        "score_volume": score_volume,
-        "score_velocity": score_velocity,
-        "score_novelty": score_novelty,
-        "score_diversity": score_diversity,
-        "score_confidence": score_confidence,
-    }
     for k, v in fields.items():
         if getattr(obj, k) != v:
             setattr(obj, k, v)

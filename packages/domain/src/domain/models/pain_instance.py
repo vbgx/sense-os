@@ -1,8 +1,10 @@
-from pydantic import BaseModel
+from dataclasses import dataclass
+from typing import Any
 
 
-class PainInstanceOut(BaseModel):
+@dataclass(frozen=True)
+class PainInstanceOut:
     signal_id: int
     algo_version: str
     pain_score: float
-    breakdown: dict
+    breakdown: dict[str, Any]

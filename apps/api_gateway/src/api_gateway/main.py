@@ -3,13 +3,14 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
-from db.init_db import init_db
+from db.adapters import init_db
 
 # Routers
 from api_gateway.routers import verticals
 from api_gateway.routers.signals import router as signals_router
 from api_gateway.routers.ops import router as ops_router
 from api_gateway.routers.pains import router as pains_router
+from api_gateway.routers.insights import router as insights_router
 from api_gateway.routers.trends import router as trends_router
 from api_gateway.routers.clusters import router as clusters_router
 
@@ -17,6 +18,7 @@ from api_gateway.routers.clusters import router as clusters_router
 app = FastAPI(
     title="Sense OS API",
     version="0.1.0",
+    openapi_url="/openapi.json",
 )
 
 
@@ -44,6 +46,7 @@ def health() -> dict:
 
 app.include_router(verticals.router)
 app.include_router(pains_router)
+app.include_router(insights_router)
 app.include_router(trends_router)
 app.include_router(signals_router)
 app.include_router(ops_router)

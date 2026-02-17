@@ -15,6 +15,15 @@ class SparklinePoint(BaseModel):
     v: float
 
 
+class ExploitabilityOut(BaseModel):
+    exploitability_score: int = Field(0, ge=0, le=100)
+    tier: str = Field("IGNORE")
+    pain_strength: float = Field(0.0, ge=0.0, le=100.0)
+    timing_strength: float = Field(0.0, ge=0.0, le=100.0)
+    risk_penalty: float = Field(0.0, ge=0.0, le=100.0)
+    version: str = Field("")
+
+
 class TrendClusterItem(BaseModel):
     cluster_id: str
     vertical_id: int
@@ -25,6 +34,8 @@ class TrendClusterItem(BaseModel):
 
     source_count: int = 1
     sparkline: list[SparklinePoint] = Field(default_factory=list)
+
+    exploitability: ExploitabilityOut = Field(default_factory=ExploitabilityOut)
 
 
 class TrendListResponse(BaseModel):
@@ -54,6 +65,20 @@ class ClusterDetail(BaseModel):
     breakdown: ScoreBreakdown = Field(default_factory=ScoreBreakdown)
     sparkline: list[SparklinePoint] = Field(default_factory=list)
     meta: dict[str, Any] = Field(default_factory=dict)
+
+    exploitability: ExploitabilityOut = Field(default_factory=ExploitabilityOut)
+
+
+class InsightClusterItem(BaseModel):
+    cluster_id: str
+    vertical_id: int
+    title: str | None = None
+    exploitability: ExploitabilityOut = Field(default_factory=ExploitabilityOut)
+
+
+class InsightTopPainsResponse(BaseModel):
+    page: Page
+    items: list[InsightClusterItem]
 
 
 class SortKey(str):

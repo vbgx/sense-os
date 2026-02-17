@@ -13,13 +13,14 @@ COPY apps /app/apps
 COPY services/scheduler /app/services/scheduler
 COPY tools/fixtures /app/tools/fixtures
 
-RUN pip install --no-cache-dir -e /app/packages/db \
+RUN pip install --no-cache-dir -e /app/packages/application \
+ && pip install --no-cache-dir -e /app/packages/db \
  && pip install --no-cache-dir -e /app/packages/domain \
  && pip install --no-cache-dir -e /app/packages/queue \
  && pip install --no-cache-dir -e /app/services/scheduler \
  && pip install --no-cache-dir -e /app/apps/api_gateway
 
-ENV PYTHONPATH=/app/apps/api_gateway/src:/app/packages/db/src:/app/packages/domain/src:/app/packages/queue/src:/app/services/scheduler/src
+ENV PYTHONPATH=/app/apps/api_gateway/src:/app/packages/application/src:/app/packages/db/src:/app/packages/domain/src:/app/packages/queue/src:/app/services/scheduler/src
 
 EXPOSE 8000
 CMD ["uvicorn", "api_gateway.main:app", "--host", "0.0.0.0", "--port", "8000"]

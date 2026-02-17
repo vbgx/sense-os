@@ -30,4 +30,4 @@
 1. If containers fail to start, run:
 `docker compose logs -f`
 2. If DB schema is missing, run:
-`tools/scripts/migrate_sql.sh`
+`tools/scripts/migrate.sh`

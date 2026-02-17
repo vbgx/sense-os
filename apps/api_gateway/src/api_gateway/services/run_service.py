@@ -8,8 +8,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List
 
-from db.session import SessionLocal
-from db.repos import verticals as vertical_repo
+from application.use_cases.verticals import VerticalsUseCase
+from db.adapters import create_uow
 from scheduler import main as scheduler_main
 
 
@@ -98,14 +98,8 @@ def list_fixtures() -> List[Dict[str, Any]]:
 
 
 def _ensure_vertical(name: str) -> int:
-    db = SessionLocal()
-    try:
-        v = vertical_repo.get_by_name(db, name)
-        if v is None:
-            v = vertical_repo.create(db, name)
-        return int(v.id)
-    finally:
-        db.close()
+    use_case = VerticalsUseCase(uow=create_uow())
+    return use_case.ensure_vertical(name=name)
 
 
 def _run_single(vertical_id: int, source: str, query: str | None, limit: int | None) -> None:

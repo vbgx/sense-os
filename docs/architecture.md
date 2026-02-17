@@ -1,38 +1,23 @@
-# Sense OS Architecture
+# Architecture
 
-## Overview
-Sense OS is a batch pipeline that ingests external signals, extracts pain instances, clusters them, and computes trend metrics for API consumers.
+## EPIC 01 — Pain Intelligence V2
 
-## Components
-1. API Gateway: FastAPI service providing health, pains, trends, and verticals endpoints.
-2. Ingestion Worker: Fetches external signals and writes to `signals`.
-3. Processing Worker: Converts signals into `pain_instances`.
-4. Clustering Worker: Builds `pain_clusters` and `cluster_signals` links.
-5. Trend Worker: Computes `cluster_daily_metrics` and trend scores.
-6. Scheduler: Orchestrates job publication and backfills.
-7. Redis Queue: Routes jobs between services.
-8. Postgres: Primary data store.
+Clusters carry:
+- severity_score (0–100)
+- recurrence_score (0–100) + recurrence_ratio (0–1)
+- dominant_persona + persona_confidence + persona_distribution
+- monetizability_score (0–100)
+- contradiction_score (0–100)
 
-## Data Flow
-1. Scheduler publishes an `ingest_vertical` job.
-2. Ingestion worker inserts `signals`.
-3. Scheduler publishes a `process_signals` job.
-4. Processing worker inserts `pain_instances`.
-5. Scheduler publishes a `cluster_vertical` job.
-6. Clustering worker inserts `pain_clusters` and `cluster_signals`.
-7. Scheduler publishes a `trend_day` job.
-8. Trend worker inserts `cluster_daily_metrics`.
-9. API gateway serves `/pains` and `/trending` endpoints.
+## EPIC 02 — Trend Engine Pro
 
-## Operational Entry Points
-1. Full validation: `make validate`
-2. Scheduler once: `make scheduler-once`
-3. Trend once: `make trend-once`
+Clusters additionally carry:
+- breakout_score (0–100) — acceleration anomaly
+- saturation_score (0–100) — post-peak flattening detection
+- opportunity_window_score (0–100) + opportunity_window_status (EARLY/PEAK/SATURATING)
+- half_life_days (float | null) — post-peak decay half-life estimate
+- competitive_heat_score (0–100) — v0 proxy from mentions of existing solutions/alternatives
 
-## Storage
-1. Postgres tables are defined in `packages/db/src/db/models.py`.
-2. SQL migrations live under `infra/sql`.
-
-## Observability
-1. Services log to stdout for Docker aggregation.
-2. Key log markers include `published_jobs`, `cluster_job`, and `trend_job`.
+Opportunity Window:
+- Status is driven by timing (breakout/saturation/momentum).
+- Score is mildly penalized when competitive_heat is high (v0 heuristic).

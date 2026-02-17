@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
+source "$(dirname "$0")/_lib.sh"
 
-COMPOSE_FILE="${COMPOSE_FILE:-infra/docker/docker-compose.yml}"
-SERVICE="${SERVICE:-processing-worker}"
+VENV="${VENV:-$REPO_ROOT/.venv}"
+PY="$VENV/bin/python"
 
-PYTHONPATH_IN_CONTAINER="/app/services/processing_worker/src:/app/packages/queue/src:/app/packages/db/src:/app/packages/domain/src"
+[ -x "$PY" ] || die "Missing virtualenv at $VENV. Run: $REPO_ROOT/tools/scripts/dev_install.sh"
 
-docker compose -f "$COMPOSE_FILE" run --rm \
-  -e PYTHONPATH="$PYTHONPATH_IN_CONTAINER" \
-  "$SERVICE" \
-  python -m processing_worker.main
+exec "$PY" -m processing_worker.main

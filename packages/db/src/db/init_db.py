@@ -1,23 +1,24 @@
 import time
+from sqlalchemy import text
 from sqlalchemy.exc import OperationalError
 
-from db.engine import engine
-from db.models import Base
+from db.engine import get_engine
 
 
 def init_db(max_wait_s: int = 30, sleep_s: float = 1.0) -> None:
     """
-    Initialize DB schema (V0) with a retry loop so container startup is robust.
+    Wait for DB connectivity only.
 
-    Postgres can be "started" at docker level but still refuse connections
-    for a few seconds. We wait until connection succeeds.
+    Schema creation is handled by Alembic migrations.
     """
     deadline = time.time() + max_wait_s
     last_err: Exception | None = None
 
     while time.time() < deadline:
         try:
-            Base.metadata.create_all(bind=engine)
+            engine = get_engine()
+            with engine.connect() as conn:
+                conn.execute(text("SELECT 1"))
             return
         except OperationalError as e:
             last_err = e

@@ -1,21 +1,58 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+from typing import Any
+
 from sqlalchemy.orm import Session
-from sqlalchemy import func
-from sqlalchemy.exc import IntegrityError
 
 from db.models import PainCluster
 
 
-def clusters_exist_for_version(db: Session, vertical_id: int, cluster_version: str) -> bool:
-    n = (
-        db.query(func.count(PainCluster.id))
+@dataclass
+class PainClustersRepo:
+    session: Session
+
+    def list(self) -> list[PainCluster]:
+        return (
+            self.session.query(PainCluster)
+            .order_by(PainCluster.severity_score.desc(), PainCluster.recurrence_score.desc(), PainCluster.size.desc())
+            .all()
+        )
+
+    def get(self, cluster_id: str) -> PainCluster:
+        obj = self.session.query(PainCluster).filter(PainCluster.id == cluster_id).one_or_none()
+        if obj is None:
+            raise KeyError(f"cluster not found: {cluster_id}")
+        return obj
+
+    def upsert(self, payload: dict[str, Any]) -> PainCluster:
+        obj = self.session.query(PainCluster).filter(PainCluster.id == payload["id"]).one_or_none()
+        if obj is None:
+            obj = PainCluster(**payload)
+            self.session.add(obj)
+            self.session.commit()
+            return obj
+
+        for k, v in payload.items():
+            setattr(obj, k, v)
+        self.session.commit()
+        return obj
+
+
+def clusters_exist_for_version(
+    db: Session,
+    *,
+    vertical_id: int,
+    cluster_version: str,
+) -> bool:
+    return (
+        db.query(PainCluster.id)
         .filter(PainCluster.vertical_id == int(vertical_id))
         .filter(PainCluster.cluster_version == str(cluster_version))
-        .scalar()
-        or 0
+        .limit(1)
+        .count()
+        > 0
     )
-    return n > 0
 
 
 def upsert_cluster(
@@ -26,94 +63,32 @@ def upsert_cluster(
     cluster_key: str,
     title: str,
     size: int,
-):
-    """
-    Backward-compatible upsert.
-
-    Returns (obj, created) where created=True only when inserted.
-    Updates are applied idempotently but do not change the return shape.
-    """
-    obj, created, _updated = upsert_cluster_verbose(
-        db,
-        vertical_id=vertical_id,
-        cluster_version=cluster_version,
-        cluster_key=cluster_key,
-        title=title,
-        size=size,
-    )
-    return obj, created
-
-
-def upsert_cluster_verbose(
-    db: Session,
-    *,
-    vertical_id: int,
-    cluster_version: str,
-    cluster_key: str,
-    title: str,
-    size: int,
-):
-    """
-    Strict upsert (atomic). Returns (obj, inserted, updated).
-    Natural identity enforced by uq_pain_clusters_version_key:
-      (vertical_id, cluster_version, cluster_key)
-    """
-    vertical_id = int(vertical_id)
-    cluster_version = str(cluster_version)
-    cluster_key = str(cluster_key)
-
-    title = (title or "").strip()
-    if not title:
-        title = "(untitled)"
-    title = title[:255]
-    size = int(size)
-
-    obj = PainCluster(
-        vertical_id=vertical_id,
-        cluster_version=cluster_version,
-        cluster_key=cluster_key,
-        title=title,
-        size=size,
-    )
-    db.add(obj)
-    try:
-        db.commit()
-        db.refresh(obj)
-        return obj, True, False
-    except IntegrityError:
-        db.rollback()
-
-    existing = (
+    **kwargs: Any,
+) -> tuple[PainCluster, bool]:
+    obj = (
         db.query(PainCluster)
-        .filter(PainCluster.vertical_id == vertical_id)
-        .filter(PainCluster.cluster_version == cluster_version)
-        .filter(PainCluster.cluster_key == cluster_key)
-        .one()
+        .filter(PainCluster.vertical_id == int(vertical_id))
+        .filter(PainCluster.cluster_version == str(cluster_version))
+        .filter(PainCluster.cluster_key == str(cluster_key))
+        .one_or_none()
     )
 
-    updated = False
-    if existing.title != title:
-        existing.title = title
-        updated = True
-    if existing.size != size:
-        existing.size = size
-        updated = True
+    if obj is None:
+        obj = PainCluster(
+            vertical_id=int(vertical_id),
+            cluster_version=str(cluster_version),
+            cluster_key=str(cluster_key),
+            title=str(title),
+            size=int(size),
+            **kwargs,
+        )
+        db.add(obj)
+        db.flush()
+        return obj, True
 
-    if updated:
-        db.add(existing)
-        db.commit()
-        db.refresh(existing)
-
-    return existing, False, updated
-
-
-def list_clusters_for_version(
-    db: Session,
-    *,
-    cluster_version: str,
-    vertical_id: int | None = None,
-) -> list[PainCluster]:
-    q = db.query(PainCluster).filter(PainCluster.cluster_version == str(cluster_version))
-    if vertical_id is not None:
-        q = q.filter(PainCluster.vertical_id == int(vertical_id))
-    return q.order_by(PainCluster.id.asc()).all()
+    obj.title = str(title)
+    obj.size = int(size)
+    for k, v in kwargs.items():
+        setattr(obj, k, v)
+    db.flush()
+    return obj, False

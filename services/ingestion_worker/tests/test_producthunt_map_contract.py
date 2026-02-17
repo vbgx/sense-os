@@ -9,9 +9,22 @@ def test_map_producthunt_entry_contract():
         "link": "https://example.com",
     }
 
-    d = map_producthunt_entry(entry, vertical_id=9)
+    d = map_producthunt_entry(
+        entry,
+        vertical_id="b2b_ops",
+        vertical_db_id=1,
+        taxonomy_version="2026-02-17",
+    )
 
-    assert set(d.keys()) == {"vertical_id", "source", "external_id", "content", "url"}
+    assert set(d.keys()) == {
+        "vertical_id",
+        "vertical_db_id",
+        "taxonomy_version",
+        "source",
+        "external_id",
+        "content",
+        "url",
+    }
     assert d["source"] == "producthunt"
     assert d["external_id"].startswith("ph:")
     assert d["content"]

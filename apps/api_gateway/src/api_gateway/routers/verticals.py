@@ -15,7 +15,13 @@ from application.use_cases.verticals import VerticalsUseCase
 
 router = APIRouter(prefix="/verticals", tags=["verticals"])
 
-VERTICALS_DIR = Path(os.getenv("VERTICALS_DIR", "/app/config/verticals"))
+_DEFAULT_VERTICALS_DIR = Path(os.getenv("VERTICALS_DIR", "/app/config/verticals"))
+if _DEFAULT_VERTICALS_DIR.exists():
+    VERTICALS_DIR = _DEFAULT_VERTICALS_DIR
+else:
+    repo_root = Path(__file__).resolve().parents[5]
+    fallback = repo_root / "config" / "verticals"
+    VERTICALS_DIR = fallback if fallback.exists() else _DEFAULT_VERTICALS_DIR
 INDEX_FILE_JSON = VERTICALS_DIR / "verticals.json"
 INDEX_FILE_YML = VERTICALS_DIR / "verticals.yml"  # legacy-only (not used if JSON exists)
 

@@ -8,7 +8,7 @@ from typing import Any
 
 from sqlalchemy import text
 
-from db.models import PainCluster, PainInstance, Signal
+from db.models import ClusterSignal, PainCluster, PainInstance, Signal
 from db.repos import cluster_signals as cluster_signals_repo
 from db.repos import pain_clusters as clusters_repo
 from db.session import SessionLocal
@@ -181,7 +181,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
         # --- SPAM FILTER APPLIED HERE ---
         filtered_rows = [r for r in rows if not _is_spam(r[2])]
         if not filtered_rows:
-            return {"clusters": 0, "pain_instances": 0, "links_inserted": 0}
+            return {"clusters": 0, "pain_instances": 0, "links_inserted": 0, "skipped": 0}
 
         pain_ids = [int(r[0]) for r in filtered_rows]
         texts = [_clean_text(r[2]) for r in filtered_rows]
@@ -195,14 +195,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
             .all()
         ]
         if existing_cluster_ids:
-            db.execute(
-                text("DELETE FROM cluster_signals WHERE cluster_id = ANY(:ids)"),
-                {"ids": existing_cluster_ids},
-            )
-            db.query(PainCluster).filter(
-                PainCluster.id.in_(existing_cluster_ids)
-            ).delete(synchronize_session=False)
-            db.flush()
+            return {"clusters": 0, "pain_instances": len(pain_ids), "links_inserted": 0, "skipped": 1}
 
         vectorizer = TfidfVectorizer(
             stop_words="english",
@@ -211,7 +204,17 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
             max_df=0.9,
             strip_accents="unicode",
         )
-        X = vectorizer.fit_transform(texts)
+        try:
+            X = vectorizer.fit_transform(texts)
+        except ValueError:
+            vectorizer = TfidfVectorizer(
+                stop_words="english",
+                ngram_range=(1, 2),
+                min_df=1,
+                max_df=1.0,
+                strip_accents="unicode",
+            )
+            X = vectorizer.fit_transform(texts)
 
         n_docs = X.shape[0]
         n_components = min(50, max(2, n_docs - 1), X.shape[1] - 1 if X.shape[1] > 1 else 1)
@@ -293,6 +296,7 @@ def run_clustering_job(job: dict[str, Any]) -> dict[str, int]:
             "clusters": created_clusters,
             "pain_instances": len(pain_ids),
             "links_inserted": total_links,
+            "skipped": 0,
         }
 
     finally:

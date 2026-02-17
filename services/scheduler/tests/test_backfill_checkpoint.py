@@ -36,7 +36,9 @@ def test_backfill_window_resumes_from_checkpoint(db_session):
 
     _run_backfill_window(
         name="backfill_test",
-        vertical_id=1,
+        vertical_id="b2b_ops",
+        vertical_db_id=1,
+        taxonomy_version="2026-02-17",
         source="reddit",
         days=3,
         start=start,
@@ -75,7 +77,9 @@ def test_backfill_checkpoint_survives_crash(db_session):
     with pytest.raises(RuntimeError):
         _run_backfill_window(
             name="backfill_crash",
-            vertical_id=1,
+            vertical_id="b2b_ops",
+            vertical_db_id=1,
+            taxonomy_version="2026-02-17",
             source="reddit",
             days=1,
             start=start,

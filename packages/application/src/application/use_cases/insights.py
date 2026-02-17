@@ -91,11 +91,13 @@ class InsightsUseCase:
 
         return {
             "cluster_id": str(_get(cluster, "id")),
+            "vertical_id": _get(cluster, "vertical_id"),
             "cluster_summary": _get(cluster, "cluster_summary"),
             "exploitability_score": int(_get(cluster, "exploitability_score", 0) or 0),
             "exploitability_tier": str(_get(cluster, "exploitability_tier", "") or ""),
             "severity_score": int(_get(cluster, "severity_score", 0) or 0),
             "breakout_score": int(_get(cluster, "breakout_score", 0) or 0),
+            "saturation_score": int(_get(cluster, "saturation_score", 0) or 0),
             "opportunity_window_status": str(_get(cluster, "opportunity_window_status", "") or ""),
             "confidence_score": int(_get(cluster, "confidence_score", 0) or 0),
             "dominant_persona": str(_get(cluster, "dominant_persona", "") or ""),

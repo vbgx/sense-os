@@ -31,16 +31,13 @@ def create_if_absent(
                 created_at=created_at,
             )
             .on_conflict_do_nothing(index_elements=["source", "external_id"])
+            .returning(models.Signal.id)
         )
-        result = db.execute(stmt)
-        if result.rowcount and result.rowcount > 0:
-            row = (
-                db.query(models.Signal)
-                .filter(models.Signal.source == str(source))
-                .filter(models.Signal.external_id == str(external_id))
-                .one()
-            )
-            return row, True
+        inserted_id = db.execute(stmt).scalar_one_or_none()
+        if inserted_id is not None:
+            row = db.get(models.Signal, inserted_id)
+            if row is not None:
+                return row, True
 
         existing = (
             db.query(models.Signal)

@@ -9,6 +9,7 @@ export type DashboardQueryState = {
   sort: string;
   limit: number;
   offset: number;
+  inspect?: string;
 };
 
 const DEFAULTS: DashboardQueryState = {
@@ -36,6 +37,7 @@ export function useDashboardQueryState() {
       sort: searchParams.get("sort") ?? DEFAULTS.sort,
       limit: parseNumber(searchParams.get("limit"), DEFAULTS.limit),
       offset: parseNumber(searchParams.get("offset"), DEFAULTS.offset),
+      inspect: searchParams.get("inspect") ?? undefined,
     };
   }, [searchParams]);
 
@@ -44,7 +46,14 @@ export function useDashboardQueryState() {
       const params = new URLSearchParams(searchParams.toString());
 
       Object.entries(patch).forEach(([key, value]) => {
-        if (value === undefined || value === "" || value === DEFAULTS[key as keyof DashboardQueryState]) {
+        const k = key as keyof DashboardQueryState;
+
+        const isDefault =
+          value === DEFAULTS[k] ||
+          (value === "" && DEFAULTS[k] === "") ||
+          (value === undefined);
+
+        if (isDefault || value === undefined || value === "") {
           params.delete(key);
         } else {
           params.set(key, String(value));
@@ -60,9 +69,5 @@ export function useDashboardQueryState() {
     router.push(pathname);
   }, [router, pathname]);
 
-  return {
-    state,
-    update,
-    reset,
-  };
+  return { state, update, reset };
 }

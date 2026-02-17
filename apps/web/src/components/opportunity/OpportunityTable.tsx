@@ -12,9 +12,10 @@ import type { TopPainItem } from "@/lib/api/schemas";
 
 interface Props {
   data: TopPainItem[];
+  onRowClick?: (clusterId: string) => void;
 }
 
-export function OpportunityTable({ data }: Props) {
+export function OpportunityTable({ data, onRowClick }: Props) {
   const columns: ColumnDef<TopPainItem>[] = [
     { header: "Summary", accessorKey: "title" },
     { header: "Exploitability", accessorKey: "exploitability" },
@@ -61,19 +62,21 @@ export function OpportunityTable({ data }: Props) {
         <tbody>
           <tr>
             <td colSpan={columns.length}>
-              <div
-                style={{
-                  height: rowVirtualizer.getTotalSize(),
-                  position: "relative",
-                }}
-              >
+              <div style={{ height: rowVirtualizer.getTotalSize(), position: "relative" }}>
                 {rowVirtualizer.getVirtualItems().map((virtualRow) => {
                   const row = table.getRowModel().rows[virtualRow.index];
+
                   return (
                     <div
                       key={row.id}
-                      className="absolute left-0 right-0 flex border-b"
+                      role="button"
+                      tabIndex={0}
+                      className="absolute left-0 right-0 flex border-b hover:bg-muted/40 cursor-pointer"
                       style={{ transform: `translateY(${virtualRow.start}px)` }}
+                      onClick={() => onRowClick?.(row.original.cluster_id)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") onRowClick?.(row.original.cluster_id);
+                      }}
                     >
                       {row.getVisibleCells().map((cell) => {
                         const renderer = cell.column.columnDef.cell;

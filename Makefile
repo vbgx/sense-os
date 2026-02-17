@@ -12,15 +12,29 @@ SHELL := /bin/bash
 COMPOSE_FILE ?= infra/docker/docker-compose.yml
 API_BASE_URL ?= http://localhost:8000
 
+# Scheduler inputs (single-vertical mode)
 VERTICAL_ID ?= 1
 SOURCE ?= reddit
 QUERY ?= saas
 LIMIT ?= 50
-VERTICAL ?=
+
+# Seed-and-run (file mode: JSON only)
+VERTICAL ?= config/verticals/saas_founders.json
+
+# Vertical catalog / activation
+VERTICALS_DIR ?= config/verticals
+VERTICALS_INDEX ?= $(VERTICALS_DIR)/verticals.json
+BATCH ?= 100
+SHUFFLE ?= 0
+DRY_RUN ?= 0
+TIER ?=
+PRIORITY_MAX ?=
+PRIORITY_MIN ?=
 
 # Trend job day (optional). If empty, publish_trend_job.sh may default internally.
 DAY ?=
 
+# Backfill
 BACKFILL_DAYS ?= 90
 BACKFILL_START ?=
 BACKFILL_END ?=
@@ -39,6 +53,7 @@ SCRIPTS_DIR := ./tools/scripts
 	seed \
 	seed-and-run \
 	scheduler scheduler-once \
+	verticals-compile verticals-check verticals-batch \
 	backfill \
 	trend-once \
 	redis-flush \
@@ -54,13 +69,17 @@ SCRIPTS_DIR := ./tools/scripts
 
 help: ## Show all commands with usage + current variable defaults
 	@printf "\nSense OS — Commands (Makefile)\n\n"
-	@awk 'BEGIN {FS=":.*##"} /^[a-zA-Z0-9_.-]+:.*##/ {printf "  \033[36m%-18s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+	@awk 'BEGIN {FS=":.*##"} /^[a-zA-Z0-9_.-]+:.*##/ {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 	@printf "\n"
 	@printf "Current defaults:\n"
 	@printf "  COMPOSE_FILE=%s\n" "$(COMPOSE_FILE)"
 	@printf "  API_BASE_URL=%s\n" "$(API_BASE_URL)"
 	@printf "  VERTICAL_ID=%s SOURCE=%s QUERY=%s LIMIT=%s\n" "$(VERTICAL_ID)" "$(SOURCE)" "$(QUERY)" "$(LIMIT)"
 	@printf "  VERTICAL=%s\n" "$(VERTICAL)"
+	@printf "  VERTICALS_DIR=%s\n" "$(VERTICALS_DIR)"
+	@printf "  VERTICALS_INDEX=%s\n" "$(VERTICALS_INDEX)"
+	@printf "  BATCH=%s SHUFFLE=%s DRY_RUN=%s TIER=%s\n" "$(BATCH)" "$(SHUFFLE)" "$(DRY_RUN)" "$(TIER)"
+	@printf "  PRIORITY_MIN=%s PRIORITY_MAX=%s\n" "$(PRIORITY_MIN)" "$(PRIORITY_MAX)"
 	@printf "  DAY=%s\n" "$(DAY)"
 	@printf "  BACKFILL_DAYS=%s BACKFILL_START=%s BACKFILL_END=%s BACKFILL_SERIES=%s\n" "$(BACKFILL_DAYS)" "$(BACKFILL_START)" "$(BACKFILL_END)" "$(BACKFILL_SERIES)"
 	@printf "\nExamples:\n"
@@ -69,7 +88,10 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  make seed\n"
 	@printf "  make queues\n"
 	@printf "  make scheduler-once VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=200\n"
-	@printf "  make seed-and-run VERTICAL=config/verticals/saas_founders.yml\n"
+	@printf "  make seed-and-run VERTICAL=config/verticals/saas_founders.json SOURCE=reddit LIMIT=80\n"
+	@printf "  make verticals-compile TARGET=10000\n"
+	@printf "  make verticals-check\n"
+	@printf "  make verticals-batch BATCH=200 SOURCE=reddit LIMIT=80 DRY_RUN=1\n"
 	@printf "  make trend-once VERTICAL_ID=1 DAY=2026-02-15\n"
 	@printf "  make backfill BACKFILL_SERIES=1\n"
 	@printf "  make validate-fast\n\n"
@@ -143,8 +165,8 @@ migrate-file: ## Deprecated: legacy SQL migration file (use Alembic)
 seed: ## Usage: make seed — Seeds verticals via api-gateway container (python -m db.seed)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/seed_verticals.sh
 
-seed-and-run: ## Usage: make seed-and-run VERTICAL=path/to.yml [SOURCE=reddit LIMIT=50]
-	@[ -n "$(VERTICAL)" ] || (echo "ERROR: VERTICAL is required. Example: make seed-and-run VERTICAL=config/verticals/saas_founders.yml" >&2; exit 1)
+seed-and-run: ## Usage: make seed-and-run VERTICAL=path/to.json [SOURCE=reddit LIMIT=50]
+	@[ -n "$(VERTICAL)" ] || (echo "ERROR: VERTICAL is required. Example: make seed-and-run VERTICAL=config/verticals/saas_founders.json" >&2; exit 1)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" SOURCE="$(SOURCE)" LIMIT="$(LIMIT)" \
 	  $(SCRIPTS_DIR)/seed_and_run_vertical.sh "$(VERTICAL)"
 
@@ -165,6 +187,40 @@ scheduler-once: ## Usage: make scheduler-once [VERTICAL_ID=1 SOURCE=reddit QUERY
 	  $(SCRIPTS_DIR)/run_scheduler_once.sh
 
 scheduler: scheduler-once ## Alias: runs scheduler once (compat)
+
+# ============================================================
+# Verticals — JSON taxonomy engine
+# ============================================================
+
+verticals-compile: ## Usage: make verticals-compile TARGET=10000 [PRUNE=1] [CHECK=1]
+	@TARGET ?= 1000
+	@PRUNE ?= 0
+	@CHECK ?= 0
+	@args="--dir $(VERTICALS_DIR) --target $(TARGET)"; \
+	if [ "$(PRUNE)" = "1" ]; then args="$$args --prune"; fi; \
+	if [ "$(CHECK)" = "1" ]; then args="$$args --check"; fi; \
+	python tools/scripts/verticals_compile.py $$args
+
+verticals-check: ## Usage: make verticals-check — Runs taxonomy tests (JSON-only)
+	@pytest -q tests/test_verticals_taxonomy.py
+
+verticals-batch: ## Usage: make verticals-batch BATCH=200 SOURCE=reddit LIMIT=80 [DRY_RUN=1] [SHUFFLE=1] [TIER=core]
+	@COMPOSE_FILE="$(COMPOSE_FILE)" \
+	  VERTICALS_DIR="$(VERTICALS_DIR)" VERTICALS_INDEX="$(VERTICALS_INDEX)" \
+	  BATCH="$(BATCH)" SHUFFLE="$(SHUFFLE)" DRY_RUN="$(DRY_RUN)" \
+	  TIER="$(TIER)" PRIORITY_MIN="$(PRIORITY_MIN)" PRIORITY_MAX="$(PRIORITY_MAX)" \
+	  SOURCE="$(SOURCE)" LIMIT="$(LIMIT)" \
+	  python tools/scripts/run_scheduler_batch_from_index.py \
+	    --dir "$(VERTICALS_DIR)" \
+	    --index "$(VERTICALS_INDEX)" \
+	    --batch "$(BATCH)" \
+	    --source "$(SOURCE)" \
+	    --limit "$(LIMIT)" \
+	    $(if $(filter 1,$(SHUFFLE)),--shuffle,) \
+	    $(if $(filter 1,$(DRY_RUN)),--dry-run,) \
+	    $(if $(TIER),--tier "$(TIER)",) \
+	    $(if $(PRIORITY_MIN),--priority-min "$(PRIORITY_MIN)",) \
+	    $(if $(PRIORITY_MAX),--priority-max "$(PRIORITY_MAX)",)
 
 # ============================================================
 # Backfill
@@ -248,5 +304,6 @@ deprecated: ## Usage: make deprecated — Shows legacy scripts you should delete
 	@echo "  - tools/scripts/patch_makefile_migrate.py (legacy SQL)"
 	@echo "  - (archived legacy SQL)/* (do not use)"
 
-verticals-validate: ## Validate YAML in config/verticals
-	@python tools/scripts/validate_verticals_yaml.py
+verticals-validate: ## Deprecated (YAML): do not use
+	@echo "DEPRECATED: YAML vertical validation removed. Verticals are JSON-only." >&2
+	@exit 1

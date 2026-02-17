@@ -18,4 +18,5 @@ node_modules/
 *.zip
 *.tar.gz
 *.egg
+*.json
 

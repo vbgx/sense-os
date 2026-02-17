@@ -1,12 +1,55 @@
 import { z } from "zod";
 
-export const DateOnly = z
-  .string()
-  .refine((s) => /^\d{4}-\d{2}-\d{2}$/.test(s), "Invalid date (expected YYYY-MM-DD)");
+/* ──────────────────────────────────────────────────────────
+ * INSIGHTS — Top pains (Opportunity board / Overview / Emerging / Declining)
+ * Backend: api_gateway.schemas.insights.TopPainOut
+ * ────────────────────────────────────────────────────────── */
+
+export const BuildSignalSchema = z
+  .object({
+    recommendation: z.string(),
+    reasoning_summary: z.string(),
+    top_positive_factors: z.array(z.string()).default([]),
+    top_risk_factors: z.array(z.string()).default([]),
+  })
+  .passthrough();
+
+export const TopPainSchema = z
+  .object({
+    cluster_id: z.string(),
+    cluster_summary: z.string().nullable().optional(),
+
+    exploitability_score: z.number().int(),
+    exploitability_tier: z.string(),
+
+    severity_score: z.number().int(),
+    breakout_score: z.number().int(),
+    opportunity_window_status: z.string(),
+    confidence_score: z.number().int(),
+
+    dominant_persona: z.string(),
+    build_signal: BuildSignalSchema,
+
+    // Optional forward-compat (you may expose these later)
+    vertical_id: z.string().nullable().optional(),
+    saturation_score: z.number().int().optional(),
+    updated_at: z.string().optional(),
+  })
+  .passthrough();
+
+export const TopPainsSchema = z.array(TopPainSchema);
+
+export type BuildSignal = z.infer<typeof BuildSignalSchema>;
+export type TopPain = z.infer<typeof TopPainSchema>;
+
+/* ──────────────────────────────────────────────────────────
+ * INSIGHTS — Cluster detail (Deep dive + Inspect drawer)
+ * Backend: api_gateway.schemas.cluster_detail.ClusterDetailOut
+ * ────────────────────────────────────────────────────────── */
 
 export const TimelinePointSchema = z
   .object({
-    date: DateOnly,
+    date: z.string(), // ISO date (YYYY-MM-DD)
     volume: z.number().int(),
     growth_rate: z.number(),
     velocity: z.number(),
@@ -18,13 +61,12 @@ export const RepresentativeSignalSchema = z
   .object({
     id: z.string(),
     text: z.string(),
+    // forward-compat (if you expose url/title later)
+    url: z.string().optional(),
+    title: z.string().optional(),
   })
   .passthrough();
 
-/**
- * ClusterDetailOut (Pydantic)
- * response: GET /insights/{cluster_id}
- */
 export const ClusterDetailSchema = z
   .object({
     cluster_id: z.string(),
@@ -32,6 +74,7 @@ export const ClusterDetailSchema = z
 
     exploitability_score: z.number().int(),
     exploitability_tier: z.string(),
+
     exploitability_score_v2: z.number().int(),
     exploitability_tier_v2: z.string(),
     exploitability_version_v2: z.string(),
@@ -47,60 +90,24 @@ export const ClusterDetailSchema = z
 
     confidence_score: z.number().int(),
 
-    key_phrases: z.array(z.string()),
-    representative_signals: z.array(RepresentativeSignalSchema),
-    timeline: z.array(TimelinePointSchema),
+    key_phrases: z.array(z.string()).default([]),
+    representative_signals: z.array(RepresentativeSignalSchema).default([]),
+    timeline: z.array(TimelinePointSchema).default([]),
   })
   .passthrough();
 
-export type ClusterDetail = z.infer<typeof ClusterDetailSchema>;
 export type TimelinePoint = z.infer<typeof TimelinePointSchema>;
 export type RepresentativeSignal = z.infer<typeof RepresentativeSignalSchema>;
-
-/**
- * TopPainOut (Pydantic)
- * response: GET /insights/top_pains (and emerging/declining lists)
- */
-export const BuildSignalSchema = z
-  .object({
-    // BuildSignalOut exists in your API gateway; keep flexible but typed enough to render safely.
-    // Add fields later if you want to display them.
-  })
-  .passthrough();
-
-export const TopPainSchema = z
-  .object({
-    cluster_id: z.string(),
-    vertical_id: z.string().nullable().optional(),
-    cluster_summary: z.string().nullable().optional(),
-
-    exploitability_score: z.number().int(),
-    exploitability_tier: z.string(),
-    severity_score: z.number().int(),
-
-    breakout_score: z.number().int(),
-    saturation_score: z.number().int(),
-
-    opportunity_window_status: z.string(),
-    confidence_score: z.number().int(),
-    dominant_persona: z.string(),
-
-    build_signal: BuildSignalSchema,
-  })
-  .passthrough();
-
-export const TopPainsSchema = z.array(TopPainSchema);
-
-export type TopPain = z.infer<typeof TopPainSchema>;
-export type TopPains = z.infer<typeof TopPainsSchema>;
+export type ClusterDetail = z.infer<typeof ClusterDetailSchema>;
 
 /* ──────────────────────────────────────────────────────────
  * VERTICALS
+ * Backend: api_gateway.schemas.verticals.VerticalOut (unknown shape)
  * ────────────────────────────────────────────────────────── */
 
 export const VerticalSchema = z
   .object({
-    id: z.number().int(),
+    id: z.union([z.number().int(), z.string()]),
     name: z.string(),
   })
   .passthrough();
@@ -110,9 +117,9 @@ export const VerticalsSchema = z.array(VerticalSchema);
 export type Vertical = z.infer<typeof VerticalSchema>;
 
 /* ──────────────────────────────────────────────────────────
- * TRENDS (vertical-scoped cluster list with sparklines)
- * We keep this permissive because exact Trend schemas aren't shown here.
- * The only hard requirement for the UI is a stable cluster_id + sparkline array.
+ * TRENDS
+ * Backend: api_gateway.schemas.trends.TrendListResponse (unknown shape)
+ * We keep it permissive but typed, no any.
  * ────────────────────────────────────────────────────────── */
 
 export const TrendSparkPointSchema = z
@@ -129,12 +136,11 @@ export const TrendItemSchema = z
   .object({
     cluster_id: z.string(),
     cluster_summary: z.string().nullable().optional(),
+
     exploitability_score: z.number().int().optional(),
-    exploitability_tier: z.string().optional(),
     breakout_score: z.number().int().optional(),
-    saturation_score: z.number().int().optional(),
-    confidence_score: z.number().int().optional(),
-    sparkline: z.array(TrendSparkPointSchema).optional(),
+
+    sparkline: z.array(TrendSparkPointSchema).default([]),
   })
   .passthrough();
 
@@ -147,3 +153,47 @@ export const TrendListResponseSchema = z
 export type TrendSparkPoint = z.infer<typeof TrendSparkPointSchema>;
 export type TrendItem = z.infer<typeof TrendItemSchema>;
 export type TrendListResponse = z.infer<typeof TrendListResponseSchema>;
+
+/* ──────────────────────────────────────────────────────────
+ * OPS (Analytics / Transparency)
+ * Backend: /ops/queues + /ops/runs (unknown shape)
+ * ────────────────────────────────────────────────────────── */
+
+export const OpsQueueItemSchema = z
+  .object({
+    name: z.string().optional(),
+    depth: z.number().int().optional(),
+    lag_seconds: z.number().optional(),
+    oldest_age_seconds: z.number().optional(),
+  })
+  .passthrough();
+
+export const OpsQueuesResponseSchema = z
+  .object({
+    items: z.array(OpsQueueItemSchema).default([]),
+  })
+  .passthrough();
+
+export type OpsQueueItem = z.infer<typeof OpsQueueItemSchema>;
+export type OpsQueuesResponse = z.infer<typeof OpsQueuesResponseSchema>;
+
+export const OpsRunItemSchema = z
+  .object({
+    run_id: z.string().optional(),
+    id: z.string().optional(),
+    status: z.string().optional(),
+    started_at: z.string().optional(),
+    finished_at: z.string().optional(),
+    day: z.string().optional(),
+    vertical_id: z.number().int().optional(),
+  })
+  .passthrough();
+
+export const OpsRunsResponseSchema = z
+  .object({
+    items: z.array(OpsRunItemSchema).default([]),
+  })
+  .passthrough();
+
+export type OpsRunItem = z.infer<typeof OpsRunItemSchema>;
+export type OpsRunsResponse = z.infer<typeof OpsRunsResponseSchema>;

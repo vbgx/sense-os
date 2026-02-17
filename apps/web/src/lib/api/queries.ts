@@ -6,6 +6,8 @@ import {
   ClusterDetailSchema,
   VerticalsSchema,
   TrendListResponseSchema,
+  OpsQueuesResponseSchema,
+  OpsRunsResponseSchema,
 } from "@/lib/api/schemas";
 
 const API_BASE_URL =
@@ -111,7 +113,7 @@ export function useVerticals() {
 }
 
 /* ──────────────────────────────────────────────────────────
- * TRENDS (cluster list scoped to a vertical)
+ * TRENDS
  * Endpoint: GET /trending?vertical_id=...
  * ────────────────────────────────────────────────────────── */
 
@@ -136,5 +138,33 @@ export function useTrending(params: {
     },
     enabled: params.enabled ?? true,
     staleTime: 30_000,
+  });
+}
+
+/* ──────────────────────────────────────────────────────────
+ * OPS (Transparency)
+ * ────────────────────────────────────────────────────────── */
+
+export function useOpsQueues() {
+  return useQuery({
+    queryKey: ["ops", "queues"],
+    queryFn: async () => {
+      const data = await apiGetJson("/ops/queues");
+      return OpsQueuesResponseSchema.parse(data);
+    },
+    staleTime: 10_000,
+    refetchInterval: 15_000,
+  });
+}
+
+export function useOpsRuns() {
+  return useQuery({
+    queryKey: ["ops", "runs"],
+    queryFn: async () => {
+      const data = await apiGetJson("/ops/runs");
+      return OpsRunsResponseSchema.parse(data);
+    },
+    staleTime: 10_000,
+    refetchInterval: 30_000,
   });
 }

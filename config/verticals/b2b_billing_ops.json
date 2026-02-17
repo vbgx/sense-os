@@ -27,5 +27,15 @@
   "axes": {
     "audience": "b2b"
   },
-  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=security_lead)."
+  "notes": "Generated deterministically from taxonomy (member=billing_ops, persona=security_lead).",
+  "tier": "core",
+  "meta": {
+    "audience": "b2b",
+    "function": null,
+    "industry": null,
+    "cluster": null,
+    "member": null,
+    "persona": "security_lead",
+    "variant": null
+  }
 }

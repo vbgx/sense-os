@@ -24,5 +24,15 @@
   ],
   "persona": "sales_rep",
   "axes": {},
-  "notes": "Generated deterministically from taxonomy (member=ae, persona=sales_rep)."
+  "notes": "Generated deterministically from taxonomy (member=ae, persona=sales_rep).",
+  "tier": "core",
+  "meta": {
+    "audience": null,
+    "function": null,
+    "industry": null,
+    "cluster": null,
+    "member": null,
+    "persona": "sales_rep",
+    "variant": null
+  }
 }

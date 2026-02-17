@@ -24,5 +24,15 @@
   ],
   "persona": "ops_manager",
   "axes": {},
-  "notes": "Generated deterministically from taxonomy (member=api_design, persona=ops_manager)."
+  "notes": "Generated deterministically from taxonomy (member=api_design, persona=ops_manager).",
+  "tier": "core",
+  "meta": {
+    "audience": null,
+    "function": null,
+    "industry": null,
+    "cluster": null,
+    "member": null,
+    "persona": "ops_manager",
+    "variant": null
+  }
 }

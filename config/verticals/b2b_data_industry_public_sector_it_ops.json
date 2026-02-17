@@ -31,5 +31,15 @@
     "function": "data",
     "industry": "industry_public_sector"
   },
-  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=engineer)."
+  "notes": "Generated deterministically from taxonomy (member=it_ops, persona=engineer).",
+  "tier": "core",
+  "meta": {
+    "audience": "b2b",
+    "function": "data",
+    "industry": "industry_public_sector",
+    "cluster": null,
+    "member": null,
+    "persona": "engineer",
+    "variant": null
+  }
 }

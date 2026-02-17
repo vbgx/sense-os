@@ -29,5 +29,15 @@
     "function": "sales",
     "industry": "industry_travel"
   },
-  "notes": "Generated deterministically from taxonomy (member=analytics, persona=engineer)."
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=engineer).",
+  "tier": "core",
+  "meta": {
+    "audience": null,
+    "function": "sales",
+    "industry": "industry_travel",
+    "cluster": null,
+    "member": null,
+    "persona": "engineer",
+    "variant": null
+  }
 }

@@ -24,5 +24,15 @@
   ],
   "persona": "founder",
   "axes": {},
-  "notes": "Generated deterministically from taxonomy (member=analytics, persona=founder)."
+  "notes": "Generated deterministically from taxonomy (member=analytics, persona=founder).",
+  "tier": "core",
+  "meta": {
+    "audience": null,
+    "function": null,
+    "industry": null,
+    "cluster": null,
+    "member": null,
+    "persona": "founder",
+    "variant": null
+  }
 }

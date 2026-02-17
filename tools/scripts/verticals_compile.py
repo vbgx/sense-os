@@ -15,6 +15,9 @@ DEFAULT_TAXONOMY_FILE = "taxonomy.json"
 FALLBACK_TAXONOMY_FILE = "_taxonomy.json"
 INDEX_JSON = "verticals.json"
 BULK_TSV_SUFFIX = "_bulk_seed.tsv"
+DEFAULT_TIER = "core"
+ALLOWED_TIERS = {"core", "experimental", "long_tail"}
+META_KEYS = ("audience", "function", "industry", "cluster", "member", "persona", "variant")
 
 
 def _die(msg: str) -> None:
@@ -192,6 +195,42 @@ def _build_queries(member: Member, persona_keywords: List[str], suffixes: List[s
     return uniq
 
 
+def _normalize_tier(value: Any) -> str:
+    if isinstance(value, str):
+        v = value.strip().lower()
+        if v in ALLOWED_TIERS:
+            return v
+    return DEFAULT_TIER
+
+
+def _normalize_meta(
+    meta: Any,
+    axes: Dict[str, Any] | None,
+    persona: Any,
+) -> Dict[str, Optional[str]]:
+    meta_in: Dict[str, Any] = meta if isinstance(meta, dict) else {}
+    axes_in: Dict[str, Any] = axes if isinstance(axes, dict) else {}
+
+    merged: Dict[str, Any] = dict(meta_in)
+    for key in ("audience", "function", "industry", "cluster", "member", "variant"):
+        if merged.get(key) in (None, ""):
+            v = axes_in.get(key)
+            if v not in (None, ""):
+                merged[key] = v
+    if merged.get("persona") in (None, "") and persona not in (None, ""):
+        merged["persona"] = persona
+
+    out: Dict[str, Optional[str]] = {}
+    for key in META_KEYS:
+        v = merged.get(key)
+        if v is None:
+            out[key] = None
+            continue
+        s = str(v).strip()
+        out[key] = s if s else None
+    return out
+
+
 def _make_vertical_doc(
     *,
     vid: str,
@@ -204,6 +243,8 @@ def _make_vertical_doc(
     notes: str,
     enabled: bool,
     version: int = 1,
+    meta: Optional[Dict[str, Any]] = None,
+    tier: str = DEFAULT_TIER,
 ) -> Dict[str, Any]:
     return {
         "id": vid,
@@ -216,6 +257,8 @@ def _make_vertical_doc(
         "default_queries": default_queries,
         "persona": persona_id,
         "axes": axes,
+        "meta": _normalize_meta(meta, axes, persona_id),
+        "tier": _normalize_tier(tier),
         "notes": notes,
     }
 
@@ -378,6 +421,9 @@ def compile_verticals(verticals_dir: Path, target: int, prune: bool, check: bool
     engine = tax.get("engine") or {}
     default_enabled = bool(engine.get("default_enabled", True))
     prio_step = int(engine.get("default_priority_step", 10))
+    taxonomy_version = str(tax.get("taxonomy_version") or "").strip()
+    if not taxonomy_version:
+        taxonomy_version = "unknown"
 
     existing_ids, existing_map = _existing_ids(verticals_dir)
     existing_set = set(existing_ids)
@@ -498,17 +544,34 @@ def compile_verticals(verticals_dir: Path, target: int, prune: bool, check: bool
     index_items: List[Dict[str, Any]] = []
     prio = prio_step
     for cid in final_ids:
+        meta = None
+        tier = None
+        doc_path = verticals_dir / f"{cid}.json"
+        if doc_path.exists():
+            doc = _read_json(doc_path)
+            if isinstance(doc, dict):
+                meta = _normalize_meta(doc.get("meta"), doc.get("axes"), doc.get("persona"))
+                tier = _normalize_tier(doc.get("tier"))
+        if meta is None:
+            axes, _m = cand_map.get(cid, ({}, Member(id=cid, label=cid, default_queries=[])))
+            persona_id = _stable_pick(persona_ids, cid) if persona_ids else "general"
+            meta = _normalize_meta(None, axes, persona_id)
+        if tier is None:
+            tier = DEFAULT_TIER
         index_items.append(
             {
                 "id": cid,
                 "file": f"{cid}.json",
                 "enabled": default_enabled,
                 "priority": prio,
+                "tier": tier,
+                "meta": meta,
+                "taxonomy_version": taxonomy_version,
             }
         )
         prio += prio_step
 
-    index_doc = {"verticals": index_items}
+    index_doc = {"taxonomy_version": taxonomy_version, "verticals": index_items}
     changed |= _write_json(verticals_dir / INDEX_JSON, index_doc, check=check)
 
     return changed

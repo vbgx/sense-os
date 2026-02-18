@@ -15,10 +15,14 @@ def _cosine_sim(a: np.ndarray, b: np.ndarray) -> float:
 
 def cluster_vectors(vectors, *, params: dict[str, Any] | None = None) -> list[int]:
     params = params or {}
-    thr = float(params.get("similarity_threshold", 0.82))
-
     X = np.asarray(vectors, dtype=float)
     n = int(X.shape[0])
+
+    if "similarity_threshold" not in params:
+        # Density-based clustering not wired here; return noise-only labels for deterministic behavior.
+        return [-1] * n
+
+    thr = float(params.get("similarity_threshold", 0.82))
     labels = [-1] * n
     cluster_id = 0
 

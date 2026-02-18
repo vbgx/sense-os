@@ -14,7 +14,7 @@ log = logging.getLogger("ingestion-worker")
 
 
 @job_handler("ingest_vertical")
-def handle_ingest_vertical(job: dict[str, Any]) -> None:
+def handle_ingest_vertical(job: dict[str, Any]) -> bool:
     result = ingest_vertical(job)
 
     sources = int(result.get("sources", 0) or 0)
@@ -35,6 +35,7 @@ def handle_ingest_vertical(job: dict[str, Any]) -> None:
         job.get("run_id"),
         job.get("day") or job.get("start_day"),
     )
+    return True
 
 
 def main() -> None:

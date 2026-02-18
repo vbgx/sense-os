@@ -1,41 +1,86 @@
 from __future__ import annotations
 
-import logging
-from typing import Any
+import json
+import os
+import sys
+import time
+from typing import Any, Dict
 
-from sense_queue.client import RedisJobQueueClient
-from sense_queue.worker_base import job_handler
+from processing_worker.observability.logging import get_logger, safe_extra
+from processing_worker.pipeline import handle_job
 
-from processing_worker.pipeline.process_batch import process_signals_batch
-
-logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
-log = logging.getLogger("processing-worker")
+log = get_logger(__name__)
 
 
-@job_handler("process_signals")
-def handle_process_signals(job: dict[str, Any]) -> None:
-    res = process_signals_batch(job)
+def _load_job_from_env_or_stdin() -> Dict[str, Any]:
+    """
+    Minimal, deterministic job loader.
 
-    signals_n = int(res.get("signals", 0) or 0)
-    created_n = int(res.get("pain_instances_created", 0) or 0)
-    skipped_n = int(res.get("pain_instances_skipped", 0) or 0)
+    Priority:
+      1) JOB_JSON env var
+      2) stdin JSON (single object)
+      3) fallback empty dict
+    """
+    raw = os.environ.get("JOB_JSON")
+    if raw:
+        return json.loads(raw)
 
-    log.info(
-        "Processed vertical_id=%s vertical_db_id=%s run_id=%s day=%s signals=%s",
-        job.get("vertical_id"),
-        job.get("vertical_db_id"),
-        job.get("run_id"),
-        job.get("day"),
-        signals_n,
-    )
-    log.info("pain_instances_created=%s", created_n)
-    log.info("pain_instances_skipped=%s", skipped_n)
+    if not sys.stdin.isatty():
+        data = sys.stdin.read().strip()
+        if data:
+            return json.loads(data)
+
+    return {}
 
 
 def main() -> None:
-    log.info("Processing worker booted")
-    client = RedisJobQueueClient()
-    client.run(queue="process")
+    started = time.time()
+    job = _load_job_from_env_or_stdin()
+
+    worker_name = "processing_worker"
+    job_id = job.get("job_id")
+    vertical_db_id = job.get("vertical_db_id")
+
+    try:
+        res = handle_job(job)
+        took_ms = int((time.time() - started) * 1000)
+
+        log_res = {
+            "items_processed": int(res.get("processed", 0)),
+            "items_created": int(res.get("created", 0)),
+            "items_skipped": int(res.get("skipped", 0)),
+            "items_errors": int(res.get("errors", 0)),
+        }
+
+        log.info(
+            "job_done",
+            extra=safe_extra({
+                "worker": worker_name,
+                "job_id": job_id,
+                "vertical_db_id": vertical_db_id,
+                "duration_ms": took_ms,
+                **log_res,
+            }),
+        )
+
+        # output machine-readable for scripts
+        print(json.dumps({"ok": True, "result": res}))
+        if int(res.get("errors", 0)) > 0:
+            raise SystemExit(1)
+
+    except Exception:
+        took_ms = int((time.time() - started) * 1000)
+        log.exception(
+            "job_failed",
+            extra=safe_extra({
+                "worker": worker_name,
+                "job_id": job_id,
+                "vertical_db_id": vertical_db_id,
+                "duration_ms": took_ms,
+            }),
+        )
+        print(json.dumps({"ok": False}))
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

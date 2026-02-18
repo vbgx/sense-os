@@ -1,0 +1,11 @@
+[project]
+name = "sense-common"
+version = "0.1.0"
+description = "Shared utilities for Sense workers (observability, http, rate limiting, utils)"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -2,57 +2,50 @@ from __future__ import annotations
 
 from typing import Any
 
-from processing_worker.settings import ALGO_VERSION
-from processing_worker.features.extract_features import extract_features
-from processing_worker.scoring import score_features
-from processing_worker.storage.pain_instances_writer import write_pain_instance
-from processing_worker.pipeline.load_signals import load_batch
+from processing_worker.features_registry.registry import FEATURES
+from processing_worker.features_registry.types import FeatureContext
+from processing_worker.models.signal_envelope import SignalEnvelope
+from processing_worker.observability.feature_metrics import FeatureMetrics, timed_call
 
 
-def process_batch(*, signals: list[Any], vertical_db_id: int) -> dict[str, int]:
-    created = 0
-    skipped = 0
+def process_batch(job: dict[str, Any], signals: list[dict[str, Any]]) -> tuple[list[SignalEnvelope], FeatureMetrics]:
+    taxonomy_version = str(job["taxonomy_version"])
+    vertical_db_id = int(job["vertical_db_id"])
+
+    ctx = FeatureContext(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version)
+    metrics = FeatureMetrics()
+
+    envelopes: list[SignalEnvelope] = []
 
     for s in signals:
-        # s is a SQLAlchemy Signal model (id, content, ...)
-        content = getattr(s, "content", None)
-        if not isinstance(content, str) or not content.strip():
-            skipped += 1
-            continue
+        signal_id = int(s["id"])
+        text = str(s.get("text") or "")
+        title = str(s.get("title") or "")
+        content = f"{title}\n\n{text}".strip()
 
-        features = extract_features(content)
-        score, breakdown = score_features(features)
+        results: dict[str, Any] = {}
+        for spec in FEATURES:
+            results[spec.name] = timed_call(metrics, spec.name, spec.fn, content=content, ctx=ctx)
 
-        _, was_created = write_pain_instance(
-            vertical_id=int(vertical_db_id),
-            signal_id=int(getattr(s, "id")),
-            algo_version=str(ALGO_VERSION),
-            pain_score=float(score),
-            breakdown=breakdown,
+        pain_instance = {
+            "signal_id": signal_id,
+            "vertical_db_id": vertical_db_id,
+            "taxonomy_version": taxonomy_version,
+            "pain_score": results.get("pain_score"),
+        }
+
+        envelopes.append(
+            SignalEnvelope(
+                signal_id=signal_id,
+                vertical_db_id=vertical_db_id,
+                taxonomy_version=taxonomy_version,
+                language_code=results.get("language"),
+                spam_score=results.get("spam"),
+                quality_score=results.get("quality"),
+                vertical_auto=results.get("vertical_auto"),
+                pain_score=results.get("pain_score"),
+                pain_instance=pain_instance,
+            )
         )
-        if was_created:
-            created += 1
-        else:
-            skipped += 1
 
-    return {
-        "signals": int(len(signals)),
-        "pain_instances_created": int(created),
-        "pain_instances_skipped": int(skipped),
-    }
-
-
-def process_signals_batch(job: dict[str, Any]) -> dict[str, int]:
-    vertical_db_id = int(job.get("vertical_db_id") or 0)
-    if vertical_db_id <= 0:
-        return {"signals": 0, "pain_instances_created": 0, "pain_instances_skipped": 0}
-
-    limit = job.get("limit")
-    offset = job.get("offset")
-
-    # Defaults: process all current signals for the vertical (safe for V0)
-    limit_i = int(limit) if isinstance(limit, int) else 500
-    offset_i = int(offset) if isinstance(offset, int) else 0
-
-    signals = load_batch(vertical_db_id=vertical_db_id, limit=limit_i, offset=offset_i)
-    return process_batch(signals=signals, vertical_db_id=vertical_db_id)
+    return envelopes, metrics

@@ -13,10 +13,6 @@ def asdict(job: Any) -> dict:
     raise TypeError(f"Unsupported job type: {type(job)!r}")
 
 
-# ---------------------------------------------------------------------
-# Jobs (must match planner expectations)
-# ---------------------------------------------------------------------
-
 @dataclass(frozen=True)
 class IngestJob:
     type: str = "ingest_vertical"
@@ -26,8 +22,10 @@ class IngestJob:
     source: str = "reddit"
     run_id: str | None = None
 
-    # planner may pass these (backfill / deterministic runs)
     day: str | None = None
+    start_day: str | None = None
+    end_day: str | None = None
+
     query: str | None = None
     limit: int | None = None
     offset: int | None = None
@@ -44,7 +42,6 @@ class ProcessJob:
     algo_version: str = "heuristics_v1"
     run_id: str | None = None
 
-    # planner may pass these (day-scoped processing + batch sizing / paging)
     day: str | None = None
     limit: int | None = None
     offset: int | None = None
@@ -61,7 +58,6 @@ class ClusterJob:
     cluster_version: str = "tfidf_v1"
     run_id: str | None = None
 
-    # planner may pass these (day-scoped clustering + optional batching)
     day: str | None = None
     limit: int | None = None
     offset: int | None = None
@@ -75,16 +71,12 @@ class TrendJob:
     vertical_id: str = ""
     vertical_db_id: int = 0
     taxonomy_version: str = ""
-    day: str = ""  # ISO YYYY-MM-DD
+    day: str = ""
     formula_version: str = "formula_v1"
     cluster_version: str = "tfidf_v1"
     run_id: str | None = None
     queue: str = "trend"
 
-
-# ---------------------------------------------------------------------
-# Factories
-# ---------------------------------------------------------------------
 
 def make_ingest_job(
     *,
@@ -94,6 +86,8 @@ def make_ingest_job(
     source: str,
     run_id: str | None = None,
     day: str | None = None,
+    start_day: str | None = None,
+    end_day: str | None = None,
     query: str | None = None,
     limit: int | None = None,
     offset: int | None = None,
@@ -105,6 +99,8 @@ def make_ingest_job(
         source=source,
         run_id=run_id,
         day=day,
+        start_day=start_day,
+        end_day=end_day,
         query=query,
         limit=limit,
         offset=offset,
@@ -152,6 +148,7 @@ def make_cluster_job(
         offset=offset,
     )
 
+
 def make_trend_job(
     *,
     day: str,
@@ -169,10 +166,6 @@ def make_trend_job(
     )
 
 
-# ---------------------------------------------------------------------
-# Backward-compatible aliases
-# ---------------------------------------------------------------------
-
 def make_ingest_vertical_job(
     *,
     vertical_id: str,
@@ -181,6 +174,8 @@ def make_ingest_vertical_job(
     source: str,
     run_id: str | None = None,
     day: str | None = None,
+    start_day: str | None = None,
+    end_day: str | None = None,
     query: str | None = None,
     limit: int | None = None,
     offset: int | None = None,
@@ -192,6 +187,8 @@ def make_ingest_vertical_job(
         source=source,
         run_id=run_id,
         day=day,
+        start_day=start_day,
+        end_day=end_day,
         query=query,
         limit=limit,
         offset=offset,
@@ -238,6 +235,7 @@ def make_cluster_vertical_job(
         limit=limit,
         offset=offset,
     )
+
 
 def make_trend_day_job(
     *,

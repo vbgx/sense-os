@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from clustering_worker.storage.severity import InstanceForSeverity, compute_cluster_severity
+from domain.scoring.cluster.severity_v1 import InstanceForSeverity, compute_cluster_severity
 
 
 def test_severity_empty_is_zero():

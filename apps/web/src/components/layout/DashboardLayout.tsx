@@ -1,16 +1,17 @@
+"use client";
+
+import { ReactNode } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Topbar } from "@/components/layout/Topbar";
 
-export function DashboardLayout({ children }: { children: React.ReactNode }) {
+export function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="flex">
-        <Sidebar />
-        <div className="flex min-h-screen flex-1 flex-col">
-          <Topbar />
-          <main className="flex-1 p-6">{children}</main>
-        </div>
-      </div>
+    <div className="min-h-screen grid grid-cols-[260px_1fr]">
+      <Sidebar />
+      <main className="px-6 py-7">
+        <Topbar />
+        <div className="mt-5">{children}</div>
+      </main>
     </div>
   );
 }

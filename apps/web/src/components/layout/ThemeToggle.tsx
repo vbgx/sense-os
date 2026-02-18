@@ -1,44 +1,42 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import * as React from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 
+function useIsClient() {
+  return React.useSyncExternalStore(
+    () => () => {},          // subscribe (no-op)
+    () => true,              // client snapshot
+    () => false              // server snapshot
+  );
+}
+
 export function ThemeToggle() {
-  const { theme, systemTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const isClient = useIsClient();
+  const { theme, setTheme, systemTheme } = useTheme();
 
-  useEffect(() => setMounted(true), []);
+  // Avoid hydration mismatch: don't read theme/systemTheme until client.
+  const resolvedTheme = isClient ? (theme === "system" ? systemTheme : theme) : null;
 
-  const resolved = useMemo(() => {
-    if (theme === "system") return systemTheme;
-    return theme;
-  }, [theme, systemTheme]);
-
-  if (!mounted) {
-    // Avoid hydration mismatch
-    return (
-      <Button variant="outline" size="sm" className="gap-2" aria-label="Toggle theme" disabled>
-        <span className="h-4 w-4" />
-        <span className="text-xs">Theme</span>
-      </Button>
-    );
-  }
-
-  const isDark = resolved === "dark";
-  const next = isDark ? "light" : "dark";
+  const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
 
   return (
     <Button
+      type="button"
       variant="outline"
-      size="sm"
-      onClick={() => setTheme(next)}
-      className="gap-2"
+      size="icon"
+      onClick={() => setTheme(nextTheme)}
       aria-label="Toggle theme"
+      disabled={!isClient}
     >
-      {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-      <span className="text-xs">Theme</span>
+      {resolvedTheme === "dark" ? (
+        <Sun className="h-4 w-4" />
+      ) : (
+        <Moon className="h-4 w-4" />
+      )}
     </Button>
   );
 }

@@ -1,114 +1,96 @@
-"use client";
+import { getOverview } from "@/lib/api/queries";
+import { ErrorBlock } from "@/components/ui/ErrorBlock";
+import { OverviewHeader } from "@/components/overview-v2/OverviewHeader";
+import { MarketPulse } from "@/components/overview-v2/MarketPulse";
+import { TopBreakoutsTable } from "@/components/overview-v2/TopBreakoutsTable";
+import { Heatmap, type HeatmapData } from "@/components/overview-v2/Heatmap";
 
-import { useDashboardQueryState } from "@/lib/state/useDashboardQueryState";
-import { useDeclining, useEmerging, useTopPains } from "@/lib/api/queries";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { KpiRow } from "@/components/overview/KpiRow";
-import { Highlights } from "@/components/overview/Highlights";
-import { TopOpportunities } from "@/components/overview/TopOpportunities";
-
-function pct(part: number, total: number) {
-  if (total <= 0) return 0;
-  return part / total;
+function formatUpdatedLabel(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "Updated recently";
+  return `Updated ${d.toLocaleString()}`;
 }
 
-export default function Page() {
-  const { state } = useDashboardQueryState();
+function formatKpiValue(n: number): string {
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(n);
+}
 
-  const topQ = useTopPains({
-    limit: 50,
-    offset: 0,
-    vertical_id: state.vertical_id,
-    tier: state.tier,
-    emerging_only: state.emerging_only,
-  });
+export default async function OverviewPage() {
+  try {
+    const api = await getOverview();
 
-  const emergingQ = useEmerging({
-    limit: 50,
-    offset: 0,
-    vertical_id: state.vertical_id,
-  });
+    // --- KPI view-model: UI expects strings for value/deltas ---
+    const kpis = api.kpis.map((k) => ({
+      key: k.key,
+      label: k.label,
+      value: formatKpiValue(k.value),
+      delta_7d: k.delta_7d ?? null,
+      sparkline: k.sparkline,
+    }));
 
-  const decliningQ = useDeclining({
-    limit: 50,
-    offset: 0,
-    vertical_id: state.vertical_id,
-  });
+    // --- Breakouts: backend contract is vertical-centric; UI table supports both cluster + vertical ---
+    const items = api.breakouts.map((b) => ({
+      // keep compatibility with the table (it uses cluster_id as primary key)
+      cluster_id: b.vertical_id,
+      vertical_id: b.vertical_id,
+      vertical_label: b.vertical_label,
+      score: b.score,
+      momentum_7d: b.momentum_7d,
+      confidence: b.confidence,
+      tier: b.tier ?? null,
+      status: b.status,
+    }));
 
-  const loading = topQ.isLoading || emergingQ.isLoading || decliningQ.isLoading;
+    // --- Heatmap: backend gives flat cells; UI expects grid {cols, rows} ---
+    const heatmap: HeatmapData | null = (() => {
+      if (!api.heatmap || api.heatmap.length === 0) return null;
 
-  if (loading) {
+      const industries = Array.from(new Set(api.heatmap.map((c) => c.industry))).sort();
+      const functions = Array.from(new Set(api.heatmap.map((c) => c.function))).sort();
+
+      const rowMap = new Map<string, { row: string; cells: { col: string; value: number; top_label?: string | null; top_vertical_id?: string | null }[] }>();
+
+      for (const ind of industries) rowMap.set(ind, { row: ind, cells: [] });
+
+      for (const cell of api.heatmap) {
+        const r = rowMap.get(cell.industry);
+        if (!r) continue;
+        r.cells.push({
+          col: cell.function,
+          value: typeof cell.value === "number" && Number.isFinite(cell.value) ? cell.value : 0,
+          top_label: cell.top_vertical_label ?? null,
+          top_vertical_id: cell.top_vertical_id ?? null,
+        });
+      }
+
+      // Ensure every row has all columns (missing = 0)
+      const rows = industries.map((ind) => {
+        const base = rowMap.get(ind)!;
+        const present = new Map(base.cells.map((c) => [c.col, c]));
+        const full = functions.map((col) => present.get(col) ?? { col, value: 0 });
+        return { row: ind, cells: full };
+      });
+
+      return { cols: functions, rows };
+    })();
+
     return (
       <div className="space-y-6">
-        <div>
-          <div className="text-xl font-semibold">Overview</div>
-          <div className="mt-1 text-sm text-muted-foreground">Market snapshot</div>
-        </div>
-
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Skeleton className="h-[74px] w-full" />
-          <Skeleton className="h-[74px] w-full" />
-          <Skeleton className="h-[74px] w-full" />
-          <Skeleton className="h-[74px] w-full" />
-        </div>
-
-        <Skeleton className="h-[180px] w-full" />
-        <Skeleton className="h-[420px] w-full" />
+        <OverviewHeader updatedLabel={formatUpdatedLabel(api.updated_at)} />
+        <MarketPulse kpis={kpis} />
+        <TopBreakoutsTable items={items} />
+        <Heatmap heatmap={heatmap} />
       </div>
     );
-  }
-
-  if (topQ.isError || emergingQ.isError || decliningQ.isError) {
-    const err =
-      (topQ.error instanceof Error && topQ.error.message) ||
-      (emergingQ.error instanceof Error && emergingQ.error.message) ||
-      (decliningQ.error instanceof Error && decliningQ.error.message) ||
-      "Unknown error";
-
+  } catch (e) {
     return (
-      <div className="rounded-md border p-3">
-        <div className="text-sm font-medium">API error</div>
-        <div className="mt-1 text-xs text-muted-foreground">{err}</div>
-      </div>
+      <ErrorBlock
+        title="Overview failed to load"
+        description={
+          "The backend response did not match the expected contract or the request failed." +
+          (e ? ` (${String(e)})` : "")
+        }
+      />
     );
   }
-
-  const top = topQ.data ?? [];
-  const emerging = emergingQ.data ?? [];
-  const declining = decliningQ.data ?? [];
-
-  const surfaced = top.length;
-
-  const avgExploitability =
-    top.length === 0
-      ? 0
-      : top.reduce((sum, it) => sum + it.exploitability_score, 0) / top.length;
-
-  const emergingPct = pct(emerging.length, Math.max(1, surfaced));
-  const decliningPct = pct(declining.length, Math.max(1, surfaced));
-
-  const lastUpdatedMs = Math.max(topQ.dataUpdatedAt, emergingQ.dataUpdatedAt, decliningQ.dataUpdatedAt);
-  const lastUpdated = lastUpdatedMs ? new Date(lastUpdatedMs).toLocaleString() : "—";
-
-  return (
-    <div className="space-y-6">
-      <div>
-        <div className="text-xl font-semibold">Overview</div>
-        <div className="mt-1 text-sm text-muted-foreground">
-          Market snapshot • last refreshed: {lastUpdated}
-        </div>
-      </div>
-
-      <KpiRow
-        clustersSurfaced={surfaced}
-        emergingPct={emergingPct}
-        decliningPct={decliningPct}
-        avgExploitability={avgExploitability}
-      />
-
-      <Highlights top={top} emerging={emerging} declining={declining} />
-
-      <TopOpportunities items={top} />
-    </div>
-  );
 }

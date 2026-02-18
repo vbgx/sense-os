@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { toast } from "sonner";
-import { ErrorState } from "@/components/ui/ErrorState";
+import { ErrorBlock } from "@/components/ui/ErrorBlock";
 import { getErrorMessage } from "@/lib/utils/getErrorMessage";
 
 export default function Error({
@@ -21,7 +21,7 @@ export default function Error({
   return (
     <div className="space-y-4">
       <h1 className="text-xl font-semibold">Opportunities</h1>
-      <ErrorState
+      <ErrorBlock
         title="Couldn’t load opportunities"
         description={getErrorMessage(error)}
         onRetry={reset}

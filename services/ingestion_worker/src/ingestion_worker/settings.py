@@ -1,19 +1,22 @@
-from pydantic import BaseModel
 import os
+from dataclasses import dataclass
 
 
-class Settings(BaseModel):
-    # How many items we try to fetch per run (best-effort; source may cap)
-    ingestion_limit: int = int(os.getenv("INGESTION_LIMIT", "75"))
-
-    # Safety: hard upper bound to avoid accidental huge runs
-    ingestion_limit_max: int = int(os.getenv("INGESTION_LIMIT_MAX", "200"))
-
-    # Minimal expectations for a "healthy" ingestion run
-    ingestion_min_inserted: int = int(os.getenv("INGESTION_MIN_INSERTED", "50"))
-
-    # Rate limit (adapter-level should enforce too)
-    reddit_rps: float = float(os.getenv("REDDIT_RPS", "1.0"))
+@dataclass(frozen=True)
+class Settings:
+    user_agent: str
+    redis_dsn: str | None
 
 
-settings = Settings()
+settings = Settings(
+    user_agent=os.getenv(
+        "INGESTION_USER_AGENT",
+        "sense-os/0.1 (contact: unknown)",
+    ),
+    redis_dsn=os.getenv("REDIS_DSN"),
+)
+
+DEFAULT_SOURCES = os.getenv(
+    "INGESTION_DEFAULT_SOURCES",
+    "github,hackernews,stackexchange",
+).split(",")

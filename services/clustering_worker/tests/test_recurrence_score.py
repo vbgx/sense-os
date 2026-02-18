@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 
-from clustering_worker.storage.recurrence import InstanceForRecurrence, compute_cluster_recurrence
+from domain.scoring.cluster.recurrence_v1 import InstanceForRecurrence, compute_cluster_recurrence
 
 
 def _dt(days_ago: int) -> datetime:

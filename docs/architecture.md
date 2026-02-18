@@ -1,279 +1,138 @@
-# Architecture --- Sense-OS
 
-## Overview
+All workers communicate through durable queues and persist to Postgres.
 
-Sense-OS is a distributed market intelligence engine that transforms raw
-community signals into ranked, explainable market opportunities.
+---
 
-The system is built around a strict separation of concerns:
+## 3. Bounded Contexts
 
-1.  Signal Ingestion\
-2.  Signal Processing\
-3.  Pain Clustering\
-4.  Trend Computation\
-5.  Insight Surface (API)
+### Domain (packages/domain)
 
-The architecture enforces:
+The **single source of truth** for:
+- Scoring (pain, recurrence, monetizability, etc.)
+- Trend metrics logic
+- Business rules
+- Contracts (versioned)
+- Core models
 
--   Deterministic scoring\
--   Idempotent workers\
--   Versioned domain logic\
--   No infrastructure leakage into domain\
--   Explainability at cluster level
+Guarantee:
+- No infrastructure imports
+- Pure logic
+- Deterministic outputs
 
-------------------------------------------------------------------------
+### Application (packages/application)
 
-## System Flow
+- Use-case orchestration
+- Ports + UoW abstraction
+- No infra implementation
 
-    External Sources
-        ↓
-    Ingestion Worker
-        ↓
-    Processing Worker
-        ↓
-    Clustering Worker
-        ↓
-    Trend Worker
-        ↓
-    Insight API
+### Infrastructure (packages/db, packages/queue, infra_shared)
 
-Each stage persists intermediate artifacts in PostgreSQL.
+- Persistence
+- Queue client
+- Logging + metrics
+- Environment configuration
 
-Redis is used for asynchronous orchestration.
+### Services (services/*)
 
-------------------------------------------------------------------------
+Workers are **orchestrators only**:
+- Load data
+- Call domain logic
+- Persist results
+- Publish events
 
-## Architectural Layers
+They do not own business logic.
 
-### 1. Domain Layer (`packages/domain`)
+---
 
-Pure, deterministic logic.
+## 4. End-to-End Data Flow
 
-Contains:
+1. ingestion_worker
+   - Fetches external signals
+   - Normalizes into RawSignal (contract_v1)
+   - Deduplicates + persists
 
--   Pain scoring models\
--   Trend computation logic\
--   Exploitability formulas\
--   Competitive & saturation proxies\
--   Persona inference\
--   Risk flags\
--   Export payload builders
+2. processing_worker
+   - Loads raw signals
+   - Builds domain models
+   - Applies domain scoring
+   - Persists PainInstance
 
-Constraints:
+3. clustering_worker
+   - Loads PainInstances
+   - Vectorizes
+   - Clusters
+   - Applies domain scoring
+   - Persists PainCluster
 
--   No DB imports\
--   No network calls\
--   Versioned scoring logic\
--   Fully unit-tested
+4. trend_worker
+   - Loads daily aggregates only
+   - Applies pure metrics(history) → score
+   - Persists daily metrics + timeline
 
-This is the intelligence core.
+5. api_gateway
+   - Reads projections
+   - Exposes REST contracts
+   - No domain scoring
 
-------------------------------------------------------------------------
+---
 
-### 2. Application Layer (`packages/application`)
+## 5. Core Guarantees
 
-Orchestrates domain use-cases.
+### Idempotency
+- Dedup keys per signal
+- Queue idempotency support
+- Checkpoints per vertical/source
 
-Responsible for:
+### Contracts
+- Versioned contracts in domain
+- Inter-worker contract tests
+- Snapshot tests for clustering + trends
 
--   Building cluster detail views\
--   Constructing insight payloads\
--   Aggregating cluster metrics\
--   Export formatting
+### Determinism
+- Domain scoring pure functions
+- Trend metrics pure functions
+- Golden tests for cluster output
 
-No infrastructure logic inside.
+### Boundary Enforcement
+- Domain cannot import infra
+- Services cannot contain business scoring
+- CI checks enforce structure
 
-------------------------------------------------------------------------
+---
 
-### 3. Infrastructure Layer
+## 6. Operational Design
 
-#### Workers (`services/`)
+- Event-driven via Redis queue
+- Postgres as durable store
+- Docker Compose for local stack
+- Single command bootstrap + CI
+- Standardized metrics:
+  - job_duration_seconds
+  - items_loaded_total
+  - items_processed_total
+  - items_persisted_total
+  - errors_total
 
-Each worker has a single responsibility:
+---
 
-**Ingestion Worker** - Fetches signals\
-- Normalizes data\
-- Applies spam and quality scoring\
-- Applies freshness decay
+## 7. Scalability Strategy
 
-**Processing Worker** - Extracts features\
-- Computes initial pain signals
+- Workers horizontally scalable
+- Vertical sharding via vertical_id
+- Incremental vectorization
+- Gated clustering optimization
+- Daily pre-aggregation for trends
 
-**Clustering Worker** - TF-IDF vectorization\
-- Threshold clustering\
-- Key phrase extraction\
-- Representative signal selection\
-- Persona inference\
-- Pain severity & recurrence computation
+---
 
-**Trend Worker** - Velocity computation\
-- Breakout detection\
-- Declining detection\
-- Half-life estimation\
-- Opportunity window classification\
-- Competitive heat scoring
+## 8. Why This Architecture Scales
 
-**Scheduler** - Orchestrates jobs\
-- Ensures idempotent processing\
-- Maintains checkpoints
+- Clear separation of domain vs infrastructure
+- Versioned contracts across boundaries
+- Deterministic scoring core
+- Event-driven extensibility
+- Testable at each layer
 
-------------------------------------------------------------------------
+Sense OS is built as a composable intelligence engine, not a monolith.
 
-## Cluster Intelligence Model
-
-Clusters are the central intelligence unit.
-
-Each cluster aggregates structural, timing and competitive metrics.
-
-### Core Pain Intelligence
-
-Clusters carry:
-
--   `severity_score` (0--100)\
--   `recurrence_score` (0--100)\
--   `recurrence_ratio` (0--1)\
--   `dominant_persona`\
--   `persona_confidence`\
--   `persona_distribution`\
--   `monetizability_score` (0--100)\
--   `contradiction_score` (0--100)\
--   `confidence_score` (0--100)
-
-------------------------------------------------------------------------
-
-### Trend Intelligence
-
-Clusters additionally carry:
-
--   `breakout_score` (0--100)\
-    Acceleration anomaly detection.
-
--   `saturation_score` (0--100)\
-    Post-peak flattening detection.
-
--   `opportunity_window_score` (0--100)
-
--   `opportunity_window_status`\
-    `EARLY | PEAK | SATURATING`
-
--   `half_life_days` (float \| null)\
-    Post-peak decay half-life estimate.
-
--   `velocity_growth`\
-    Relative week-over-week acceleration.
-
-------------------------------------------------------------------------
-
-### Competitive & Saturation Proxies
-
-Clusters include competitive context:
-
--   `competitive_heat_score` (0--100)\
-    Proxy derived from mentions of existing tools and alternatives.
-
--   `repo_density_score`\
-
--   `producthunt_overlap_score`\
-
--   `keyword_saturation_score`\
-
--   `external_solution_density_score`
-
-------------------------------------------------------------------------
-
-## Opportunity Window Logic
-
-Opportunity window is driven by timing metrics:
-
--   Breakout strength\
--   Momentum\
--   Saturation level
-
-Status rules:
-
-**EARLY** - High breakout\
-- Low saturation\
-- Positive acceleration
-
-**PEAK** - Strong velocity\
-- Rising saturation
-
-**SATURATING** - Declining acceleration\
-- High competitive heat
-
-The opportunity window score is mildly penalized when competitive heat
-is high (v0 heuristic).
-
-------------------------------------------------------------------------
-
-## Exploitability Engine
-
-Exploitability is a composite decision metric:
-
-    Exploitability =
-    Severity × Growth × Recurrence × Monetizability × Underserved × Confidence
-
-Each component is normalized to 0--100.
-
-Exploitability is versioned and deterministic.
-
-Clusters are ranked into decision tiers.
-
-------------------------------------------------------------------------
-
-## Determinism & Versioning
-
-All scoring algorithms are:
-
--   Versioned\
--   Pure\
--   Reproducible
-
-Domain logic changes require:
-
--   Explicit version bump\
--   Test coverage\
--   Backward compatibility review
-
-This ensures drift control and auditability.
-
-------------------------------------------------------------------------
-
-## Data Integrity Principles
-
-Sense-OS enforces:
-
--   Idempotent job execution\
--   Double-consume protection\
--   Dead-letter replay validation\
--   Contract tests on API payloads\
--   No DB access from API layer without repository abstraction
-
-------------------------------------------------------------------------
-
-## Insight Surface
-
-The API exposes structured decision endpoints:
-
--   `/insights/top_pains`
--   `/insights/emerging_opportunities`
--   `/insights/declining_risks`
--   `/insights/{cluster_id}`
--   `/insights/{cluster_id}/export`
-
-The API does not expose raw noise.
-
-It exposes ranked intelligence.
-
-------------------------------------------------------------------------
-
-## Non-Goals
-
-Sense-OS does not:
-
--   Generate business plans\
--   Execute validation strategies\
--   Provide idea generation\
--   Replace strategic decision tools
-
-It is strictly a sensing and ranking engine.
+EOF

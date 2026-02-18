@@ -1,39 +1,57 @@
 from __future__ import annotations
 
-import logging
-from typing import Any, Callable, Dict, Optional
+from collections.abc import Callable
+from typing import Any, Dict
 
-log = logging.getLogger(__name__)
+Job = dict[str, Any]
+HandlerFn = Callable[[Job], Any]
 
-JobDict = Dict[str, Any]
-Handler = Callable[[JobDict], None]
-
-HANDLERS: Dict[str, Handler] = {}
+_JOB_REGISTRY: Dict[str, HandlerFn] = {}
 
 
-def job_handler(job_type: str) -> Callable[[Handler], Handler]:
-    def _decorator(fn: Handler) -> Handler:
-        if job_type in HANDLERS:
-            raise RuntimeError(f"Duplicate handler for job type {job_type!r}")
-        HANDLERS[job_type] = fn
-        return fn
+def _job_name_from_payload(job: Job) -> str | None:
+    for k in ("job_type", "type", "name", "job", "kind"):
+        v = job.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+    return None
+
+
+def handle_job(job: Job, handler: HandlerFn | None = None) -> Any:
+    if handler is not None:
+        return handler(job)
+
+    name = _job_name_from_payload(job)
+    if not name:
+        raise TypeError("handle_job() missing handler and job has no job_type/type/name")
+
+    fn = _JOB_REGISTRY.get(name)
+    if fn is None:
+        raise KeyError(f"unknown job handler: {name}")
+    return fn(job)
+
+
+def job_handler(name_or_fn: str | HandlerFn):
+    if callable(name_or_fn):
+        fn = name_or_fn
+        name = getattr(fn, "__job_name__", fn.__name__)
+        _JOB_REGISTRY[str(name)] = fn
+
+        def _wrapped(job: Job) -> Any:
+            return fn(job)
+
+        return _wrapped
+
+    name = str(name_or_fn)
+
+    def _decorator(fn: HandlerFn) -> HandlerFn:
+        setattr(fn, "__job_name__", name)
+        _JOB_REGISTRY[name] = fn
+
+        def _wrapped(job: Job) -> Any:
+            return fn(job)
+
+        setattr(_wrapped, "__job_name__", name)
+        return _wrapped
+
     return _decorator
-
-
-def get_handler(job_type: str) -> Optional[Handler]:
-    return HANDLERS.get(job_type)
-
-
-def handle_job(job: JobDict) -> bool:
-    jt = job.get("type")
-    if not jt or not isinstance(jt, str):
-        log.warning("Skip invalid job (missing type): %r", job)
-        return False
-
-    fn = get_handler(jt)
-    if not fn:
-        log.warning("Skip unknown job: %r", job)
-        return False
-
-    fn(job)
-    return True

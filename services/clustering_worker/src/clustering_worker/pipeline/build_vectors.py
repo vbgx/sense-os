@@ -1,171 +1,76 @@
 from __future__ import annotations
 
-import logging
-import time
-from typing import Any, Iterable
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
 
 import numpy as np
 
-from clustering_worker.vectorize.cache.vector_cache import VectorCache, VectorCacheKey, text_hash
-from clustering_worker.vectorize.cache.metrics_emit import emit_vector_cache_stats
-from clustering_worker.vectorize.cache.json_log import log_json
-from clustering_worker.vectorize.tfidf import HashingVectorizerConfig, tfidf_vectorize, vectorizer_version
-from clustering_worker.vectorize.vector_settings import get_vector_settings
 
-log = logging.getLogger(__name__)
+def _hash_text(s: str) -> str:
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()
 
 
-def _get_text(instance: Any) -> str:
-    if isinstance(instance, dict):
-        t = instance.get("text") or instance.get("content") or instance.get("body") or instance.get("title") or ""
-        return str(t) if t is not None else ""
-    for attr in ("text", "content", "body", "title"):
-        v = getattr(instance, attr, None)
-        if isinstance(v, str) and v.strip():
-            return v
-    v = getattr(instance, "text", None)
-    return str(v) if v is not None else ""
+def _hash_vec(text: str, *, dim: int = 256) -> np.ndarray:
+    v = np.zeros((dim,), dtype=float)
+    for tok in text.lower().split():
+        h = int(hashlib.md5(tok.encode("utf-8")).hexdigest(), 16)
+        v[h % dim] += 1.0
+    n = float(np.linalg.norm(v))
+    if n > 0:
+        v = v / n
+    return v
 
 
-def build_vectors(
-    instances: Iterable[Any],
-    *,
-    cache_dir: str | None = None,
-    cfg: HashingVectorizerConfig | None = None,
-) -> np.ndarray:
-    """
-    Deterministic, cache-safe vectorization with:
-      - incremental on-disk cache
-      - intra-batch dedup (compute each unique text at most once per batch)
-      - JSON log event for dashboards (vectorize_stats)
+def build_vectors(job: dict[str, Any], instances: list[dict[str, Any]], *, cache_dir: str | None = None) -> tuple[list[int], np.ndarray, dict[str, Any]]:
+    cache_path = Path(cache_dir) if cache_dir else None
+    if cache_path:
+        cache_path.mkdir(parents=True, exist_ok=True)
 
-    Env:
-      - SENSE_VECTOR_CACHE_DIR (default: .cache/sense/vectors)
-      - SENSE_VECTOR_N_FEATURES (default: 2**18)
-      - SENSE_VECTOR_NGRAM_MAX (default: 2)
-    """
-    t0 = time.perf_counter()
+    ids: list[int] = []
+    vecs: list[np.ndarray] = []
+    recomputed = 0
+    reused = 0
 
-    vs = get_vector_settings()
-    if cache_dir is None:
-        cache_dir = vs.cache_dir
+    for inst in instances:
+        iid = int(inst.get("id") or inst.get("instance_id") or inst.get("pain_instance_id") or 0)
+        text = str(inst.get("text") or inst.get("body") or inst.get("title") or "")
+        ids.append(iid)
 
-    if cfg is None:
-        cfg = HashingVectorizerConfig(
-            n_features=int(vs.n_features),
-            ngram_min=1,
-            ngram_max=int(vs.ngram_max),
+        th = _hash_text(text)
+        if cache_path:
+            fp = cache_path / f"{iid}.npz"
+            if fp.exists():
+                try:
+                    data = np.load(fp, allow_pickle=False)
+                    if str(data["text_hash"]) == th:
+                        vecs.append(np.asarray(data["vec"], dtype=float))
+                        reused += 1
+                        continue
+                except Exception:
+                    pass
+
+        v = _hash_vec(text)
+        vecs.append(v)
+        recomputed += 1
+        if cache_path:
+            fp = cache_path / f"{iid}.npz"
+            np.savez_compressed(fp, vec=v, text_hash=np.array(th))
+
+    X = np.vstack(vecs) if vecs else np.zeros((0, 256), dtype=float)
+
+    if bool(job.get("emit_json_event")):
+        print(
+            json.dumps(
+                {
+                    "event": "vectorize",
+                    "n_instances": len(ids),
+                    "recomputed": recomputed,
+                    "reused": reused,
+                }
+            )
         )
 
-    version = vectorizer_version(cfg)
-    cache = VectorCache(cache_dir)
-
-    # Keep original order for output
-    keys_ordered: list[VectorCacheKey] = []
-
-    # Dedup inside batch by key
-    unique_keys: list[VectorCacheKey] = []
-    unique_texts: list[str] = []
-    seen: set[str] = set()
-
-    total_items = 0
-    for inst in instances:
-        total_items += 1
-        t = _get_text(inst)
-        k = VectorCacheKey(h=text_hash(t), version=version)
-        keys_ordered.append(k)
-
-        k_id = k.filename()
-        if k_id in seen:
-            continue
-        seen.add(k_id)
-        unique_keys.append(k)
-        unique_texts.append(t)
-
-    # Load cache for unique keys
-    vec_by_key: dict[str, np.ndarray] = {}
-    hits = 0
-    misses_keys: list[VectorCacheKey] = []
-    misses_texts: list[str] = []
-
-    for k, t in zip(unique_keys, unique_texts):
-        v = cache.get(k)
-        if v is not None:
-            hits += 1
-            vec_by_key[k.filename()] = v
-        else:
-            misses_keys.append(k)
-            misses_texts.append(t)
-
-    misses = len(misses_keys)
-
-    # Compute only missing unique texts
-    compute_ms = 0.0
-    if misses_texts:
-        t_compute = time.perf_counter()
-        X_missing = tfidf_vectorize(misses_texts, cfg=cfg)
-        compute_ms = (time.perf_counter() - t_compute) * 1000.0
-
-        for i, k in enumerate(misses_keys):
-            vec = X_missing[i]
-            cache.put(k, vec)
-            vec_by_key[k.filename()] = vec
-
-    dim = int(cfg.n_features)
-    total_unique = len(unique_keys)
-    hit_rate = (float(hits) / float(total_unique)) if total_unique > 0 else 0.0
-    dedup_ratio = (float(total_unique) / float(total_items)) if total_items > 0 else 1.0
-
-    # Human-readable log
-    log.info(
-        "vector_cache_stats hits=%s misses=%s hit_rate=%.3f dim=%s version=%s cache_dir=%s unique=%s total=%s dedup_ratio=%.3f compute_ms=%.1f",
-        hits,
-        misses,
-        hit_rate,
-        dim,
-        version,
-        cache_dir,
-        total_unique,
-        total_items,
-        dedup_ratio,
-        compute_ms,
-    )
-
-    # JSON log (single line)
-    total_ms = (time.perf_counter() - t0) * 1000.0
-    log_json(
-        log,
-        "vectorize_stats",
-        {
-            "cache_dir": str(cache_dir),
-            "version": str(version),
-            "dim": int(dim),
-            "items_total": int(total_items),
-            "texts_unique": int(total_unique),
-            "dedup_ratio": float(dedup_ratio),
-            "cache_hits": int(hits),
-            "cache_misses": int(misses),
-            "cache_hit_rate": float(hit_rate),
-            "compute_ms": float(compute_ms),
-            "total_ms": float(total_ms),
-        },
-    )
-
-    emit_vector_cache_stats(
-        hits=hits,
-        misses=misses,
-        dim=dim,
-        unique_texts=total_unique,
-        total_items=total_items,
-    )
-
-    # Reconstruct output matrix in original order
-    filled = []
-    for k in keys_ordered:
-        v = vec_by_key.get(k.filename())
-        if v is None:
-            v = np.zeros(dim, dtype=np.float32)
-        filled.append(v)
-
-    X = np.stack(filled, axis=0).astype(np.float32, copy=False)
-    return X
+    meta = {"recomputed": recomputed, "reused": reused, "dim": int(X.shape[1]) if X.ndim == 2 else 0}
+    return ids, X, meta

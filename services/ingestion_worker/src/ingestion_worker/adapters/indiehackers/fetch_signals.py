@@ -28,3 +28,6 @@ def fetch_indiehackers_signals(
             out.append(mapped)
 
     return out
+
+def fetch_indiehackers_signals(*, vertical_id: str, taxonomy_version: str, vertical_db_id: int):
+    return fetch_signals(vertical_id=vertical_id, taxonomy_version=taxonomy_version, vertical_db_id=vertical_db_id)

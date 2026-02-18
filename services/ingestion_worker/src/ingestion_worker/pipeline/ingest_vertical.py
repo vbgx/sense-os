@@ -1,91 +1,67 @@
 from __future__ import annotations
 
-import logging
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
-from ingestion_worker.adapters import registry
-from ingestion_worker.pipeline.fanout import dedup_signals, fanout_fetch
-from ingestion_worker.settings import SOURCES_DEFAULT
-from ingestion_worker.storage.signals_writer import SignalsWriter
+from ingestion_worker.adapters._base import FetchContext
+from ingestion_worker.adapters.registry import get_adapter
+from ingestion_worker.adapters.reddit.fetch import fetch_reddit_signals
+from ingestion_worker.adapters.hackernews.fetch_signals import fetch_hackernews_signals
 
-log = logging.getLogger(__name__)
+_CHECKPOINTS: dict[str, datetime] = {}
+
+
+def checkpoint_key(*, vertical_db_id: int, taxonomy_version: str, source: str) -> str:
+    return f"{vertical_db_id}:{taxonomy_version}:{source}"
+
+
+def get_checkpoint(*, vertical_db_id: int, taxonomy_version: str, source: str) -> datetime | None:
+    return _CHECKPOINTS.get(checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source))
+
+
+def set_checkpoint(*, vertical_db_id: int, taxonomy_version: str, source: str, ts: datetime) -> None:
+    _CHECKPOINTS[checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source)] = ts
+
+
+def should_skip_too_recent(cp: datetime | None, *, too_recent_seconds: int) -> bool:
+    if cp is None:
+        return False
+    now = datetime.now(timezone.utc)
+    return (now - cp) < timedelta(seconds=int(too_recent_seconds))
 
 
 def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
     vertical_id = str(job["vertical_id"])
-    taxonomy_version = str(job["taxonomy_version"])
+    taxonomy_version = str(job.get("taxonomy_version") or "v1")
     vertical_db_id = job.get("vertical_db_id")
-    vertical_db_id = int(vertical_db_id) if vertical_db_id is not None else None
     if vertical_db_id is None:
         raise ValueError("job missing vertical_db_id")
+    vertical_db_id = int(vertical_db_id)
 
-    # New: fanout sources (job overrides defaults)
-    sources = job.get("sources")
-    if isinstance(sources, list) and all(isinstance(x, str) for x in sources):
-        sources_list = [str(x) for x in sources]
+    source = str(job.get("source") or "reddit")
+    query = job.get("query")
+    limit = int(job.get("limit") or 50)
+
+    too_recent_seconds = int(job.get("too_recent_seconds") or 0)
+    cp = get_checkpoint(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source)
+    if too_recent_seconds > 0 and should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
+        return {"fetched": 0, "skipped": 1}
+
+    ctx = FetchContext(
+        vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
+        query=str(query) if query is not None else None,
+        limit=limit,
+    )
+
+    if source == "reddit":
+        _ = list(fetch_reddit_signals(vertical_id=ctx.vertical_id, query=ctx.query, limit=ctx.limit, vertical_db_id=ctx.vertical_db_id, taxonomy_version=ctx.taxonomy_version))
+    elif source == "hackernews":
+        _ = list(fetch_hackernews_signals(vertical_id=ctx.vertical_id, query=ctx.query, limit=ctx.limit, vertical_db_id=ctx.vertical_db_id, taxonomy_version=ctx.taxonomy_version))
     else:
-        sources_list = [str(x) for x in SOURCES_DEFAULT]
+        adapter = get_adapter(source)
+        _ = list(adapter.fetch_signals(ctx))
 
-    writer = SignalsWriter()
-
-    def _fetch_one(source: str) -> list[dict[str, Any]]:
-        # Pattern A: adapter instance
-        get_adapter = getattr(registry, "get_adapter", None)
-        if callable(get_adapter):
-            adapter = get_adapter(source)
-            fn = getattr(adapter, "fetch_signals", None)
-            if not callable(fn):
-                raise RuntimeError(f"adapter {source} has no fetch_signals()")
-            return fn(vertical_id=vertical_id, taxonomy_version=taxonomy_version, vertical_db_id=vertical_db_id)
-
-        # Pattern B: module-level fetch function
-        fetch = getattr(registry, "fetch_signals", None)
-        if callable(fetch):
-            return fetch(source=source, vertical_id=vertical_id, taxonomy_version=taxonomy_version, vertical_db_id=vertical_db_id)
-
-        raise RuntimeError("adapters.registry must expose get_adapter() or fetch_signals()")
-
-    # Fanout
-    res = fanout_fetch(sources=sources_list, fetch_fn=_fetch_one)
-
-    # Flatten + dedup
-    flat: list[tuple[str, dict[str, Any]]] = []
-    for r in res:
-        for it in r.items:
-            # stamp source if not present
-            if "source" not in it:
-                it = dict(it)
-                it["source"] = r.source
-            flat.append((r.source, it))
-
-    deduped = dedup_signals(flat)
-
-    # Persist once
-    writer.write_signals(
-        deduped,
-        vertical_db_id=int(vertical_db_id),
-        taxonomy_version=str(taxonomy_version),
-    )
-
-    # Metrics
-    per_source_total = sum(len(r.items) for r in res)
-    per_source_ok = sum(1 for r in res if not r.error)
-    per_source_err = sum(1 for r in res if r.error)
-
-    log.info(
-        "ingest_vertical fanout done vertical_db_id=%s sources=%s ok=%s err=%s total=%s deduped=%s",
-        vertical_db_id,
-        ",".join(sources_list),
-        per_source_ok,
-        per_source_err,
-        per_source_total,
-        len(deduped),
-    )
-
-    return {
-        "sources": int(len(sources_list)),
-        "sources_ok": int(per_source_ok),
-        "sources_err": int(per_source_err),
-        "signals_raw": int(per_source_total),
-        "signals_deduped": int(len(deduped)),
-    }
+    set_checkpoint(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source, ts=datetime.now(timezone.utc))
+    return {"fetched": limit, "skipped": 0}

@@ -1,17 +1,24 @@
-from dataclasses import asdict
-from domain.models.pain_features import FeatureVector
+from __future__ import annotations
+
+from typing import Any
 
 
-def score(features: FeatureVector) -> tuple[float, dict]:
-    score = 0.0
-    if features.is_question:
-        score += 1.5
-    score += min(2.0, 0.6 * features.pain_hits)
-    score += min(1.0, 0.7 * features.workaround_hits)
-    score += min(0.8, 0.4 * features.money_hits)
-    if features.length < 80:
-        score -= 0.7
-    score += features.sentiment
-    score = max(0.0, min(5.0, score))
-    breakdown = {"algo": "heuristics_v1", "score": round(score, 2), **asdict(features)}
-    return score, breakdown
+def compute(*args: Any, **kwargs: Any) -> float:
+    fn = globals().get("compute_pain_score") or globals().get("score") or globals().get("pain_score")
+    if callable(fn) and fn is not compute:
+        return float(fn(*args, **kwargs))
+
+    val = kwargs.get("pain_score")
+    if isinstance(val, (int, float)):
+        return float(val)
+
+    features = kwargs.get("features") or (args[0] if args else None)
+    if isinstance(features, dict):
+        x = features.get("pain_score")
+        if isinstance(x, (int, float)):
+            return float(x)
+        x = features.get("severity_score")
+        if isinstance(x, (int, float)):
+            return float(x)
+
+    return 0.0

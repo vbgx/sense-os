@@ -2,26 +2,16 @@ SHELL := /bin/bash
 .ONESHELL:
 .SHELLFLAGS := -euo pipefail -c
 
-# ============================================================
-# Sense OS — Makefile
-# ============================================================
-
-# ----------------------------
-# Config (override per command)
-# ----------------------------
 COMPOSE_FILE ?= infra/docker/docker-compose.yml
 API_BASE_URL ?= http://localhost:8000
 
-# Scheduler inputs (single-vertical mode)
 VERTICAL_ID ?= 1
 SOURCE ?= reddit
 QUERY ?= saas
 LIMIT ?= 50
 
-# Seed-and-run (file mode: JSON only)
 VERTICAL ?= config/verticals/saas_founders.json
 
-# Vertical catalog / activation
 VERTICALS_DIR ?= config/verticals
 VERTICALS_INDEX ?= $(VERTICALS_DIR)/verticals.json
 BATCH ?= 100
@@ -31,10 +21,8 @@ TIER ?=
 PRIORITY_MAX ?=
 PRIORITY_MIN ?=
 
-# Trend job day (optional). If empty, publish_trend_job.sh may default internally.
 DAY ?=
 
-# Backfill
 BACKFILL_DAYS ?= 90
 BACKFILL_START ?=
 BACKFILL_END ?=
@@ -43,31 +31,28 @@ BACKFILL_SERIES ?= 1
 LOGFILE ?=
 SCRIPTS_DIR := ./tools/scripts
 
+PYTEST ?= pytest -q
+RUFF ?= uv run ruff
+
 .DEFAULT_GOAL := help
 
-.PHONY: help \
-	bundle \
+.PHONY: help bundle \
 	up up-core up-app rebuild down ps \
 	logs logs-api logs-postgres logs-redis logs-clustering logs-trend \
 	migrate migrate-list migrate-file \
-	seed \
-	seed-and-run \
+	seed seed-and-run \
 	scheduler scheduler-once \
 	verticals-compile verticals-check verticals-batch \
-	backfill \
-	trend-once \
-	redis-flush \
-	queues \
+	backfill trend-once redis-flush queues \
 	validate validate-log validate-fast validate-keep \
-	dev-install ci \
-	workers-local \
-	deprecated
+	workers-local dev-install \
+	bootstrap ci lint test contracts \
+	test-api test-ingestion test-processing test-clustering test-trend test-scheduler \
+	lint-api lint-ingestion lint-processing lint-clustering lint-trend lint-scheduler \
+	typecheck-web lint-web test-web e2e-web \
+	deprecated verticals-validate
 
-# ============================================================
-# Help
-# ============================================================
-
-help: ## Show all commands with usage + current variable defaults
+help:
 	@printf "\nSense OS — Commands (Makefile)\n\n"
 	@awk 'BEGIN {FS=":.*##"} /^[a-zA-Z0-9_.-]+:.*##/ {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 	@printf "\n"
@@ -83,116 +68,82 @@ help: ## Show all commands with usage + current variable defaults
 	@printf "  DAY=%s\n" "$(DAY)"
 	@printf "  BACKFILL_DAYS=%s BACKFILL_START=%s BACKFILL_END=%s BACKFILL_SERIES=%s\n" "$(BACKFILL_DAYS)" "$(BACKFILL_START)" "$(BACKFILL_END)" "$(BACKFILL_SERIES)"
 	@printf "\nExamples:\n"
+	@printf "  make bootstrap\n"
+	@printf "  make ci\n"
 	@printf "  make up\n"
 	@printf "  make migrate\n"
 	@printf "  make seed\n"
-	@printf "  make queues\n"
-	@printf "  make scheduler-once VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=200\n"
-	@printf "  make seed-and-run VERTICAL=config/verticals/saas_founders.json SOURCE=reddit LIMIT=80\n"
-	@printf "  make verticals-compile TARGET=10000\n"
-	@printf "  make verticals-check\n"
-	@printf "  make verticals-batch BATCH=200 SOURCE=reddit LIMIT=80 DRY_RUN=1\n"
-	@printf "  make trend-once VERTICAL_ID=1 DAY=2026-02-15\n"
-	@printf "  make backfill BACKFILL_SERIES=1\n"
 	@printf "  make validate-fast\n\n"
 
-# ============================================================
-# Meta / bundle
-# ============================================================
-
-bundle: ## Usage: make bundle — Generates a euro-dated Markdown bundle of tools/scripts/* at repo root
+bundle:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/bundle_scripts.sh
 
-# ============================================================
-# Docker lifecycle
-# ============================================================
-
-up: ## Usage: make up — Starts full stack (all compose services) detached
+up:
 	@docker compose -f "$(COMPOSE_FILE)" up -d
 
-up-core: ## Usage: make up-core — Starts only core services (postgres + redis) detached
+up-core:
 	@docker compose -f "$(COMPOSE_FILE)" up -d postgres redis
 
-up-app: ## Usage: make up-app — Starts app services (api + workers) detached
+up-app:
 	@docker compose -f "$(COMPOSE_FILE)" up -d api-gateway ingestion-worker processing-worker clustering-worker trend-worker
 
-rebuild: ## Usage: make rebuild — Rebuilds images then starts all services detached
+rebuild:
 	@docker compose -f "$(COMPOSE_FILE)" up --build -d
 
-down: ## Usage: make down — Stops stack and removes containers + volumes (DESTRUCTIVE)
+down:
 	@docker compose -f "$(COMPOSE_FILE)" down -v
 
-ps: ## Usage: make ps — Shows compose services status
+ps:
 	@docker compose -f "$(COMPOSE_FILE)" ps
 
-# ============================================================
-# Logs
-# ============================================================
-
-logs: ## Usage: make logs — Follows logs for all services (tail=200)
+logs:
 	@docker compose -f "$(COMPOSE_FILE)" logs -f --tail=200
 
-logs-api: ## Usage: make logs-api — Follows api-gateway logs (tail=200)
+logs-api:
 	@docker compose -f "$(COMPOSE_FILE)" logs -f --tail=200 api-gateway
 
-logs-postgres: ## Usage: make logs-postgres — Follows postgres logs (tail=200)
+logs-postgres:
 	@docker compose -f "$(COMPOSE_FILE)" logs -f --tail=200 postgres
 
-logs-redis: ## Usage: make logs-redis — Follows redis logs (tail=200)
+logs-redis:
 	@docker compose -f "$(COMPOSE_FILE)" logs -f --tail=200 redis
 
-logs-clustering: ## Usage: make logs-clustering — Follows clustering-worker logs (tail=200)
+logs-clustering:
 	@docker compose -f "$(COMPOSE_FILE)" logs -f --tail=200 clustering-worker
 
-logs-trend: ## Usage: make logs-trend — Follows trend-worker logs (tail=200)
+logs-trend:
 	@docker compose -f "$(COMPOSE_FILE)" logs -f --tail=200 trend-worker
 
-# ============================================================
-# DB / migrations
-# ============================================================
-
-migrate: ## Usage: make migrate — Alembic upgrade head (single source of truth)
+migrate:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/migrate.sh
 
-migrate-list: ## Deprecated: legacy SQL migration list (use Alembic)
+migrate-list:
 	@echo "DEPRECATED: legacy SQL migrations moved to (archived legacy SQL). Use Alembic (make migrate)." >&2
 	@exit 1
 
-migrate-file: ## Deprecated: legacy SQL migration file (use Alembic)
+migrate-file:
 	@echo "DEPRECATED: legacy SQL migrations moved to (archived legacy SQL). Use Alembic (make migrate)." >&2
 	@exit 1
 
-seed: ## Usage: make seed — Seeds verticals via api-gateway container (python -m db.seed)
+seed:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/seed_verticals.sh
 
-seed-and-run: ## Usage: make seed-and-run VERTICAL=path/to.json [SOURCE=reddit LIMIT=50]
+seed-and-run:
 	@[ -n "$(VERTICAL)" ] || (echo "ERROR: VERTICAL is required. Example: make seed-and-run VERTICAL=config/verticals/saas_founders.json" >&2; exit 1)
 	@COMPOSE_FILE="$(COMPOSE_FILE)" SOURCE="$(SOURCE)" LIMIT="$(LIMIT)" \
 	  $(SCRIPTS_DIR)/seed_and_run_vertical.sh "$(VERTICAL)"
 
-# ============================================================
-# Redis queues snapshot
-# ============================================================
-
-queues: ## Usage: make queues — Snapshot Redis queues (ingest/process/cluster/trend)
+queues:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/redis_queues_snapshot.sh "manual"
 
-# ============================================================
-# Scheduler
-# ============================================================
-
-scheduler-once: ## Usage: make scheduler-once [VERTICAL_ID=1 SOURCE=reddit QUERY=saas LIMIT=50] — Runs scheduler once
+scheduler-once:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" \
 	  VERTICAL_ID="$(VERTICAL_ID)" SOURCE="$(SOURCE)" QUERY="$(QUERY)" LIMIT="$(LIMIT)" \
 	  $(SCRIPTS_DIR)/run_scheduler_once.sh
 
-scheduler: scheduler-once ## Alias: runs scheduler once (compat)
+scheduler: scheduler-once
 
-# ============================================================
-# Verticals — JSON taxonomy engine
-# ============================================================
-
-verticals-compile: ## Usage: make verticals-compile TARGET=10000 [PRUNE=1] [CHECK=1]
+verticals-compile:
 	@TARGET ?= 1000
 	@PRUNE ?= 0
 	@CHECK ?= 0
@@ -201,10 +152,10 @@ verticals-compile: ## Usage: make verticals-compile TARGET=10000 [PRUNE=1] [CHEC
 	if [ "$(CHECK)" = "1" ]; then args="$$args --check"; fi; \
 	python tools/scripts/verticals_compile.py $$args
 
-verticals-check: ## Usage: make verticals-check — Runs taxonomy tests (JSON-only)
+verticals-check:
 	@pytest -q tests/test_verticals_taxonomy.py
 
-verticals-batch: ## Usage: make verticals-batch BATCH=200 SOURCE=reddit LIMIT=80 [DRY_RUN=1] [SHUFFLE=1] [TIER=core]
+verticals-batch:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" \
 	  VERTICALS_DIR="$(VERTICALS_DIR)" VERTICALS_INDEX="$(VERTICALS_INDEX)" \
 	  BATCH="$(BATCH)" SHUFFLE="$(SHUFFLE)" DRY_RUN="$(DRY_RUN)" \
@@ -222,88 +173,129 @@ verticals-batch: ## Usage: make verticals-batch BATCH=200 SOURCE=reddit LIMIT=80
 	    $(if $(PRIORITY_MIN),--priority-min "$(PRIORITY_MIN)",) \
 	    $(if $(PRIORITY_MAX),--priority-max "$(PRIORITY_MAX)",)
 
-# ============================================================
-# Backfill
-# ============================================================
-
-backfill: ## Usage: make backfill [BACKFILL_DAYS=90] [BACKFILL_START=YYYY-MM-DD] [BACKFILL_END=YYYY-MM-DD] [BACKFILL_SERIES=1]
+backfill:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" \
 	  VERTICAL_ID="$(VERTICAL_ID)" SOURCE="$(SOURCE)" QUERY="$(QUERY)" LIMIT="$(LIMIT)" \
 	  DAYS="$(BACKFILL_DAYS)" START="$(BACKFILL_START)" END="$(BACKFILL_END)" SERIES="$(BACKFILL_SERIES)" \
 	  $(SCRIPTS_DIR)/run_scheduler_backfill.sh
 
-# ============================================================
-# Trend
-# ============================================================
-
-trend-once: ## Usage: make trend-once [VERTICAL_ID=1] [DAY=YYYY-MM-DD] — Publish one trend job
+trend-once:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" VERTICAL_ID="$(VERTICAL_ID)" DAY="$(DAY)" $(SCRIPTS_DIR)/publish_trend_job.sh
 
-# ============================================================
-# Redis
-# ============================================================
-
-redis-flush: ## Usage: make redis-flush — FLUSHALL Redis (DESTRUCTIVE)
+redis-flush:
 	@FORCE=1 COMPOSE_FILE="$(COMPOSE_FILE)" $(SCRIPTS_DIR)/flush_redis.sh
 
-# ============================================================
-# Validation (end-to-end)
-# ============================================================
-
-validate: ## Usage: make validate — Full boot validation
+validate:
 	@echo "==> validate (COMPOSE_FILE=$(COMPOSE_FILE), API_BASE_URL=$(API_BASE_URL))"
 	@COMPOSE_FILE="$(COMPOSE_FILE)" API_BASE_URL="$(API_BASE_URL)" $(SCRIPTS_DIR)/validate_full_boot.sh
 
-validate-log: ## Usage: make validate-log LOGFILE=/tmp/boot.log — Same as validate, but writes to logfile
+validate-log:
 	@[ -n "$(LOGFILE)" ] || (echo "ERROR: LOGFILE is required. Example: make validate-log LOGFILE=/tmp/boot.log" >&2; exit 1)
 	@echo "==> validate (logfile=$(LOGFILE))"
 	@COMPOSE_FILE="$(COMPOSE_FILE)" API_BASE_URL="$(API_BASE_URL)" $(SCRIPTS_DIR)/validate_full_boot.sh --logfile "$(LOGFILE)"
 
-validate-fast: ## Usage: make validate-fast — Skips down + build
+validate-fast:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" API_BASE_URL="$(API_BASE_URL)" \
 	  $(SCRIPTS_DIR)/validate_full_boot.sh --no-down --no-build
 
-validate-keep: ## Usage: make validate-keep — Keeps services running on success
+validate-keep:
 	@COMPOSE_FILE="$(COMPOSE_FILE)" API_BASE_URL="$(API_BASE_URL)" \
 	  $(SCRIPTS_DIR)/validate_full_boot.sh --keep-running
 
-# ============================================================
-# Local workers (host / .venv)
-# ============================================================
-
-workers-local: ## Usage: make workers-local — Prints commands to run local workers
+workers-local:
 	@echo "Run in separate terminals:"
 	@echo "  $(SCRIPTS_DIR)/dev_install.sh"
 	@echo "  source .venv/bin/activate"
 	@echo "  export POSTGRES_DSN=postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
 	@echo "  export REDIS_URL=redis://localhost:6379/0"
-	@echo "  # start workers"
 	@echo "  $(SCRIPTS_DIR)/run_ingestion_worker.sh"
 	@echo "  $(SCRIPTS_DIR)/run_processing_worker.sh"
 	@echo "  $(SCRIPTS_DIR)/run_clustering_worker.sh"
 	@echo "  $(SCRIPTS_DIR)/run_trend_worker.sh"
 
-# ============================================================
-# Toolchain / CI
-# ============================================================
-
-dev-install: ## Usage: make dev-install — Creates .venv and installs editable deps via uv
+dev-install:
 	@$(SCRIPTS_DIR)/dev_install.sh
 
-ci: ## Usage: make ci — Run checks + tests (requires docker + uv)
-	@$(SCRIPTS_DIR)/ci.sh
+bootstrap:
+	@$(SCRIPTS_DIR)/bootstrap.sh
 
-# ============================================================
-# Deprecated / legacy scripts
-# ============================================================
+lint:
+	@$(MAKE) lint-api
+	@$(MAKE) lint-ingestion
+	@$(MAKE) lint-processing
+	@$(MAKE) lint-clustering
+	@$(MAKE) lint-trend
+	@$(MAKE) lint-scheduler
 
-deprecated: ## Usage: make deprecated — Shows legacy scripts you should delete/stop using
+test:
+	@$(MAKE) test-api
+	@$(MAKE) test-ingestion
+	@$(MAKE) test-processing
+	@$(MAKE) test-clustering
+	@$(MAKE) test-trend
+	@$(MAKE) test-scheduler
+
+contracts:
+	@$(PYTEST) tests/contract/inter_workers
+
+ci:
+	@$(SCRIPTS_DIR)/ci_all.sh
+
+test-api:
+	@$(PYTEST) apps/api_gateway/tests
+
+test-ingestion:
+	@$(PYTEST) services/ingestion_worker/tests
+
+test-processing:
+	@$(PYTEST) services/processing_worker/tests
+
+test-clustering:
+	@$(PYTEST) services/clustering_worker/tests
+
+test-trend:
+	@$(PYTEST) services/trend_worker/tests
+
+test-scheduler:
+	@$(PYTEST) services/scheduler/tests
+
+lint-api:
+	@$(RUFF) check apps/api_gateway/src apps/api_gateway/tests
+
+lint-ingestion:
+	@$(RUFF) check services/ingestion_worker/src services/ingestion_worker/tests
+
+lint-processing:
+	@$(RUFF) check services/processing_worker/src services/processing_worker/tests
+
+lint-clustering:
+	@$(RUFF) check services/clustering_worker/src services/clustering_worker/tests
+
+lint-trend:
+	@$(RUFF) check services/trend_worker/src services/trend_worker/tests
+
+lint-scheduler:
+	@$(RUFF) check services/scheduler/src services/scheduler/tests
+
+typecheck-web:
+	@cd apps/web && pnpm typecheck
+
+lint-web:
+	@cd apps/web && pnpm lint
+
+test-web:
+	@cd apps/web && pnpm test
+
+e2e-web:
+	@cd apps/web && pnpm playwright test
+
+deprecated:
 	@echo "Deprecated:"
 	@echo "  - tools/scripts/migrate_sql.sh"
 	@echo "  - tools/scripts/migrate_all_sql.sh"
 	@echo "  - tools/scripts/patch_makefile_migrate.py (legacy SQL)"
 	@echo "  - (archived legacy SQL)/* (do not use)"
 
-verticals-validate: ## Deprecated (YAML): do not use
+verticals-validate:
 	@echo "DEPRECATED: YAML vertical validation removed. Verticals are JSON-only." >&2
 	@exit 1

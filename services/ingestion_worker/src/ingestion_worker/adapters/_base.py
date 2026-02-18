@@ -1,21 +1,28 @@
 from __future__ import annotations
 
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Protocol, Sequence
-
-from ingestion_worker.domain import RawSignal, SourceKind
+from typing import Any, Iterable, Protocol
 
 
 @dataclass(frozen=True)
 class FetchContext:
     vertical_id: str
-    limit: int = 100
-    cursor: str | None = None
+    vertical_db_id: int
+    taxonomy_version: str
+    query: str | None = None
+    limit: int = 50
 
 
 class Adapter(Protocol):
-    kind: SourceKind
-    name: str
+    source: str
 
-    def fetch(self, ctx: FetchContext) -> Sequence[RawSignal]:
-        ...
+    def fetch_signals(self, ctx: FetchContext, **kwargs: Any) -> Iterable[dict[str, Any]]: ...
+
+
+class BaseAdapter(ABC):
+    source: str
+
+    @abstractmethod
+    def fetch_signals(self, ctx: FetchContext, **kwargs: Any) -> Iterable[dict[str, Any]]:
+        raise NotImplementedError

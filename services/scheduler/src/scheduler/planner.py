@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from datetime import date
-from typing import Optional, List
+from typing import List, Optional
 
-from scheduler.jobs import IngestJob, ProcessJob, ClusterJob, TrendJob
+from scheduler.jobs import ClusterJob, IngestJob, ProcessJob, TrendJob
 
 
 def plan_vertical_run(
@@ -18,6 +18,8 @@ def plan_vertical_run(
     offset: Optional[int] = None,
 ) -> List[object]:
     day_s = day.isoformat() if day else None
+    start_day_s = day_s
+    end_day_s = day_s
 
     if query is None and source == "reddit":
         query = "saas"
@@ -29,6 +31,8 @@ def plan_vertical_run(
         source=source,
         run_id=run_id,
         day=day_s,
+        start_day=start_day_s,
+        end_day=end_day_s,
         query=query,
         limit=limit if limit is not None else (80 if source == "reddit" else None),
         offset=offset,

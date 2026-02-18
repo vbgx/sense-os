@@ -17,19 +17,23 @@ log = logging.getLogger("ingestion-worker")
 def handle_ingest_vertical(job: dict[str, Any]) -> None:
     result = ingest_vertical(job)
 
-    fetched = int(result.get("fetched", 0) or 0)
-    inserted = int(result.get("inserted", 0) or 0)
-    skipped = int(result.get("skipped", 0) or 0)
+    sources = int(result.get("sources", 0) or 0)
+    sources_ok = int(result.get("sources_ok", 0) or 0)
+    sources_err = int(result.get("sources_err", 0) or 0)
+    raw = int(result.get("signals_raw", 0) or 0)
+    deduped = int(result.get("signals_deduped", 0) or 0)
 
     log.info(
-        "Ingested vertical_id=%s vertical_db_id=%s source=%s run_id=%s fetched=%s inserted=%s skipped=%s",
+        "Ingested vertical_id=%s vertical_db_id=%s sources=%s ok=%s err=%s raw=%s deduped=%s run_id=%s day=%s",
         job.get("vertical_id"),
         job.get("vertical_db_id"),
-        job.get("source"),
+        sources,
+        sources_ok,
+        sources_err,
+        raw,
+        deduped,
         job.get("run_id"),
-        fetched,
-        inserted,
-        skipped,
+        job.get("day") or job.get("start_day"),
     )
 
 

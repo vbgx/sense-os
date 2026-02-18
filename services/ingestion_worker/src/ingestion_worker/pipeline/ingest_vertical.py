@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -24,7 +25,9 @@ def get_checkpoint(*args, **kwargs) -> datetime | dict | None:
     vertical_db_id = int(kwargs["vertical_db_id"])
     taxonomy_version = str(kwargs["taxonomy_version"])
     source = str(kwargs["source"])
-    return _CHECKPOINTS.get(checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source))
+    return _CHECKPOINTS.get(
+        checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source)
+    )
 
 
 def set_checkpoint(*args, **kwargs) -> None:
@@ -58,13 +61,150 @@ def should_skip_too_recent(cp: datetime | dict | None, *, too_recent_seconds: in
     return (now - ts) < timedelta(seconds=int(too_recent_seconds))
 
 
+def _as_list(x: Any) -> list[dict[str, Any]]:
+    if x is None:
+        return []
+    if isinstance(x, list):
+        return [it for it in x if isinstance(it, dict)]
+    try:
+        return [it for it in list(x) if isinstance(it, dict)]
+    except Exception:
+        return []
+
+
+def _canon_str(x: Any) -> str | None:
+    if x is None:
+        return None
+    s = str(x).strip()
+    return s if s else None
+
+
+def _norm_text(t: str) -> str:
+    return " ".join((t or "").strip().split()).lower()
+
+
+def _infer_day_str(item: dict[str, Any]) -> str:
+    created_at = item.get("created_at")
+    if isinstance(created_at, datetime):
+        return created_at.date().isoformat()
+    if isinstance(created_at, str) and created_at:
+        return created_at[:10]
+    return ""
+
+
+def _stable_external_id(*, source: str, item: dict[str, Any]) -> str:
+    url = item.get("url") or item.get("link") or item.get("permalink")
+    if isinstance(url, str) and url.strip():
+        raw = f"{source}::url::{url.strip()}"
+        return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+    text = item.get("content") or item.get("text") or item.get("title") or item.get("body") or ""
+    text_s = _norm_text(str(text))
+    day = _infer_day_str(item)
+    raw = f"{source}::t::{day}::{text_s}"
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
+def _coerce_created_at(item: dict[str, Any]) -> datetime | None:
+    v = item.get("created_at")
+    if isinstance(v, datetime):
+        return v
+    if isinstance(v, str) and v.strip():
+        s = v.strip()
+        try:
+            if s.endswith("Z"):
+                s = s[:-1] + "+00:00"
+            return datetime.fromisoformat(s)
+        except Exception:
+            return None
+    for k in ("published_at", "timestamp", "time", "date"):
+        v2 = item.get(k)
+        if isinstance(v2, datetime):
+            return v2
+        if isinstance(v2, str) and v2.strip():
+            s = v2.strip()
+            try:
+                if s.endswith("Z"):
+                    s = s[:-1] + "+00:00"
+                return datetime.fromisoformat(s)
+            except Exception:
+                continue
+    return None
+
+
+def _pick_content(item: dict[str, Any]) -> str | None:
+    for k in ("content", "text", "body", "description", "summary", "title"):
+        v = item.get(k)
+        s = _canon_str(v)
+        if s:
+            return s
+    return None
+
+
+def _pick_title(item: dict[str, Any]) -> str | None:
+    for k in ("title", "headline", "name"):
+        s = _canon_str(item.get(k))
+        if s:
+            return s
+    return None
+
+
+def _pick_url(item: dict[str, Any]) -> str | None:
+    for k in ("url", "link", "permalink"):
+        s = _canon_str(item.get(k))
+        if s:
+            return s
+    return None
+
+
+def _enrich_signal(item: dict[str, Any], *, ctx: FetchContext, source: str) -> dict[str, Any] | None:
+    out = dict(item)
+
+    out["vertical_id"] = ctx.vertical_id
+    out["taxonomy_version"] = ctx.taxonomy_version
+    out["vertical_db_id"] = ctx.vertical_db_id
+    out["source"] = str(source)
+
+    content = _pick_content(out)
+    if not content:
+        return None
+    out["content"] = content
+
+    title = _pick_title(out)
+    if title:
+        out.setdefault("title", title)
+
+    url = _pick_url(out)
+    if url:
+        out.setdefault("url", url)
+
+    created_at = _coerce_created_at(out)
+    # IMPORTANT: DB often requires created_at NOT NULL. Always set a fallback.
+    if created_at is None:
+        created_at = datetime.now(timezone.utc)
+    out["created_at"] = created_at
+
+    ext = _canon_str(out.get("external_id"))
+    if not ext:
+        for k in ("source_external_id", "source_id", "id", "item_id"):
+            v = _canon_str(out.get(k))
+            if v:
+                out["external_id"] = v
+                break
+    ext2 = _canon_str(out.get("external_id"))
+    if not ext2:
+        out["external_id"] = _stable_external_id(source=str(source), item=out)
+
+    return out
+
+
 def _fetch_from_source(source: str, vertical_id: str):
     ctx = _CURRENT_CTX
     if ctx is None:
         raise RuntimeError("fetch context not set")
 
     if source == "reddit":
-        return source, list(
+        return source, _as_list(
             fetch_reddit_signals(
                 vertical_id=ctx.vertical_id,
                 query=ctx.query,
@@ -74,7 +214,7 @@ def _fetch_from_source(source: str, vertical_id: str):
             )
         )
     if source == "hackernews":
-        return source, list(
+        return source, _as_list(
             fetch_hackernews_signals(
                 vertical_id=ctx.vertical_id,
                 query=ctx.query,
@@ -85,7 +225,11 @@ def _fetch_from_source(source: str, vertical_id: str):
         )
 
     adapter = get_adapter(source)
-    return source, list(adapter.fetch_signals(ctx))
+    if hasattr(adapter, "fetch_signals"):
+        return source, _as_list(adapter.fetch_signals(ctx))
+    if hasattr(adapter, "fetch"):
+        return source, _as_list(adapter.fetch(ctx))
+    raise AttributeError(f"adapter missing fetch/fetch_signals: {adapter!r}")
 
 
 def _make_writer(vertical_db_id: int):
@@ -103,7 +247,11 @@ def _persist_with_writer(writer, signals: list[dict[str, Any]]) -> dict[str, int
         persisted = writer.persist(signals)
         return {"persisted": int(persisted)}
     if hasattr(writer, "write_signals"):
-        out = writer.write_signals(signals, vertical_db_id=signals[0].get("vertical_db_id"), taxonomy_version=signals[0].get("taxonomy_version"))
+        out = writer.write_signals(
+            signals,
+            vertical_db_id=signals[0].get("vertical_db_id"),
+            taxonomy_version=signals[0].get("taxonomy_version"),
+        )
         if isinstance(out, dict):
             return {k: int(v) for k, v in out.items()}
     raise AttributeError("SignalsWriter missing insert_many/persist/write_signals")
@@ -111,6 +259,7 @@ def _persist_with_writer(writer, signals: list[dict[str, Any]]) -> dict[str, int
 
 def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
     global _CURRENT_CTX
+
     vertical_id = str(job["vertical_id"])
     taxonomy_version = str(job.get("taxonomy_version") or "v1")
     vertical_db_id = job.get("vertical_db_id")
@@ -137,29 +286,56 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
 
     if sources:
         fetched = 0
-        persisted = 0
+        inserted_total = 0
+        skipped_db_total = 0
         skipped_sources = 0
+        skipped_items = 0
+        failed_sources = 0
 
         _CURRENT_CTX = ctx
         try:
             for src in sources:
-                key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=str(src))
+                src_s = str(src)
+                key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=src_s)
                 cp = get_checkpoint("ingest_vertical", key)
                 if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
                     skipped_sources += 1
                     continue
 
-                _, signals = _fetch_from_source(str(src), vertical_id)
-                fetched += len(signals)
-                if signals:
-                    out = _persist_with_writer(writer, signals)
-                    persisted += int(out.get("persisted") or out.get("inserted") or 0)
+                try:
+                    _, raw = _fetch_from_source(src_s, vertical_id)
+                except Exception:
+                    failed_sources += 1
+                    set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
+                    continue
+
+                enriched: list[dict[str, Any]] = []
+                for it in raw:
+                    e = _enrich_signal(it, ctx=ctx, source=src_s)
+                    if e is None:
+                        skipped_items += 1
+                        continue
+                    enriched.append(e)
+
+                fetched += len(enriched)
+
+                if enriched:
+                    out = _persist_with_writer(writer, enriched)
+                    inserted_total += int(out.get("inserted") or out.get("persisted") or 0)
+                    skipped_db_total += int(out.get("skipped") or 0)
 
                 set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
         finally:
             _CURRENT_CTX = None
 
-        return {"fetched": fetched, "persisted": persisted, "skipped_sources": skipped_sources}
+        return {
+            "fetched": fetched,
+            "inserted": inserted_total,
+            "skipped_db": skipped_db_total,
+            "skipped_sources": skipped_sources,
+            "failed_sources": failed_sources,
+            "skipped_items": skipped_items,
+        }
 
     _CURRENT_CTX = ctx
     try:
@@ -168,10 +344,29 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
         if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
             return {"fetched": 0, "inserted": 0, "skipped": 1}
 
-        _, signals = _fetch_from_source(source, vertical_id)
-        fetched = len(signals)
-        out = _persist_with_writer(writer, signals) if signals else {"inserted": 0, "skipped": 0}
+        try:
+            _, raw = _fetch_from_source(source, vertical_id)
+        except Exception:
+            set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
+            return {"fetched": 0, "inserted": 0, "skipped": 0, "failed_sources": 1}
+
+        enriched: list[dict[str, Any]] = []
+        skipped_items = 0
+        for it in raw:
+            e = _enrich_signal(it, ctx=ctx, source=source)
+            if e is None:
+                skipped_items += 1
+                continue
+            enriched.append(e)
+
+        fetched = len(enriched)
+        out = _persist_with_writer(writer, enriched) if enriched else {"inserted": 0, "skipped": 0}
         set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-        return {"fetched": fetched, "inserted": int(out.get("inserted") or 0), "skipped": int(out.get("skipped") or 0)}
+        return {
+            "fetched": fetched,
+            "inserted": int(out.get("inserted") or 0),
+            "skipped_db": int(out.get("skipped") or 0),
+            "skipped_items": int(skipped_items),
+        }
     finally:
         _CURRENT_CTX = None

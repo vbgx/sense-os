@@ -21,6 +21,9 @@ class IndieHackersAdapter(Adapter):
         if self.client is None:
             self.client = IndieHackersClient()
 
-    def fetch(self, ctx: FetchContext) -> Sequence[RawSignal]:
+    def fetch_signals(self, ctx: FetchContext) -> Sequence[RawSignal]:
         assert self.client is not None
         return fetch_signals(client=self.client, ctx=ctx)
+
+    def fetch(self, ctx: FetchContext) -> Sequence[RawSignal]:
+        return self.fetch_signals(ctx)

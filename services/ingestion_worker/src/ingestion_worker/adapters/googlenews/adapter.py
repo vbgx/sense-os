@@ -19,9 +19,16 @@ class GoogleNewsAdapter(Adapter):
 
     def __post_init__(self) -> None:
         if self.client is None:
-            # IMPORTANT: give a real contact UA
-            self.client = RssClient(user_agent="sense-os/0.1 (ingestion_worker; googlenews rss; contact: you@example.com)")
+            # IMPORTANT: give a real contact UA (override with env if you want)
+            self.client = RssClient(
+                user_agent="sense-os/0.1 (ingestion_worker; googlenews rss; contact: you@example.com)"
+            )
 
     def fetch(self, ctx: FetchContext) -> Sequence[RawSignal]:
         assert self.client is not None
-        return fetch_signals(client=self.client, ctx=ctx)
+        try:
+            out = fetch_signals(client=self.client, ctx=ctx)
+            return out or []
+        except Exception:
+            # Never crash ingestion on a single RSS source; let fanout handle "failed_sources"
+            return []

@@ -16,13 +16,26 @@ def persist_envelopes(envelopes: Iterable[SignalEnvelope]) -> dict[str, int]:
     pain_instances = []
 
     for e in envs:
+        vertical_auto = e.vertical_auto
+        vertical_auto_id = None
+        vertical_auto_conf = None
+        if isinstance(vertical_auto, dict):
+            vertical_auto_id = vertical_auto.get("id") or vertical_auto.get("vertical_id") or vertical_auto.get("name")
+            vertical_auto_conf = vertical_auto.get("confidence")
+        elif isinstance(vertical_auto, (list, tuple)) and len(vertical_auto) >= 2:
+            vertical_auto_id = vertical_auto[0]
+            vertical_auto_conf = vertical_auto[1]
+        else:
+            vertical_auto_id = vertical_auto
+
         signals_rows.append(
             {
                 "signal_id": e.signal_id,
                 "language_code": e.language_code,
                 "spam_score": e.spam_score,
-                "quality_score": e.quality_score,
-                "vertical_auto_classification": e.vertical_auto,
+                "signal_quality_score": e.quality_score,
+                "vertical_auto": vertical_auto_id,
+                "vertical_auto_confidence": vertical_auto_conf,
             }
         )
         if e.pain_instance is not None:

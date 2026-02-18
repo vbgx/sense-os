@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any, Iterable, Tuple
 
 from db.repos import pain_instances as repo
+from db.session import SessionLocal
 from processing_worker.storage.dedup import breakdown_hash
 
 
@@ -67,3 +68,42 @@ def write_pain_instances_bulk_in_session(
             skipped += 1
 
     return int(created), int(skipped)
+
+
+class PainInstancesWriter:
+    def __init__(self) -> None:
+        self._Session = SessionLocal
+
+    def persist_many(self, pain_instances: Iterable[dict]) -> int:
+        rows = list(pain_instances)
+        if not rows:
+            return 0
+
+        created = 0
+        with self._Session() as db:
+            for item in rows:
+                signal_id = item.get("signal_id")
+                vertical_id = item.get("vertical_db_id") or item.get("vertical_id")
+                pain_score = item.get("pain_score")
+
+                if signal_id is None or vertical_id is None or pain_score is None:
+                    continue
+
+                algo_version = str(item.get("algo_version") or "heuristics_v1")
+                breakdown = item.get("breakdown") or {"signal_id": int(signal_id)}
+                if "signal_id" not in breakdown:
+                    breakdown["signal_id"] = int(signal_id)
+
+                _, was_created = repo.create_if_absent(
+                    db,
+                    vertical_id=int(vertical_id),
+                    signal_id=int(signal_id),
+                    algo_version=algo_version,
+                    pain_score=float(pain_score),
+                    breakdown=breakdown,
+                    breakdown_hash=breakdown_hash(breakdown),
+                )
+                if was_created:
+                    created += 1
+
+        return int(created)

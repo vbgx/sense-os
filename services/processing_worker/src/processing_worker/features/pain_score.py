@@ -5,8 +5,14 @@ from typing import Any
 from domain.scoring.pain_score import compute as _compute_domain_pain_score
 
 
-def compute_pain_score(text: str, *, features: dict[str, Any] | None = None) -> tuple[float, dict[str, Any]]:
+def compute_pain_score(
+    content: str,
+    *,
+    language_code: str | None = None,
+    features: dict[str, Any] | None = None,
+) -> float:
     feat = dict(features or {})
-    feat.setdefault("text", text)
-    score = float(_compute_domain_pain_score(features=feat))
-    return score, {"pain_score": score}
+    feat.setdefault("text", content)
+    if language_code is not None:
+        feat.setdefault("language_code", language_code)
+    return float(_compute_domain_pain_score(features=feat))

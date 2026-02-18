@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import Sequence
 
@@ -20,4 +22,10 @@ class WikipediaAdapter(Adapter):
             self.client = WikipediaClient()
 
     def fetch(self, ctx: FetchContext) -> Sequence[RawSignal]:
-        return fetch_signals(client=self.client, ctx=ctx)
+        if self.client is None:
+            return []
+        try:
+            out = fetch_signals(client=self.client, ctx=ctx)
+            return out or []
+        except Exception:
+            return []

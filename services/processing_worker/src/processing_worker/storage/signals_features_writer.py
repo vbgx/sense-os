@@ -22,8 +22,9 @@ class SignalsFeaturesWriter:
             SET
               language_code = :language_code,
               spam_score = :spam_score,
-              quality_score = :quality_score,
-              vertical_auto_classification = :vertical_auto_classification
+              signal_quality_score = :signal_quality_score,
+              vertical_auto = :vertical_auto,
+              vertical_auto_confidence = :vertical_auto_confidence
             WHERE id = :signal_id
             """
         )

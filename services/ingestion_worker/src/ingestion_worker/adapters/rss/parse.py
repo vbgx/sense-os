@@ -31,11 +31,26 @@ def _atom_link(entry: ET.Element, ns: dict[str, str]) -> str:
     return ""
 
 
+def _looks_like_html(s: str) -> bool:
+    t = (s or "").lstrip().lower()
+    # common anti-bot / error payloads
+    return t.startswith("<!doctype html") or t.startswith("<html") or t.startswith("<head") or t.startswith("<body")
+
+
 def parse_feed(xml_content: str, *, limit: int = 100) -> list[RssItem]:
     """
     Parse RSS2 or Atom to RssItem list.
+    NEVER raise: on invalid feeds, return [].
     """
-    root = ET.fromstring(xml_content)
+    if not xml_content:
+        return []
+    if _looks_like_html(xml_content):
+        return []
+
+    try:
+        root = ET.fromstring(xml_content)
+    except Exception:
+        return []
 
     # Atom
     if root.tag.endswith("feed"):
@@ -73,7 +88,6 @@ def parse_feed(xml_content: str, *, limit: int = 100) -> list[RssItem]:
     # RSS 2.0
     channel = root.find("channel")
     if channel is None:
-        # sometimes rss root has namespaces; try best-effort
         channel = root.find("./channel")
 
     items: list[RssItem] = []
@@ -84,9 +98,8 @@ def parse_feed(xml_content: str, *, limit: int = 100) -> list[RssItem]:
         guid = _find_text(it, "guid")
         link = _find_text(it, "link")
         title = _find_text(it, "title")
-        # content may be in <description> or <content:encoded>
+
         desc = _find_text(it, "description")
-        # Namespaced content:encoded
         content_encoded = ""
         for child in list(it):
             if child.tag.endswith("encoded"):

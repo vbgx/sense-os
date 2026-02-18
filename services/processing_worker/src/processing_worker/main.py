@@ -6,8 +6,11 @@ import sys
 import time
 from typing import Any, Dict
 
+from sense_queue.client import RedisJobQueueClient
+from sense_queue.worker_base import job_handler
+
 from processing_worker.observability.logging import get_logger, safe_extra
-from processing_worker.pipeline import handle_job
+from processing_worker.pipeline import handle_job as pipeline_handle_job
 
 log = get_logger(__name__)
 
@@ -33,54 +36,79 @@ def _load_job_from_env_or_stdin() -> Dict[str, Any]:
     return {}
 
 
-def main() -> None:
+def _run_once(job: Dict[str, Any]) -> None:
     started = time.time()
-    job = _load_job_from_env_or_stdin()
-
     worker_name = "processing_worker"
     job_id = job.get("job_id")
     vertical_db_id = job.get("vertical_db_id")
 
     try:
-        res = handle_job(job)
+        res = pipeline_handle_job(job)
         took_ms = int((time.time() - started) * 1000)
 
-        log_res = {
-            "items_processed": int(res.get("processed", 0)),
-            "items_created": int(res.get("created", 0)),
-            "items_skipped": int(res.get("skipped", 0)),
-            "items_errors": int(res.get("errors", 0)),
-        }
+        signals_n = int(res.get("loaded", 0))
+        created_n = int(res.get("pain_instances_persisted", 0))
+        updated_n = int(res.get("signals_updated", 0))
+
+        log.info(
+            "Processed vertical_id=%s signals=%s pain_instances_created=%s signals_updated=%s run_id=%s day=%s",
+            job.get("vertical_id"),
+            signals_n,
+            created_n,
+            updated_n,
+            job.get("run_id"),
+            job.get("day"),
+        )
 
         log.info(
             "job_done",
-            extra=safe_extra({
-                "worker": worker_name,
-                "job_id": job_id,
-                "vertical_db_id": vertical_db_id,
-                "duration_ms": took_ms,
-                **log_res,
-            }),
+            extra=safe_extra(
+                {
+                    "worker": worker_name,
+                    "job_id": job_id,
+                    "vertical_db_id": vertical_db_id,
+                    "duration_ms": took_ms,
+                    "items_processed": signals_n,
+                    "items_created": created_n,
+                    "items_updated": updated_n,
+                }
+            ),
         )
 
         # output machine-readable for scripts
         print(json.dumps({"ok": True, "result": res}))
-        if int(res.get("errors", 0)) > 0:
-            raise SystemExit(1)
-
     except Exception:
         took_ms = int((time.time() - started) * 1000)
         log.exception(
             "job_failed",
-            extra=safe_extra({
-                "worker": worker_name,
-                "job_id": job_id,
-                "vertical_db_id": vertical_db_id,
-                "duration_ms": took_ms,
-            }),
+            extra=safe_extra(
+                {
+                    "worker": worker_name,
+                    "job_id": job_id,
+                    "vertical_db_id": vertical_db_id,
+                    "duration_ms": took_ms,
+                }
+            ),
         )
         print(json.dumps({"ok": False}))
         raise SystemExit(1)
+
+
+@job_handler("process_signals")
+def handle_process_signals(job: Dict[str, Any]) -> bool:
+    _run_once(job)
+    return True
+
+
+def main() -> None:
+    job = _load_job_from_env_or_stdin()
+    if job:
+        _run_once(job)
+        return
+
+    log.info("Processing worker booted")
+    client = RedisJobQueueClient()
+    client.run(queue="process")
 
 
 if __name__ == "__main__":

@@ -7,13 +7,23 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any, Callable, Iterable
 
-from ingestion_worker.settings import (
-    INGEST_FAIL_FAST,
-    INGEST_FANOUT_MAX_WORKERS,
-    INGEST_MAX_SIGNALS_PER_SOURCE,
-)
+try:
+    from ingestion_worker import settings as _settings
+except Exception:  # pragma: no cover
+    _settings = None
 
 log = logging.getLogger(__name__)
+
+
+def _get_setting(name: str, default):
+    if _settings is None:
+        return default
+    return getattr(_settings, name, default)
+
+
+INGEST_FAIL_FAST = bool(_get_setting("INGEST_FAIL_FAST", False))
+INGEST_FANOUT_MAX_WORKERS = int(_get_setting("INGEST_FANOUT_MAX_WORKERS", 8))
+INGEST_MAX_SIGNALS_PER_SOURCE = int(_get_setting("INGEST_MAX_SIGNALS_PER_SOURCE", 200))
 
 
 def _norm_text(t: str) -> str:
@@ -48,7 +58,7 @@ def dedup_signals(items: Iterable[tuple[str, dict[str, Any]]]) -> list[dict[str,
     out: list[dict[str, Any]] = []
     seen: set[str] = set()
     for source, item in items:
-        k = _stable_key(source, item)
+        k = _stable_key(str(source), item)
         if k in seen:
             continue
         seen.add(k)
@@ -88,11 +98,11 @@ def fanout_fetch(
                     items = []
                 if len(items) > int(INGEST_MAX_SIGNALS_PER_SOURCE):
                     items = items[: int(INGEST_MAX_SIGNALS_PER_SOURCE)]
-                results.append(FanoutResult(source=src, items=items, error=None))
+                results.append(FanoutResult(source=str(src), items=items, error=None))
             except Exception as e:
                 msg = f"{type(e).__name__}: {e}"
                 log.warning("fanout source failed source=%s err=%s", src, msg)
-                results.append(FanoutResult(source=src, items=[], error=msg))
+                results.append(FanoutResult(source=str(src), items=[], error=msg))
                 if bool(INGEST_FAIL_FAST):
                     raise
 

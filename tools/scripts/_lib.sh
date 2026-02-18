@@ -8,6 +8,11 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 COMPOSE_FILE="${COMPOSE_FILE:-infra/docker/docker-compose.yml}"
 COMPOSE_PATH="$REPO_ROOT/$COMPOSE_FILE"
 
+# Local defaults for worker scripts (can be overridden by env)
+export REDIS_URL="${REDIS_URL:-redis://localhost:6379/0}"
+export REDIS_DSN="${REDIS_DSN:-$REDIS_URL}"
+export POSTGRES_DSN="${POSTGRES_DSN:-postgresql+psycopg://postgres:postgres@localhost:5432/sense}"
+
 die()  { printf '❌ %s\n' "$*" >&2; exit 1; }
 step() { printf '\n%s\n' "$*"; }
 

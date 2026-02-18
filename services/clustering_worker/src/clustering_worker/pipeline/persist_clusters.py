@@ -38,16 +38,6 @@ def _persist_from_job(job: dict[str, Any], instance_ids: Iterable[int]) -> dict[
         return {"clusters": 0, "links_inserted": 0, "pain_instances": 0, "skipped": 0}
 
     with session_scope() as db:
-        if pain_clusters_repo.clusters_exist_for_version(
-            db, vertical_id=vertical_db_id, cluster_version=cluster_version
-        ):
-            return {
-                "clusters": 0,
-                "links_inserted": 0,
-                "pain_instances": len(instance_ids),
-                "skipped": 1,
-            }
-
         cluster, _ = pain_clusters_repo.upsert_cluster(
             db,
             vertical_id=vertical_db_id,

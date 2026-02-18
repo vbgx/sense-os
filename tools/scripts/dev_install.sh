@@ -6,8 +6,12 @@ require_cmd uv
 
 VENV="${VENV:-$REPO_ROOT/.venv}"
 
-step "🐍 Create venv ($VENV)"
-uv venv "$VENV"
+if [ -x "$VENV/bin/python" ]; then
+  step "🐍 Reuse venv ($VENV)"
+else
+  step "🐍 Create venv ($VENV)"
+  uv venv "$VENV"
+fi
 
 # shellcheck disable=SC1090
 source "$VENV/bin/activate"

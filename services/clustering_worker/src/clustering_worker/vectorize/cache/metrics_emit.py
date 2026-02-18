@@ -1,18 +1,19 @@
 from __future__ import annotations
 
-from typing import Any, Optional
-
 
 def emit_vector_cache_stats(
     *,
     hits: int,
     misses: int,
     dim: int,
+    unique_texts: int | None = None,
+    total_items: int | None = None,
 ) -> None:
     """
     Best-effort metrics emission.
-    If your observability layer exposes counters/gauges, we call them.
-    Otherwise: no-op.
+
+    Tries common counter/gauge APIs exposed by clustering_worker.observability.metrics.
+    If not available: no-op.
     """
     try:
         from clustering_worker.observability import metrics as m  # type: ignore
@@ -21,7 +22,6 @@ def emit_vector_cache_stats(
 
     total = hits + misses
 
-    # Common patterns we try (no crash if not present)
     _incr = getattr(m, "incr", None) or getattr(m, "inc", None) or getattr(m, "counter_inc", None)
     _gauge = getattr(m, "gauge", None) or getattr(m, "set_gauge", None) or getattr(m, "set", None)
 
@@ -38,5 +38,11 @@ def emit_vector_cache_stats(
             _gauge("vector_dim", dim)
             if total > 0:
                 _gauge("vector_cache_hit_rate", float(hits) / float(total))
+            if unique_texts is not None:
+                _gauge("vector_unique_texts", int(unique_texts))
+            if total_items is not None:
+                _gauge("vector_total_items", int(total_items))
+            if unique_texts is not None and total_items is not None and total_items > 0:
+                _gauge("vector_dedup_ratio", float(unique_texts) / float(total_items))
         except Exception:
             pass

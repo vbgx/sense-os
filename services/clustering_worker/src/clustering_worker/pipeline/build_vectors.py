@@ -32,7 +32,9 @@ def build_vectors(
     cfg: HashingVectorizerConfig | None = None,
 ) -> np.ndarray:
     """
-    Deterministic, cache-safe vectorization.
+    Deterministic, cache-safe vectorization with:
+      - incremental on-disk cache
+      - intra-batch dedup (compute each unique text at most once per batch)
 
     Env:
       - SENSE_VECTOR_CACHE_DIR (default: .cache/sense/vectors)
@@ -54,45 +56,86 @@ def build_vectors(
     version = vectorizer_version(cfg)
     cache = VectorCache(cache_dir)
 
+    # Keep original order for output
     texts: list[str] = []
-    keys: list[VectorCacheKey] = []
-    cached: list[np.ndarray | None] = []
+    keys_ordered: list[VectorCacheKey] = []
+
+    # Dedup inside batch by key
+    unique_keys: list[VectorCacheKey] = []
+    unique_texts: list[str] = []
+    seen: set[str] = set()  # key filename is unique enough
 
     for inst in instances:
         t = _get_text(inst)
-        texts.append(t)
         k = VectorCacheKey(h=text_hash(t), version=version)
-        keys.append(k)
-        cached.append(cache.get(k))
+        texts.append(t)
+        keys_ordered.append(k)
 
-    hits = sum(1 for v in cached if v is not None)
-    missing_idx = [i for i, v in enumerate(cached) if v is None]
-    misses = len(missing_idx)
+        k_id = k.filename()
+        if k_id in seen:
+            continue
+        seen.add(k_id)
+        unique_keys.append(k)
+        unique_texts.append(t)
 
-    if missing_idx:
-        missing_texts = [texts[i] for i in missing_idx]
-        X_missing = tfidf_vectorize(missing_texts, cfg=cfg)  # shape (m, d)
+    # Load cache for unique keys
+    vec_by_key: dict[str, np.ndarray] = {}
+    hits = 0
+    misses_keys: list[VectorCacheKey] = []
+    misses_texts: list[str] = []
 
-        for j, i in enumerate(missing_idx):
-            vec = X_missing[j]
-            cache.put(keys[i], vec)
-            cached[i] = vec
+    for k, t in zip(unique_keys, unique_texts):
+        v = cache.get(k)
+        if v is not None:
+            hits += 1
+            vec_by_key[k.filename()] = v
+        else:
+            misses_keys.append(k)
+            misses_texts.append(t)
+
+    misses = len(misses_keys)
+
+    # Compute only missing unique texts
+    if misses_texts:
+        X_missing = tfidf_vectorize(misses_texts, cfg=cfg)  # shape (m, d)
+        for i, k in enumerate(misses_keys):
+            vec = X_missing[i]
+            cache.put(k, vec)
+            vec_by_key[k.filename()] = vec
 
     dim = int(cfg.n_features)
-    total = hits + misses
-    hit_rate = (float(hits) / float(total)) if total > 0 else 0.0
+    total_unique = len(unique_keys)
+    total_items = len(keys_ordered)
+    hit_rate = (float(hits) / float(total_unique)) if total_unique > 0 else 0.0
+    dedup_ratio = (float(total_unique) / float(total_items)) if total_items > 0 else 1.0
 
     log.info(
-        "vector_cache_stats hits=%s misses=%s hit_rate=%.3f dim=%s version=%s cache_dir=%s",
+        "vector_cache_stats hits=%s misses=%s hit_rate=%.3f dim=%s version=%s cache_dir=%s unique=%s total=%s dedup_ratio=%.3f",
         hits,
         misses,
         hit_rate,
         dim,
         version,
         cache_dir,
+        total_unique,
+        total_items,
+        dedup_ratio,
     )
-    emit_vector_cache_stats(hits=hits, misses=misses, dim=dim)
+    emit_vector_cache_stats(
+        hits=hits,
+        misses=misses,
+        dim=dim,
+        unique_texts=total_unique,
+        total_items=total_items,
+    )
 
-    filled = [v if v is not None else np.zeros(dim, dtype=np.float32) for v in cached]
+    # Reconstruct output matrix in original order
+    filled = []
+    for k in keys_ordered:
+        v = vec_by_key.get(k.filename())
+        if v is None:
+            v = np.zeros(dim, dtype=np.float32)
+        filled.append(v)
+
     X = np.stack(filled, axis=0).astype(np.float32, copy=False)
     return X

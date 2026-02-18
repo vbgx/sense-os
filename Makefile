@@ -207,7 +207,7 @@ workers-local:
 	@echo "Run in separate terminals:"
 	@echo "  $(SCRIPTS_DIR)/dev_install.sh"
 	@echo "  source .venv/bin/activate"
-	@echo "  export POSTGRES_DSN=postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+	@echo "  export POSTGRES_DSN=postgresql+psycopg://20 20 12 61 79 80 81 98 701 33 100 204 250 395 398 399 400whoami)@localhost:5432/sense\n  export DATABASE_URL=\"
 	@echo "  export REDIS_URL=redis://localhost:6379/0"
 	@echo "  $(SCRIPTS_DIR)/run_ingestion_worker.sh"
 	@echo "  $(SCRIPTS_DIR)/run_processing_worker.sh"

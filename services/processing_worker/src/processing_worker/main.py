@@ -36,11 +36,19 @@ def _load_job_from_env_or_stdin() -> Dict[str, Any]:
     return {}
 
 
+def _truthy_env(name: str, default: str = "0") -> bool:
+    v = str(os.environ.get(name, default)).strip().lower()
+    return v in {"1", "true", "yes", "y", "on"}
+
+
 def _run_once(job: Dict[str, Any]) -> None:
     started = time.time()
     worker_name = "processing_worker"
     job_id = job.get("job_id")
     vertical_db_id = job.get("vertical_db_id")
+
+    # Debug switch: when enabled, prints full JSON result.
+    dump_json = _truthy_env("PROCESSING_DUMP_JSON", "0")
 
     try:
         res = pipeline_handle_job(job)
@@ -75,8 +83,25 @@ def _run_once(job: Dict[str, Any]) -> None:
             ),
         )
 
-        # output machine-readable for scripts
-        print(json.dumps({"ok": True, "result": res}))
+        # ✅ default: compact machine-readable (no gigantic payload)
+        if dump_json:
+            print(json.dumps({"ok": True, "result": res}))
+        else:
+            print(
+                json.dumps(
+                    {
+                        "ok": True,
+                        "result": {
+                            "loaded": res.get("loaded", 0),
+                            "envelopes": res.get("envelopes", 0),
+                            "signals_updated": res.get("signals_updated", 0),
+                            "pain_instances_persisted": res.get("pain_instances_persisted", 0),
+                            "feature_metrics": res.get("feature_metrics", {}),
+                        },
+                    }
+                )
+            )
+
     except Exception:
         took_ms = int((time.time() - started) * 1000)
         log.exception(

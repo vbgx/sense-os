@@ -36,7 +36,7 @@ RUFF ?= uv run ruff
 
 .DEFAULT_GOAL := help
 
-.PHONY: help bundle \
+.PHONY: help bundle ON \
 	up up-core up-app rebuild down ps \
 	logs logs-api logs-postgres logs-redis logs-clustering logs-trend \
 	migrate migrate-list migrate-file \
@@ -51,6 +51,7 @@ RUFF ?= uv run ruff
 	lint-api lint-ingestion lint-processing lint-clustering lint-trend lint-scheduler \
 	typecheck-web lint-web test-web e2e-web \
 	deprecated verticals-validate
+
 
 help:
 	@printf "\nSense OS — Commands (Makefile)\n\n"
@@ -299,3 +300,32 @@ deprecated:
 verticals-validate:
 	@echo "DEPRECATED: YAML vertical validation removed. Verticals are JSON-only." >&2
 	@exit 1
+
+# -----------------------------------------------------------------------------
+# 🔥 ONE BUTTON FULL SYSTEM BOOT
+# -----------------------------------------------------------------------------
+ON:
+	@echo ""
+	@echo "==============================================================="
+	@echo "🔥  SENSE OS — SYSTEM POWER ON"
+	@echo "==============================================================="
+	@echo ""
+	@echo "🚀 Booting containers..."
+	@$(MAKE) up
+	@echo ""
+	@echo "🧠 Running migrations..."
+	@$(MAKE) migrate
+	@echo ""
+	@echo "🌱 Seeding verticals..."
+	@$(MAKE) seed
+	@echo ""
+	@echo "📡 Running scheduler once..."
+	@$(MAKE) scheduler-once
+	@echo ""
+	@echo "🔍 Validating full stack..."
+	@$(MAKE) validate-fast
+	@echo ""
+	@echo "==============================================================="
+	@echo "✅ SENSE OS IS LIVE"
+	@echo "==============================================================="
+	@echo ""

@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import logging
 import time
+from dataclasses import dataclass
 from datetime import date, timedelta
 from typing import Optional, Callable
 
@@ -28,13 +29,73 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message
 log = logging.getLogger("scheduler")
 
 
+# -----------------------------------------------------------------------------
+# Pretty logging helpers (RUN HEADER / SUMMARY)
+# -----------------------------------------------------------------------------
+def _banner(title: str) -> None:
+    line = "=" * 72
+    log.info(line)
+    log.info(title)
+    log.info(line)
+
+
+def _fmt_list(xs: list[str] | None) -> str:
+    if not xs:
+        return "∅"
+    return ",".join(xs)
+
+
+@dataclass
+class RunContext:
+    mode: str
+    vertical_id: str
+    vertical_db_id: int
+    taxonomy_version: str
+    run_id: str
+    day: str | None
+    query: str | None
+    limit: int | None
+    offset: int | None
+    sources: list[str] | None
+
+
+def _run_header(ctx: RunContext) -> None:
+    _banner("🚀 SCHEDULER RUN START")
+    log.info("mode=%s", ctx.mode)
+    log.info("vertical=%s (db_id=%s)", ctx.vertical_id, ctx.vertical_db_id)
+    log.info("run_id=%s", ctx.run_id)
+    log.info("day=%s", ctx.day)
+    log.info("taxonomy_version=%s", ctx.taxonomy_version)
+    log.info("query=%r limit=%s offset=%s", ctx.query, ctx.limit, ctx.offset)
+    log.info("sources=%s", _fmt_list(ctx.sources))
+    if ctx.sources is None:
+        log.info("note: sources=None → planner will fallback to registry (multi-source best-effort)")
+    elif len(ctx.sources) == 0:
+        log.info("warning: sources=[] (empty) → ingestion will run with 0 sources unless planner overrides")
+    log.info("-" * 72)
+
+
+def _run_summary(ctx: RunContext, *, signals_any: int | None = None, signals_day: int | None = None) -> None:
+    _banner("✅ RUN SUMMARY")
+    log.info("vertical=%s (db_id=%s) run_id=%s", ctx.vertical_id, ctx.vertical_db_id, ctx.run_id)
+    log.info("day=%s query=%r limit=%s offset=%s", ctx.day, ctx.query, ctx.limit, ctx.offset)
+    log.info("sources=%s", _fmt_list(ctx.sources))
+    if signals_any is not None:
+        log.info("signals_total_for_vertical=%s", signals_any)
+    if signals_day is not None:
+        log.info("signals_for_day=%s", signals_day)
+    log.info("tip: if ingestion shows sources_count=0, check planner input sources + adapter registry.")
+    log.info("=" * 72)
+
+
+# -----------------------------------------------------------------------------
+# CLI
+# -----------------------------------------------------------------------------
 def _parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Sense OS scheduler")
 
-    # legacy DB-centric
     p.add_argument("--vertical-id", type=int, default=None, help="DB id (legacy)")
 
-    # filesystem verticals
     p.add_argument("--verticals-dir", type=str, default="config/verticals")
     p.add_argument("--only-prefix", type=str, default=None)
     p.add_argument("--enabled-only", dest="enabled_only", action="store_true")
@@ -46,7 +107,7 @@ def _parse_args() -> argparse.Namespace:
 
     p.add_argument("--vertical", type=str, default=None, help="Vertical id (from config json id)")
 
-    # Source is ignored, we force planner source="multi"
+    # kept for compatibility, but planner is forced to multi in this scheduler
     p.add_argument("--source", type=str, default="multi", help="IGNORED (forced to multi). kept for compatibility")
 
     p.add_argument("--mode", type=str, choices=["enqueue", "once", "backfill"], default="enqueue")
@@ -64,7 +125,6 @@ def _parse_args() -> argparse.Namespace:
     p.add_argument("--enqueue-full", action="store_true", help="Enqueue ingest+process+cluster+trend (default: ingest only)")
     p.add_argument("--day", type=str, default=None, help="YYYY-MM-DD day for enqueue (optional). If omitted, day=None.")
 
-    # backfill
     p.add_argument("--days", type=int, default=90)
     p.add_argument("--start", type=str, default=None)
     p.add_argument("--end", type=str, default=None)
@@ -109,14 +169,6 @@ def _scalar_int(sql: str, params: Optional[dict[str, object]] = None) -> int:
     return int(_scalar(sql, params))
 
 
-def _emit_metric(name: str, value: float | int, **tags: object) -> None:
-    tag_s = " ".join(f"{k}={v}" for k, v in tags.items())
-    if tag_s:
-        log.info("metric %s=%s %s", name, value, tag_s)
-    else:
-        log.info("metric %s=%s", name, value)
-
-
 def _wait_count_ge(
     label: str,
     sql: str,
@@ -152,6 +204,31 @@ def _infer_latest_signal_day(vertical_db_id: int) -> date:
     return v
 
 
+def _signals_total(vertical_db_id: int) -> int:
+    try:
+        return _scalar_int("select count(*) from signals where vertical_db_id=:vertical_db_id", {"vertical_db_id": vertical_db_id})
+    except Exception:
+        return 0
+
+
+def _signals_for_day(vertical_db_id: int, d: date) -> int:
+    day_start = d.isoformat()
+    day_end = (d + timedelta(days=1)).isoformat()
+    try:
+        return _scalar_int(
+            """
+            select count(*)
+            from signals
+            where vertical_db_id=:vertical_db_id
+              and ingested_at >= :day_start
+              and ingested_at < :day_end
+            """.strip(),
+            {"vertical_db_id": vertical_db_id, "day_start": day_start, "day_end": day_end},
+        )
+    except Exception:
+        return 0
+
+
 def _run_day_sequential(
     *,
     vertical_id: str,
@@ -168,7 +245,19 @@ def _run_day_sequential(
     day_start = d.isoformat()
     next_day = (d + timedelta(days=1)).isoformat()
 
-    log.info("run_day vertical_id=%s vertical_db_id=%s day=%s run_id=%s", vertical_id, vertical_db_id, day_s, run_id)
+    ctx = RunContext(
+        mode="once(day)",
+        vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
+        run_id=run_id,
+        day=day_s,
+        query=query,
+        limit=limit,
+        offset=offset,
+        sources=sources,
+    )
+    _run_header(ctx)
 
     jobs = plan_vertical_run(
         vertical_id=vertical_id,
@@ -203,6 +292,9 @@ def _run_day_sequential(
     publish_jobs([cluster])
     publish_jobs([trend])
 
+    log.info("run_day enqueued process+cluster+trend vertical_id=%s vertical_db_id=%s run_id=%s day=%s", vertical_id, vertical_db_id, run_id, day_s)
+    _run_summary(ctx, signals_any=_signals_total(vertical_db_id), signals_day=_signals_for_day(vertical_db_id, d))
+
 
 def _run_once_infer_day_then_sequential(
     *,
@@ -215,6 +307,21 @@ def _run_once_infer_day_then_sequential(
     sources: list[str] | None,
 ) -> None:
     run_id = new_run_id()
+
+    ctx = RunContext(
+        mode="once",
+        vertical_id=vertical_id,
+        vertical_db_id=vertical_db_id,
+        taxonomy_version=taxonomy_version,
+        run_id=run_id,
+        day=None,
+        query=query,
+        limit=limit,
+        offset=offset,
+        sources=sources,
+    )
+    _run_header(ctx)
+
     jobs = plan_vertical_run(
         vertical_id=vertical_id,
         vertical_db_id=vertical_db_id,
@@ -227,6 +334,7 @@ def _run_once_infer_day_then_sequential(
         offset=offset,
         sources=sources,
     )
+
     ingest = jobs[0]
     publish_jobs([ingest])
 
@@ -239,6 +347,10 @@ def _run_once_infer_day_then_sequential(
     )
     d = _infer_latest_signal_day(vertical_db_id)
 
+    # Summary for the first stage (we already have signals now)
+    _run_summary(ctx, signals_any=_signals_total(vertical_db_id), signals_day=_signals_for_day(vertical_db_id, d))
+
+    # Continue full pipeline for inferred day
     _run_day_sequential(
         vertical_id=vertical_id,
         vertical_db_id=vertical_db_id,
@@ -369,26 +481,13 @@ def _enqueue_one(
         offset=offset,
         sources=sources,
     )
+
     if enqueue_full:
         publish_jobs(list(jobs))
-        log.info(
-            "enqueued_full vertical_id=%s vertical_db_id=%s run_id=%s query=%r sources=%s",
-            vertical_id,
-            vertical_db_id,
-            run_id,
-            query,
-            sources,
-        )
+        log.info("enqueue_full_done vertical_id=%s vertical_db_id=%s run_id=%s query=%r sources=%s", vertical_id, vertical_db_id, run_id, query, sources)
     else:
         publish_jobs([jobs[0]])
-        log.info(
-            "enqueued_ingest vertical_id=%s vertical_db_id=%s run_id=%s query=%r sources=%s",
-            vertical_id,
-            vertical_db_id,
-            run_id,
-            query,
-            sources,
-        )
+        log.info("enqueue_ingest_done vertical_id=%s vertical_db_id=%s run_id=%s query=%r sources=%s", vertical_id, vertical_db_id, run_id, query, sources)
 
 
 def main() -> None:
@@ -421,16 +520,23 @@ def main() -> None:
     if not selected:
         raise SystemExit("no verticals selected")
 
-    log.info("selected_verticals=%s mode=%s day=%s", len(selected), args.mode, day.isoformat() if day else None)
+    sample = [v.id for v in selected[:10]]
+    log.info(
+        "selected_verticals=%s mode=%s day=%s sample=%s%s",
+        len(selected),
+        args.mode,
+        day.isoformat() if day else None,
+        sample,
+        " ..." if len(selected) > 10 else "",
+    )
 
     if args.mode == "enqueue":
         total_jobs = 0
         for v in selected:
             vdb = ensure_vertical(v.id)
             qs = _queries_for_vertical(v, override_query=args.query, max_q=int(args.max_queries_per_vertical))
-
-            # If config defines sources, use them. Else None => planner will fallback to all adapters.
             sources = v.ingestion_sources
+            log.info("enqueue_vertical vertical_id=%s vertical_db_id=%s queries=%s sources=%s enqueue_full=%s", v.id, vdb, qs, sources, bool(args.enqueue_full))
 
             for q in qs:
                 _enqueue_one(
@@ -445,10 +551,10 @@ def main() -> None:
                     sources=sources,
                 )
                 total_jobs += 1
-        log.info("enqueue_done jobs=%s verticals=%s", total_jobs, len(selected))
+
+        log.info("enqueue_done batches=%s verticals=%s", total_jobs, len(selected))
         return
 
-    # Debug modes (slow)
     for v in selected:
         vdb = ensure_vertical(v.id)
         sources = v.ingestion_sources

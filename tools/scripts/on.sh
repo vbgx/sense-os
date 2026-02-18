@@ -2,29 +2,27 @@
 set -euo pipefail
 
 echo
-echo "🚀 SENSE-OS — LIVE MODE"
+echo "🚀 SENSE-OS — LIVE MODE (LOCAL)"
 echo
 
-# Default to repo-root docker-compose.yml, but allow override
-COMPOSE_FILE="${COMPOSE_FILE:-docker-compose.yml}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-if [[ ! -f "$COMPOSE_FILE" ]]; then
-  echo "❌ compose file not found: $COMPOSE_FILE"
-  echo "   Tip: set COMPOSE_FILE=/path/to/docker-compose.yml"
-  exit 1
-fi
+# Local defaults (override if you want)
+export API_BASE_URL="${API_BASE_URL:-http://localhost:8000}"
+export DATABASE_URL="${DATABASE_URL:-postgresql+psycopg://$(whoami)@localhost:5432/sense}"
+export POSTGRES_DSN="${POSTGRES_DSN:-$DATABASE_URL}"
+export REDIS_URL="${REDIS_URL:-redis://localhost:6379/0}"
+export LOG_LEVEL="${LOG_LEVEL:-INFO}"
 
-echo "▶ Docker up... (compose: $COMPOSE_FILE)"
-docker compose -f "$COMPOSE_FILE" up -d --build
-
+echo "==============================================="
+echo "🧪 SENSE OS FULL STACK VALIDATION (LOCAL)"
+echo "🗓️  DATE: $(date)"
+echo "📁 REPO_ROOT: $REPO_ROOT"
+echo "🌐 API_BASE_URL: $API_BASE_URL"
+echo "🗄️  DATABASE_URL: $DATABASE_URL"
+echo "🧰 REDIS_URL: $REDIS_URL"
+echo "==============================================="
 echo
-echo "✅ Docker is up."
-echo
 
-echo "▶ Logs (ctrl+c to stop)..."
-docker compose -f "$COMPOSE_FILE" logs -f \
-  api-gateway \
-  ingestion-worker \
-  processing-worker \
-  clustering-worker \
-  trend-worker
+exec "$REPO_ROOT/tools/scripts/validate_full_boot.sh" --keep-running

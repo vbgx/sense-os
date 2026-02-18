@@ -15,3 +15,6 @@ class SignalEnvelope:
     vertical_auto: dict[str, Any] | None
     pain_score: float | None
     pain_instance: dict[str, Any] | None
+
+    # Optional: allow upstream to set it; if absent, writers will default.
+    algo_version: str | None = None

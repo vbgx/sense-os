@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import logging
+import time
 from typing import Any, Iterable
 
 import numpy as np
 
 from clustering_worker.vectorize.cache.vector_cache import VectorCache, VectorCacheKey, text_hash
 from clustering_worker.vectorize.cache.metrics_emit import emit_vector_cache_stats
+from clustering_worker.vectorize.cache.json_log import log_json
 from clustering_worker.vectorize.tfidf import HashingVectorizerConfig, tfidf_vectorize, vectorizer_version
 from clustering_worker.vectorize.vector_settings import get_vector_settings
 
@@ -35,14 +37,16 @@ def build_vectors(
     Deterministic, cache-safe vectorization with:
       - incremental on-disk cache
       - intra-batch dedup (compute each unique text at most once per batch)
+      - JSON log event for dashboards (vectorize_stats)
 
     Env:
       - SENSE_VECTOR_CACHE_DIR (default: .cache/sense/vectors)
       - SENSE_VECTOR_N_FEATURES (default: 2**18)
       - SENSE_VECTOR_NGRAM_MAX (default: 2)
     """
-    vs = get_vector_settings()
+    t0 = time.perf_counter()
 
+    vs = get_vector_settings()
     if cache_dir is None:
         cache_dir = vs.cache_dir
 
@@ -57,18 +61,18 @@ def build_vectors(
     cache = VectorCache(cache_dir)
 
     # Keep original order for output
-    texts: list[str] = []
     keys_ordered: list[VectorCacheKey] = []
 
     # Dedup inside batch by key
     unique_keys: list[VectorCacheKey] = []
     unique_texts: list[str] = []
-    seen: set[str] = set()  # key filename is unique enough
+    seen: set[str] = set()
 
+    total_items = 0
     for inst in instances:
+        total_items += 1
         t = _get_text(inst)
         k = VectorCacheKey(h=text_hash(t), version=version)
-        texts.append(t)
         keys_ordered.append(k)
 
         k_id = k.filename()
@@ -96,8 +100,12 @@ def build_vectors(
     misses = len(misses_keys)
 
     # Compute only missing unique texts
+    compute_ms = 0.0
     if misses_texts:
-        X_missing = tfidf_vectorize(misses_texts, cfg=cfg)  # shape (m, d)
+        t_compute = time.perf_counter()
+        X_missing = tfidf_vectorize(misses_texts, cfg=cfg)
+        compute_ms = (time.perf_counter() - t_compute) * 1000.0
+
         for i, k in enumerate(misses_keys):
             vec = X_missing[i]
             cache.put(k, vec)
@@ -105,12 +113,12 @@ def build_vectors(
 
     dim = int(cfg.n_features)
     total_unique = len(unique_keys)
-    total_items = len(keys_ordered)
     hit_rate = (float(hits) / float(total_unique)) if total_unique > 0 else 0.0
     dedup_ratio = (float(total_unique) / float(total_items)) if total_items > 0 else 1.0
 
+    # Human-readable log
     log.info(
-        "vector_cache_stats hits=%s misses=%s hit_rate=%.3f dim=%s version=%s cache_dir=%s unique=%s total=%s dedup_ratio=%.3f",
+        "vector_cache_stats hits=%s misses=%s hit_rate=%.3f dim=%s version=%s cache_dir=%s unique=%s total=%s dedup_ratio=%.3f compute_ms=%.1f",
         hits,
         misses,
         hit_rate,
@@ -120,7 +128,29 @@ def build_vectors(
         total_unique,
         total_items,
         dedup_ratio,
+        compute_ms,
     )
+
+    # JSON log (single line)
+    total_ms = (time.perf_counter() - t0) * 1000.0
+    log_json(
+        log,
+        "vectorize_stats",
+        {
+            "cache_dir": str(cache_dir),
+            "version": str(version),
+            "dim": int(dim),
+            "items_total": int(total_items),
+            "texts_unique": int(total_unique),
+            "dedup_ratio": float(dedup_ratio),
+            "cache_hits": int(hits),
+            "cache_misses": int(misses),
+            "cache_hit_rate": float(hit_rate),
+            "compute_ms": float(compute_ms),
+            "total_ms": float(total_ms),
+        },
+    )
+
     emit_vector_cache_stats(
         hits=hits,
         misses=misses,

@@ -305,35 +305,5 @@ verticals-validate:
 # 🔥 ONE BUTTON — PERMANENT LIVE MODE
 # -----------------------------------------------------------------------------
 ON:
-	@echo ""
-	@echo "==============================================================="
-	@echo "🔥  SENSE OS — LIVE MODE (Ctrl+C to stop)"
-	@echo "==============================================================="
-	@echo ""
-	@echo "🚀 Starting Docker stack..."
-	@docker compose -f "$(COMPOSE_FILE)" up -d --build
-	@echo ""
-	@echo "🧠 Running migrations..."
-	@$(MAKE) migrate
-	@echo ""
-	@echo "🌱 Seeding verticals..."
-	@$(MAKE) seed || true
-	@echo ""
-	@echo "🔁 Starting scheduler loop..."
-	@echo ""
-
-	@(
-		while true; do \
-			$(MAKE) scheduler-once; \
-			sleep 5; \
-		done \
-	) &
-
-	@echo "📡 Streaming worker logs..."
-	@echo ""
-
-	@docker compose -f "$(COMPOSE_FILE)" logs -f \
-		ingestion-worker \
-		processing-worker \
-		clustering-worker \
-		trend-worker
+	@chmod +x tools/scripts/on.sh
+	@./tools/scripts/on.sh

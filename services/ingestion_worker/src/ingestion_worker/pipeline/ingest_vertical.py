@@ -23,7 +23,6 @@ _CURRENT_CTX: FetchContext | None = None
 _HARD_DISABLED_SOURCES = {"reddit"}
 
 # ✅ If registry/config yields nothing usable, we still want the system to run.
-# Add any other adapters you *know* exist locally.
 _FALLBACK_SOURCES = ["hackernews"]
 
 
@@ -58,7 +57,6 @@ def set_checkpoint(*args, **kwargs) -> None:
         if isinstance(ts, datetime):
             _CHECKPOINTS[str(key)] = ts
         else:
-            # don't poison state
             _CHECKPOINTS[str(key)] = datetime.now(timezone.utc)
         return
 
@@ -305,8 +303,6 @@ def _persist_with_writer(writer, signals: list[dict[str, Any]]) -> dict[str, int
 
 
 def _safe_sources_from_registry() -> list[str]:
-    # ⚠️ Your current registry seems to return only reddit -> after filter it's empty.
-    # So: try registry, then fallback hardcoded.
     try:
         from ingestion_worker.adapters.registry import list_sources  # type: ignore
 
@@ -316,12 +312,17 @@ def _safe_sources_from_registry() -> list[str]:
             return out
     except Exception:
         pass
-
-    # guaranteed fallback
     return _filter_sources(list(_FALLBACK_SOURCES))
 
 
-def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
+def _debug_enabled() -> bool:
+    return os.getenv("SENSE_DEBUG") == "1" or os.getenv("INGESTION_DEBUG") == "1"
+
+
+def ingest_vertical(job: dict[str, Any]) -> dict[str, Any]:
+    """
+    Returns counters + optional debug_sample (when INGESTION_DUMP_JSON=1).
+    """
     global _CURRENT_CTX
 
     t0 = time.perf_counter()
@@ -340,7 +341,10 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
         raise ValueError("job missing vertical_db_id")
     vertical_db_id = int(vertical_db_id)
 
+    # ✅ Debug mode: disable too_recent so we don't "run but skip"
     too_recent_seconds = int(job.get("too_recent_seconds") or 300)
+    if _debug_enabled():
+        too_recent_seconds = 0
 
     ctx = FetchContext(
         vertical_id=vertical_id,
@@ -368,102 +372,193 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
 
         norm_sources = _filter_sources(norm_sources)
 
-        # If config list becomes empty (ex: only reddit), fallback to registry/hard list
         if not norm_sources:
             fallback = _safe_sources_from_registry()
             if not fallback:
                 log.warning("ingest_all_sources_disabled disabled=%s", sorted(_disabled_sources()))
                 return {
+                    "sources": 0,
+                    "sources_ok": 0,
+                    "sources_err": 0,
                     "fetched": 0,
                     "inserted": 0,
                     "skipped_db": 0,
                     "skipped_sources": 0,
                     "failed_sources": 0,
                     "skipped_items": 0,
+                    "seconds": round(time.perf_counter() - t0, 3),
                 }
             norm_sources = fallback
             log.warning("ingest_sources_fallback_to_registry sources=%s", norm_sources)
 
-        # 🎲 MULTI strategy: pick ONE source randomly (seeded) to avoid blasting providers.
+        # ✅ NEW: multi-source fallback (max 3 tries) instead of "pick 1 and die"
         seed = f"{vertical_db_id}:{taxonomy_version}:{vertical_id}:{job.get('day')}:{query}:{limit}"
         rng = random.Random(seed)
-        src = rng.choice(norm_sources)
+        candidates = list(norm_sources)
+        rng.shuffle(candidates)
 
-        log.info("ingest_multi_pick source=%s candidates=%s", src, norm_sources)
+        max_tries = min(3, len(candidates))
+        tried = 0
+        sources_ok = 0
+        sources_err = 0
+        skipped_sources = 0
 
-        key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=src)
-        cp = get_checkpoint("ingest_vertical", key)
-        if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
-            log.info("ingest_source_skipped_too_recent source=%s", src)
-            return {"fetched": 0, "inserted": 0, "skipped_db": 0, "skipped_sources": 1, "failed_sources": 0, "skipped_items": 0}
+        total_fetched = 0
+        total_inserted = 0
+        total_skipped_db = 0
+        total_skipped_items = 0
+        debug_sample: list[dict[str, Any]] = []
 
-        _CURRENT_CTX = ctx
-        try:
+        for src in candidates[:max_tries]:
+            tried += 1
+            key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=src)
+            cp = get_checkpoint("ingest_vertical", key)
+
+            if too_recent_seconds > 0 and should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
+                skipped_sources += 1
+                log.info("ingest_source_skipped_too_recent source=%s", src)
+                continue
+
+            _CURRENT_CTX = ctx
             try:
-                _, raw = _fetch_from_source(src, vertical_id)
-            except Exception as e:
-                log.warning("ingest_source_failed source=%s err=%s:%s", src, type(e).__name__, str(e))
-                set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-                return {"fetched": 0, "inserted": 0, "skipped_db": 0, "skipped_sources": 0, "failed_sources": 1, "skipped_items": 0}
-
-            enriched: list[dict[str, Any]] = []
-            skipped_items = 0
-            for it in raw:
-                e = _enrich_signal(it, ctx=ctx, source=src)
-                if e is None:
-                    skipped_items += 1
+                try:
+                    _, raw = _fetch_from_source(src, vertical_id)
+                except Exception as e:
+                    sources_err += 1
+                    log.warning("ingest_source_failed source=%s err=%s:%s", src, type(e).__name__, str(e))
+                    set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
                     continue
-                enriched.append(e)
 
-            fetched = len(enriched)
-            inserted_total = 0
-            skipped_db_total = 0
+                enriched: list[dict[str, Any]] = []
+                skipped_items = 0
+                for it in raw:
+                    e = _enrich_signal(it, ctx=ctx, source=src)
+                    if e is None:
+                        skipped_items += 1
+                        continue
+                    enriched.append(e)
 
-            if enriched:
-                out = _persist_with_writer(writer, enriched)
-                inserted_total = int(out.get("inserted") or out.get("persisted") or 0)
-                skipped_db_total = int(out.get("skipped") or 0)
+                fetched = len(enriched)
+                inserted_total = 0
+                skipped_db_total = 0
 
-            set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-        finally:
-            _CURRENT_CTX = None
+                if enriched:
+                    out = _persist_with_writer(writer, enriched)
+                    inserted_total = int(out.get("inserted") or out.get("persisted") or 0)
+                    skipped_db_total = int(out.get("skipped") or 0)
 
+                # checkpoint on successful fetch attempt (even if empty)
+                set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
+
+                sources_ok += 1
+                total_fetched += fetched
+                total_inserted += inserted_total
+                total_skipped_db += skipped_db_total
+                total_skipped_items += skipped_items
+
+                if os.getenv("INGESTION_DUMP_JSON") == "1" and not debug_sample and enriched:
+                    # sample 3 enriched signals
+                    for it in enriched[:3]:
+                        debug_sample.append(
+                            {
+                                "content": it.get("content"),
+                                "title": it.get("title"),
+                                "url": it.get("url"),
+                                "source": it.get("source"),
+                                "created_at": it.get("created_at"),
+                                "external_id": it.get("external_id"),
+                            }
+                        )
+
+                log.info(
+                    "ingest_source_done source=%s fetched=%s inserted=%s skipped_db=%s skipped_items=%s",
+                    src,
+                    fetched,
+                    inserted_total,
+                    skipped_db_total,
+                    skipped_items,
+                )
+
+                # ✅ If we actually ingested something, stop early.
+                if fetched > 0:
+                    break
+
+            finally:
+                _CURRENT_CTX = None
+
+        seconds = round(time.perf_counter() - t0, 3)
         log.info(
-            "ingest_done mode=multi_random source=%s fetched=%s inserted=%s skipped_db=%s skipped_items=%s seconds=%.3f",
-            src,
-            fetched,
-            inserted_total,
-            skipped_db_total,
-            skipped_items,
-            time.perf_counter() - t0,
+            "ingest_done mode=multi_fallback sources=%s tried=%s ok=%s err=%s skipped_sources=%s fetched=%s inserted=%s skipped_db=%s skipped_items=%s seconds=%.3f",
+            len(norm_sources),
+            tried,
+            sources_ok,
+            sources_err,
+            skipped_sources,
+            total_fetched,
+            total_inserted,
+            total_skipped_db,
+            total_skipped_items,
+            seconds,
         )
-        return {
-            "fetched": fetched,
-            "inserted": inserted_total,
-            "skipped_db": skipped_db_total,
-            "skipped_sources": 0,
-            "failed_sources": 0,
-            "skipped_items": skipped_items,
+
+        out: dict[str, Any] = {
+            "sources": len(norm_sources),
+            "sources_ok": sources_ok,
+            "sources_err": sources_err,
+            "skipped_sources": skipped_sources,
+            "failed_sources": sources_err,
+            "fetched": total_fetched,
+            "inserted": total_inserted,
+            "skipped_db": total_skipped_db,
+            "skipped_items": total_skipped_items,
+            "seconds": seconds,
         }
+        if debug_sample:
+            out["debug_sample"] = debug_sample
+            out["sample"] = debug_sample
+        return out
 
     # ---- single source path ----
     if source.strip().lower() in _disabled_sources():
         log.warning("ingest_single_source_disabled source=%s disabled=%s", source, sorted(_disabled_sources()))
-        return {"fetched": 0, "inserted": 0, "skipped": 1}
+        return {"sources": 1, "sources_ok": 0, "sources_err": 0, "fetched": 0, "inserted": 0, "skipped_db": 0, "skipped_items": 0, "seconds": round(time.perf_counter() - t0, 3)}
 
     _CURRENT_CTX = ctx
     try:
         key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source)
         cp = get_checkpoint("ingest_vertical", key)
-        if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
-            return {"fetched": 0, "inserted": 0, "skipped": 1}
+        if too_recent_seconds > 0 and should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
+            log.info("ingest_source_skipped_too_recent source=%s", source)
+            return {
+                "sources": 1,
+                "sources_ok": 0,
+                "sources_err": 0,
+                "fetched": 0,
+                "inserted": 0,
+                "skipped_db": 0,
+                "skipped_sources": 1,
+                "failed_sources": 0,
+                "skipped_items": 0,
+                "seconds": round(time.perf_counter() - t0, 3),
+            }
 
         try:
             _, raw = _fetch_from_source(source, vertical_id)
         except Exception as e:
             log.warning("ingest_source_failed source=%s err=%s:%s", source, type(e).__name__, str(e))
             set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-            return {"fetched": 0, "inserted": 0, "skipped": 0, "failed_sources": 1}
+            return {
+                "sources": 1,
+                "sources_ok": 0,
+                "sources_err": 1,
+                "fetched": 0,
+                "inserted": 0,
+                "skipped_db": 0,
+                "skipped_sources": 0,
+                "failed_sources": 1,
+                "skipped_items": 0,
+                "seconds": round(time.perf_counter() - t0, 3),
+            }
 
         enriched: list[dict[str, Any]] = []
         skipped_items = 0
@@ -475,13 +570,49 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
             enriched.append(e)
 
         fetched = len(enriched)
-        out = _persist_with_writer(writer, enriched) if enriched else {"inserted": 0, "skipped": 0}
+        outp = _persist_with_writer(writer, enriched) if enriched else {"inserted": 0, "skipped": 0}
+        inserted = int(outp.get("inserted") or 0)
+        skipped_db = int(outp.get("skipped") or 0)
+
         set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-        return {
+
+        debug_sample: list[dict[str, Any]] = []
+        if os.getenv("INGESTION_DUMP_JSON") == "1" and enriched:
+            for it in enriched[:3]:
+                debug_sample.append(
+                    {
+                        "content": it.get("content"),
+                        "title": it.get("title"),
+                        "url": it.get("url"),
+                        "source": it.get("source"),
+                        "created_at": it.get("created_at"),
+                        "external_id": it.get("external_id"),
+                    }
+                )
+
+        log.info(
+            "ingest_done mode=single source=%s fetched=%s inserted=%s skipped_db=%s skipped_items=%s seconds=%.3f",
+            source,
+            fetched,
+            inserted,
+            skipped_db,
+            skipped_items,
+            time.perf_counter() - t0,
+        )
+
+        res: dict[str, Any] = {
+            "sources": 1,
+            "sources_ok": 1,
+            "sources_err": 0,
             "fetched": fetched,
-            "inserted": int(out.get("inserted") or 0),
-            "skipped_db": int(out.get("skipped") or 0),
+            "inserted": inserted,
+            "skipped_db": skipped_db,
             "skipped_items": int(skipped_items),
+            "seconds": round(time.perf_counter() - t0, 3),
         }
+        if debug_sample:
+            res["debug_sample"] = debug_sample
+            res["sample"] = debug_sample
+        return res
     finally:
         _CURRENT_CTX = None

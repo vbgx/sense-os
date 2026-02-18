@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from datetime import date
 from typing import List, Optional
 
@@ -40,6 +41,10 @@ def _dedup_keep_order(xs: list[str]) -> list[str]:
     return out
 
 
+def _debug_enabled() -> bool:
+    return os.getenv("SENSE_DEBUG") == "1"
+
+
 def plan_vertical_run(
     vertical_id: str,
     vertical_db_id: int,
@@ -62,24 +67,19 @@ def plan_vertical_run(
     job_sources: list[str] | None = None
 
     if multi:
-        # Use explicit sources if provided (from config/verticals/*.json),
-        # otherwise fallback to "all adapters that import cleanly".
         if sources is not None:
             job_sources = _dedup_keep_order([str(s) for s in sources])
         else:
             job_sources = _dedup_keep_order(_list_available_sources())
 
-        # HARD GUARD: never allow empty sources in multi-mode
         if not job_sources:
             job_sources = ["reddit"]
 
-        # keep previous behavior: if caller didn't pick a query, default one
         if query is None:
             query = "saas"
         if limit is None:
             limit = 80
     else:
-        # legacy single-source behavior
         if query is None and src_norm == "reddit":
             query = "saas"
         if limit is None and src_norm == "reddit":
@@ -89,8 +89,8 @@ def plan_vertical_run(
         vertical_id=vertical_id,
         vertical_db_id=vertical_db_id,
         taxonomy_version=taxonomy_version,
-        source=source,              # keep original for backward-compat
-        sources=job_sources,        # the important part for multi-mode
+        source=source,  # keep original for backward-compat
+        sources=job_sources,  # important for multi-mode
         run_id=run_id,
         day=day_s,
         start_day=start_day_s,
@@ -99,6 +99,14 @@ def plan_vertical_run(
         limit=limit,
         offset=offset,
     )
+
+    # ✅ Debug: force too_recent_seconds=0 so ingestion can't "skip and look green"
+    if _debug_enabled():
+        try:
+            setattr(ingest, "too_recent_seconds", 0)
+        except Exception:
+            # If job model is frozen/strict, ingestion_worker will still override via env.
+            pass
 
     process = ProcessJob(
         vertical_id=vertical_id,

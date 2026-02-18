@@ -31,7 +31,7 @@ services:
 
   api-gateway:
     build:
-      context: ../..
+      context: .
       dockerfile: infra/docker/Dockerfile.api
     environment:
       REDIS_URL: redis://redis:6379/0
@@ -51,20 +51,15 @@ services:
 
   ingestion-worker:
     build:
-      context: ../..
+      context: .
       dockerfile: infra/docker/Dockerfile.worker
     environment:
       REDIS_URL: redis://redis:6379/0
       POSTGRES_DSN: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
-
-      # ---- DEBUG FLAGS ----
       SENSE_DEBUG: ${SENSE_DEBUG:-0}
       INGESTION_DUMP_JSON: ${INGESTION_DUMP_JSON:-0}
-
-      # disable reddit by default (can override via env)
       INGESTION_DISABLE_SOURCES: ${INGESTION_DISABLE_SOURCES:-reddit}
-
     depends_on:
       postgres:
         condition: service_healthy
@@ -75,19 +70,16 @@ services:
 
   processing-worker:
     build:
-      context: ../..
+      context: .
       dockerfile: infra/docker/Dockerfile.worker
     environment:
       REDIS_URL: redis://redis:6379/0
       POSTGRES_DSN: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
-
-      # ---- DEBUG FLAGS ----
       PROCESSING_DEBUG: ${PROCESSING_DEBUG:-0}
       PAIN_CREATE_THRESHOLD: ${PAIN_CREATE_THRESHOLD:-0.5}
       SPAM_THRESHOLD: ${SPAM_THRESHOLD:-0.85}
       QUALITY_MIN: ${QUALITY_MIN:-0.25}
-
     depends_on:
       postgres:
         condition: service_healthy
@@ -98,7 +90,7 @@ services:
 
   clustering-worker:
     build:
-      context: ../..
+      context: .
       dockerfile: infra/docker/Dockerfile.worker
     environment:
       REDIS_URL: redis://redis:6379/0
@@ -114,7 +106,7 @@ services:
 
   trend-worker:
     build:
-      context: ../..
+      context: .
       dockerfile: infra/docker/Dockerfile.worker
     environment:
       REDIS_URL: redis://redis:6379/0
@@ -133,4 +125,3 @@ services:
 
 volumes:
   pgdata:
-

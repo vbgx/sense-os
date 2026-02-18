@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import os
+import random
 import time
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -14,9 +16,15 @@ from ingestion_worker.storage.signals_writer import SignalsWriter
 
 log = logging.getLogger(__name__)
 
-# in-memory checkpoints (dev/local). Production should be persisted.
 _CHECKPOINTS: dict[str, datetime] = {}
 _CURRENT_CTX: FetchContext | None = None
+
+# 🔥 HARD SKIP (temporary): Reddit disabled no matter what.
+_HARD_DISABLED_SOURCES = {"reddit"}
+
+# ✅ If registry/config yields nothing usable, we still want the system to run.
+# Add any other adapters you *know* exist locally.
+_FALLBACK_SOURCES = ["hackernews"]
 
 
 def checkpoint_key(*, vertical_db_id: int, taxonomy_version: str, source: str) -> str:
@@ -47,7 +55,11 @@ def set_checkpoint(*args, **kwargs) -> None:
     # legacy signature: set_checkpoint(name, key, ts)
     if args and len(args) >= 3 and not kwargs:
         _, key, ts = args[0], args[1], args[2]
-        _CHECKPOINTS[str(key)] = ts if isinstance(ts, datetime) else datetime.now(timezone.utc)
+        if isinstance(ts, datetime):
+            _CHECKPOINTS[str(key)] = ts
+        else:
+            # don't poison state
+            _CHECKPOINTS[str(key)] = datetime.now(timezone.utc)
         return
 
     vertical_db_id = int(kwargs["vertical_db_id"])
@@ -207,10 +219,25 @@ def _enrich_signal(item: dict[str, Any], *, ctx: FetchContext, source: str) -> d
             if v:
                 out["external_id"] = v
                 break
-    if not _canon_str(out.get("external_id")):
+    ext2 = _canon_str(out.get("external_id"))
+    if not ext2:
         out["external_id"] = _stable_external_id(source=str(source), item=out)
 
     return out
+
+
+def _disabled_sources() -> set[str]:
+    raw = str(os.environ.get("INGESTION_DISABLE_SOURCES", "")).strip()
+    disabled = set(_HARD_DISABLED_SOURCES)
+    if raw:
+        parts = [p.strip().lower() for p in raw.split(",")]
+        disabled |= {p for p in parts if p}
+    return disabled
+
+
+def _filter_sources(sources: list[str]) -> list[str]:
+    disabled = _disabled_sources()
+    return [s for s in sources if str(s).strip().lower() not in disabled]
 
 
 def _fetch_from_source(source: str, vertical_id: str):
@@ -218,7 +245,11 @@ def _fetch_from_source(source: str, vertical_id: str):
     if ctx is None:
         raise RuntimeError("fetch context not set")
 
-    if source == "reddit":
+    src_norm = str(source).strip().lower()
+    if src_norm in _disabled_sources():
+        raise RuntimeError(f"source disabled: {source}")
+
+    if src_norm == "reddit":
         return source, _as_list(
             fetch_reddit_signals(
                 vertical_id=ctx.vertical_id,
@@ -228,7 +259,8 @@ def _fetch_from_source(source: str, vertical_id: str):
                 taxonomy_version=ctx.taxonomy_version,
             )
         )
-    if source == "hackernews":
+
+    if src_norm == "hackernews":
         return source, _as_list(
             fetch_hackernews_signals(
                 vertical_id=ctx.vertical_id,
@@ -273,43 +305,42 @@ def _persist_with_writer(writer, signals: list[dict[str, Any]]) -> dict[str, int
 
 
 def _safe_sources_from_registry() -> list[str]:
+    # ⚠️ Your current registry seems to return only reddit -> after filter it's empty.
+    # So: try registry, then fallback hardcoded.
     try:
         from ingestion_worker.adapters.registry import list_sources  # type: ignore
 
         out = [str(x).strip() for x in list_sources() if str(x).strip()]
-        core = [s for s in ["reddit", "hackernews"] if s in out]
-        rest = [s for s in out if s not in core]
-        return core + rest
+        out = _filter_sources(out)
+        if out:
+            return out
     except Exception:
-        return ["reddit", "hackernews"]
+        pass
+
+    # guaranteed fallback
+    return _filter_sources(list(_FALLBACK_SOURCES))
 
 
 def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
-    """
-    Job contract:
-      required: vertical_id, vertical_db_id
-      optional: taxonomy_version, source, sources, query, limit, run_id, day, too_recent_seconds
-    """
     global _CURRENT_CTX
 
     t0 = time.perf_counter()
 
-    vertical_id = str(job.get("vertical_id") or "").strip()
-    taxonomy_version = str(job.get("taxonomy_version") or "v1").strip()
+    vertical_id = str(job.get("vertical_id") or "")
+    taxonomy_version = str(job.get("taxonomy_version") or "v1")
     vertical_db_id = job.get("vertical_db_id")
-    source = str(job.get("source") or "reddit").strip()
+    source = str(job.get("source") or "reddit")
     sources = job.get("sources")
     query = job.get("query")
     limit = int(job.get("limit") or 50)
-    run_id = str(job.get("run_id") or "").strip() or None
-    day = str(job.get("day") or "").strip() or None
-    too_recent_seconds = int(job.get("too_recent_seconds") or 300)
 
     if not vertical_id:
         raise ValueError("job missing vertical_id")
     if vertical_db_id is None:
         raise ValueError("job missing vertical_db_id")
     vertical_db_id = int(vertical_db_id)
+
+    too_recent_seconds = int(job.get("too_recent_seconds") or 300)
 
     ctx = FetchContext(
         vertical_id=vertical_id,
@@ -321,164 +352,117 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
 
     writer = _make_writer(vertical_db_id)
 
-    multi = source.lower() in {"multi", "all", "*"}
+    # ---- MULTI coercion ----
+    multi = source.strip().lower() in {"multi", "all", "*"}
     if multi and not sources:
         sources = _safe_sources_from_registry()
-        log.warning(
-            "ingest_multi_sources_missing_fallback vertical_id=%s vertical_db_id=%s fallback_sources=%s",
-            vertical_id,
-            vertical_db_id,
-            sources,
-        )
+        log.warning("ingest_multi_sources_missing_fallback fallback_sources=%s", sources)
 
-    # ---- MULTI ----
+    # apply disable filter (multi and single)
     if sources:
         norm_sources: list[str] = []
-        if isinstance(sources, list):
-            it = sources
-        else:
-            try:
-                it = list(sources)  # type: ignore[arg-type]
-            except Exception:
-                it = []
-        for s in it:
+        for s in sources if isinstance(sources, list) else list(sources):
             ss = str(s).strip()
             if ss:
                 norm_sources.append(ss)
 
+        norm_sources = _filter_sources(norm_sources)
+
+        # If config list becomes empty (ex: only reddit), fallback to registry/hard list
         if not norm_sources:
-            norm_sources = ["reddit"]
-            log.warning("ingest_sources_empty_after_normalize forcing_sources=%s", norm_sources)
+            fallback = _safe_sources_from_registry()
+            if not fallback:
+                log.warning("ingest_all_sources_disabled disabled=%s", sorted(_disabled_sources()))
+                return {
+                    "fetched": 0,
+                    "inserted": 0,
+                    "skipped_db": 0,
+                    "skipped_sources": 0,
+                    "failed_sources": 0,
+                    "skipped_items": 0,
+                }
+            norm_sources = fallback
+            log.warning("ingest_sources_fallback_to_registry sources=%s", norm_sources)
 
-        log.info(
-            "ingest_start mode=multi vertical_id=%s vertical_db_id=%s taxonomy=%s run_id=%s day=%s query=%r limit=%s sources=%s",
-            vertical_id,
-            vertical_db_id,
-            taxonomy_version,
-            run_id,
-            day,
-            query,
-            limit,
-            norm_sources,
-        )
+        # 🎲 MULTI strategy: pick ONE source randomly (seeded) to avoid blasting providers.
+        seed = f"{vertical_db_id}:{taxonomy_version}:{vertical_id}:{job.get('day')}:{query}:{limit}"
+        rng = random.Random(seed)
+        src = rng.choice(norm_sources)
 
-        fetched_total = 0
-        inserted_total = 0
-        skipped_db_total = 0
-        skipped_sources = 0
-        failed_sources = 0
-        skipped_items = 0
+        log.info("ingest_multi_pick source=%s candidates=%s", src, norm_sources)
 
-        per_source: dict[str, dict[str, int]] = {}
+        key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=src)
+        cp = get_checkpoint("ingest_vertical", key)
+        if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
+            log.info("ingest_source_skipped_too_recent source=%s", src)
+            return {"fetched": 0, "inserted": 0, "skipped_db": 0, "skipped_sources": 1, "failed_sources": 0, "skipped_items": 0}
 
         _CURRENT_CTX = ctx
         try:
-            for src in norm_sources:
-                key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=src)
-                cp = get_checkpoint("ingest_vertical", key)
-
-                if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
-                    skipped_sources += 1
-                    per_source[src] = {"raw": 0, "enriched": 0, "inserted": 0, "skipped_db": 0, "failed": 0}
-                    log.info("ingest_source_skip reason=too_recent source=%s key=%s", src, key)
-                    continue
-
-                try:
-                    _, raw = _fetch_from_source(src, vertical_id)
-                except Exception as e:
-                    failed_sources += 1
-                    per_source[src] = {"raw": 0, "enriched": 0, "inserted": 0, "skipped_db": 0, "failed": 1}
-                    log.warning("ingest_source_fail source=%s err=%s:%s", src, type(e).__name__, str(e))
-                    set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-                    continue
-
-                raw_n = len(raw)
-
-                enriched: list[dict[str, Any]] = []
-                for it2 in raw:
-                    e = _enrich_signal(it2, ctx=ctx, source=src)
-                    if e is None:
-                        skipped_items += 1
-                        continue
-                    enriched.append(e)
-
-                enriched_n = len(enriched)
-                fetched_total += enriched_n
-
-                ins = 0
-                sk = 0
-                if enriched:
-                    out = _persist_with_writer(writer, enriched)
-                    ins = int(out.get("inserted") or out.get("persisted") or 0)
-                    sk = int(out.get("skipped") or 0)
-                    inserted_total += ins
-                    skipped_db_total += sk
-
-                per_source[src] = {"raw": raw_n, "enriched": enriched_n, "inserted": ins, "skipped_db": sk, "failed": 0}
-
-                log.info(
-                    "ingest_source_done source=%s raw=%s enriched=%s inserted=%s skipped_db=%s",
-                    src,
-                    raw_n,
-                    enriched_n,
-                    ins,
-                    sk,
-                )
-
+            try:
+                _, raw = _fetch_from_source(src, vertical_id)
+            except Exception as e:
+                log.warning("ingest_source_failed source=%s err=%s:%s", src, type(e).__name__, str(e))
                 set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
+                return {"fetched": 0, "inserted": 0, "skipped_db": 0, "skipped_sources": 0, "failed_sources": 1, "skipped_items": 0}
+
+            enriched: list[dict[str, Any]] = []
+            skipped_items = 0
+            for it in raw:
+                e = _enrich_signal(it, ctx=ctx, source=src)
+                if e is None:
+                    skipped_items += 1
+                    continue
+                enriched.append(e)
+
+            fetched = len(enriched)
+            inserted_total = 0
+            skipped_db_total = 0
+
+            if enriched:
+                out = _persist_with_writer(writer, enriched)
+                inserted_total = int(out.get("inserted") or out.get("persisted") or 0)
+                skipped_db_total = int(out.get("skipped") or 0)
+
+            set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
         finally:
             _CURRENT_CTX = None
 
-        dt = time.perf_counter() - t0
-
-        # One-line summary (for scripts that grep)
         log.info(
-            "ingest_summary mode=multi vertical_id=%s vertical_db_id=%s inserted=%s skipped_db=%s fetched=%s failed_sources=%s skipped_sources=%s skipped_items=%s seconds=%.3f run_id=%s day=%s",
-            vertical_id,
-            vertical_db_id,
+            "ingest_done mode=multi_random source=%s fetched=%s inserted=%s skipped_db=%s skipped_items=%s seconds=%.3f",
+            src,
+            fetched,
             inserted_total,
             skipped_db_total,
-            fetched_total,
-            failed_sources,
-            skipped_sources,
             skipped_items,
-            dt,
-            run_id,
-            day,
+            time.perf_counter() - t0,
         )
-
-        # Structured debug (still human readable)
-        log.info(
-            "ingest_details vertical_id=%s vertical_db_id=%s per_source=%s",
-            vertical_id,
-            vertical_db_id,
-            per_source,
-        )
-
         return {
-            "fetched": int(fetched_total),
-            "inserted": int(inserted_total),
-            "skipped_db": int(skipped_db_total),
-            "skipped_sources": int(skipped_sources),
-            "failed_sources": int(failed_sources),
-            "skipped_items": int(skipped_items),
+            "fetched": fetched,
+            "inserted": inserted_total,
+            "skipped_db": skipped_db_total,
+            "skipped_sources": 0,
+            "failed_sources": 0,
+            "skipped_items": skipped_items,
         }
 
-    # ---- SINGLE ----
+    # ---- single source path ----
+    if source.strip().lower() in _disabled_sources():
+        log.warning("ingest_single_source_disabled source=%s disabled=%s", source, sorted(_disabled_sources()))
+        return {"fetched": 0, "inserted": 0, "skipped": 1}
+
     _CURRENT_CTX = ctx
     try:
         key = checkpoint_key(vertical_db_id=vertical_db_id, taxonomy_version=taxonomy_version, source=source)
         cp = get_checkpoint("ingest_vertical", key)
-
         if should_skip_too_recent(cp, too_recent_seconds=too_recent_seconds):
-            log.info("ingest_summary mode=single vertical_id=%s vertical_db_id=%s source=%s skipped=too_recent", vertical_id, vertical_db_id, source)
             return {"fetched": 0, "inserted": 0, "skipped": 1}
 
         try:
             _, raw = _fetch_from_source(source, vertical_id)
         except Exception as e:
+            log.warning("ingest_source_failed source=%s err=%s:%s", source, type(e).__name__, str(e))
             set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-            log.warning("ingest_source_fail source=%s err=%s:%s", source, type(e).__name__, str(e))
             return {"fetched": 0, "inserted": 0, "skipped": 0, "failed_sources": 1}
 
         enriched: list[dict[str, Any]] = []
@@ -490,28 +474,14 @@ def ingest_vertical(job: dict[str, Any]) -> dict[str, int]:
                 continue
             enriched.append(e)
 
+        fetched = len(enriched)
         out = _persist_with_writer(writer, enriched) if enriched else {"inserted": 0, "skipped": 0}
         set_checkpoint("ingest_vertical", key, datetime.now(timezone.utc))
-
-        dt = time.perf_counter() - t0
-        fetched = len(enriched)
-        inserted = int(out.get("inserted") or 0)
-        skipped_db = int(out.get("skipped") or 0)
-
-        log.info(
-            "ingest_summary mode=single vertical_id=%s vertical_db_id=%s source=%s inserted=%s skipped_db=%s fetched=%s skipped_items=%s seconds=%.3f run_id=%s day=%s",
-            vertical_id,
-            vertical_db_id,
-            source,
-            inserted,
-            skipped_db,
-            fetched,
-            skipped_items,
-            dt,
-            run_id,
-            day,
-        )
-
-        return {"fetched": fetched, "inserted": inserted, "skipped_db": skipped_db, "skipped_items": int(skipped_items)}
+        return {
+            "fetched": fetched,
+            "inserted": int(out.get("inserted") or 0),
+            "skipped_db": int(out.get("skipped") or 0),
+            "skipped_items": int(skipped_items),
+        }
     finally:
         _CURRENT_CTX = None

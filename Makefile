@@ -302,30 +302,38 @@ verticals-validate:
 	@exit 1
 
 # -----------------------------------------------------------------------------
-# 🔥 ONE BUTTON FULL SYSTEM BOOT
+# 🔥 ONE BUTTON — PERMANENT LIVE MODE
 # -----------------------------------------------------------------------------
 ON:
 	@echo ""
 	@echo "==============================================================="
-	@echo "🔥  SENSE OS — SYSTEM POWER ON"
+	@echo "🔥  SENSE OS — LIVE MODE (Ctrl+C to stop)"
 	@echo "==============================================================="
 	@echo ""
-	@echo "🚀 Booting containers..."
-	@$(MAKE) up
+	@echo "🚀 Starting Docker stack..."
+	@docker compose -f "$(COMPOSE_FILE)" up -d --build
 	@echo ""
 	@echo "🧠 Running migrations..."
 	@$(MAKE) migrate
 	@echo ""
 	@echo "🌱 Seeding verticals..."
-	@$(MAKE) seed
+	@$(MAKE) seed || true
 	@echo ""
-	@echo "📡 Running scheduler once..."
-	@$(MAKE) scheduler-once
+	@echo "🔁 Starting scheduler loop..."
 	@echo ""
-	@echo "🔍 Validating full stack..."
-	@$(MAKE) validate-fast
+
+	@(
+		while true; do \
+			$(MAKE) scheduler-once; \
+			sleep 5; \
+		done \
+	) &
+
+	@echo "📡 Streaming worker logs..."
 	@echo ""
-	@echo "==============================================================="
-	@echo "✅ SENSE OS IS LIVE"
-	@echo "==============================================================="
-	@echo ""
+
+	@docker compose -f "$(COMPOSE_FILE)" logs -f \
+		ingestion-worker \
+		processing-worker \
+		clustering-worker \
+		trend-worker

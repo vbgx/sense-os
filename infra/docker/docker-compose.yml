@@ -57,6 +57,7 @@ services:
       REDIS_URL: redis://redis:6379/0
       POSTGRES_DSN: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
+      INGESTION_DISABLE_SOURCES: ${INGESTION_DISABLE_SOURCES:-reddit}
     depends_on:
       postgres:
         condition: service_healthy
@@ -73,6 +74,7 @@ services:
       REDIS_URL: redis://redis:6379/0
       POSTGRES_DSN: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
+      PROCESSING_DUMP_JSON: ${PROCESSING_DUMP_JSON:-0}
     depends_on:
       postgres:
         condition: service_healthy
@@ -105,9 +107,9 @@ services:
       REDIS_URL: redis://redis:6379/0
       POSTGRES_DSN: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sense}
-      CLUSTER_VERSION: tfidf_v1
-      FORMULA_VERSION: formula_v1
-      TREND_QUEUE: trend
+      CLUSTER_VERSION: ${CLUSTER_VERSION:-tfidf_v1}
+      FORMULA_VERSION: ${FORMULA_VERSION:-formula_v1}
+      TREND_QUEUE: ${TREND_QUEUE:-trend}
     depends_on:
       postgres:
         condition: service_healthy

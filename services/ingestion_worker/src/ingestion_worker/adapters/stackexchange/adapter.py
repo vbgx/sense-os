@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from typing import Sequence
 
-from adapters._base import Adapter, FetchContext
-from domain import RawSignal, SourceKind
+from ingestion_worker.adapters._base import Adapter, FetchContext
+from domain.verticals.contract_v1 import RawSignal
+from ingestion_worker.domain.sources import SourceKind
 
 from .client import StackExchangeClient
 from .fetch_signals import fetch_signals

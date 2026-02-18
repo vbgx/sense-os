@@ -1,0 +1,11 @@
+[project]
+name = "sense-infra-shared"
+version = "0.1.0"
+description = "Shared infra utilities (logging, metrics, http, rate limit, utils)"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.25.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

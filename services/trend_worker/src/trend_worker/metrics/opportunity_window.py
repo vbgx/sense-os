@@ -1,33 +1,27 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Iterable, Optional
-
-from domain.scoring.opportunity_window import OpportunityInputs, OpportunityResult, compute_opportunity_window
-from trend_worker.metrics.momentum import DailyMomentum, compute_growth_momentum_score
+from trend_worker.metrics.types import History
 
 
-@dataclass(frozen=True)
-class OpportunityDaily:
-    day: str
-    count: int
+def compute(history: History) -> float:
+    xs = [p.count for p in history]
+    if len(xs) < 21:
+        return 0.0
 
+    early = sum(xs[-21:-14]) / 7.0
+    mid = sum(xs[-14:-7]) / 7.0
+    late = sum(xs[-7:]) / 7.0
 
-def compute_opportunity_window_for_cluster(
-    *,
-    breakout_score: int,
-    saturation_score: int,
-    daily: Iterable[OpportunityDaily],
-    half_life_days: Optional[float] = None,
-    competitive_heat_score: Optional[int] = None,
-) -> OpportunityResult:
-    momentum = compute_growth_momentum_score([DailyMomentum(day=d.day, count=d.count) for d in daily])
-    return compute_opportunity_window(
-        OpportunityInputs(
-            breakout_score=int(breakout_score),
-            saturation_score=int(saturation_score),
-            growth_momentum=int(momentum),
-            half_life_days=half_life_days,
-            competitive_heat_score=competitive_heat_score,
-        )
-    )
+    if early <= 0:
+        return 0.0
+
+    growth1 = (mid - early) / early
+    growth2 = (late - mid) / mid if mid > 0 else 0.0
+
+    if growth1 <= 0:
+        return 0.0
+
+    if growth2 < 0:
+        return float(min(1.0, growth1))
+
+    return float(min(1.0, (growth1 + growth2) / 2.0))

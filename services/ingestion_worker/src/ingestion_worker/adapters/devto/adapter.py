@@ -12,7 +12,7 @@ from .fetch_signals import fetch_signals
 
 @dataclass
 class DevtoAdapter(Adapter):
-    kind: SourceKind = SourceKind.BUILDER_COMMUNITY
+    kind: SourceKind = SourceKind.BUILDERS_COMMUNITY
     name: str = "devto"
 
     client: DevtoClient | None = None

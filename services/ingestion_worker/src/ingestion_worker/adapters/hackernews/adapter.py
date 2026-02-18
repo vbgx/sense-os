@@ -1,26 +1,20 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Sequence
+from typing import Any, Iterable
 
-from ingestion_worker.adapters._base import Adapter, FetchContext
-from ingestion_worker.domain import RawSignal, SourceKind
-
-from .client import HackerNewsClient
-from .fetch_signals import fetch_signals
+from ingestion_worker.adapters._base import BaseAdapter, FetchContext
+from ingestion_worker.adapters.hackernews.fetch_signals import fetch_hackernews_signals
 
 
-@dataclass
-class HackerNewsAdapter(Adapter):
-    kind: SourceKind = SourceKind.BUILDERS_COMMUNITY
-    name: str = "hackernews"
+class HackerNewsAdapter(BaseAdapter):
+    source = "hackernews"
 
-    client: HackerNewsClient | None = None
-
-    def __post_init__(self) -> None:
-        if self.client is None:
-            self.client = HackerNewsClient()
-
-    def fetch(self, ctx: FetchContext) -> Sequence[RawSignal]:
-        assert self.client is not None
-        return fetch_signals(client=self.client, ctx=ctx)
+    def fetch_signals(self, ctx: FetchContext, **kwargs: Any) -> Iterable[dict[str, Any]]:
+        return fetch_hackernews_signals(
+            vertical_id=ctx.vertical_id,
+            query=ctx.query,
+            limit=ctx.limit,
+            vertical_db_id=ctx.vertical_db_id,
+            taxonomy_version=ctx.taxonomy_version,
+            **kwargs,
+        )

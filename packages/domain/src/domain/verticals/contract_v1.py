@@ -65,3 +65,20 @@ def validate_vertical_tier(tier: Any) -> VerticalTier:
             if normalized == candidate.value:
                 return candidate
     raise ValueError("tier must be one of: core, experimental, long_tail")
+
+
+from typing import NotRequired, TypedDict
+
+
+class RawSignal(TypedDict, total=False):
+    source: str
+    external_id: str
+    title: NotRequired[str]
+    content: str
+    url: NotRequired[str]
+    created_at: NotRequired[str]
+    author: NotRequired[str]
+    subreddit: NotRequired[str]
+    score: NotRequired[int]
+    comments: NotRequired[int]
+    metadata: NotRequired[dict]

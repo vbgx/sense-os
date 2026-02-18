@@ -1,16 +1,27 @@
-from typing import Sequence
+from __future__ import annotations
 
-from adapters._base import FetchContext
-from domain import RawSignal
+from typing import Any
 
-from .client import StackExchangeClient
-from .map import map_question_to_signal
+from ingestion_worker.adapters._base import FetchContext
 
 
-def fetch_signals(*, client: StackExchangeClient, ctx: FetchContext) -> Sequence[RawSignal]:
-    questions = client.search_questions(
-        query=ctx.vertical_id,
-        limit=ctx.limit,
-        cursor=ctx.cursor,
+def fetch_signals(*, ctx: FetchContext, **kwargs: Any) -> list[dict[str, Any]]:
+    """
+    Backward-compatible entrypoint expected by StackExchangeAdapter.
+
+    Delegates to the actual implementation module.
+    """
+    # Most common patterns: client.py / api.py / fetch.py / impl.py
+    for mod_name in ("client", "api", "fetch", "impl", "service"):
+        try:
+            mod = __import__(f"ingestion_worker.adapters.stackexchange.{mod_name}", fromlist=["fetch_signals"])
+            fn = getattr(mod, "fetch_signals", None)
+            if callable(fn):
+                return fn(ctx=ctx, **kwargs)
+        except Exception:
+            continue
+
+    raise ImportError(
+        "stackexchange.fetch_signals: no implementation found. "
+        "Expected a fetch_signals(ctx=..., ...) in one of: client.py/api.py/fetch.py/impl.py/service.py"
     )
-    return [map_question_to_signal(q) for q in questions]

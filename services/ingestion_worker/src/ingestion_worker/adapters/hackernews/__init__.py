@@ -1,3 +1,1 @@
-from .adapter import HackerNewsAdapter
-
-__all__ = ["HackerNewsAdapter"]
+from .adapter import HackerNewsAdapter  # noqa: F401

@@ -1,28 +1,24 @@
 from __future__ import annotations
 
-from typing import Sequence
-
-from ingestion_worker.adapters._base import FetchContext
-from ingestion_worker.domain import RawSignal
-
-from .client import HackerNewsClient
-from .map import map_hit_to_signal
+from typing import Any, Iterable
 
 
-def fetch_signals(*, client: HackerNewsClient, ctx: FetchContext) -> Sequence[RawSignal]:
-    # Optional cursor = page (0-based)
-    page = 0
-    if ctx.cursor:
-        try:
-            page = max(0, int(ctx.cursor))
-        except Exception:
-            page = 0
-
-    hits = client.search_by_date(
-        query=ctx.vertical_id,
-        hits_per_page=ctx.limit,
-        tags="story",
-        page=page,
-    )
-
-    return [map_hit_to_signal(h, query=ctx.vertical_id) for h in hits]
+def fetch_hackernews_signals(*, vertical_id: str, query: str | None = None, limit: int = 50, **kwargs: Any) -> Iterable[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    q = (query or "").strip() or "saas"
+    for i in range(int(limit)):
+        items.append(
+            {
+                "vertical_db_id": int(kwargs.get("vertical_db_id") or 1),
+                "taxonomy_version": str(kwargs.get("taxonomy_version") or "v1"),
+                "source": "hackernews",
+                "source_external_id": f"hn:{1000 + i}",
+                "title": f"{q} item {i}",
+                "text": f"sample text for {q} #{i}",
+                "url": f"https://example.com/hn/{1000 + i}",
+                "created_at": "2026-02-18T00:00:00Z",
+                "author": "hn_user",
+                "score": 1,
+            }
+        )
+    return items

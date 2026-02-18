@@ -25,3 +25,21 @@ class Settings(BaseModel):
 
 
 settings = Settings()
+
+# --- Fanout settings ---
+SOURCES_DEFAULT = [
+    "reddit",
+    "hackernews",
+    "github",
+    "stackexchange",
+    "lobsters",
+]
+
+# Max parallel sources per vertical job (I/O-bound)
+INGEST_FANOUT_MAX_WORKERS = 5
+
+# Hard cap to avoid huge runs
+INGEST_MAX_SIGNALS_PER_SOURCE = 400
+
+# If a source fails, do we fail the job or just skip it?
+INGEST_FAIL_FAST = False
